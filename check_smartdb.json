@@ -1,0 +1,28 @@
+{
+	"Devices" : {
+		"Intel 320" : {
+			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3"],
+			"ID#" : {
+				"5" : "RAW_VALUE",
+				"9" : "RAW_VALUE",
+				"12": "RAW_VALUE",
+				"171" : "RAW_VALUE",
+				"172" : "RAW_VALUE",
+				"187" : "RAW_VALUE",
+				"233" : "VALUE"
+			}
+		},
+		"Intel 520" : {
+			"Device" : ["Intel 320 Series SSDs","INTEL SSDSC2CW240A3"],
+			"ID#" : {
+				"5" : "RAW_VALUE",
+				"9" : "RAW_VALUE",
+				"12": "RAW_VALUE",
+				"171" : "RAW_VALUE",
+				"172" : "RAW_VALUE",
+				"187" : "RAW_VALUE",
+				"233" : "VALUE"
+			}
+		}
+	}
+}

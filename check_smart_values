@@ -3,6 +3,7 @@
 use strict;
 use warnings;
 use Getopt::Long qw(:config no_ignore_case);
+use Config::JSON;
 
 our $VERBOSITY = 0;
 
@@ -16,12 +17,34 @@ use constant {
 sub getSmartctl{
 	my $smartctl = shift;
 	my $device = shift;
-	my $output = `$smartctl -a $device`;
-	return $output;
+	my @output = `$smartctl -a $device`;
+	return \@output;
+}
+
+sub readDbJSON{
+	my $dbJSON = shift;
+	return(Config::JSON->new($dbJSON));
+}
+
+sub checkWhichDevice{
+	my $dbConfig = shift;
+	my @smartctlOut = @{(shift)};
+	my @device = grep { /Model Family/i || /Device Model/i } @smartctlOut;
+
+	my $devices_h = $dbConfig->get("Devices");
+	my @deviceCfg;
+	foreach my $key (keys %$devices_h){
+		foreach(@device){
+			if(($_ =~ $devices_h->{$key}->{'Device'}->[0]) ||
+			($_ =~ $devices_h->{$key}->{'Device'}->[1])){
+				return ($devices_h->{$key}->{'Device'},$devices_h->{$key}->{'ID#'});
+			}
+		}
+	}
 }
 
 MAIN: {
-	my ($smartctl, $device);
+	my ($smartctl, $device, $dbJSON);
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
 		'vv' => sub { $VERBOSITY = 2 },
@@ -29,6 +52,7 @@ MAIN: {
 		'h|help' => sub {displayHelp();},
 		'p|path=s' => \$smartctl,
 		'd|device=s' => \$device,
+		'dbj|dbjson=s' => \$dbJSON
 	)))	{
 		displayUsage();
 		exit(STATE_UNKNOWN);
@@ -44,7 +68,10 @@ MAIN: {
 		exit(STATE_UNKNOWN);
 	}
 	my $output = getSmartctl($smartctl,$device);
-	print $output;
-
+	my $dbConfig = readDbJSON($dbJSON);
+	my ($deviceName,$IDs) = checkWhichDevice($dbConfig,$output);
+	use Data::Dumper;
+	print Dumper($deviceName);
+	print Dumper($IDs);
 
 }

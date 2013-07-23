@@ -1,0 +1,6 @@
+    = README =
+
+* Installation hints
+** On Ubuntu use
+    sudo apt-get install libconfig-json-perl
+  to install the perl library for parsing JSON config files.

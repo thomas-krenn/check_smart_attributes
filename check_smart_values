@@ -1,0 +1,50 @@
+#!/usr/bin/perl -w
+
+use strict;
+use warnings;
+use Getopt::Long qw(:config no_ignore_case);
+
+our $VERBOSITY = 0;
+
+use constant {
+	STATE_OK => 0,
+	STATE_WARNING => 1,
+	STATE_CRITICAL => 2,
+	STATE_UNKNOWN => 3,
+};
+
+sub getSmartctl{
+	my $smartctl = shift;
+	my $device = shift;
+	my $output = `$smartctl -a $device`;
+	return $output;
+}
+
+MAIN: {
+	my ($smartctl, $device);
+	if ( !(GetOptions(
+		'v|verbose' => sub { $VERBOSITY = 1 },
+		'vv' => sub { $VERBOSITY = 2 },
+		'vvv' => sub { $VERBOSITY = 3 },
+		'h|help' => sub {displayHelp();},
+		'p|path=s' => \$smartctl,
+		'd|device=s' => \$device,
+	)))	{
+		displayUsage();
+		exit(STATE_UNKNOWN);
+	}
+	# Check smartclt tool
+	if(!defined($smartctl)){
+		$smartctl = "/usr/sbin/smartctl";
+	}
+	# The device must be present
+	if(!defined($device)){
+		print "Error: Valid device to check is required.\n";
+		displayUsage();
+		exit(STATE_UNKNOWN);
+	}
+	my $output = getSmartctl($smartctl,$device);
+	print $output;
+
+
+}

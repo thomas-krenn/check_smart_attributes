@@ -14,18 +14,8 @@ use constant {
 	STATE_UNKNOWN => 3,
 };
 
-our %hdrmap_h = (
-	'ID#' => 'id',
-	'ATTRIBUTE_NAME'=> 'attribute',
-	'FLAG' => 'flag',
-	'VALUE' => 'value',
-	'WORST' => 'worst',
-	'THRESH' => 'thresh',
-	'TYPE' => 'type',
-	'UPDATED' => 'updated',
-	'WHEN_FAILED' => 'when_failed',
-	'RAW_VALUE' => 'raw-value'
-);
+our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
+	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
 
 sub getSmartctl{
 	my $smartctl = shift;
@@ -62,13 +52,21 @@ sub parseSmartctlOut{
 	my @smartctlOut = @{(shift)};
 	# Check for smart value lines
 	my @smartValues;
+	my @splittedLine;
 	foreach my $line (@smartctlOut) {
 		if($line =~ /\d+\s+\w+\s+0x\d+\s+\d+\s+\d+\s+\d+\s+\w+/){
 			$line =~ s/^\s+|\s+$//g;
-			@smartValues = map { s/^\s*//; s/\s*$//; $_; } split(/\s+/,$line);
+			# Split the found line, and map its elements
+			# The header map defines the keys for the hash
+			@splittedLine = map { s/^\s*//; s/\s*$//; $_; } split(/\s+/,$line);
+			my %lineValues_h;
+			for(my $i = 0; $i < @splittedLine; $i++){
+				$lineValues_h{$hdrmap_a[$i]} = $splittedLine[$i];
+			}
+			push @smartValues, \%lineValues_h;
 		}
 	}
-
+	return \@smartValues;
 }
 
 MAIN: {
@@ -98,9 +96,10 @@ MAIN: {
 	my $output = getSmartctl($smartctl,$device);
 	my $dbConfig = readDbJSON($dbJSON);
 	my ($deviceName,$IDs) = checkWhichDevice($dbConfig,$output);
-	parseSmartctlOut($output);
+	my $smartValues_h = parseSmartctlOut($output);
 	use Data::Dumper;
 	print Dumper($deviceName);
 	print Dumper($IDs);
+	print Dumper($smartValues_h);
 
 }

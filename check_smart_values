@@ -123,9 +123,10 @@ sub checkSmartctl{
 sub getStatusString{
 	my $level = shift;
 	my @statusLevel_a = @{(shift)};
-	my $verbosity = shift;
+	my @smartValues_a = @{(shift)};
+	my %IDs_h = %{(shift)};
 	my @sensors_a;
-	my $status_string = "";
+	my $status_str = "";
 
 	if($level eq "Warning"){
 		@sensors_a = @{$statusLevel_a[1]};
@@ -138,15 +139,22 @@ sub getStatusString{
 	if($level eq "Warning" || $level eq "Critical"){
 		if(@sensors_a){
 			foreach my $sensor (@sensors_a){
-				$status_string .= "[".$sensor." = ".$level;
-				#if($verbosity && exists $PERF_DATA[0]->{$sensor}){
-				#	$status_string .= " (".$PERF_DATA[0]->{$sensor}.")";
-				#}
-				$status_string .= "]";
+				$status_str .= "[".$sensor." = ".$level;
+				if($VERBOSITY){
+					foreach my $row (@smartValues_a){
+						if($row->{'ATTRIBUTE_NAME'} eq $sensor){
+							my $ID = $row->{'ID#'};
+							if(exists $IDs_h{$ID}){
+								$status_str .= " (".$row->{$IDs_h{$ID}}.")";
+							}
+						}
+					}
+				}
+				$status_str .= "]";
 			}
 		}
 	}
-	return $status_string;
+	return $status_str;
 }
 
 MAIN: {
@@ -185,7 +193,7 @@ MAIN: {
 		$exitCode = STATE_WARNING;
 	}
 	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
-	print getStatusString("Critical",$statusLevel_a,$VERBOSITY);
-	print getStatusString("Warning",$statusLevel_a,$VERBOSITY);
+	print getStatusString("Critical",$statusLevel_a,$smartValues_a,$IDs_h);
+	print getStatusString("Warning",$statusLevel_a,$smartValues_a,$IDs_h);
 	exit ($exitCode);
 }

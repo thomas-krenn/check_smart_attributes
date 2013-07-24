@@ -70,6 +70,28 @@ sub parseSmartctlOut{
 	return \@smartValues;
 }
 
+sub checkThreshs{
+	my $value = shift;
+	my $pattern = shift;
+
+	if($pattern =~ /(^[0-9]*$)/){
+		if($value < 0 || $value > $1){
+			return 0;
+		}
+	}
+	if($pattern =~ /(^[0-9]*)\:$/){
+		if($value < $1){
+			return 0;
+		}
+	}
+	if($pattern =~ /^\~\:([0-9]*)$/){
+		if($value > $1){
+			return 0;
+		}
+	}
+	return 1;
+}
+
 sub checkSmartctl{
 	my @smartValues_a = @{(shift)};
 	my %IDs_h = %{(shift)};
@@ -78,15 +100,14 @@ sub checkSmartctl{
 	my @criticals_a;
 	my @statusLevel_a = ("OK");
 
-	# TODO Check conditions for threshs
 	foreach my $row (@smartValues_a){
 		my $ID = $row->{'ID#'};
 		if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
-			if($row->{$IDs_h{$ID}} < $threshs_h{$ID}->[0]){
+			if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[0]))){
 				$statusLevel_a[0] = 'Warning';
 				push @warnings_a, $row->{'ATTRIBUTE_NAME'};
 			}
-			if($row->{$IDs_h{$ID}} < $threshs_h{$ID}->[0]){
+			if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[1]))){
 				$statusLevel_a[0] = 'Critical';
 				pop @warnings_a;
 				push @criticals_a, $row->{'ATTRIBUTE_NAME'};

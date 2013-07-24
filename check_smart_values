@@ -86,6 +86,11 @@ sub checkSmartctl{
 				$statusLevel_a[0] = 'Warning';
 				push @warnings_a, $row->{'ATTRIBUTE_NAME'};
 			}
+			if($row->{$IDs_h{$ID}} < $threshs_h{$ID}->[0]){
+				$statusLevel_a[0] = 'Critical';
+				pop @warnings_a;
+				push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+			}
 		}
 	}
 
@@ -94,8 +99,37 @@ sub checkSmartctl{
 	return \@statusLevel_a;
 }
 
+sub getStatusString{
+	my $level = shift;
+	my @statusLevel_a = @{(shift)};
+	my $verbosity = shift;
+	my @sensors_a;
+	my $status_string = "";
+
+	if($level eq "Warning"){
+		@sensors_a = @{$statusLevel_a[1]};
+	}
+	if($level eq "Critical"){
+		@sensors_a = @{$statusLevel_a[2]};
+	}
+
+	# Collect performance data of warn and crit sensors
+	if($level eq "Warning" || $level eq "Critical"){
+		if(@sensors_a){
+			foreach my $sensor (@sensors_a){
+				$status_string .= "[".$sensor." = ".$level;
+				#if($verbosity && exists $PERF_DATA[0]->{$sensor}){
+				#	$status_string .= " (".$PERF_DATA[0]->{$sensor}.")";
+				#}
+				$status_string .= "]";
+			}
+		}
+	}
+	return $status_string;
+}
+
 MAIN: {
-	my ($smartctl, $device, $dbJSON);
+	my ($smartctl, $device, $dbJSON, $exitCode);
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
 		'vv' => sub { $VERBOSITY = 2 },
@@ -123,11 +157,14 @@ MAIN: {
 	my ($deviceName,$IDs_h,$threshs_h) = checkWhichDevice($dbConfig,$output);
 	my $smartValues_a = parseSmartctlOut($output);
 	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
-	use Data::Dumper;
-	print Dumper($deviceName);
-	print Dumper($IDs_h);
-	print Dumper($threshs_h->{'233'}->[1]);
-	print Dumper($statusLevel_a);
-	#print Dumper($smartValues_a);
-
+	if($statusLevel_a->[0] eq "Critical"){
+		$exitCode = STATE_CRITICAL;
+	}
+	if($statusLevel_a->[0] eq "Warning"){
+		$exitCode = STATE_WARNING;
+	}
+	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
+	print getStatusString("Critical",$statusLevel_a,$VERBOSITY);
+	print getStatusString("Warning",$statusLevel_a,$VERBOSITY);
+	exit ($exitCode);
 }

@@ -9,7 +9,7 @@
 				"171" : "RAW_VALUE",
 				"172" : "RAW_VALUE",
 				"187" : "RAW_VALUE",
-				"194": "VALUE",
+				"194": "RAW_VALUE",
 				"233" : "VALUE",
 				"1024" : "VALUE"
 			},
@@ -26,7 +26,7 @@
 				"171" : "RAW_VALUE",
 				"172" : "RAW_VALUE",
 				"187" : "RAW_VALUE",
-				"194": "VALUE",
+				"194": "RAW_VALUE",
 				"233" : "VALUE"
 			},
 			"Threshs" : {
@@ -39,7 +39,7 @@
 				"5" : "RAW_VALUE",
 				"9" : "RAW_VALUE",
 				"12": "RAW_VALUE",
-				"194": "VALUE",
+				"194": "RAW_VALUE",
 				"171" : "RAW_VALUE",
 				"172" : "RAW_VALUE",
 				"187" : "RAW_VALUE",

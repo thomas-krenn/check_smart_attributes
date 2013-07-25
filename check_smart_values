@@ -55,15 +55,23 @@ sub parseSmartctlOut{
 	my @smartValues;
 	my @splittedLine;
 	foreach my $line (@smartctlOut) {
-		if($line =~ /\d+\s+\w+\s+0x\d+\s+\d+\s+\d+\s+\d+\s+\w+/){
+		if($line =~ /\d+\s+\w+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+\d+\s+\w+/){
 			$line =~ s/^\s+|\s+$//g;
 			# Split the found line, and map its elements
 			# The header map defines the keys for the hash
 			@splittedLine = map { s/^\s*//; s/\s*$//; $_; } split(/\s+/,$line);
 			my %lineValues_h;
-			for(my $i = 0; $i < @splittedLine; $i++){
+			for(my $i = 0; $i < @hdrmap_a; $i++){
 				$lineValues_h{$hdrmap_a[$i]} = $splittedLine[$i];
 			}
+			push @smartValues, \%lineValues_h;
+		}
+		if($line =~ /(ATA Error Count)\:\s+(\d+)/){
+			my %lineValues_h;
+			$lineValues_h{'ATTRIBUTE_NAME'} = $1;
+			$lineValues_h{'VALUE'} = $2;
+			$lineValues_h{'ATTRIBUTE_NAME'} =~ s/ /_/g;
+			$lineValues_h{'ID#'} = 1024;
 			push @smartValues, \%lineValues_h;
 		}
 	}
@@ -186,6 +194,7 @@ MAIN: {
 	my ($deviceName,$IDs_h,$threshs_h) = checkWhichDevice($dbConfig,$output);
 	my $smartValues_a = parseSmartctlOut($output);
 	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
+	$exitCode = STATE_OK;
 	if($statusLevel_a->[0] eq "Critical"){
 		$exitCode = STATE_CRITICAL;
 	}

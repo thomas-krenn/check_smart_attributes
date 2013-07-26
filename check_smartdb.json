@@ -16,6 +16,8 @@
 				"199" : "RAW_VALUE",#sate CRC error count
 				"232": "VALUE", #available Reserved Space
 				"233" : "VALUE",#Media Wearout Indicator
+				"241" : "RAW_VALUE",#Host_Writes_32MiB
+				"242" : "RAW_VALUE",#Host_Reads_32MiB
 				"1024" : "VALUE"#ATA error count (custom)
 			},
 			"Threshs" : {

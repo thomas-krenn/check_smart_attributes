@@ -16,6 +16,7 @@ use constant {
 
 our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
+our @perfmap_a= ('5','194','241','242');
 
 sub getSmartctl{
 	my $smartctl = shift;
@@ -164,6 +165,32 @@ sub getStatusString{
 	}
 	return $status_str;
 }
+sub getPerfString{
+	my @smartValues_a = @{(shift)};
+	my %IDs_h = %{(shift)};
+	my %threshs_h = %{(shift)};
+	my $perf_str;
+
+	foreach my $perf (@perfmap_a){
+		foreach my $row (@smartValues_a){
+			if($perf eq $row->{'ID#'}){
+				my $ID = $row->{'ID#'};
+				my $attr_str;
+				if(exists $IDs_h{$ID}){
+					$attr_str = $row->{'ATTRIBUTE_NAME'}."=".$row->{$IDs_h{$ID}};
+					if($perf_str){
+						$attr_str = " ".$attr_str;
+					}
+				}
+				$perf_str .= $attr_str;
+				if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
+					$perf_str .= ";".$threshs_h{$ID}->[0].";".$threshs_h{$ID}->[1];
+				}
+			}
+		}
+	}
+	return $perf_str;
+}
 
 MAIN: {
 	my ($smartctl, $device, $dbJSON, $exitCode);
@@ -204,5 +231,9 @@ MAIN: {
 	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
 	print getStatusString("Critical",$statusLevel_a,$smartValues_a,$IDs_h);
 	print getStatusString("Warning",$statusLevel_a,$smartValues_a,$IDs_h);
+	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h);
+	if($perf_str){
+		print "|".$perf_str;
+	}
 	exit ($exitCode);
 }

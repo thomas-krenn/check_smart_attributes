@@ -3,17 +3,24 @@
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3"],
 			"ID#" : {
-				"5" : "RAW_VALUE",
-				"9" : "RAW_VALUE",
-				"12": "RAW_VALUE",
-				"171" : "RAW_VALUE",
-				"172" : "RAW_VALUE",
-				"187" : "RAW_VALUE",
-				"194": "RAW_VALUE",
-				"233" : "VALUE",
-				"1024" : "VALUE"
+				"5" : "RAW_VALUE", #reallocated sector count
+				"9" : "RAW_VALUE", #power on hours
+				"12": "RAW_VALUE", #power cycle counts
+				"171" : "RAW_VALUE", #program fail count
+				"172" : "RAW_VALUE", #erase fail count
+				"183" : "RAW_VALUE", #sata downshift count
+				"184" : "VALUE", #End-to-End Error Detection
+				"187" : "RAW_VALUE", #Uncorrectable Error Count
+				"190" : "RAW_VALUE", #temperature case
+				"194" : "RAW_VALUE",#temperature device
+				"199" : "RAW_VALUE",#sate CRC error count
+				"232": "VALUE", #available Reserved Space
+				"233" : "VALUE",#Media Wearout Indicator
+				"1024" : "VALUE"#ATA error cound (custom)
 			},
 			"Threshs" : {
+				"187" : ["2","3"],
+				"1024" : ["0","0"],
 				"233" : ["98:","96:"],
 			}
 		},

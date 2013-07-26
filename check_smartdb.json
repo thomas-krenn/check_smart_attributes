@@ -12,13 +12,13 @@
 				"184" : "VALUE", #End-to-End Error Detection
 				"187" : "RAW_VALUE", #Uncorrectable Error Count
 				"190" : "RAW_VALUE", #temperature case
-				"194" : "RAW_VALUE",#temperature device
-				"199" : "RAW_VALUE",#sate CRC error count
+				"194" : "RAW_VALUE", #temperature device
+				"199" : "RAW_VALUE", #sate CRC error count
 				"232": "VALUE", #available Reserved Space
-				"233" : "VALUE",#Media Wearout Indicator
-				"241" : "RAW_VALUE",#Host_Writes_32MiB
-				"242" : "RAW_VALUE",#Host_Reads_32MiB
-				"1024" : "VALUE"#ATA error count (custom)
+				"233" : "VALUE", #Media Wearout Indicator
+				"241" : "RAW_VALUE", #Host_Writes_32MiB
+				"242" : "RAW_VALUE", #Host_Reads_32MiB
+				"1024" : "VALUE" #ATA error count (custom)
 			},
 			"Threshs" : {
 				"5" : ["0","0"],

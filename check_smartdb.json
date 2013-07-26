@@ -16,12 +16,14 @@
 				"199" : "RAW_VALUE",#sate CRC error count
 				"232": "VALUE", #available Reserved Space
 				"233" : "VALUE",#Media Wearout Indicator
-				"1024" : "VALUE"#ATA error cound (custom)
+				"1024" : "VALUE"#ATA error count (custom)
 			},
 			"Threshs" : {
-				"187" : ["2","3"],
-				"1024" : ["0","0"],
+				"5" : ["0","0"],
+				"171" : ["0","0"],
+				"187" : ["0","0"],
 				"233" : ["98:","96:"],
+				"1024" : ["0","0"],
 			}
 		},
 		"Intel 520" : {

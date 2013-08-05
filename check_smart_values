@@ -16,7 +16,6 @@ use constant {
 
 our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
-our @perfmap_a= ('5','194','241','242');
 
 sub getSmartctl{
 	my $smartctl = shift;
@@ -44,7 +43,7 @@ sub checkWhichDevice{
 			if(($_ =~ $devices_h->{$key}->{'Device'}->[0]) ||
 			($_ =~ $devices_h->{$key}->{'Device'}->[1])){
 				return ($devices_h->{$key}->{'Device'},$devices_h->{$key}->{'ID#'},
-				$devices_h->{$key}->{'Threshs'});
+				$devices_h->{$key}->{'Threshs'},$devices_h->{$key}->{'Perfs'});
 			}
 		}
 	}
@@ -169,6 +168,7 @@ sub getPerfString{
 	my @smartValues_a = @{(shift)};
 	my %IDs_h = %{(shift)};
 	my %threshs_h = %{(shift)};
+	my @perfmap_a = @{(shift)};
 	my $perf_str;
 
 	foreach my $perf (@perfmap_a){
@@ -218,7 +218,7 @@ MAIN: {
 	}
 	my $output = getSmartctl($smartctl,$device);
 	my $dbConfig = readDbJSON($dbJSON);
-	my ($deviceName,$IDs_h,$threshs_h) = checkWhichDevice($dbConfig,$output);
+	my ($deviceName,$IDs_h,$threshs_h,$perfmap_a) = checkWhichDevice($dbConfig,$output);
 	my $smartValues_a = parseSmartctlOut($output);
 	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
 	$exitCode = STATE_OK;
@@ -231,7 +231,7 @@ MAIN: {
 	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
 	print getStatusString("Critical",$statusLevel_a,$smartValues_a,$IDs_h);
 	print getStatusString("Warning",$statusLevel_a,$smartValues_a,$IDs_h);
-	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h);
+	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
 	if($perf_str){
 		print "|".$perf_str;
 	}

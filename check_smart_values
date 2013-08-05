@@ -192,6 +192,20 @@ sub getPerfString{
 	return $perf_str;
 }
 
+sub getVerboseString{
+	my @smartValues_a = @{(shift)};
+	my %IDs_h = %{(shift)};
+	my $verb_str;
+
+	foreach my $row (@smartValues_a){
+		my $ID = $row->{'ID#'};
+		if(exists $IDs_h{$ID}){
+			$verb_str .= $row->{'ATTRIBUTE_NAME'}."=".$row->{$IDs_h{$ID}}."\n";
+		}
+	}
+	return $verb_str;
+}
+
 MAIN: {
 	my ($smartctl, $device, $dbJSON, $exitCode);
 	if ( !(GetOptions(
@@ -234,6 +248,11 @@ MAIN: {
 	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
 	if($perf_str){
 		print "|".$perf_str;
+	}
+	if($VERBOSITY == 3){
+		print "\n============== \n";
+		print "Begin of debug output:\n";
+		print getVerboseString($smartValues_a,$IDs_h);
 	}
 	exit ($exitCode);
 }

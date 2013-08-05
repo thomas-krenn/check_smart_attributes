@@ -214,6 +214,9 @@ sub getVerboseString{
 			$verb_str .= $ID.": [".$threshs_h{$ID}->[0].",".$threshs_h{$ID}->[1]."]\n";
 		}
 		$verb_str .= "================= \n";
+		$verb_str .= "Performance Value IDs:\n";
+		$verb_str .= "[@perfmap_a]\n";
+		$verb_str .= "================= \n";
 		$verb_str .= "Begin of smartctl output:\n";
 		foreach my $line (@smartctlOut){
 			$verb_str .= $line;

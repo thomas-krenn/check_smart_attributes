@@ -17,16 +17,28 @@ use constant {
 our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
 
-sub getSmartctl{
-	my $smartctl = shift;
-	my $device = shift;
-	my @output = `$smartctl -a $device`;
-	return \@output;
+sub readUCfgJSON{
+	my $uCfgJSON = shift;
+	return(Config::JSON->new($uCfgJSON));
 }
 
 sub readDbJSON{
 	my $dbJSON = shift;
 	return(Config::JSON->new($dbJSON));
+}
+
+sub getSmartctl{
+	my $smartctl = shift;
+	my $uCfgJSON = shift;
+	#a hash of all devices with their corresponding output
+	my %output_h;
+
+	my $devices_h = $uCfgJSON->get("Devices");
+	foreach my $device (keys %$devices_h){
+		my @output = `$smartctl -a $device`;
+		$output_h{$device} = \@output;
+	}
+	return \%output_h;
 }
 
 sub checkWhichDevice{
@@ -226,7 +238,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $device, $dbJSON, $exitCode);
+	my ($smartctl, $device, $dbJSON, $uCfgJSON, $exitCode);
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
 		'vv' => sub { $VERBOSITY = 2 },
@@ -234,7 +246,8 @@ MAIN: {
 		'h|help' => sub {displayHelp();},
 		'p|path=s' => \$smartctl,
 		'd|device=s' => \$device,
-		'dbj|dbjson=s' => \$dbJSON
+		'dbj|dbjson=s' => \$dbJSON,
+		'ucfgj|ucfgjson=s' => \$uCfgJSON
 	)))	{
 		displayUsage();
 		exit(STATE_UNKNOWN);
@@ -243,13 +256,14 @@ MAIN: {
 	if(!defined($smartctl)){
 		$smartctl = "/usr/sbin/smartctl";
 	}
-	# The device must be present
-	if(!defined($device)){
-		print "Error: smartctl requires a valid device name.\n";
+	# The user config must be present
+	if(!defined($uCfgJSON)){
+		print "Error: smartctl requires a valid user config.\n";
 		displayUsage();
 		exit(STATE_UNKNOWN);
 	}
-	my $output = getSmartctl($smartctl,$device);
+	my $uCfg = readUCfgJSON($uCfgJSON);
+	my $output = getSmartctl($smartctl,$uCfg);
 	my $dbConfig = readDbJSON($dbJSON);
 	my ($deviceName,$IDs_h,$threshs_h,$perfmap_a) = checkWhichDevice($dbConfig,$output);
 	my $smartValues_a = parseSmartctlOut($output);

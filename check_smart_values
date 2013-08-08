@@ -43,22 +43,39 @@ sub getSmartctl{
 
 sub checkWhichDevice{
 	my $dbConfig = shift;
-	my @smartctlOut = @{(shift)};
-	# Fetch the model lines from smart output
-	my @device = grep { /Model Family/i || /Device Model/i } @smartctlOut;
+	my $uCfgJSON = shift;
+	my %output_h = %{(shift)};;
+	#array of found device hashes
+	my @devices_a;
 
 	# Fetch the device JSON hash
 	my $devices_h = $dbConfig->get("Devices");
+	# Fetch the user config for the devices
+	my $uCfgDevices_h = $uCfgJSON->get("Devices");
+
 	foreach my $key (keys %$devices_h){
-		# Return model strings and IDs if device is found
-		foreach(@device){
-			if(($_ =~ $devices_h->{$key}->{'Device'}->[0]) ||
-			($_ =~ $devices_h->{$key}->{'Device'}->[1])){
-				return ($devices_h->{$key}->{'Device'},$devices_h->{$key}->{'ID#'},
-				$devices_h->{$key}->{'Threshs'},$devices_h->{$key}->{'Perfs'});
+		# Check each device in the user config
+		foreach my $device (keys %output_h){
+			my @smartctlOut = @{$output_h{$device}};
+			my @device = grep { /Model Family/i || /Device Model/i } @smartctlOut;
+			foreach(@device){
+				# If the model matches we have found the correct db entry
+				if(($_ =~ $devices_h->{$key}->{'Device'}->[0]) ||
+				($_ =~ $devices_h->{$key}->{'Device'}->[1])){
+					my %foundDevice_h;
+					print "found\n";
+					$foundDevice_h{'Path'} = $device;
+					$foundDevice_h{'Device'} = $devices_h->{$key}->{'Device'};
+					$foundDevice_h{'ID#'} = $devices_h->{$key}->{'ID#'};
+					$foundDevice_h{'Threshs'} = $uCfgDevices_h->{$device}->{'Threshs'};
+					$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
+					push @devices_a, \%foundDevice_h;
+					last;
+				}
 			}
 		}
 	}
+	return \@devices_a;
 }
 
 sub parseSmartctlOut{
@@ -263,27 +280,33 @@ MAIN: {
 		exit(STATE_UNKNOWN);
 	}
 	my $uCfg = readUCfgJSON($uCfgJSON);
-	my $output = getSmartctl($smartctl,$uCfg);
+	my $output_h = getSmartctl($smartctl,$uCfg);
 	my $dbConfig = readDbJSON($dbJSON);
-	my ($deviceName,$IDs_h,$threshs_h,$perfmap_a) = checkWhichDevice($dbConfig,$output);
-	my $smartValues_a = parseSmartctlOut($output);
-	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
-	$exitCode = STATE_OK;
-	if($statusLevel_a->[0] eq "Critical"){
-		$exitCode = STATE_CRITICAL;
-	}
-	if($statusLevel_a->[0] eq "Warning"){
-		$exitCode = STATE_WARNING;
-	}
-	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
-	print getStatusString("Critical",$statusLevel_a,$smartValues_a,$IDs_h);
-	print getStatusString("Warning",$statusLevel_a,$smartValues_a,$IDs_h);
-	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
-	if($perf_str){
-		print "|".$perf_str;
-	}
-	if($VERBOSITY == 2 || $VERBOSITY == 3){
-		print getVerboseString($output,$smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
-	}
-	exit ($exitCode);
+	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
+
+	use Data::Dumper;
+	print Dumper($devices_a->[0]);
+
+
+
+#	my $smartValues_a = parseSmartctlOut($output);
+#	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
+#	$exitCode = STATE_OK;
+#	if($statusLevel_a->[0] eq "Critical"){
+#		$exitCode = STATE_CRITICAL;
+#	}
+#	if($statusLevel_a->[0] eq "Warning"){
+#		$exitCode = STATE_WARNING;
+#	}
+#	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
+#	print getStatusString("Critical",$statusLevel_a,$smartValues_a,$IDs_h);
+#	print getStatusString("Warning",$statusLevel_a,$smartValues_a,$IDs_h);
+#	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
+#	if($perf_str){
+#		print "|".$perf_str;
+#	}
+#	if($VERBOSITY == 2 || $VERBOSITY == 3){
+#		print getVerboseString($output,$smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
+#	}
+#	exit ($exitCode);
 }

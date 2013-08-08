@@ -19,18 +19,10 @@
 				"241" : "RAW_VALUE", #Host_Writes_32MiB
 				"242" : "RAW_VALUE", #Host_Reads_32MiB
 				"1024" : "VALUE" #ATA error count (custom)
-			},
-			"Threshs" : {
-				"5" : ["0","0"],
-				"171" : ["0","0"],
-				"187" : ["0","0"],
-				"233" : ["98:","96:"],
-				"1024" : ["0","0"]
-			},
-			"Perfs" : ["5","194","241","242"]
+			}
 		},
 		"Intel 520" : {
-			"Device" : ["Intel 320 Series SSDs","INTEL SSDSC2CW240A3"],
+			"Device" : ["Intel 520 Series SSDs","INTEL SSDSC2CW240A3"],
 			"ID#" : {
 				"5" : "RAW_VALUE",
 				"9" : "RAW_VALUE",

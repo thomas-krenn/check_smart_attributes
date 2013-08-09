@@ -45,7 +45,7 @@ sub checkWhichDevice{
 	my $dbConfig = shift;
 	my $uCfgJSON = shift;
 	my %smartctlOut_h = %{(shift)};;
-	#array of found device hashes
+	# Array of found device hashes
 	my @devices_a;
 
 	# Fetch the device JSON hash
@@ -150,7 +150,7 @@ sub checkThreshs{
 sub checkSmartctl{
 	my %smartValues_h = %{(shift)};
 	my @devices_a = @{(shift)};
-
+	# Resulting status level variables
 	my @warnings_a;
 	my @criticals_a;
 	my @statusLevel_a = ("OK");
@@ -186,8 +186,9 @@ sub checkSmartctl{
 sub getStatusString{
 	my $level = shift;
 	my @statusLevel_a = @{(shift)};
-	my @smartValues_a = @{(shift)};
-	my %IDs_h = %{(shift)};
+	my %smartValues_h = %{(shift)};
+	my @devices_a = @{(shift)};
+	# Sensors to check, warn or crit
 	my @sensors_a;
 	my $status_str = "";
 
@@ -198,12 +199,22 @@ sub getStatusString{
 		@sensors_a = @{$statusLevel_a[2]};
 	}
 
-	# Collect performance data of warn and crit sensors
 	if($level eq "Warning" || $level eq "Critical"){
 		if(@sensors_a){
 			foreach my $sensor (@sensors_a){
 				$status_str .= "[".$sensor." = ".$level;
 				if($VERBOSITY){
+					$sensor =~ /^([a-zA-Z]+)/;
+					my $devicePath = '/dev/'.$1;
+					my %IDs_h;
+					my @smartValues_a;
+					foreach my $device (@devices_a){
+						# Fetch the configured variables for a device
+						if($devicePath eq $device->{'Path'}){
+							%IDs_h = %{$device->{'ID#'}};
+							@smartValues_a = @{$smartValues_h{$device->{'Path'}}};
+						}
+					}
 					foreach my $row (@smartValues_a){
 						if($row->{'ATTRIBUTE_NAME'} eq $sensor){
 							my $ID = $row->{'ID#'};
@@ -314,16 +325,17 @@ MAIN: {
 	my $statusLevel_a = checkSmartctl($smartValues_h,$devices_a);
 	use Data::Dumper;
 	print Dumper($statusLevel_a);
-#	$exitCode = STATE_OK;
-#	if($statusLevel_a->[0] eq "Critical"){
-#		$exitCode = STATE_CRITICAL;
-#	}
-#	if($statusLevel_a->[0] eq "Warning"){
-#		$exitCode = STATE_WARNING;
-#	}
-#	print $statusLevel_a->[0]." - ".$deviceName->[0]." ";
-#	print getStatusString("Critical",$statusLevel_a,$smartValues_a,$IDs_h);
-#	print getStatusString("Warning",$statusLevel_a,$smartValues_a,$IDs_h);
+	$exitCode = STATE_OK;
+	if($statusLevel_a->[0] eq "Critical"){
+		$exitCode = STATE_CRITICAL;
+	}
+	if($statusLevel_a->[0] eq "Warning"){
+		$exitCode = STATE_WARNING;
+	}
+	# TODO Add device strings
+	print $statusLevel_a->[0]." ";
+	print getStatusString("Critical",$statusLevel_a,$smartValues_h,$devices_a);
+	print getStatusString("Warning",$statusLevel_a,$smartValues_h,$devices_a);
 #	my $perf_str = getPerfString($smartValues_a,$IDs_h,$threshs_h,$perfmap_a);
 #	if($perf_str){
 #		print "|".$perf_str;

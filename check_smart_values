@@ -148,24 +148,32 @@ sub checkThreshs{
 }
 
 sub checkSmartctl{
-	my @smartValues_a = @{(shift)};
-	my %IDs_h = %{(shift)};
-	my %threshs_h = %{(shift)};
+	my %smartValues_h = %{(shift)};
+	my @devices_a = @{(shift)};
+
 	my @warnings_a;
 	my @criticals_a;
 	my @statusLevel_a = ("OK");
 
-	foreach my $row (@smartValues_a){
-		my $ID = $row->{'ID#'};
-		if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
-			if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[0]))){
-				$statusLevel_a[0] = 'Warning';
-				push @warnings_a, $row->{'ATTRIBUTE_NAME'};
-			}
-			if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[1]))){
-				$statusLevel_a[0] = 'Critical';
-				pop @warnings_a;
-				push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+	foreach my $device (@devices_a){
+		# Fetch the configured variables for a device
+		my %IDs_h = %{$device->{'ID#'}};
+		my %threshs_h = %{$device->{'Threshs'}};
+		my @smartValues_a = @{$smartValues_h{$device->{'Path'}}};
+		# Check the corresponding smart values
+		foreach my $row (@smartValues_a){
+			my $ID = $row->{'ID#'};
+			if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
+				if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[0]))){
+					# Don't loose the critical state
+					$statusLevel_a[0] = 'Warning' unless $statusLevel_a[0] eq 'Critical';
+					push @warnings_a, $row->{'ATTRIBUTE_NAME'};
+				}
+				if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[1]))){
+					$statusLevel_a[0] = 'Critical';
+					pop @warnings_a;
+					push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+				}
 			}
 		}
 	}
@@ -303,11 +311,9 @@ MAIN: {
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
 
 	my $smartValues_h = parseSmartctlOut($output_h);
+	my $statusLevel_a = checkSmartctl($smartValues_h,$devices_a);
 	use Data::Dumper;
-	print Dumper($smartValues_h);
-
-
-#	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
+	print Dumper($statusLevel_a);
 #	$exitCode = STATE_OK;
 #	if($statusLevel_a->[0] eq "Critical"){
 #		$exitCode = STATE_CRITICAL;

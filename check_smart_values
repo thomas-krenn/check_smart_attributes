@@ -5,6 +5,7 @@ use warnings;
 use Getopt::Long qw(:config no_ignore_case);
 use Config::JSON;
 
+our $VERSION = "1.0";
 our $VERBOSITY = 0;
 
 use constant {
@@ -16,6 +17,50 @@ use constant {
 
 our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
+
+sub getVersionString{
+	return "check_smart_values version $VERSION 20130809
+Copyright (C) 2013 Thomas-Krenn.AG (written by Georg Schönberger)
+Current updates available via git repository git.thomas-krenn.com.\n";
+}
+
+sub getUsageString{
+	return "Usage:
+sudo check_smart_values -dbj <smartdb json file> -ucfgj <user config json file>
+-p <path to smartctl> [-v|-vv|-vvv] [-h] [-V]\n";
+}
+
+sub getHelpString{
+	return "
+  [-p|--path <path to smartctl]
+        Specify the path at which the smartctl binary can be found. Per
+        default /usr/sbin/smartctl is taken.
+  [-dbj|--dbjson <path to smartdb JSON file>]
+        Specify the path at which the JSON smart db can be found. The JSON file
+        defines which parameter (VALUE or RAW_VALUE) must be taken for a
+        sensor. In order to interpret a sensor it is necessary to know which
+        value to take. As this mapping is different for device models a
+        database is needed for a device.
+  [-ucfgj|--ucfgjson <path to user config JSON file>]
+        Specify the path at which the JSON user config can be found. The user
+        config specifies the devices to check and also thresholds and
+        performance sensors. Note that only sensors whose thresholds are
+        defined are being checked by the plugin. Please ensure to include all
+        smart sensor IDs with their thresholds in the user config that should
+        be checked.
+        The array of performance value IDs is included as perfdata in the
+        icinga output.
+  [-v <Verbose Level>]
+       be verbose
+         (no -v) .. single line output
+         -v ..... single line output with additional details for warnings
+         -vv ..... multi line output, also with additional details for warnings
+         -vvv ..... normal output, then debugging output
+  [-h|--help]
+       show this help
+  [-V|--version]
+       show version information\n";
+}
 
 sub readUCfgJSON{
 	my $uCfgJSON = shift;
@@ -319,13 +364,21 @@ MAIN: {
 		'v|verbose' => sub { $VERBOSITY = 1 },
 		'vv' => sub { $VERBOSITY = 2 },
 		'vvv' => sub { $VERBOSITY = 3 },
-		'h|help' => sub {displayHelp();},
+		'h|help' => sub {
+			print getVersionString();
+			print getUsageString();
+			print getHelpString();
+			exit(STATE_OK);
+		;},
 		'p|path=s' => \$smartctl,
-		'd|device=s' => \$device,
 		'dbj|dbjson=s' => \$dbJSON,
-		'ucfgj|ucfgjson=s' => \$uCfgJSON
+		'ucfgj|ucfgjson=s' => \$uCfgJSON,
+		'V|version' => sub{
+			print getVersionString()."\n";
+			exit(STATE_OK);
+		},
 	)))	{
-		displayUsage();
+		print getUsageString();
 		exit(STATE_UNKNOWN);
 	}
 	# Check smartclt tool

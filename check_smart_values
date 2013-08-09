@@ -201,6 +201,7 @@ sub getStatusString{
 
 	if($level eq "Warning" || $level eq "Critical"){
 		if(@sensors_a){
+			# Print which sensors are Warn or Crit
 			foreach my $sensor (@sensors_a){
 				$status_str .= "[".$sensor." = ".$level;
 				if($VERBOSITY){
@@ -209,12 +210,13 @@ sub getStatusString{
 					my %IDs_h;
 					my @smartValues_a;
 					foreach my $device (@devices_a){
-						# Fetch the configured variables for a device
+						# Search for the device the sensor belongs to
 						if($devicePath eq $device->{'Path'}){
 							%IDs_h = %{$device->{'ID#'}};
 							@smartValues_a = @{$smartValues_h{$device->{'Path'}}};
 						}
 					}
+					# Append the value for the given sensor
 					foreach my $row (@smartValues_a){
 						if($row->{'ATTRIBUTE_NAME'} eq $sensor){
 							my $ID = $row->{'ID#'};
@@ -243,6 +245,7 @@ sub getPerfString{
 		my @smartValues_a = @{$smartValues_h{$device->{'Path'}}};
 
 		foreach my $perf (@perfmap_a){
+			# Search for the sensor and print its value
 			foreach my $row (@smartValues_a){
 				if($perf eq $row->{'ID#'}){
 					my $ID = $row->{'ID#'};
@@ -254,6 +257,7 @@ sub getPerfString{
 						}
 					}
 					$perf_str .= $attr_str;
+					# If available also print its thresholds
 					if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
 						$perf_str .= ";".$threshs_h{$ID}->[0].";".$threshs_h{$ID}->[1];
 					}

@@ -81,8 +81,9 @@ sub checkWhichDevice{
 
 sub parseSmartctlOut{
 	my %smartctlOut_h = %{(shift)};
-
+	# A hash with the parsed smart values for all devices
 	my %smartValues_h;
+
 	foreach my $device (keys %smartctlOut_h){
 		my @smartctlOut = @{$smartctlOut_h{$device}};
 		# Check for smart value lines
@@ -112,7 +113,7 @@ sub parseSmartctlOut{
 				$lineValues_h{'ATTRIBUTE_NAME'} = $1;
 				$lineValues_h{'VALUE'} = $2;
 				# Modify attribute name
-				$device =~ /^\/dev\/(\w)$/;
+				$device =~ /^\/dev\/(\w+)$/;
 				$lineValues_h{'ATTRIBUTE_NAME'} =$1.'_'.$lineValues_h{'ATTRIBUTE_NAME'};
 				$lineValues_h{'ATTRIBUTE_NAME'} =~ s/ /_/g;
 				$lineValues_h{'ID#'} = 1024;

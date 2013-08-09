@@ -44,7 +44,7 @@ sub getSmartctl{
 sub checkWhichDevice{
 	my $dbConfig = shift;
 	my $uCfgJSON = shift;
-	my %output_h = %{(shift)};;
+	my %smartctlOut_h = %{(shift)};;
 	#array of found device hashes
 	my @devices_a;
 
@@ -53,20 +53,21 @@ sub checkWhichDevice{
 	# Fetch the user config for the devices
 	my $uCfgDevices_h = $uCfgJSON->get("Devices");
 
+	# Check all models in the db
 	foreach my $key (keys %$devices_h){
-		# Check each device in the user config
-		foreach my $device (keys %output_h){
-			my @smartctlOut = @{$output_h{$device}};
+		# Check each device whose smartvalues are present
+		foreach my $device (keys %smartctlOut_h){
+			my @smartctlOut = @{$smartctlOut_h{$device}};
 			my @device = grep { /Model Family/i || /Device Model/i } @smartctlOut;
 			foreach(@device){
 				# If the model matches we have found the correct db entry
 				if(($_ =~ $devices_h->{$key}->{'Device'}->[0]) ||
 				($_ =~ $devices_h->{$key}->{'Device'}->[1])){
 					my %foundDevice_h;
-					print "found\n";
 					$foundDevice_h{'Path'} = $device;
 					$foundDevice_h{'Device'} = $devices_h->{$key}->{'Device'};
 					$foundDevice_h{'ID#'} = $devices_h->{$key}->{'ID#'};
+					# Tresholds and perf variables are defined in the user cfg
 					$foundDevice_h{'Threshs'} = $uCfgDevices_h->{$device}->{'Threshs'};
 					$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
 					push @devices_a, \%foundDevice_h;
@@ -79,32 +80,48 @@ sub checkWhichDevice{
 }
 
 sub parseSmartctlOut{
-	my @smartctlOut = @{(shift)};
-	# Check for smart value lines
-	my @smartValues;
-	my @splittedLine;
-	foreach my $line (@smartctlOut) {
-		if($line =~ /\d+\s+\w+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+\d+\s+\w+/){
-			$line =~ s/^\s+|\s+$//g;
-			# Split the found line, and map its elements
-			# The header map defines the keys for the hash
-			@splittedLine = map { s/^\s*//; s/\s*$//; $_; } split(/\s+/,$line);
-			my %lineValues_h;
-			for(my $i = 0; $i < @hdrmap_a; $i++){
-				$lineValues_h{$hdrmap_a[$i]} = $splittedLine[$i];
+	my %smartctlOut_h = %{(shift)};
+
+	my %smartValues_h;
+	foreach my $device (keys %smartctlOut_h){
+		my @smartctlOut = @{$smartctlOut_h{$device}};
+		# Check for smart value lines
+		my @smartValues;
+		my @splittedLine;
+		foreach my $line (@smartctlOut) {
+			if($line =~ /\d+\s+\w+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+\d+\s+\w+/){
+				$line =~ s/^\s+|\s+$//g;
+				# Split the found line, and map its elements
+				# The header map defines the keys for the hash
+				@splittedLine = map { s/^\s*//; s/\s*$//; $_; } split(/\s+/,$line);
+				my %lineValues_h;
+				for(my $i = 0; $i < @hdrmap_a; $i++){
+					# Prepend the attribute name with the device name
+					if($hdrmap_a[$i] eq 'ATTRIBUTE_NAME'){
+						$device =~ /^\/dev\/(\w+)$/;
+						$lineValues_h{$hdrmap_a[$i]} = $1.'_'.$splittedLine[$i];
+					}
+					else{
+						$lineValues_h{$hdrmap_a[$i]} = $splittedLine[$i];
+					}
+				}
+				push @smartValues, \%lineValues_h;
 			}
-			push @smartValues, \%lineValues_h;
+			if($line =~ /(ATA Error Count)\:\s+(\d+)/){
+				my %lineValues_h;
+				$lineValues_h{'ATTRIBUTE_NAME'} = $1;
+				$lineValues_h{'VALUE'} = $2;
+				# Modify attribute name
+				$device =~ /^\/dev\/(\w)$/;
+				$lineValues_h{'ATTRIBUTE_NAME'} =$1.'_'.$lineValues_h{'ATTRIBUTE_NAME'};
+				$lineValues_h{'ATTRIBUTE_NAME'} =~ s/ /_/g;
+				$lineValues_h{'ID#'} = 1024;
+				push @smartValues, \%lineValues_h;
+			}
 		}
-		if($line =~ /(ATA Error Count)\:\s+(\d+)/){
-			my %lineValues_h;
-			$lineValues_h{'ATTRIBUTE_NAME'} = $1;
-			$lineValues_h{'VALUE'} = $2;
-			$lineValues_h{'ATTRIBUTE_NAME'} =~ s/ /_/g;
-			$lineValues_h{'ID#'} = 1024;
-			push @smartValues, \%lineValues_h;
-		}
+		$smartValues_h{$device} = \@smartValues;
 	}
-	return \@smartValues;
+	return \%smartValues_h;
 }
 
 sub checkThreshs{
@@ -284,12 +301,11 @@ MAIN: {
 	my $dbConfig = readDbJSON($dbJSON);
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
 
+	my $smartValues_h = parseSmartctlOut($output_h);
 	use Data::Dumper;
-	print Dumper($devices_a->[0]);
+	print Dumper($smartValues_h);
 
 
-
-#	my $smartValues_a = parseSmartctlOut($output);
 #	my $statusLevel_a = checkSmartctl($smartValues_a,$IDs_h,$threshs_h);
 #	$exitCode = STATE_OK;
 #	if($statusLevel_a->[0] eq "Critical"){

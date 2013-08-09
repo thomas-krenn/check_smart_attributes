@@ -388,7 +388,7 @@ MAIN: {
 	# The user config must be present
 	if(!defined($uCfgJSON)){
 		print "Error: smartctl requires a valid user config.\n";
-		displayUsage();
+		print getUsageString();
 		exit(STATE_UNKNOWN);
 	}
 	my $uCfg = readUCfgJSON($uCfgJSON);

@@ -284,7 +284,7 @@ sub getVerboseString{
 		foreach my $row (@smartValues_a){
 			my $ID = $row->{'ID#'};
 			if(exists $IDs_h{$ID}){
-				$verb_str .= "\n".$row->{'ATTRIBUTE_NAME'}."=".$row->{$IDs_h{$ID}};
+				$verb_str .= "\n".$row->{'ATTRIBUTE_NAME'}." = ".$row->{$IDs_h{$ID}};
 				$verb_str .= " (".$IDs_h{$ID}.")";
 			}
 		}

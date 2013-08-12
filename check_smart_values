@@ -35,6 +35,9 @@ sub getHelpString{
   [-p|--path <path to smartctl]
         Specify the path at which the smartctl binary can be found. Per
         default /usr/sbin/smartctl is taken.
+  [-d|--device <path to devices being checked>]
+        Specify the devices being monitored. If multiple devices should be
+        checked provice the '-d' multiple times. E.g. '-d /dev/sda -d /dev/sdb'
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -42,14 +45,14 @@ sub getHelpString{
         value to take. As this mapping is different for device models a
         database is needed for a device.
   [-ucfgj|--ucfgjson <path to user config JSON file>]
-        Specify the path at which the JSON user config can be found. The user
-        config specifies the devices to check and also thresholds and
-        performance sensors. Note that only sensors whose thresholds are
-        defined are being checked by the plugin. Please ensure to include all
-        smart sensor IDs with their thresholds in the user config that should
-        be checked.
-        The array of performance value IDs is included as perfdata in the
-        icinga output.
+        Specify the path at which the JSON user config file can be found.
+        The user config can be used to override threshold and performance base
+        config. This can be useful if the thresholds for a specific device must
+        be changed (e.g. showing up a non-critical error).
+        Note that only sensors whose thresholds are defined are being checked.
+        Please ensure to include all smart sensor IDs with their thresholds in
+        the user config that should be checked - copying the base config is a
+        good starting point.
   [-v <Verbose Level>]
        be verbose
          (no -v) .. single line output

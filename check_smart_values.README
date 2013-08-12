@@ -1,12 +1,9 @@
         = README =
 
     == Synopsis ==
-$ ./check_smart_values -dbj ./check_smartdb.json -ucfgj
-./check_smartcfg.json -vv
-Critical [sdc_ATA_Error_Count = Critical (83)][sda_Runtime_Bad_Block = Critical
-(24)][sda_UDMA_CRC_Error_Count = Critical (3)][sdc_Temperature_Celsius = Warning
-(49)]|sdc_Temperature_Celsius=49;40;50 sda_Host_Writes_32MiB=517069
-sda_Host_Reads_32MiB=395296
+$ sudo ./check_smart_values -d /dev/sda -dbj ./check_smartdb.json
+Critical [sda_UDMA_CRC_Error_Count = Critical]|sda_Media_Wearout_Indicator=097;16:;6:
+sda_Host_Writes_32MiB=517197 sda_Host_Reads_32MiB=395442
 
     == Requirements ==
 The following software is required for check_smart_values:
@@ -28,17 +25,20 @@ contains the configuration which value (VALUE or RAW_VALUE) must be taken for
 a smart value ID. The config is checked on the basis of device and model
 strings given by smartctl. If your device is not listed in the config please
 study the device specification and add the id--value mapping.
+The smartdb JSON file also specifies default threshold and performance values.
+These values state the Warning/Critical sensor thresholds and the performance
+data sensors. The threshold and performance base config can be overwritten with
+a user config JSON file (see below).
 
-  === check_smartcfg.json ===
-The user config specifies the devices to check and also thresholds and
-performance sensors. If you want a device to being checked specify its device
-path in the user config file and also check if the device is present in the
-smartdb JSON file.
-ATTENTION: Only sensors whose thresholds are defined are being checked by the
-plugin. Please ensure to include all smart sensor IDs with their thresholds in
-the user config that should be checked.
-The array of performance value IDs is included as perfdata in the icinga
-output.
+  === check_smartcfg.json (optional) ===
+Specify the path at which the JSON user config file can be found.
+The user config can be used to override threshold and performance base
+config. This can be useful if the thresholds for a specific device must
+be changed (e.g. showing up a non-critical error).
+Note that only sensors whose thresholds are defined are being checked.
+Please ensure to include all smart sensor IDs with their thresholds in
+the user config that should be checked - copying the base config is a
+good starting point.
 
   === sudo for nagios user ===
 The smartctl executable requires root privileges to check a device. In order to

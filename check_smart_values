@@ -387,10 +387,17 @@ MAIN: {
 	}
 	# The user config must be present
 	if(!defined($uCfgJSON)){
-		print "Error: smartctl requires a valid user config.\n";
+		print "Error: smartctl requires a user config JSON file.\n";
 		print getUsageString();
 		exit(STATE_UNKNOWN);
 	}
+	# The smartdb must be present
+	if(!defined($dbJSON)){
+		print "Error: smartctl requires a valid smartdb JSON file.\n";
+		print getUsageString();
+		exit(STATE_UNKNOWN);
+	}
+
 	my $uCfg = readUCfgJSON($uCfgJSON);
 	my $output_h = getSmartctl($smartctl,$uCfg);
 	my $dbConfig = readDbJSON($dbJSON);

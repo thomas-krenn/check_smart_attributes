@@ -359,7 +359,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $device, $dbJSON, $uCfgJSON, $exitCode);
+	my ($smartctl, $device, $dbJSON, $uCfgJSON, $exitCode, $noSudo);
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
 		'vv' => sub { $VERBOSITY = 2 },
@@ -373,6 +373,7 @@ MAIN: {
 		'p|path=s' => \$smartctl,
 		'dbj|dbjson=s' => \$dbJSON,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
+		'nosudo=s' => \$noSudo,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);
@@ -385,6 +386,21 @@ MAIN: {
 	if(!defined($smartctl)){
 		$smartctl = "/usr/sbin/smartctl";
 	}
+	if(! -x $smartctl){
+		print "Error: cannot find smartctl executable.\n";
+		exit(STATE_UNKNOWN);
+	}
+	# Check for sudo unless disabled
+	if(!defined($noSudo)){
+		my $sudo;
+		chomp($sudo = `which sudo`);
+		if(! -x $sudo){
+			print "Error: cannot find sudo executable.\n";
+			exit(STATE_UNKNOWN);
+		}
+		$smartctl .= $sudo.' ';
+	}
+
 	# The user config must be present
 	if(!defined($uCfgJSON)){
 		print "Error: smartctl requires a user config JSON file.\n";

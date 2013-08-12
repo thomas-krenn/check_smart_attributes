@@ -5,7 +5,7 @@
 			"ID#" : {
 				"5" : "RAW_VALUE", # Reallocated sector count
 				"9" : "RAW_VALUE", # Power on hours
-				"12": "RAW_VALUE", # Power cycle counts
+				"12" : "RAW_VALUE", # Power cycle counts
 				"171" : "VALUE", # Program fail count
 				"172" : "VALUE", # Erase fail count
 				"183" : "RAW_VALUE", # Sata downshift count
@@ -18,7 +18,7 @@
 				"226" : "RAW_VALUE", # Workld Media Wear Indic
 				"227" : "RAW_VALUE", # Workld Host Reads Perc
 				"228" : "RAW_VALUE", # Workload Minutes
-				"232": "VALUE", # Available Reserved Space
+				"232" : "VALUE", # Available Reserved Space
 				"233" : "VALUE", # Media Wearout Indicator
 				"241" : "RAW_VALUE", # Host Writes 32MiB
 				"242" : "RAW_VALUE", # Host Reads 32MiB
@@ -31,7 +31,7 @@
 				"184" : ["96:","91:"],
 				"187" : ["0","0"],
 				"199" : ["0","0"],
-				"232" : ["16:","11:"
+				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
 				"1024" : ["0","0"]
 			},
@@ -50,7 +50,7 @@
 				"190" : "RAW_VALUE", # Temperature case
 				"194" : "RAW_VALUE", # Temperature device
 				"199" : "RAW_VALUE", #Sata CRC error count
-				"232": "VALUE", # Available Reserved Space
+				"232" : "VALUE", # Available Reserved Space
 				"233" : "VALUE", # Media Wearout Indicator
 				"241" : "RAW_VALUE", # Host_Writes_32MiB
 				"242" : "RAW_VALUE", # Host_Reads_32MiB

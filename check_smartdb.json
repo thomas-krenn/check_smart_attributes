@@ -3,38 +3,54 @@
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3"],
 			"ID#" : {
-				"5" : "RAW_VALUE", #reallocated sector count
-				"9" : "RAW_VALUE", #power on hours
-				"12": "RAW_VALUE", #power cycle counts
-				"171" : "RAW_VALUE", #program fail count
-				"172" : "RAW_VALUE", #erase fail count
-				"183" : "RAW_VALUE", #sata downshift count
-				"184" : "VALUE", #End-to-End Error Detection
-				"187" : "RAW_VALUE", #Uncorrectable Error Count
-				"190" : "RAW_VALUE", #temperature case
-				"194" : "RAW_VALUE", #temperature device
-				"199" : "RAW_VALUE", #sate CRC error count
-				"232": "VALUE", #available Reserved Space
-				"233" : "VALUE", #Media Wearout Indicator
-				"241" : "RAW_VALUE", #Host_Writes_32MiB
-				"242" : "RAW_VALUE", #Host_Reads_32MiB
-				"1024" : "VALUE" #ATA error count (custom)
-			}
+				"5" : "RAW_VALUE", # Reallocated sector count
+				"9" : "RAW_VALUE", # Power on hours
+				"12": "RAW_VALUE", # Power cycle counts
+				"171" : "RAW_VALUE", # Program fail count
+				"172" : "RAW_VALUE", # Erase fail count
+				"183" : "RAW_VALUE", # Sata downshift count
+				"184" : "VALUE", # End-to-End Error Detection
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Temperature case
+				"194" : "RAW_VALUE", # Temperature device
+				"199" : "RAW_VALUE", #Sata CRC error count
+				"232": "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Host_Writes_32MiB
+				"242" : "RAW_VALUE", # Host_Reads_32MiB
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"5" : ["0","0"],
+				"171" : ["0","0"],
+				"172" : ["0","0"],
+				"183" : ["0","0"],
+				"184" : ["0","0"],
+				"187" : ["0","0"],
+				"199" : ["0","0"],
+				"233" : ["35:","30:"],
+				"1024" : ["0","0"]
+			},
+			"Perfs" : ["241","242"]
 		},
 		"Intel 520" : {
 			"Device" : ["Intel 520 Series SSDs","INTEL SSDSC2CW240A3"],
 			"ID#" : {
-				"5" : "RAW_VALUE",
-				"9" : "RAW_VALUE",
-				"12": "RAW_VALUE",
-				"171" : "RAW_VALUE",
-				"172" : "RAW_VALUE",
-				"187" : "RAW_VALUE",
-				"194": "RAW_VALUE",
-				"233" : "VALUE"
-			},
-			"Threshs" : {
-				"233" : ["98:","96:"]
+				"5" : "RAW_VALUE", # Reallocated sector count
+				"9" : "RAW_VALUE", # Power on hours
+				"12": "RAW_VALUE", # Power cycle counts
+				"171" : "RAW_VALUE", # Program fail count
+				"172" : "RAW_VALUE", # Erase fail count
+				"184" : "VALUE", # End-to-End Error Detection
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Temperature case
+				"194" : "RAW_VALUE", # Temperature device
+				"199" : "RAW_VALUE", #Sata CRC error count
+				"232": "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Host_Writes_32MiB
+				"242" : "RAW_VALUE", # Host_Reads_32MiB
+				"1024" : "VALUE" # ATA error count (custom)
 			}
 		},
 		"Seagate Barracuda" : {

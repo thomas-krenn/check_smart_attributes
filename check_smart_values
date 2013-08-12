@@ -318,7 +318,10 @@ sub getPerfString{
 					$perf_str .= $attr_str;
 					# If available also print its thresholds
 					if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
-						$perf_str .= ";".$threshs_h{$ID}->[0].";".$threshs_h{$ID}->[1];
+						$threshs_h{$ID}->[0] =~ /(\d+)/;
+						$perf_str .= ';'.$1.';';
+						$threshs_h{$ID}->[1] =~ /(\d+)/;
+						$perf_str .= $1;
 					}
 				}
 			}

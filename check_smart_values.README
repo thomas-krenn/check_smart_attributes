@@ -1,6 +1,66 @@
-    = README =
+        = README =
 
-* Installation hints
-** On Ubuntu use
-    sudo apt-get install libconfig-json-perl
-  to install the perl library for parsing JSON config files.
+    == Synopsis ==
+$ ./check_smart_values -dbj ./check_smartdb.json -ucfgj
+./check_smartcfg.json -vv
+Critical [sdc_ATA_Error_Count = Critical (83)][sda_Runtime_Bad_Block = Critical
+(24)][sda_UDMA_CRC_Error_Count = Critical (3)][sdc_Temperature_Celsius = Warning
+(49)]|sdc_Temperature_Celsius=49;40;50 sda_Host_Writes_32MiB=517069
+sda_Host_Reads_32MiB=395296
+
+    == Requirements ==
+The following software is required for check_smart_values:
+* Perl
+** Getopt::Long
+** Config::JSON
+* smartctl
+
+    == Installation ==
+On Ubuntu use
+  :~$ sudo apt-get install smartmontools libconfig-json-perl
+to install smartmontools including smartctl and the perl library for parsing
+JSON config files.
+
+    == Configuration ==
+  === check_smartdb.json ===
+The smartdb JSON file specifies the smart value configuration for a device. It
+contains the configuration which value (VALUE or RAW_VALUE) must be taken for
+a smart value ID. The config is checked on the basis of device and model
+strings given by smartctl. If your device is not listed in the config please
+study the device specification and add the id--value mapping.
+
+  === check_smartcfg.json ===
+The user config specifies the devices to check and also thresholds and
+performance sensors. If you want a device to being checked specify its device
+path in the user config file and also check if the device is present in the
+smartdb JSON file.
+ATTENTION: Only sensors whose thresholds are defined are being checked by the
+plugin. Please ensure to include all smart sensor IDs with their thresholds in
+the user config that should be checked.
+The array of performance value IDs is included as perfdata in the icinga
+output.
+
+  === sudo for nagios user ===
+The smartctl executable requires root privileges to check a device. In order to
+use the plugin with the nagios user it is recommended to create a sudoers entry
+for smartctl:
+  nagios ALL=(root) NOPASSWD:/usr/sbin/smartctl
+
+    == License ==
+check_smart_values: Nagios/Icinga plugin to check smart values with
+smartctl.
+
+Copyright (C) 2013 Thomas-Krenn.AG,
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation; either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU General Public License for more
+details.
+
+You should have received a copy of the GNU General Public License along with
+this program; if not, see <http://www.gnu.org/licenses/>.

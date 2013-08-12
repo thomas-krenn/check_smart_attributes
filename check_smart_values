@@ -81,6 +81,10 @@ sub getSmartctl{
 	my $devices_h = $uCfgJSON->get("Devices");
 	foreach my $device (keys %$devices_h){
 		my @output = `$smartctl -a $device`;
+		if(($? >> 8) & 2){
+			print "Error: smartctl returned \"No such device\" for device $device.\n";
+			exit(STATE_UNKNOWN);
+		}
 		$output_h{$device} = \@output;
 	}
 	return \%output_h;

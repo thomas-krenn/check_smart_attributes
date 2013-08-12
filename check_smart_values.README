@@ -2,7 +2,7 @@
 
     == Synopsis ==
 $ sudo ./check_smart_values -d /dev/sda -dbj ./check_smartdb.json
-Critical [sda_UDMA_CRC_Error_Count = Critical]|sda_Media_Wearout_Indicator=097;16:;6:
+Critical [sda_UDMA_CRC_Error_Count = Critical]|sda_Media_Wearout_Indicator=097;16;6
 sda_Host_Writes_32MiB=517197 sda_Host_Reads_32MiB=395442
 
     == Requirements ==

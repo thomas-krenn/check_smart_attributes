@@ -398,7 +398,7 @@ MAIN: {
 			print "Error: cannot find sudo executable.\n";
 			exit(STATE_UNKNOWN);
 		}
-		$smartctl .= $sudo.' ';
+		$smartctl = $sudo.' '.$smartctl;
 	}
 
 	# The user config must be present

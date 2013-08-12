@@ -119,12 +119,10 @@ sub checkWhichDevice{
 					$foundDevice_h{'Path'} = $device;
 					$foundDevice_h{'Device'} = $devices_h->{$key}->{'Device'};
 					$foundDevice_h{'ID#'} = $devices_h->{$key}->{'ID#'};
-					if(!defined($uCfgDevices_h)){
-						$foundDevice_h{'Threshs'} = $devices_h->{$key}->{'Threshs'};
-						$foundDevice_h{'Perfs'} = $devices_h->{$key}->{'Perfs'};
-					}
-					else{
-						# Tresholds and perf variables are defined in the user cfg
+					$foundDevice_h{'Threshs'} = $devices_h->{$key}->{'Threshs'};
+					$foundDevice_h{'Perfs'} = $devices_h->{$key}->{'Perfs'};
+					# Tresholds and perf variables are defined in the user cfg
+					if(defined($uCfgDevices_h->{$device})){
 						$foundDevice_h{'Threshs'} = $uCfgDevices_h->{$device}->{'Threshs'};
 						$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
 					}

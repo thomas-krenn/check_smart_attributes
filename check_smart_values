@@ -373,7 +373,7 @@ MAIN: {
 		'p|path=s' => \$smartctl,
 		'dbj|dbjson=s' => \$dbJSON,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
-		'nosudo=s' => \$noSudo,
+		'nosudo' => \$noSudo,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);

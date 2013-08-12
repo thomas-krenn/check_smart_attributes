@@ -74,12 +74,11 @@ sub readDbJSON{
 
 sub getSmartctl{
 	my $smartctl = shift;
-	my $uCfgJSON = shift;
+	my @devicesToCheck_a = @{(shift)};
 	#a hash of all devices with their corresponding output
 	my %output_h;
 
-	my $devices_h = $uCfgJSON->get("Devices");
-	foreach my $device (keys %$devices_h){
+	foreach my $device (@devicesToCheck_a){
 		my @output = `$smartctl -a $device`;
 		if(($? >> 8) & 2){
 			print "Error: smartctl returned \"No such device\" for device $device.\n";
@@ -363,7 +362,8 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $device, $dbJSON, $uCfgJSON, $exitCode, $noSudo);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo);
+	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
 		'vv' => sub { $VERBOSITY = 2 },
@@ -376,6 +376,7 @@ MAIN: {
 		;},
 		'p|path=s' => \$smartctl,
 		'dbj|dbjson=s' => \$dbJSON,
+		'd|device=s' => \@devicesToCheck_a,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
 		'nosudo' => \$noSudo,
 		'V|version' => sub{
@@ -417,9 +418,14 @@ MAIN: {
 		print getUsageString();
 		exit(STATE_UNKNOWN);
 	}
-
+	# Devices to check are required
+	if(!(@devicesToCheck_a)){
+		print "Error: check_smart_values requires a device to check.\n";
+		print getUsageString();
+		exit(STATE_UNKNOWN);
+	}
 	my $uCfg = readUCfgJSON($uCfgJSON);
-	my $output_h = getSmartctl($smartctl,$uCfg);
+	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a);
 	my $dbConfig = readDbJSON($dbJSON);
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
 	my $smartValues_h = parseSmartctlOut($output_h);

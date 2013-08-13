@@ -439,6 +439,10 @@ MAIN: {
 	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a);
 	my $dbConfig = readDbJSON($dbJSON);
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
+	if(!(@$devices_a)){
+		print "Error: device was not found in smartdb JSON file.\n";
+		exit(STATE_UNKNOWN);
+	}
 	my $smartValues_h = parseSmartctlOut($output_h);
 	my $statusLevel_a = checkSmartctl($smartValues_h,$devices_a);
 

@@ -3,25 +3,23 @@
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3","INTEL SSDSA2CT040G3"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Reallocated sector count
-				"9" : "RAW_VALUE", # Power on hours
-				"12" : "RAW_VALUE", # Power cycle counts
-				"171" : "VALUE", # Program fail count
-				"172" : "VALUE", # Erase fail count
-				"183" : "RAW_VALUE", # Sata downshift count
-				"184" : "VALUE", # End-to-End Error Detection
+				"5" : "RAW_VALUE", # Re-allocated Sector Count 
+				"9" : "RAW_VALUE", # Power-On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count 
+				"171" : "VALUE", # Program Fail Count 
+				"172" : "VALUE", Erase Fail Count 
+				"183" : "RAW_VALUE", # SATA Downshift Count (FW 4Px10362 and later)
+				"184" : "VALUE", # End-to-End Error Detection Count 
 				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature case
-				"192" : "RAW_VALUE", # Unsafe Shutdown Count
-				"194" : "RAW_VALUE", # Temperature device
-				"199" : "RAW_VALUE", # Sata CRC error count
-				"226" : "RAW_VALUE", # Workld Media Wear Indic
-				"227" : "RAW_VALUE", # Workld Host Reads Perc
-				"228" : "RAW_VALUE", # Workload Minutes
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"199" : "RAW_VALUE", # CRC Error Count (FW 4Px10362 and later)
+				"226" : "RAW_VALUE", # Timed Workload Media Wear
+				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio 
+				"228" : "RAW_VALUE", # Timed Workload Timer 
 				"232" : "VALUE", # Available Reserved Space
 				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Host Writes 32MiB
-				"242" : "RAW_VALUE", # Host Reads 32MiB
+				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
 				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {

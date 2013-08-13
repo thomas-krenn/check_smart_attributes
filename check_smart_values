@@ -242,6 +242,28 @@ sub checkSmartctl{
 	return \@statusLevel_a;
 }
 
+sub checkMissingDevicesDB{
+	my @devicesToCheck_a = @{(shift)};
+	my @devices_a = @{(shift)};
+	my $missingDevs_str;
+	my $found;
+	foreach my $deviceToCheck (@devicesToCheck_a){
+		$found = 0;
+		foreach my $device (@devices_a){
+			if($deviceToCheck eq $device->{'Path'}){
+				$found = 1;
+				last;
+			}
+		}
+		if($found == 0){
+			$missingDevs_str .= ', ' unless (!defined($missingDevs_str) || @devicesToCheck_a == 1);
+			$missingDevs_str .= $deviceToCheck
+		}
+	}
+	return $missingDevs_str;
+}
+
+
 sub getStatusString{
 	my $level = shift;
 	my @statusLevel_a = @{(shift)};
@@ -441,6 +463,12 @@ MAIN: {
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
 	if(!(@$devices_a)){
 		print "Error: device was not found in smartdb JSON file.\n";
+		exit(STATE_UNKNOWN);
+	}
+	# Not all devices were found in the smartdb JSON
+	if(@$devices_a != @devicesToCheck_a){
+		print "Error: the following device(s) where not found in the smartdb JSON file: ";
+		print checkMissingDevicesDB(\@devicesToCheck_a,$devices_a);
 		exit(STATE_UNKNOWN);
 	}
 	my $smartValues_h = parseSmartctlOut($output_h);

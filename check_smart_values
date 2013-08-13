@@ -453,8 +453,16 @@ MAIN: {
 	if($statusLevel_a->[0] eq "Warning"){
 		$exitCode = STATE_WARNING;
 	}
-	# TODO Add device strings?
-	print $statusLevel_a->[0]." ";
+
+	print $statusLevel_a->[0];
+	my $dev_str = ' (';
+	foreach my $devChecked (@$devices_a){
+		$dev_str .= ', ' unless (!defined($dev_str) || @$devices_a == 1);
+		$devChecked->{'Path'} =~ /^\/dev\/(\w+)$/;
+		$dev_str .= $1;
+	}
+	$dev_str .= ') ';
+	print $dev_str;
 	print getStatusString("Critical",$statusLevel_a,$smartValues_h,$devices_a);
 	print getStatusString("Warning",$statusLevel_a,$smartValues_h,$devices_a);
 	my $perf_str = getPerfString($smartValues_h,$devices_a);

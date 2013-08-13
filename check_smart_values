@@ -455,7 +455,8 @@ MAIN: {
 	}
 
 	print $statusLevel_a->[0];
-	my $dev_str = ' (';
+	print' (';
+	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' unless (!defined($dev_str) || @$devices_a == 1);
 		$devChecked->{'Path'} =~ /^\/dev\/(\w+)$/;

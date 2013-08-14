@@ -256,7 +256,7 @@ sub checkMissingDevicesDB{
 			}
 		}
 		if($found == 0){
-			$missingDevs_str .= ', ' unless (!defined($missingDevs_str) || @devicesToCheck_a == 1);
+			$missingDevs_str .= ', ' if defined($missingDevs_str);
 			$missingDevs_str .= $deviceToCheck
 		}
 	}
@@ -486,7 +486,7 @@ MAIN: {
 	print' (';
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
-		$dev_str .= ', ' unless (!defined($dev_str) || @$devices_a == 1);
+		$dev_str .= ', ' if defined($dev_str);
 		$devChecked->{'Path'} =~ /^\/dev\/(\w+)$/;
 		$dev_str .= $1;
 	}

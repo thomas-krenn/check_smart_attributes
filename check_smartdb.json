@@ -132,9 +132,7 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs" : ["194"]
-		}
-	},
-	"Devices" : {
+		},
 		"Western Digital RE4-GP" : {
 			"Device" : ["Western Digital RE4-GP","WDC WD2002FYPS-01U1B1"],
 			"ID#" : {
@@ -374,6 +372,6 @@
 				"199" : ["0","10"]
 			},
 			"Perfs" : ["190","194"]
-		},
+		}
 	}
 }

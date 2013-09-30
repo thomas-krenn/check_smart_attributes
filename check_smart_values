@@ -126,8 +126,17 @@ sub checkWhichDevice{
 					$foundDevice_h{'Perfs'} = $devices_h->{$key}->{'Perfs'};
 					# Tresholds and perf variables are defined in the user cfg
 					if(defined($uCfgDevices_h->{$device})){
-						$foundDevice_h{'Threshs'} = $uCfgDevices_h->{$device}->{'Threshs'};
-						$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
+						if(defined($uCfgDevices_h->{$device}->{'Threshs'})){
+							# A defined user config sensor overwrites the values from the json db
+							my %threshs_h = %{$uCfgDevices_h->{$device}->{'Threshs'}};
+							foreach my $ID (keys %threshs_h){
+								$foundDevice_h{'Threshs'}->{$ID} = $threshs_h{$ID};
+							}
+						}
+						# A defined Perfs array overwrites the json db one
+						if(defined($uCfgDevices_h->{$device}->{'Perfs'})){
+							$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
+						}
 					}
 					push @devices_a, \%foundDevice_h;
 					last;

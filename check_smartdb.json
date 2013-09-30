@@ -53,7 +53,19 @@
 				"241" : "RAW_VALUE", # Host_Writes_32MiB
 				"242" : "RAW_VALUE", # Host_Reads_32MiB
 				"1024" : "VALUE" # ATA error count (custom)
-			}
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"171" : ["16:","11:"],
+				"172" : ["16:","11:"],
+				"184" : ["96:","91:"],
+				"187" : ["0","10"],
+				"199" : ["0","10"],
+				"232" : ["16:","11:"],
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["233","241","242"]
 		},
 		"Intel DC S3700" : {
 			"Device" : ["Intel DC S3700 Series SSDs","INTEL SSDSC2BA100G3","INTEL SSDSC2BA200G3","INTEL SSDSC2BA400G3","INTEL SSDSC2BA800G3"],
@@ -306,7 +318,6 @@
 			},
 			"Perfs" : ["190"]
 		},
-
 		"Seagate Constellation ES.2 500G" : {
 			"Device" : ["Seagate Constellation ES.2 500G", "ST3500320NS"],
 			"ID#" : {

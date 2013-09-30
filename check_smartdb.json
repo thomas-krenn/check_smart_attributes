@@ -132,9 +132,8 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs" : ["194"]
-		},
-	}
-
+		}
+	},
 	"Devices" : {
 		"Western Digital RE4-GP" : {
 			"Device" : ["Western Digital RE4-GP","WDC WD2002FYPS-01U1B1"],
@@ -160,7 +159,7 @@
 			"Threshs" : {
 				"1" : ["62:","52:"],
 				"3" : ["32:","22:"],
-				"5" : ["20","40"],		
+				"5" : ["20","40"],
 				"10" : ["0","10"],
 				"11" : ["0","10"],
 				"196" : ["0","10"],
@@ -191,7 +190,7 @@
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
 				"200" : "RAW_VALUE" # Multi Zone Error Rate
-			},   
+			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
 				"3" : ["32:","22:"],
@@ -205,7 +204,7 @@
 			},
 			"Perfs" : ["190","194"]
 		},
-		"Seagate Constellation ES" : { 
+		"Seagate Constellation ES" : {
 			"Device" : ["Seagate Constellation ES", "ST32000644NS"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
@@ -244,8 +243,8 @@
 		"Western Digital RE4 500G" : {
 			"Device" : ["Western Digital RE4 500G","WDC WD5003ABYX-01WERA1"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate	
-				"3" : "VALUE", # Spin Up Time	
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
 				"4" : "RAW_VALUE", # Start Stop Count
 				"5" : "VALUE", # Re-allocated Sector Count
 				"7" : "RAW_VALUE", # Seek Error Rate
@@ -260,7 +259,7 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate			   
+				"200" : "RAW_VALUE" # Multi Zone Error Rate
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -278,8 +277,8 @@
 		"Western Digital RE4 2TB" : {
 			"Device" : ["Western Digital RE4 2TB","WDC WD2003FYYS-02W0B1"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate	
-				"3" : "VALUE", # Spin Up Time	
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
 				"4" : "RAW_VALUE", # Start Stop Count
 				"5" : "VALUE", # Re-allocated Sector Count
 				"7" : "RAW_VALUE", # Seek Error Rate
@@ -294,7 +293,7 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate			   
+				"200" : "RAW_VALUE" # Multi Zone Error Rate
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -310,7 +309,7 @@
 			"Perfs" : ["190"]
 		},
 
-		"Seagate Constellation ES.2 500G" : { 
+		"Seagate Constellation ES.2 500G" : {
 			"Device" : ["Seagate Constellation ES.2 500G", "ST3500320NS"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
@@ -343,7 +342,7 @@
 			},
 			"Perfs" : ["190","194"]
 		},
-		"Seagate Constellation ES.2 1TB" : { 
+		"Seagate Constellation ES.2 1TB" : {
 			"Device" : ["Seagate Constellation ES.2 1TB", "ST31000340NS"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate

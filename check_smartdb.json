@@ -1,3 +1,5 @@
+# Falls bestimmte Werte bei allen Festplatten geändert werden müssen:
+# :%s/"5" : \["\d*:*","\d*:*"\]/"5" : \["20","40"\]/c
 {
 	"Devices" : {
 		"Intel 320" : {
@@ -23,7 +25,7 @@
 				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
-				"5" : ["0","10"],
+				"5" : ["20","40"],
 				"171" : ["16:","11:"],
 				"172" : ["16:","11:"],
 				"184" : ["96:","91:"],
@@ -84,7 +86,7 @@
 				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
-				"5" : ["0","10"],
+				"5" : ["20","40"],
 				"171" : ["16:","11:"],
 				"172" : ["16:","11:"],
 				"184" : ["96:","91:"],
@@ -122,7 +124,7 @@
 			"Threshs" : {
 				"1" : ["62:","52:"],
 				"3" : ["32:","22:"],
-				"5" : ["151:","141:"],
+				"5" : ["20","40"],
 				"10" : ["0","10"],
 				"11" : ["0","10"],
 				"196" : ["0","10"],
@@ -132,6 +134,249 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs" : ["194"]
+		},
+	}
+
+	"Devices" : {
+		"Western Digital RE4-GP" : {
+			"Device" : ["Western Digital RE4-GP","WDC WD2002FYPS-01U1B1"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"11" : "RAW_VALUE", # Calibration Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"200" : "RAW_VALUE" # Multi Zone Error Rate
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],		
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
+		"Seagate Barracuda ES.2" : {
+			"Device" : ["Seagate Barracuda ES.2","ST31000340NS"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"11" : "RAW_VALUE", # Calibration Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"190" : "RAW_VALUE", # Airflow Temperature Celsius
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"200" : "RAW_VALUE" # Multi Zone Error Rate
+			},   
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["190","194"]
+		},
+		"Seagate Constellation ES" : { 
+			"Device" : ["Seagate Constellation ES", "ST32000644NS"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "RAW_VALUE", # End-to-End Errors
+				"187" : "RAW_VALUE", # Reported Uncorrect
+				"188" : "RAW_VALUE", # Command Timeout
+				"189" : "RAW_VALUE", # High Fly Writes
+				"190" : "RAW_VALUE", # Airflow Temperature Celsius
+				"191" : "RAW_VALUE", # G-Sense Error Rate
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"195" : "RAW_VALUE", # Hardware ECC Recovered
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["190","194"]
+		},
+		"Western Digital RE4 500G" : {
+			"Device" : ["Western Digital RE4 500G","WDC WD5003ABYX-01WERA1"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate	
+				"3" : "VALUE", # Spin Up Time	
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"11" : "RAW_VALUE", # Calibration Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"200" : "RAW_VALUE" # Multi Zone Error Rate			   
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["190"]
+		},
+		"Western Digital RE4 2TB" : {
+			"Device" : ["Western Digital RE4 2TB","WDC WD2003FYYS-02W0B1"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate	
+				"3" : "VALUE", # Spin Up Time	
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"11" : "RAW_VALUE", # Calibration Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"200" : "RAW_VALUE" # Multi Zone Error Rate			   
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["190"]
+		},
+
+		"Seagate Constellation ES.2 500G" : { 
+			"Device" : ["Seagate Constellation ES.2 500G", "ST3500320NS"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "RAW_VALUE", # End-to-End Errors
+				"187" : "RAW_VALUE", # Reported Uncorrect
+				"188" : "RAW_VALUE", # Command Timeout
+				"189" : "RAW_VALUE", # High Fly Writes
+				"190" : "RAW_VALUE", # Airflow Temperature Celsius
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"195" : "RAW_VALUE", # Hardware ECC Recovered
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["190","194"]
+		},
+		"Seagate Constellation ES.2 1TB" : { 
+			"Device" : ["Seagate Constellation ES.2 1TB", "ST31000340NS"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "RAW_VALUE", # End-to-End Errors
+				"187" : "RAW_VALUE", # Reported Uncorrect
+				"188" : "RAW_VALUE", # Command Timeout
+				"189" : "RAW_VALUE", # High Fly Writes
+				"190" : "RAW_VALUE", # Airflow Temperature Celsius
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"195" : "RAW_VALUE", # Hardware ECC Recovered
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["190","194"]
 		},
 	}
 }

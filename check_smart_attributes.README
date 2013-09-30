@@ -1,12 +1,12 @@
         = README =
 
     == Synopsis ==
-$ sudo ./check_smart_values -d /dev/sda -dbj ./check_smartdb.json
+$ sudo ./check_smart_attributes -d /dev/sda -dbj ./check_smartdb.json
 Critical [sda_UDMA_CRC_Error_Count = Critical]|sda_Media_Wearout_Indicator=097;16;6
 sda_Host_Writes_32MiB=517197 sda_Host_Reads_32MiB=395442
 
     == Requirements ==
-The following software is required for check_smart_values:
+The following software is required for check_smart_attributes:
 * Perl
 ** Getopt::Long
 ** Config::JSON
@@ -20,11 +20,11 @@ JSON config files.
 
     == Configuration ==
   === check_smartdb.json ===
-The smartdb JSON file specifies the smart value configuration for a device. It
-contains the configuration which value (VALUE or RAW_VALUE) must be taken for
-a smart value ID. The config is checked on the basis of device and model
+The smartdb JSON file specifies the smart attribute configuration for a device.
+It contains the configuration which value (VALUE or RAW_VALUE) must be taken for
+a smart attribute ID. The config is checked on the basis of device and model
 strings given by smartctl. If your device is not listed in the config please
-study the device specification and add the id--value mapping.
+study the device specification and add the id--attribute mapping.
 The smartdb JSON file also specifies default threshold and performance values.
 These values state the Warning/Critical sensor thresholds and the performance
 data sensors. The threshold and performance base config can be overwritten with
@@ -35,10 +35,8 @@ Specify the path at which the JSON user config file can be found.
 The user config can be used to override threshold and performance base
 config. This can be useful if the thresholds for a specific device must
 be changed (e.g. showing up a non-critical error).
-Note that only sensors whose thresholds are defined are being checked.
-Please ensure to include all smart sensor IDs with their thresholds in
-the user config that should be checked - copying the base config is a
-good starting point.
+Note that a given sensor in the user config overwrites the one sensor in the
+base JSON file.
 
   === sudo for nagios user ===
 The smartctl executable requires root privileges to check a device. In order to
@@ -47,7 +45,7 @@ for smartctl:
   nagios ALL=(root) NOPASSWD:/usr/sbin/smartctl
 
     == License ==
-check_smart_values: Nagios/Icinga plugin to check smart values with
+check_smart_attributes: Nagios/Icinga plugin to check smart attributes with
 smartctl.
 
 Copyright (C) 2013 Thomas-Krenn.AG,

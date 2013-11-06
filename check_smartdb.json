@@ -76,7 +76,7 @@
 				"171" : "VALUE", # Program Fail Count
 				"172" : "VALUE", # Erase Fail Count
 				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"175" : "RAW_VALUE", # Power Loss Protection Failure
+				"175" : "VALUE", # Power Loss Protection Failure
 				"183" : "RAW_VALUE", # SATA Downshift Count
 				"184" : "VALUE", # End-to-End Error Detection Count
 				"187" : "RAW_VALUE", # Uncorrectable Error Count
@@ -119,7 +119,7 @@
 				"171" : "VALUE", # Program Fail Count
 				"172" : "VALUE", # Erase Fail Count
 				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"175" : "RAW_VALUE", # Power Loss Protection Failure
+				"175" : "VALUE", # Power Loss Protection Failure
 				"183" : "RAW_VALUE", # SATA Downshift Count
 				"184" : "VALUE", # End-to-End Error Detection Count
 				"187" : "RAW_VALUE", # Uncorrectable Error Count

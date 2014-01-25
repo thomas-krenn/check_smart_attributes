@@ -120,7 +120,7 @@ sub checkWhichDevice{
 				my $found = 0;# We have not found the device yet
 				foreach (@{$devices_h->{$key}->{'Device'}}){
 					# If the model matches we have found the correct db entry
-					if($_ =~ $currModel){
+					if($currModel =~ $_){
 						$found =1;
 						my %foundDevice_h;
 						# Clone the values from the JSON smart db, ensure to not work

@@ -22,13 +22,13 @@ our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 sub getVersionString{
 	return "check_smart_values version $VERSION 20130809
 Copyright (C) 2013 Thomas-Krenn.AG (written by Georg Schönberger)
-Current updates available via git repository git.thomas-krenn.com.\n";
+Current updates available via git repository http://git.thomas-krenn.com.\n";
 }
 
 sub getUsageString{
 	return "Usage:
-sudo check_smart_values -dbj <smartdb json file> -ucfgj <user config json file>
--p <path to smartctl> [-v|-vv|-vvv] [-h] [-V]\n";
+sudo check_smart_values -dbj <smartdb json file> [-ucfgj <user config json file>]
+[-p <path to smartctl>] [-v|-vv|-vvv] [-h] [-V]\n";
 }
 
 sub getHelpString{
@@ -38,22 +38,22 @@ sub getHelpString{
         default /usr/sbin/smartctl is taken.
   [-d|--device <path to devices being checked>]
         Specify the devices being monitored. If multiple devices should be
-        checked provice the '-d' multiple times. E.g. '-d /dev/sda -d /dev/sdb'
+        checked provide the '-d' option multiple times.
+        E.g. '-d /dev/sda -d /dev/sdb'
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
         sensor. In order to interpret a sensor it is necessary to know which
-        value to take. As this mapping is different for device models a
+        value to take. As this mapping can be different for device models a
         database is needed for a device.
   [-ucfgj|--ucfgjson <path to user config JSON file>]
         Specify the path at which the JSON user config file can be found.
-        The user config can be used to override threshold and performance base
-        config. This can be useful if the thresholds for a specific device must
-        be changed (e.g. showing up a non-critical error).
-        Note that only sensors whose thresholds are defined are being checked.
-        Please ensure to include all smart sensor IDs with their thresholds in
-        the user config that should be checked - copying the base config is a
-        good starting point.
+        The user config can be used to override thresholds and performance values
+        in the base config. This can be useful if the thresholds for a specific
+        device must be changed (e.g. showing up a non-critical error). If a value
+        is defined in the user config it overrides its corresponding value in
+        the base config. The override is only taken for the specific value, for
+        the other ones the base config is still valid.
   [-v <Verbose Level>]
        be verbose
          (no -v) .. single line output

@@ -28,7 +28,7 @@ Current updates available via git repository http://git.thomas-krenn.com.\n";
 sub getUsageString{
 	return "Usage:
 sudo check_smart_values -dbj <smartdb json file> [-ucfgj <user config json file>]
-[-p <path to smartctl>] [-v|-vv|-vvv] [-h] [-V]\n";
+[-p <path to smartctl>] [-nosudo] [-v|-vv|-vvv] [-h] [-V]\n";
 }
 
 sub getHelpString{

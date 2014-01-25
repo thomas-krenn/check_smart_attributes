@@ -54,6 +54,9 @@ sub getHelpString{
         is defined in the user config it overrides its corresponding value in
         the base config. The override is only taken for the specific value, for
         the other ones the base config is still valid.
+  [-nosudo]
+        Disable the usage of sudo for smartctl. This is handy if a system is
+        used where sudo is not available.
   [-v <Verbose Level>]
        be verbose
          (no -v) .. single line output

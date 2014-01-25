@@ -1,0 +1,17 @@
+###############################################################################
+Changelog for check_smart_attributes, a Nagios/Icinga plugin to check the smart
+attributes of HDDs and SSDs
+###############################################################################
+
+Version 1.0 20140125
+  * Check given smart values against base smart JSON db
+  * Parse smart output for multiple devices
+  * Smartdb defaults can be overwritten with a user config
+  * Only take numbers as performance data thresholds
+  * Add deepcopy to JSON refs to not work on references
+  * Update smartdb for power loss protection
+  * Search through all defined device models in the smart DB config
+  * Fix nosudo option
+
+List of contributors:
+  * Georg Schoenberger <gschoenberger@thomas-krenn.com>

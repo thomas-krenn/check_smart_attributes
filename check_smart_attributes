@@ -115,35 +115,41 @@ sub checkWhichDevice{
 		foreach my $device (keys %smartctlOut_h){
 			my @smartctlOut = @{$smartctlOut_h{$device}};
 			my @model = grep { /Model Family/i || /Device Model/i } @smartctlOut;
-			foreach(@model){
-				# If the model matches we have found the correct db entry
-				if(($_ =~ $devices_h->{$key}->{'Device'}->[0]) ||
-				($_ =~ $devices_h->{$key}->{'Device'}->[1])){
-					my %foundDevice_h;
-					# Clone the values from the JSON smart db, ensure to not work
-					# with the same reference every time
-					$foundDevice_h{'Path'} = $device;
-					$foundDevice_h{'Device'} = dclone $devices_h->{$key}->{'Device'};
-					$foundDevice_h{'ID#'} = dclone $devices_h->{$key}->{'ID#'};
-					$foundDevice_h{'Threshs'} = dclone $devices_h->{$key}->{'Threshs'};
-					$foundDevice_h{'Perfs'} = dclone $devices_h->{$key}->{'Perfs'};
-					# Tresholds and perf variables are defined in the user cfg
-					if(defined($uCfgDevices_h->{$device})){
-						if(defined($uCfgDevices_h->{$device}->{'Threshs'})){
-							# A defined user config sensor overwrites the values from the json db
-							my %threshs_h = %{$uCfgDevices_h->{$device}->{'Threshs'}};
-							foreach my $ID (keys %threshs_h){
-								$foundDevice_h{'Threshs'}->{$ID} = $threshs_h{$ID};
+			foreach my $currModel (@model){
+				# Search for the model in the smart DB
+				my $found = 0;# We have not found the device yet
+				foreach (@{$devices_h->{$key}->{'Device'}}){
+					# If the model matches we have found the correct db entry
+					if($_ =~ $currModel){
+						$found =1;
+						my %foundDevice_h;
+						# Clone the values from the JSON smart db, ensure to not work
+						# with the same reference every time
+						$foundDevice_h{'Path'} = $device;
+						$foundDevice_h{'Device'} = dclone $devices_h->{$key}->{'Device'};
+						$foundDevice_h{'ID#'} = dclone $devices_h->{$key}->{'ID#'};
+						$foundDevice_h{'Threshs'} = dclone $devices_h->{$key}->{'Threshs'};
+						$foundDevice_h{'Perfs'} = dclone $devices_h->{$key}->{'Perfs'};
+						# Tresholds and perf variables are defined in the user cfg
+						if(defined($uCfgDevices_h->{$device})){
+							if(defined($uCfgDevices_h->{$device}->{'Threshs'})){
+								# A defined user config sensor overwrites the values from the json db
+								my %threshs_h = %{$uCfgDevices_h->{$device}->{'Threshs'}};
+								foreach my $ID (keys %threshs_h){
+									$foundDevice_h{'Threshs'}->{$ID} = $threshs_h{$ID};
+								}
+							}
+							# A defined Perfs array overwrites the json db one
+							if(defined($uCfgDevices_h->{$device}->{'Perfs'})){
+								$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
 							}
 						}
-						# A defined Perfs array overwrites the json db one
-						if(defined($uCfgDevices_h->{$device}->{'Perfs'})){
-							$foundDevice_h{'Perfs'} = $uCfgDevices_h->{$device}->{'Perfs'};
-						}
+						push @devices_a, \%foundDevice_h;
+						last;
 					}
-					push @devices_a, \%foundDevice_h;
-					last;
 				}
+				# Finish the current device model
+				if($found){last;}
 			}
 		}
 	}

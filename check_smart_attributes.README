@@ -10,12 +10,13 @@ The following software is required for check_smart_attributes:
 * Perl
 ** Getopt::Long
 ** Config::JSON
+** Storable qw(dclone);
 * smartctl
 
     == Installation ==
 On Ubuntu use
   :~$ sudo apt-get install smartmontools libconfig-json-perl
-to install smartmontools including smartctl and the perl library for parsing
+to install smartmontools including smartctl and the Perl library for parsing
 JSON config files.
 
     == Configuration ==
@@ -32,15 +33,15 @@ a user config JSON file (see below).
 
   === check_smartcfg.json (optional) ===
 Specify the path at which the JSON user config file can be found.
-The user config can be used to override threshold and performance base
+The user config can be used to override the threshold and performance base
 config. This can be useful if the thresholds for a specific device must
 be changed (e.g. showing up a non-critical error).
-Note that a given sensor in the user config overwrites the one sensor in the
-base JSON file.
+Note that a given sensor in the user config overwrites the corresponding sensor
+in the smartdb base JSON file.
 
   === sudo for nagios user ===
 The smartctl executable requires root privileges to check a device. In order to
-use the plugin with the nagios user it is recommended to create a sudoers entry
+use the plugin with the nagios user, it is recommended to create a sudoers entry
 for smartctl:
   nagios ALL=(root) NOPASSWD:/usr/sbin/smartctl
 

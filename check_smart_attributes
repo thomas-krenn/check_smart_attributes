@@ -27,8 +27,9 @@ Current updates available via git repository http://git.thomas-krenn.com.\n";
 
 sub getUsageString{
 	return "Usage:
-sudo check_smart_values -dbj <smartdb json file> [-ucfgj <user config json file>]
-[-p <path to smartctl>] [-nosudo] [-v|-vv|-vvv] [-h] [-V]\n";
+sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
+[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo] [-v|-vv|-vvv]
+[-h] [-V]\n";
 }
 
 sub getHelpString{
@@ -36,8 +37,8 @@ sub getHelpString{
   [-p|--path <path to smartctl]
         Specify the path at which the smartctl binary can be found. Per
         default /usr/sbin/smartctl is taken.
-  [-d|--device <path to devices being checked>]
-        Specify the devices being monitored. If multiple devices should be
+  [-d|--device <path to device being checked>]
+        Specify the device being monitored. If multiple devices should be
         checked provide the '-d' option multiple times.
         E.g. '-d /dev/sda -d /dev/sdb'
   [-dbj|--dbjson <path to smartdb JSON file>]

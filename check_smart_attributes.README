@@ -20,6 +20,12 @@ to install smartmontools including smartctl and the Perl library for parsing
 JSON config files.
 
     == Configuration ==
+  === Device(s) to check ===
+The '-d' option specifies the device to check. If multiple devices should be
+checke specify the option multiple times:
+  -d /dev/sda -d /dev/sdb
+Then multiple devices can be monitored with one check.
+
   === check_smartdb.json ===
 The smartdb JSON file specifies the smart attribute configuration for a device.
 It contains the configuration which value (VALUE or RAW_VALUE) must be taken for

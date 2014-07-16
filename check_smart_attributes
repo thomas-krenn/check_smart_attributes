@@ -87,7 +87,16 @@ sub getSmartctl{
 	my %output_h;
 
 	foreach my $device (@devicesToCheck_a){
-		my @output = `$smartctl -a $device`;
+		my @output;
+		if($device =~ /^megaraid\,[0-9]+/){
+			# sda is a dummy device as smartctl uses the megaraid number
+			@output = `$smartctl -a -d $device /dev/sda`;
+			$device = '/dev/'.$device;
+			$device =~ s/\,//g;
+		}
+		else{
+			@output = `$smartctl -a $device`;
+		}
 		if(($? >> 8) & 2){
 			print "Error: smartctl returned \"No such device\" for device $device.\n";
 			exit(STATE_UNKNOWN);

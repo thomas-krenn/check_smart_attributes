@@ -522,6 +522,10 @@ MAIN: {
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';
+	# If the status string exceeds 36 chars, just use the number of checked devices
+	if(length($dev_str) > 36){
+		$dev_str = scalar(@$devices_a).' devices) ';
+	}
 	print $dev_str;
 	print getStatusString("Critical",$statusLevel_a,$smartValues_h,$devices_a);
 	print getStatusString("Warning",$statusLevel_a,$smartValues_h,$devices_a);

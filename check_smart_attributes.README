@@ -25,6 +25,16 @@ The '-d' option specifies the device to check. If multiple devices should be
 checke specify the option multiple times:
   -d /dev/sda -d /dev/sdb
 Then multiple devices can be monitored with one check.
+  ==== Devices with LSI RAID controllers ====
+For devices behind LSI controllers use the megaraid device string:
+  -d megaraid6
+Please consider, that a colon after 'megaraid' is not necessary.
+  ==== Devices with Adaptec RAID controllers ====
+For devices behind Adaptec controllers use the sg device string and an extra
+option for the device interface:
+  -d /dev/sg2 -O sat
+  -d /dev/sg2 -O scsi
+Please consider, that the extra option is mandatory.
 
   === check_smartdb.json ===
 The smartdb JSON file specifies the smart attribute configuration for a device.

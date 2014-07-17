@@ -6,7 +6,7 @@ use Getopt::Long qw(:config no_ignore_case);
 use Config::JSON;
 use Storable qw(dclone);
 
-our $VERSION = "1.0";
+our $VERSION = "1.1";
 our $VERBOSITY = 0;
 
 use constant {
@@ -20,7 +20,7 @@ our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
 
 sub getVersionString{
-	return "check_smart_values version $VERSION 20130809
+	return "check_smart_values version $VERSION 20140717
 Copyright (C) 2013 Thomas-Krenn.AG (written by Georg Schönberger)
 Current updates available via git repository http://git.thomas-krenn.com.\n";
 }

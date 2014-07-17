@@ -3,6 +3,10 @@ Changelog for check_smart_attributes, a Nagios/Icinga plugin to check the smart
 attributes of HDDs and SSDs
 ###############################################################################
 
+Version 1.1 20140717
+  * Add support for devices behind LSI RAID controllers
+  * Add support for devices behind Adaptec RAID controllers
+
 Version 1.0 20140125
   * Check given smart values against base smart JSON db
   * Parse smart output for multiple devices
@@ -15,3 +19,4 @@ Version 1.0 20140125
 
 List of contributors:
   * Georg Schoenberger <gschoenberger@thomas-krenn.com>
+  * Thanks to Martin Zdrahal for the help with megaraid devices.

@@ -88,11 +88,14 @@ sub getSmartctl{
 
 	foreach my $device (@devicesToCheck_a){
 		my @output;
-		if($device =~ /^megaraid\,[0-9]+/){
+		# Check if a megaraid device is used
+		if($device =~ /^megaraid[0-9]+/){
+			my $megaDevice = $device;
+			substr($megaDevice,8,0,',');
 			# sda is a dummy device as smartctl uses the megaraid number
-			@output = `$smartctl -a -d $device /dev/sda`;
+			@output = `$smartctl -a -d $megaDevice /dev/sda`;
+			# From now on we use e.g. megaraid6 as device
 			$device = '/dev/'.$device;
-			$device =~ s/\,//g;
 		}
 		else{
 			@output = `$smartctl -a $device`;

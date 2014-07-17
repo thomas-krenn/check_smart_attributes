@@ -323,7 +323,8 @@ sub getStatusString{
 			foreach my $sensor (@sensors_a){
 				$status_str .= "[".$sensor." = ".$level;
 				if($VERBOSITY){
-					$sensor =~ /^([a-zA-Z]+)/;
+					# Parse out the used device, use numbers for megaraid devs
+					$sensor =~ /^([a-zA-Z0-9]+)/;
 					my $devicePath = '/dev/'.$1;
 					my %IDs_h;
 					my @smartValues_a;

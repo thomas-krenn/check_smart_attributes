@@ -28,8 +28,8 @@ Current updates available via git repository http://git.thomas-krenn.com.\n";
 sub getUsageString{
 	return "Usage:
 sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
-[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo] [-v|-vv|-vvv]
-[-h] [-V]\n";
+[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo]
+[-O <extra options>][ -v|-vv|-vvv] [-h] [-V]\n";
 }
 
 sub getHelpString{
@@ -44,6 +44,11 @@ sub getHelpString{
         For devices behind LSI RAID controllers specify 'megaraid' and then the
         device number, e.g. '-d megaraid6'. Use storcli to find out the
         corresponding device numbers.
+        For devices behind Adaptec RAID controllers specify '/dev/sg<X>' where
+        <X> is the number for your device. Use e.g. sg_scan to find the device.
+        You must also use '-O sat' or '-O scsi' according to the device
+        interface. This are extra options only necessary for '/dev/sg<X>'
+        devices.
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -61,6 +66,10 @@ sub getHelpString{
   [-nosudo]
         Disable the usage of sudo for smartctl. This is handy if a system is
         used where sudo is not available.
+  [-O|--options <extra options>]
+        Currently the extra options 'sat' or 'scsi' are possible. This options
+        are used to query SMART attributes behind Adaptec controllers. The
+        options are only used if a device of type sg<X> is given.
   [-v <Verbose Level>]
        be verbose
          (no -v) .. single line output
@@ -86,6 +95,7 @@ sub readDbJSON{
 sub getSmartctl{
 	my $smartctl = shift;
 	my @devicesToCheck_a = @{(shift)};
+	my $extraOpts = shift;
 	#a hash of all devices with their corresponding output
 	my %output_h;
 
@@ -99,6 +109,16 @@ sub getSmartctl{
 			@output = `$smartctl -a -d $megaDevice /dev/sda`;
 			# From now on we use e.g. megaraid6 as device
 			$device = '/dev/'.$device;
+		}
+		# Check if an Adaptec sg device is used
+		elsif($device =~ /^\/dev\/sg[0-9]+/ && defined($extraOpts)){
+			if($extraOpts ne 'sat' && $extraOpts ne 'scsi'){
+				print "Error: please use 'sat' or 'scsi' as options for Adaptec sg devices!\n";
+				print getUsageString();
+				exit(STATE_UNKNOWN);
+			}
+			# Call smartctl with extra option for Adaptec
+			@output = `$smartctl -a -d $extraOpts $device`;
 		}
 		else{
 			@output = `$smartctl -a $device`;
@@ -436,7 +456,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $extraOpts);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -453,6 +473,7 @@ MAIN: {
 		'd|device=s' => \@devicesToCheck_a,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
 		'nosudo' => \$noSudo,
+		'O|options=s' => \$extraOpts,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);
@@ -496,7 +517,7 @@ MAIN: {
 	if(defined($uCfgJSON)){
 		$uCfg = readUCfgJSON($uCfgJSON);
 	}
-	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a);
+	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a,$extraOpts);
 	my $dbConfig = readDbJSON($dbJSON);
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
 	if(!(@$devices_a)){

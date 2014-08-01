@@ -153,6 +153,37 @@
 			},
 			"Perfs" : ["194","233","241","242"]
 		},
+		"SanDisk X300s" : {
+			"Device" : ["Marvell based SanDisk SSDs","SanDisk SD6SB1M128G1022I"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power-On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"171" : "RAW_VALUE", # Program_Fail_Count
+				"172" : "RAW_VALUE", # Erase_Fail_Count
+				"174" : "RAW_VALUE", # Unexpect_Power_Loss_Ct
+				"187" : "RAW_VALUE", # Reported_Uncorrect
+				"194" : "RAW_VALUE", # Temperature_Celsius
+				"212" : "RAW_VALUE", # SATA_PHY_Error
+				"230" : "RAW_VALUE", # Perc_Write_Erase_Count/Wear out
+				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
+				"241" : "RAW_VALUE", # Total_Writes_GiB
+				"242" : "RAW_VALUE", # Total_Reads_GiB
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"174" : ["0","10"],
+				"187" : ["0","10"],
+				"212" : ["0","10"],
+				"230" : ["16:","11:"],
+				"232" : ["16:","11:"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["194","230","232","241","242"]
+		},
 		"Western Digital RE4" : {
 			"Device" : ["Western Digital RE4","WDC WD1003FBYX-01Y7B0"],
 			"ID#" : {

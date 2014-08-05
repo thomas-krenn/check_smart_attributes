@@ -154,7 +154,7 @@
 			"Perfs" : ["194","233","241","242"]
 		},
 		"SanDisk X300s" : {
-			"Device" : ["Marvell based SanDisk SSDs","SanDisk SD6SB1M128G1022I"],
+			"Device" : ["Marvell based SanDisk SSDs","SanDisk SD6SB1M128G1022I","SanDisk SD6SB1M256G1022I","SanDisk SD6SB2M512G1022I"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power-On Hours Count

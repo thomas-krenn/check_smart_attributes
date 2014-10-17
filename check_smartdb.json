@@ -183,6 +183,45 @@
 			},
 			"Perfs" : ["194","230","232","241","242"]
 		},
+		"Samsung PM853T" : {
+			"Device" : ["SAMSUNG MZ7GE240HMGR-00003","SAMSUNG MZ7GE480HMGR-00003","SAMSUNG MZ7GE960HMGR-00003"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power On Count
+				"177" : "RAW_VALUE", # Wear Leveling Count
+				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
+				"180" : "RAW_VALUE", # Unused Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"183" : "RAW_VALUE", # Runtime Bad Count (Total)
+				"184" : "RAW_VALUE", # End to End Error Data Path Error Count
+				"187" : "RAW_VALUE", # Uncorrectrable Error Count
+				"190" : "RAW_VALUE", # Air Flow Temperature
+				"195" : "RAW_VALUE", # ECC Error Rate
+				"199" : "RAW_VALUE", # CRC Error Count
+				"202" : "RAW_VALUE", # SSD Mode Status
+				"235" : "RAW_VALUE", # Power Recovery Count
+				"241" : "RAW_VALUE", # Total LBA Written
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"5" : ["10","20"],
+				"177" : ["16:","11:"],
+				"179" : ["3500","4000"],
+				"180" : ["16:","11:"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"183" : ["0","10"],
+				"184" : ["5","15"],
+				"187" : ["0","10"],
+				"190" : ["60","70"],
+				"195" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["190","177","180","241"]
+		},
 		"Western Digital RE4" : {
 			"Device" : ["Western Digital RE4","WDC WD1003FBYX-01Y7B0"],
 			"ID#" : {

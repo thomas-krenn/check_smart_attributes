@@ -241,7 +241,7 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"200" : "RAW_VALUE" # Multi Zone Error Rate
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],

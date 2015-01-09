@@ -3,6 +3,11 @@ Changelog for check_smart_attributes, a Nagios/Icinga plugin to check the smart
 attributes of HDDs and SSDs
 ###############################################################################
 
+Version 1.2 20150109
+  * Fix smart attribute values for Samsung and SanDisk SSDs
+  * Added WD and Seagate devices
+  * Fix device paths behind LSI RAID controllers 
+
 Version 1.1 20140717
   * Add support for devices behind LSI RAID controllers
   * Add support for devices behind Adaptec RAID controllers
@@ -20,3 +25,4 @@ Version 1.0 20140125
 List of contributors:
   * Georg Schoenberger <gschoenberger@thomas-krenn.com>
   * Thanks to Martin Zdrahal for the help with megaraid devices.
+  * Thanks to Dennis Lotz for attributes of WD devices.

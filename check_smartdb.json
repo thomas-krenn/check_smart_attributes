@@ -242,7 +242,8 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate
+				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -253,7 +254,8 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -276,7 +278,8 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate
+				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -287,7 +290,8 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -311,7 +315,8 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate
+				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -322,7 +327,8 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -349,7 +355,8 @@
 				"195" : "RAW_VALUE", # Hardware ECC Recovered
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -358,7 +365,8 @@
 				"10" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -381,7 +389,8 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate
+				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -392,7 +401,8 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -416,7 +426,8 @@
 				"195" : "RAW_VALUE", # Hardware ECC Recovered
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -425,7 +436,8 @@
 				"10" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -449,7 +461,8 @@
 				"195" : "RAW_VALUE", # Hardware ECC Recovered
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -458,7 +471,8 @@
 				"10" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -485,6 +499,7 @@
 				"233" : "VALUE", # Media Wearout Indicator
 				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
 				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+				"1024" : "VALUE" # ATA error count (custom)
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -493,6 +508,7 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
+				"1024" : ["0","10"]
 			},
 			"Perfs" : ["233","241","242"]
 		}

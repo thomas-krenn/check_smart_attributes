@@ -26,9 +26,11 @@ checke specify the option multiple times:
   -d /dev/sda -d /dev/sdb
 Then multiple devices can be monitored with one check.
   ==== Devices with LSI RAID controllers ====
-For devices behind LSI controllers use the megaraid device string:
-  -d megaraid6
-Please consider, that a colon after 'megaraid' is not necessary.
+For devices behind LSI controllers use the megaraid device string and the 
+corresponding device path. You can get the DID with
+  :~$ sudo storcli64 /c0 /eall/sall show
+From this output use the number in the DID column. Then call the plugin:
+  :~$ sudo ./check_smart_attributes -dbj check_smartdb.json -d megaraid4,/dev/sda
   ==== Devices with Adaptec RAID controllers ====
 For devices behind Adaptec controllers use the sg device string and an extra
 option for the device interface:
@@ -65,7 +67,7 @@ for smartctl:
 check_smart_attributes: Nagios/Icinga plugin to check smart attributes with
 smartctl.
 
-Copyright (C) 2013 Thomas-Krenn.AG,
+Copyright (C) 2015 Thomas-Krenn.AG,
 
 This program is free software; you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software

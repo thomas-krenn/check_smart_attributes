@@ -223,6 +223,49 @@
 			},
 			"Perfs" : ["190","177","180","241"]
 		},
+		"Crucial MX200" : {
+			"Device" : ["Crucial_CT1024MX200SSD1"],
+			"ID#" : {
+				"1" : "RAW_VALUE", # Raw Read Error Rate
+				"5" : "RAW_VALUE", # Reallocated NAND Block Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"171" : "RAW_VALUE", # Program Fail Count
+				"172" : "RAW_VALUE", # Erase Fail Count
+				"173" : "RAW_VALUE", # Average Block-Erase Count
+				"174" : "RAW_VALUE", # Unexpected Power Loss Count
+				"180" : "RAW_VALUE", # Unused Reserve (Spare) NAND Blocks
+				"183" : "RAW_VALUE", # SATA Interface Downshift
+				"184" : "VALUE", # Error Correction Count
+				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
+				"194" : "RAW_VALUE", # Enclosure Temperature
+				"196" : "RAW_VALUE", # Reallocation Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector Count
+				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
+				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
+				"202" : "VALUE", # Percent Lifetime Remaining
+				"206" : "RAW_VALUE", # Write Error Rate
+				"210" : "RAW_VALUE", # Successful RAIN Recovery Count
+				"246" : "RAW_VALUE", # Total Host Sector Writes
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"5" : ["10","20"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"180" : ["250:","150:"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"184" : ["96:","91:"],
+				"187" : ["0","10"],
+				"194" : ["60","70"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"202" : ["16:","6:"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["180","194","202","246"]
+		},
 		"Western Digital RE4" : {
 			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1"],
 			"ID#" : {

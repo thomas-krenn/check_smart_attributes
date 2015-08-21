@@ -110,6 +110,52 @@
 			},
 			"Perfs" : ["194","233","241","242"]
 		},
+		"Intel DC S3710" : {
+			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power-On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"171" : "VALUE", # Program Fail Count
+				"172" : "VALUE", # Erase Fail Count
+				"174" : "RAW_VALUE", # Unexpected Power Loss
+				"175" : "VALUE", # Power Loss Protection Failure
+				"183" : "RAW_VALUE", # SATA Downshift Count
+				"184" : "RAW_VALUE", # End-to-End Error Detection Count
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"194" : "RAW_VALUE", # Temperature - Device Internal Temperature
+				"197" : "RAW_VALUE", # Pending Sector Count
+				"199" : "RAW_VALUE", # CRC Error Count
+				"226" : "RAW_VALUE", # Timed Workload Media Wear
+				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio
+				"228" : "RAW_VALUE", # Timed Workload Timer
+				"232" : "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"234" : "VALUE", # Thermal Throttle Status
+				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+				"243" : "RAW_VALUE", # Total Bytes Written
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"171" : ["16:","11:"],
+				"172" : ["16:","11:"],
+				"175" : ["100:","100:"],
+				"183" : ["20","40"],
+				"184" : ["20","40"],
+				"187" : ["0","10"],
+				"190" : ["60","70"],
+				"197" : ["0","10"],
+				"199" : ["0","10"],
+				"232" : ["16:","11:"],
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["190","194","232","233","241","242","243"]
+		},
 		"Intel DC S3500" : {
 			"Device" : ["Intel DC S3500 Series SSDs","INTEL SSDSC2BB080G4","INTEL SSDSC2BB120G4","INTEL SSDSC2BB160G4","INTEL SSDSC2BB240G4","INTEL SSDSC2BB300G4","INTEL SSDSC2BB480G4","INTEL SSDSC2BB600G4","INTEL SSDSC2BB800G4","INTEL SSDSC2BB012T4"],
 			"ID#" : {

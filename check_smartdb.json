@@ -171,7 +171,7 @@
 				"174" : "RAW_VALUE", # Unexpected Power Loss
 				"175" : "VALUE", # Power Loss Protection Failure
 				"183" : "RAW_VALUE", # SATA Downshift Count
-				"184" : "VALUE", # End-to-End Error Detection Count
+				"184" : "RAW_VALUE", # End-to-End Error Detection Count
 				"187" : "RAW_VALUE", # Uncorrectable Error Count
 				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
 				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
@@ -193,15 +193,18 @@
 				"171" : ["16:","11:"],
 				"172" : ["16:","11:"],
 				"175" : ["100:","100:"],
-				"184" : ["96:","91:"],
+				"183" : ["20","40"],
+				"184" : ["20","40"],
 				"187" : ["0","10"],
+				"190" : ["50","60"],
+				"194" : ["50","60"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
 				"1024" : ["0","10"]
 			},
-			"Perfs" : ["194","233","241","242"]
+			"Perfs" : ["190","194","232","233","241","242"]
 		},
 		"SanDisk X300s" : {
 			"Device" : ["Marvell based SanDisk SSDs","SanDisk SD6SB1M128G1022I","SanDisk SD6SB1M256G1022I","SanDisk SD6SB2M512G1022I","SanDisk SD7UB2Q512G1022","SanDisk SD7UB2Q512G1122"],

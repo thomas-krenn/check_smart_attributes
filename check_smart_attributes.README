@@ -19,6 +19,10 @@ On Ubuntu use
 to install smartmontools including smartctl and the Perl library for parsing
 JSON config files.
 
+    == Mailing List ==
+* tk-monitoring-plugins-user@lists.thomas-krenn.com
+* Archive: http://lists.thomas-krenn.com/pipermail/tk-monitoring-plugins-user/
+
     == Configuration ==
   === Device(s) to check ===
 The '-d' option specifies the device to check. If multiple devices should be

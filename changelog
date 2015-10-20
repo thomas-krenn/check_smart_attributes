@@ -3,6 +3,17 @@ Changelog for check_smart_attributes, a Nagios/Icinga plugin to check the smart
 attributes of HDDs and SSDs
 ###############################################################################
 
+Version 1.3 20151020
+  * Added Western Digital Re to smartdb
+  * Added HGST Ultrastar He8 to smartdb
+  * Added Intel DC S3610 model numbers to DC S3710 as they share the same
+    SMART attributes
+  * Updating attributes for intel DC S3500
+  * Update attributes for intel DC S3700
+  * Added internal temp sensor for DC S3710
+  * Added Intel DC S3710 to smartdb
+  * Added Crucial MX200 to smartdb
+
 Version 1.2 20150109
   * Fix smart attribute values for Samsung and SanDisk SSDs
   * Added WD and Seagate devices

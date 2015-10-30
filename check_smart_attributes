@@ -393,7 +393,7 @@ sub getPerfString{
 					my $ID = $row->{'ID#'};
 					my $attr_str;
 					if(exists $IDs_h{$ID}){
-						$attr_str = $row->{'ATTRIBUTE_NAME'}."=".$row->{$IDs_h{$ID}};
+						$attr_str = "'".$row->{'ATTRIBUTE_NAME'}."'=".$row->{$IDs_h{$ID}};
 						if($perf_str){
 							$attr_str = " ".$attr_str;
 						}

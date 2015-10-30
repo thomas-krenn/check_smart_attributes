@@ -22,7 +22,7 @@ our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 sub getVersionString{
 	return "check_smart_values version $VERSION 20151020
 Copyright (C) 2015 Thomas-Krenn.AG (written by Georg Schönberger)
-Current updates available via git repository http://git.thomas-krenn.com.\n";
+Current updates available via git repository https://github.com/thomas-krenn/\n";
 }
 
 sub getUsageString{

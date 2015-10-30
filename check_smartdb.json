@@ -680,7 +680,7 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs" : ["233","241","242"]
-		}
+		},
 		"Seagate Barracuda 7200.9" : {
 			"Device" : ["Seagate Barracuda 7200.9","ST3120813AS"],
 			"ID#" : {

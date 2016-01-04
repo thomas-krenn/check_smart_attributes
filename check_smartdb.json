@@ -319,6 +319,42 @@
 			},
 			"Perfs" : ["180","194","202","246"]
 		},
+		"Kingston KC310" : {
+			"Device" : ["KINGSTON SKC310S37A960G"],
+			"ID#" : {
+				"1" : "RAW_VALUE", # Raw Read Error Rate
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"168" : "RAW_VALUE", # SATA PHY Error Count
+				"170" : "VALUE", # Bad Block Count
+				"173" : "RAW_VALUE", # Average Block-Erase Count
+				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
+				"192" : "RAW_VALUE", # Unsafe Shutdown Count
+				"194" : "RAW_VALUE", # Temperature
+				"199" : "RAW_VALUE", # CRC Error Count
+				"218" : "RAW_VALUE", # CRC Error Count
+				"231" : "RAW_VALUE", # SSD Life Left
+				"233" : "RAW_VALUE", # Lifetime Writes to Flash
+				"241" : "RAW_VALUE", # Host Writes
+				"242" : "RAW_VALUE", # Host Reads
+				"244" : "RAW_VALUE", # Average Erase Count
+				"245" : "RAW_VALUE", # Max Erase Count
+				"246" : "RAW_VALUE", # Total Erase Count
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"1" : ["0","10"],
+				"168" : ["0","10"],
+				"170" : ["16:","6:"],
+				"187" : ["0","10"],
+				"194" : ["60","70"],
+				"199" : ["0","10"],
+				"218" : ["0","10"],
+				"231" : ["16:","6:"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["170","194","231","233","241","242"]
+		},
 		"HGST Ultrastar He8" : {
 			"Device" : ["HGST HUH728080ALE600","HGST HUH728080ALE601","HGST HUH728080ALE604","HGST HUH728060ALE600","HGST HUH728060ALE601","HGST HUH726060ALE604"],
 			"ID#" : {

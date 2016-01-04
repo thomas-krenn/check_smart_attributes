@@ -41,8 +41,8 @@
 				"5" : "RAW_VALUE", # Reallocated sector count
 				"9" : "RAW_VALUE", # Power on hours
 				"12": "RAW_VALUE", # Power cycle counts
-				"171" : "RAW_VALUE", # Program fail count
-				"172" : "RAW_VALUE", # Erase fail count
+				"171" : "VALUE", # Program fail count
+				"172" : "VALUE", # Erase fail count
 				"184" : "VALUE", # End-to-End Error Detection
 				"187" : "RAW_VALUE", # Uncorrectable Error Count
 				"190" : "RAW_VALUE", # Temperature case

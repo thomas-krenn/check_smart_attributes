@@ -283,6 +283,18 @@ sub checkSmartctl{
 		foreach my $row (@smartValues_a){
 			my $ID = $row->{'ID#'};
 			if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
+				if(defined($threshs_h{$ID}->[2])){
+					# Check if a bit pattern exits, then shift it
+					$threshs_h{$ID}->[2] =~ /^([l,r])([0-9]+)$/;
+					my $shift_dir = $1;
+					my $shift_ct = $2;
+					if($shift_dir eq 'l'){
+						$row->{$IDs_h{$ID}} = $row->{$IDs_h{$ID}} << $2;
+					}
+					if($shift_dir eq 'r'){
+						$row->{$IDs_h{$ID}} = $row->{$IDs_h{$ID}} >> $2;
+					}
+				}
 				if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[0]))){
 					# Don't loose the critical state
 					$statusLevel_a[0] = 'Warning' unless $statusLevel_a[0] eq 'Critical';
@@ -440,7 +452,12 @@ sub getVerboseString{
 			$verb_str .= "\n================= \n";
 			$verb_str .= "Thresholds:\n";
 			foreach my $ID (keys %threshs_h){
-				$verb_str .= $ID.": [".$threshs_h{$ID}->[0].",".$threshs_h{$ID}->[1]."]\n";
+				if(defined($threshs_h{$ID}->[2])){
+					$verb_str .= $ID.": [".$threshs_h{$ID}->[0].",".$threshs_h{$ID}->[1].",".$threshs_h{$ID}->[2]."]\n";
+				}
+				else{
+					$verb_str .= $ID.": [".$threshs_h{$ID}->[0].",".$threshs_h{$ID}->[1]."]\n";
+				}
 			}
 			$verb_str .= "================= \n";
 			$verb_str .= "Performance Value IDs:\n";

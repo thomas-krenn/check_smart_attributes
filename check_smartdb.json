@@ -335,7 +335,6 @@
 				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
 				"188" : "RAW_VALUE", # Command Timeouts
 				"194" : "RAW_VALUE", # Enclosure Temperature
-				"195" : "RAW_VALUE", # Cumulative Corrected ECC
 				"197" : "RAW_VALUE", # Current Pending Sector Count
 				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
 				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
@@ -355,7 +354,6 @@
 				"187" : ["0","10"],
 				"188" : ["0","10"],
 				"194" : ["60","70"],
-				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],

@@ -829,7 +829,38 @@
 			    "199" : ["0","10"]
 			},
 			"Perfs" : ["5","184","187","194","197","199"]
+		    },
+		    "Samsung SM863" : {
+			"Device" : ["SAMSUNG MZ7KM240HAGR-00005"],
+			"ID#" : {
+			    "5" : "RAW_VALUE", # Re-allocated Sector Count
+			    "9" : "RAW_VALUE", # Power-On Hours Count
+			    "12" : "RAW_VALUE", # Power Cycle Count
+			    "177" : "RAW_VALUE", # Wear Leveling count
+			    "179" : "RAW_VALUE", # Used reserved block count
+			    "180" : "RAW_VALUE", # Unused reserved block count
+			    "183" : "RAW_VALUE", # Runtime_Bad_Block
+			    "184" : "VALUE", # End-to-End Error Detection Count
+			    "187" : "RAW_VALUE", # Uncorrectable Error Count
+			    "190" : "RAW_VALUE", # Airflow_Temperature_Cel
+			    "195" : "RAW_VALUE", # Hardware ECC recovered
+			    "197" : "RAW_VALUE", # Current_Pending_Sector
+			    "199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+			    "241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+			    "242" : "RAW_VALUE" # Total LBAs Read (32MiB)
+			},
+			"Threshs" : {
+			    "5" : ["0:","0"],
+			    "177" :["5","10"],
+			    "179" :["0","5"],
+			    "180" :[":1939",":1000"],
+			    "184" : ["0:","0:"],
+			    "187" : ["0","0"],
+			    "194" : ["40","50"],
+			    "197" : ["0","0"],
+			    "199" : ["0","10"]
+			},
+			"Perfs" : ["5","177","179","180","190","197"]
 		    }
-		    
 	}
 }

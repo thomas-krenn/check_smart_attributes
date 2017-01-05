@@ -4,7 +4,7 @@ attributes of HDDs and SSDs
 ###############################################################################
 
 Version 1.5 20161118
-  * Added aacraid option for drives attached to MegaRAID controllers
+  * Added aacraid option for drives attached to Adaptec RAID controllers
   * Removing smart attribute 195 from check for M510DC 
 
 Version 1.4 20160519

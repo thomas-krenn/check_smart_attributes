@@ -320,7 +320,7 @@
 			"Perfs" : ["180","194","202","246"]
 		},
 		"Crucial MX300" : {
-			"Device" : ["Crucial_CT275MX300SSD1"],
+			"Device" : ["Crucial_CT275MX300SSD1","Crucial_CT525MX300SSD1","Crucial_CT750MX300SSD1","Crucial_CT1050MX300SSD1","Crucial_CT2050MX300SSD1"],
 			"ID#" : {
 				"1" : "RAW_VALUE", # Raw Read Error Rate
 				"5" : "RAW_VALUE", # Reallocated NAND Block Count

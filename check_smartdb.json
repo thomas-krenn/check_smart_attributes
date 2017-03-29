@@ -68,7 +68,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Intel DC S3700" : {
-			"Device" : ["Intel DC S3700 Series SSDs","INTEL SSDSC2BA100G3","INTEL SSDSC2BA200G3","INTEL SSDSC2BA400G3","INTEL SSDSC2BA800G3"],
+			"Device" : ["Intel DC S3700 Series SSDs","INTEL SSDSC2BA100G3","INTEL SSDSC2BA200G3","INTEL SSDSC2BA400G3","INTEL SSDSC2BA800G3","INTEL SSDSC2BX200G4R","INTEL SSDSC2BA200G3C"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power-On Hours Count
@@ -103,8 +103,8 @@
 				"183" : ["20","40"],
 				"184" : ["20","40"],
 				"187" : ["0","10"],
-				"190" : ["50","60"],
-				"194" : ["50","60"],
+				"190" : ["60","70"],
+				"194" : ["60","70"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
@@ -114,7 +114,7 @@
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
 		"Intel DC S3610-S3710" : {
-			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","SSDSC2BX100G401","SSDSC2BX200G401","SSDSC2BX400G401","SSDSC2BX480G401","SSDSC2BX800G401","SSDSC2BA012T401","SSDSC2BX016T401"],
+			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","SSDSC2BX100G401","SSDSC2BX200G401","SSDSC2BX400G401","SSDSC2BX480G401","SSDSC2BX800G401","SSDSC2BA012T401","SSDSC2BX016T401", "INTEL SSDSC2BX800G4R"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power-On Hours Count
@@ -515,7 +515,7 @@
 			"Perfs" : ["194"]
 		},
 		"Western Digital RE4" : {
-			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1"],
+			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1","WDC WD4000FYYZ-50UL1B0"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time
@@ -697,8 +697,8 @@
 			},
 			"Perfs" : ["190","194"]
 		},
-		"Western Digital RED 3TB" : {
-			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0"],
+		"Western Digital RED" : {
+			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD40EFRX-68WT0N0" ],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time
@@ -839,6 +839,30 @@
 			},
 			"Perfs" : ["233","241","242"]
 		},
+		"Seagate Enterprise" : {
+			"Device" : ["ST2000NX0403"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power-On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "VALUE", # End-to-End Error Detection Count
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Airflow_Temperature_Cel
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"194" : "RAW_VALUE", # Temperature_Celsius
+				"197" : "RAW_VALUE", # Current_Pending_Sector
+				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"184" : ["96:","91:"],
+				"187" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
 		"Seagate Barracuda 7200.9" : {
 			"Device" : ["Seagate Barracuda 7200.9","ST3120813AS"],
 			"ID#" : {
@@ -875,6 +899,60 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs" : ["190","194"]
+		},
+		"KINGSTON SV300S37A120G" : {
+			"Device" : ["KINGSTON","SV300S37A120G"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"5" : "RAW_VALUE", # Retired_Block_Count
+				"171" : "RAW_VALUE", # Program_Fail_Count
+				"172" : "RAW_VALUE", # Erase_Fail_Count
+				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
+				"189" : "VALUE", # Airflow Temperature Celsius
+				"194" : "VALUE", # Temperature Celsius
+				"195" : "VALUE", # ECC Uncorrectable Error Count
+				"196" : "RAW_VALUE", # Reallocated_Event_Count
+				"201" : "VALUE", # Unc_Soft_Read_Err_Rate
+				"204" : "VALUE", # Soft_ECC_Correct_Rate
+				"230" : "VALUE", # Life_Curve_Status
+				"231" : "VALUE", # SSD_Life_Left
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"5" : ["20","40"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"187" : ["0","10"],
+				"189" : ["50","60"],
+				"194" : ["50","60"],
+				"195" : ["120:","110:"],
+				"196" : ["20","40"],
+				"201" : ["120:","110:"],
+				"204" : ["120:","110:"],
+				"230" : ["100:","90:"],
+				"231" : ["10:","5:"]
+			},
+			"Perfs" : ["194","231"]
+		},
+		"TOSHIBA" : {
+			"Device" : ["TOSHIBA", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA400"],
+			"ID#" : {
+				"1" : "RAW_VALUE", # Raw_Read_Error_Rate
+				"5" : "RAW_VALUE", # Reallocated_Sector_Ct
+				"7" : "RAW_VALUE", # Seek_Error_Rate
+				"196" : "RAW_VALUE", # Reallocated_Event_Count
+				"198" : "RAW_VALUE", # Offline_Uncorrectable
+				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+			},
+			"Threshs" : {
+				"1" : ["0","20"],
+				"5" : ["0","20"],
+				"7" : ["0","20"],
+				"196" : ["0","20"],
+				"198" : ["0","20"],
+				"199" : ["0","20"]
+			},
+			"Perfs" : []
 		}
 	}
 }

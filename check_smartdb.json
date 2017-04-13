@@ -161,7 +161,7 @@
 			"Perfs" : ["190","194","232","233","241","242","243"]
 		},
 		"Intel DC S3500" : {
-			"Device" : ["Intel DC S3500 Series SSDs","INTEL SSDSC2BB080G4","INTEL SSDSC2BB120G4","INTEL SSDSC2BB160G4","INTEL SSDSC2BB240G4","INTEL SSDSC2BB300G4","INTEL SSDSC2BB480G4","INTEL SSDSC2BB600G4","INTEL SSDSC2BB800G4","INTEL SSDSC2BB012T4"],
+			"Device" : ["Intel DC S3500 Series SSDs","INTEL SSDSC2BB080G4","INTEL SSDSC2BB120G4","INTEL SSDSC2BB160G4","INTEL SSDSC2BB240G4","INTEL SSDSC2BB300G4","INTEL SSDSC2BB480G4","INTEL SSDSC2BB600G4","INTEL SSDSC2BB800G4","INTEL SSDSC2BB012T4","INTEL SSDSC2BB150G7"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power-On Hours Count
@@ -480,7 +480,42 @@
 			"Perfs" : ["194"]
 		},
 		"HGST Ultrastar 7K6000" : {
-			"Device" : ["HGST HUS726060ALE61", "HGST HUS726050ALE61", "HGST HUS726040ALE61", "HGST HUS726020ALE61", "HGST HUS726060ALN61", "HGST HUS726050ALN61", "HGST HUS726040ALN61", "HGST HUS726020ALN61"],
+      "Device" : ["HGST HUS726060ALE61", "HGST HUS726050ALE61", "HGST HUS726040ALE61", "HGST HUS726020ALE61", "HGST HUS726060ALN61", "HGST HUS726050ALN61", "HGST HUS726040ALN61", "HGST HUS726020ALN61"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"2" : "VALUE", # Throughput Performance
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"8" : "VALUE", # Seek Time Performance
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["26:","16:"],
+				"2" : ["64:","54:"],
+				"3" : ["34:","24:"],
+				"5" : ["20","40"],
+				"8" : ["30:","20:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+			},
+			"Perfs" : ["194"]
+		},
+		"HGST Deskstar NAS 7K4000" : {
+		  "Device" : ["HGST HDN726040ALE614", "HGST HDN724040ALE640", "Hitachi HDS724040ALE640", "HDN726060ALE614", "HDN726060ALE614", "HDN728080ALE604", "HDN726050ALE610", "HDN724030ALE640"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"2" : "VALUE", # Throughput Performance
@@ -571,7 +606,7 @@
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
 				"200" : "RAW_VALUE", # Multi Zone Error Rate
-                         },
+			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
 				"3" : ["32:","22:"],
@@ -666,6 +701,44 @@
 				"3" : "VALUE", # Spin Up Time
 				"4" : "RAW_VALUE", # Start Stop Count
 				"5" : "VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "RAW_VALUE", # End-to-End Errors
+				"187" : "RAW_VALUE", # Reported Uncorrect
+				"188" : "RAW_VALUE", # Command Timeout
+				"189" : "RAW_VALUE", # High Fly Writes
+				"190" : "RAW_VALUE", # Airflow Temperature Celsius
+				"191" : "RAW_VALUE", # G-Sense Error Rate
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"195" : "RAW_VALUE", # Hardware ECC Recovered
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["190","194"]
+		},
+		"Seagate Constellation ES.2" : {
+			"Device" : ["Seagate Constellation ES.2", "ST32000646SS", "ST33000650SS", "ST33000650NS", "ST33000651SS", "ST33000651NS"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"7" : "RAW_VALUE", # Seek Error Rate
 				"9" : "RAW_VALUE", # Power-On Hours
 				"10" : "RAW_VALUE", # Spin Retry Count

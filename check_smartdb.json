@@ -1027,7 +1027,7 @@
 			},
 			"Perfs" : []
 		},
-			"Seagate Archive HDD v2 - 8TB" : {
+		"Seagate Archive HDD v2 - 8TB" : {
 			"Device" : ["ST8000AS0002-1NA17Z"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
@@ -1055,8 +1055,8 @@
 				"199" : ["0","10"]
 			},
 			"Perfs" : ["5","184","187","194","197","199"]
-			},
-			"Samsung SM863" : {
+		},
+		"Samsung SM863" : {
 			"Device" : ["SAMSUNG MZ7KM240HAGR-00005"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count

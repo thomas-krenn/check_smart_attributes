@@ -1180,6 +1180,31 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs": ["194"]
+		},
+		"Intel 540" : {
+			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Reallocated sector count
+				"9" : "RAW_VALUE", # Power on hours
+				"12": "RAW_VALUE", # Power cycle counts
+				"170": "VALUE", # Available Reserved Space (same as 232)
+				"171" : "VALUE", # Program Fail Count
+				"172" : "VALUE", # Erase Fail Count
+				"174" : "RAW_VALUE", # Unexpected Power Loss
+				"183" : "VALUE", # SATA Downshift Count
+				"184" : "VALUE", # End-to-End Error Detection
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"199" : "RAW_VALUE", # Sata CRC error count
+				"232" : "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Host_Writes_32MiB
+				"242" : "RAW_VALUE", # Host_Reads_32MiB
+				"249" : "RAW_VALUE", # Total NAND writes (1 GB unit)
+			},
+			"Threshs" : {},
+			"Perfs" : []
 		}
 	}
 }

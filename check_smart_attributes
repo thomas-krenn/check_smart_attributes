@@ -44,17 +44,17 @@ sub getHelpString{
         For devices behind LSI RAID controllers specify 'megaraid' and then the
         device number, e.g. '-d megaraid6'. Use storcli to find out the
         corresponding device numbers.
-        For devices behind Adaptec RAID controllers on Linux specify 
-        '/dev/sg<X>' where <X> is the number for your device. Use e.g. sg_scan 
+        For devices behind Adaptec RAID controllers on Linux specify
+        '/dev/sg<X>' where <X> is the number for your device. Use e.g. sg_scan
         to find the device.
         You must also use '-O sat' or '-O scsi' according to the device
         interface. This are extra options only necessary for '/dev/sg<X>'
         devices.
         As an alternative for Adaptec RAID controllers on Windows or Linux
-        you can specify 'aacraid,H,L,ID' where <H> is the Host number and <L> 
-        is the LUN. 
+        you can specify 'aacraid,H,L,ID' where <H> is the Host number and <L>
+        is the LUN.
         The <ID> can be found by executing 'arcconf getconfig <CONTROLLER-ID>'.
-        Sample output for <CONTROLLER-ID>=1: 
+        Sample output for <CONTROLLER-ID>=1:
         '...Reported Channel,Device(T:L): 0,4(4:0)...'
         Configuration would be '-d aacraid,0,0,4'
   [-dbj|--dbjson <path to smartdb JSON file>]
@@ -583,7 +583,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ /^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

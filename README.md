@@ -17,13 +17,13 @@ The following software is required for `check_smart_attributes`:
 * smartctl
 
 ## Installation
-On Ubuntu use this command to install smartmontools including smartctl and the 
+On Ubuntu use this command to install smartmontools including smartctl and the
 Perl library for parsing JSON config files.
 
 ```bash
 $ sudo apt-get install smartmontools libconfig-json-perl
 ```
- 
+
 
 ## Mailing List
 * tk-monitoring-plugins-user@lists.thomas-krenn.com
@@ -37,7 +37,7 @@ checked, specify the option multiple times: `-d /dev/sda -d /dev/sdb`
 Then multiple devices can be monitored with one check.
 
 #### Devices with LSI RAID controllers
-For devices behind LSI controllers use the megaraid device string and the 
+For devices behind LSI controllers use the megaraid device string and the
 corresponding device path. You can get the DID with
 ```bash
 $ sudo storcli64 /c0 /eall/sall show
@@ -60,7 +60,7 @@ Please consider, that the extra option is mandatory.
 The smartdb JSON file specifies the smart attribute configuration for a device.
 It contains the configuration which value (VALUE or RAW_VALUE) must be taken for
 a smart attribute ID. The config is checked on the basis of device and model
-strings given by smartctl. 
+strings given by smartctl.
 
 __If your device is not listed in the config please
 study the device specification and add the id--attribute mapping.__
@@ -69,6 +69,13 @@ The smartdb JSON file also specifies default threshold and performance values.
 These values state the Warning/Critical sensor thresholds and the performance
 data sensors. The threshold and performance base config can be overwritten with
 a user config JSON file (see below).
+
+If a RAW_VALUE requires bit rotation, check_smartdb.json can take an additional
+rotation pattern, e.g.:
+```"230" : ["85","95","r8"]```
+Then the value is shifted according to the third argument, left if "l" is
+specified or right if "r" is used. The number suffix tells the plugin how many
+times shift should be done.
 
 ### check_smartcfg.json (optional)
 Specify the path at which the JSON user config file can be found.

@@ -72,7 +72,9 @@ a user config JSON file (see below).
 
 If a RAW_VALUE requires bit rotation, check_smartdb.json can take an additional
 rotation pattern, e.g.:
+
 ```"230" : ["85","95","r8"]```
+
 Then the value is shifted according to the third argument, left if "l" is
 specified or right if "r" is used. The number suffix tells the plugin how many
 times shift should be done.

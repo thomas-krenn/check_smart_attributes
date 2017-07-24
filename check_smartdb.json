@@ -1181,7 +1181,7 @@
 			},
 			"Perfs": ["194"]
 		},
-		"Intel 540" : {
+		"Intel 540s" : {
 			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Reallocated sector count
@@ -1203,8 +1203,18 @@
 				"242" : "RAW_VALUE", # Host_Reads_32MiB
 				"249" : "RAW_VALUE", # Total NAND writes (1 GB unit)
 			},
-			"Threshs" : {},
-			"Perfs" : []
+			"Threshs" : {
+				"5": ["20","40"],
+				"171": ["16:","11:"],
+				"172": ["16:","11:"],
+				"184": ["96:","91:"],
+				"187": ["0","10"],
+				"190": ["60","70"],
+				"199": ["0","10"],
+				"232": ["16:","11:"],
+				"233": ["16:","6:"]
+			},
+			"Perfs" : ["233","241","242"]
 		}
 	}
 }

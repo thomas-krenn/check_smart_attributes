@@ -1122,6 +1122,38 @@
 				"199" : ["0","10"]
 			},
 			"Perfs" : ["5","177","179","180","190","197"]
-			}
+			},
+		"Samsung based SSDs" : {
+			"Device" : ["Samsung based SSDs"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"177" : "VALUE", # Wear Leveling Count
+				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
+				"195" : "RAW_VALUE", # ECC Error Rate
+				"199" : "RAW_VALUE", # CRC Error Count
+				"235" : "RAW_VALUE", # Power Recovery Count
+				"241" : "RAW_VALUE", # Total LBAs Written
+			},
+			"Threshs" : {
+				"5" : ["0","0"],
+				"177" : ["10:","1:"],
+				"179" : ["0","5"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+                "183" : ["0","10"],
+				"187" : ["0","10"],
+				"190" : ["60","70"],
+				"195" : ["0","10"],
+				"199" : ["0","10"],
+			},
+			"Perfs" : ["5","177","179","190","241"]
+		}
 	}
 }

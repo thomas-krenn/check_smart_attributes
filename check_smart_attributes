@@ -151,7 +151,8 @@ sub getSmartctl{
 			my $devicePath = $2;
 			@output = `$smartctl -a -d $ccissDevice $devicePath`;
 			$ccissDevice =~ s/,/_/g;
-			$device = '/dev/'.$ccissDevice;
+			@controller = split(/\//,$devicePath);
+			$device = '/dev/'.$ccissDevice."_".$controller[-1];
 		}
 		else{
 			@output = `$smartctl -a $device`;

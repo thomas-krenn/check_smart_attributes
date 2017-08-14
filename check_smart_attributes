@@ -76,6 +76,8 @@ sub getHelpString{
         is defined in the user config it overrides its corresponding value in
         the base config. The override is only taken for the specific value, for
         the other ones the base config is still valid.
+  [-cu|--critical_on_unknown]
+        Show critical if the device was not found in database.
   [-nosudo]
         Disable the usage of sudo for smartctl. This is handy if a system is
         used where sudo is not available.
@@ -523,6 +525,7 @@ MAIN: {
 		'dbj|dbjson=s' => \$dbJSON,
 		'd|device=s' => \@devicesToCheck_a,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
+        'cu|critical_on_unknown' => \$critical_on_unknown,
 		'nosudo' => \$noSudo,
 		'O|options=s' => \$extraOpts,
 		'V|version' => sub{
@@ -573,13 +576,23 @@ MAIN: {
 	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
 	if(!(@$devices_a)){
 		print "Error: device was not found in smartdb JSON file.\n";
-		exit(STATE_UNKNOWN);
+		if(!defined($critical_on_unknown)){
+			exit(STATE_UNKNOWN);
+		}
+		else {
+			exit(STATE_CRITICAL);
+		}
 	}
 	# Not all devices were found in the smartdb JSON
 	if(@$devices_a != @devicesToCheck_a){
 		print "Error: the following device(s) where not found in the smartdb JSON file: ";
 		print checkMissingDevicesDB(\@devicesToCheck_a,$devices_a);
-		exit(STATE_UNKNOWN);
+		if(!defined($critical_on_unknown)){
+			exit(STATE_UNKNOWN);
+		}
+		else {
+			exit(STATE_CRITICAL);
+		}
 	}
 	my $smartValues_h = parseSmartctlOut($output_h);
 	my $statusLevel_a = checkSmartctl($smartValues_h,$devices_a);

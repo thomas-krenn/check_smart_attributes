@@ -57,6 +57,11 @@ sub getHelpString{
         Sample output for <CONTROLLER-ID>=1:
         '...Reported Channel,Device(T:L): 0,4(4:0)...'
         Configuration would be '-d aacraid,0,0,4'
+        For devices behind hpsa/cciss based RAID controller, you'll mostly find in
+        HP Hardware, you can use 'cciss,<N>_/dev/sg<X>' for hpsa or
+        'cciss,<N>_/dev/cciss/c<X>d<N>' for cciss where <N> is the number
+        of the device and <X> the RAID controller. You'll find a sg<X>
+        for every Logical Drive.
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -139,6 +144,14 @@ sub getSmartctl{
 			# From now on we use only e.g. aacraid_0_0_4 as device
 			$aacDevice =~ s/,/_/g;
 			$device = '/dev/'.$aacDevice;
+		}
+		# Check if a cciss device is used
+		elsif($device =~ /^(cciss,[0-9]+)[\s_]+(\/dev\/cciss\/c[0-9]+d[0-9]+|\/dev\/sg[0-9]+)$/){
+			my $ccissDevice = $1;
+			my $devicePath = $2;
+			@output = `$smartctl -a -d $ccissDevice $devicePath`;
+			$ccissDevice =~ s/,/_/g;
+			$device = '/dev/'.$ccissDevice;
 		}
 		else{
 			@output = `$smartctl -a $device`;

@@ -149,9 +149,9 @@ sub getSmartctl{
 		elsif($device =~ /^(cciss,[0-9]+)[\s_]+(\/dev\/cciss\/c[0-9]+d[0-9]+|\/dev\/sg[0-9]+)$/){
 			my $ccissDevice = $1;
 			my $devicePath = $2;
+			my @controller = split(/\//,$devicePath);
 			@output = `$smartctl -a -d $ccissDevice $devicePath`;
 			$ccissDevice =~ s/,/_/g;
-			@controller = split(/\//,$devicePath);
 			$device = '/dev/'.$ccissDevice."_".$controller[-1];
 		}
 		else{

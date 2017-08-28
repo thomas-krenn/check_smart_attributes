@@ -746,7 +746,7 @@
 				"189" : "RAW_VALUE", # High Fly Writes
 				"190" : "RAW_VALUE", # Airflow Temperature Celsius
 				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
 				"193" : "RAW_VALUE", # Load Cycle Count
 				"194" : "RAW_VALUE", # Temperature Celsius
 				"195" : "RAW_VALUE", # Hardware ECC Recovered
@@ -1122,6 +1122,134 @@
 				"199" : ["0","10"]
 			},
 			"Perfs" : ["5","177","179","180","190","197"]
-			}
+		},
+		"Hitachi Deskstar 7K3000": {
+			"Device": ["Hitachi Deskstar 7K3000",
+					   "Hitachi HDS723020BLA642",
+					   "Hitachi HDS723020BLE640",
+					   "Hitachi HDS723030BLE640"],
+			"ID#": {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sectors Count
+				"7" : "VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector Count
+				"198" : "RAW_VALUE", # Uncorrectable Sector Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs": ["194"]
+		},
+		"Western Digital Green": {
+			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sectors Count
+				"7" : "VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"198" : "RAW_VALUE", # Uncorrectable Sector Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs": ["194"]
+		},
+		"Toshiba 3.5\" DT01ACA... Desktop HDD": {
+			"Device": ["TOSHIBA DT01ACA300", "TOSHIBA DT01ACA200"],
+			"ID#": {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sectors Count
+				"7" : "VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector Count
+				"198" : "RAW_VALUE", # Uncorrectable Sector Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs": {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs": ["194"]
+		},
+		"Intel 540s" : {
+			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Reallocated sector count
+				"9" : "RAW_VALUE", # Power on hours
+				"12": "RAW_VALUE", # Power cycle counts
+				"170": "VALUE", # Available Reserved Space (same as 232)
+				"171" : "VALUE", # Program Fail Count
+				"172" : "VALUE", # Erase Fail Count
+				"174" : "RAW_VALUE", # Unexpected Power Loss
+				"183" : "VALUE", # SATA Downshift Count
+				"184" : "VALUE", # End-to-End Error Detection
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"199" : "RAW_VALUE", # Sata CRC error count
+				"232" : "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Host_Writes_32MiB
+				"242" : "RAW_VALUE", # Host_Reads_32MiB
+				"249" : "RAW_VALUE", # Total NAND writes (1 GB unit)
+			},
+			"Threshs" : {
+				"5": ["20","40"],
+				"171": ["16:","11:"],
+				"172": ["16:","11:"],
+				"184": ["96:","91:"],
+				"187": ["0","10"],
+				"190": ["60","70"],
+				"199": ["0","10"],
+				"232": ["16:","11:"],
+				"233": ["16:","6:"]
+			},
+			"Perfs" : ["233","241","242"]
+		}
 	}
 }

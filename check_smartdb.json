@@ -1620,6 +1620,40 @@
 			},
 			"Perfs": ["194"]
 		},
+		"HGST HUH721010ALE600" : {
+			"Device" : ["HGST","HUH721010ALE600"],
+			"ID#" : {
+					"1" : "VALUE", # Raw Read Error Rate
+					"5" : "RAW_VALUE", # Retired_Block_Count
+					"194" : "RAW_VALUE", # Temperature Celsius
+					"196" : "RAW_VALUE", # Reallocated_Event_Count
+			},
+			"Threshs" : {
+					"1" : ["62:","52:"],
+					"5" : ["20","40"],
+					"194" : ["50","60"],
+					"196" : ["20","40"]
+			},
+			"Perfs" : ["194"]
+		},
+		"Dell MZ7KM480HMHQ0D3" : {
+			"Device" : ["Dell","MZ7KM480HMHQ0D3"],
+			"ID#" : {
+					"1" : "VALUE", # Raw Read Error Rate
+					"5" : "RAW_VALUE", # Retired_Block_Count
+					"194" : "VALUE", # Temperature Celsius
+					"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
+					"233" : "VALUE", # Media Wearout Indicator
+			},
+			"Threshs" : {
+					"1" : ["62:","52:"],
+					"5" : ["20","40"],
+					"194" : ["50","60"],
+					"195" : ["0","10"],
+					"233" : ["16:","6:"]
+			},
+			"Perfs" : ["194","233"]
+		},
 		"Western Digital Green": {
 			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
 			"ID#" : {

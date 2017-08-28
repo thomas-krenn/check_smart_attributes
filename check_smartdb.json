@@ -947,6 +947,42 @@
 			},
 			"Perfs" : ["233","241","242"]
 		},
+                "Seagate Constellation ES.3 SATA" : {
+                        "Device" : ["Seagate Constellation ES.3", "ST1000NM0033", "ST2000NM0033", "ST3000NM0033", "ST4000NM0033"],
+                        "ID#" : {
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "9" : "RAW_VALUE", # Power-On Hours Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "175" : "VALUE", # Program_Fail_Count_Chip
+                                "183" : "RAW_VALUE", # Runtime_Bad_Block
+                                "184" : "VALUE", # End-to-End Error Detection Count
+                                "187" : "RAW_VALUE", # Uncorrectable Error Count
+                                "190" : "RAW_VALUE", # Airflow_Temperature_Cel
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "194" : "RAW_VALUE", # Temperature_Celsius
+                                "197" : "RAW_VALUE", # Current_Pending_Sector
+                                "199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+                                "225" : "RAW_VALUE", # Load_Cycle_Count
+                                "226" : "RAW_VALUE", # Load-in_Time
+                                "227" : "RAW_VALUE", # Torq-amp_Count
+                                "228" : "RAW_VALUE", # Power-off_Retract_Count
+                                "232" : "VALUE", # Available Reserved Space
+                                "233" : "VALUE", # Media Wearout Indicator
+                                "241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+                                "242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+                                "1024" : "VALUE" # ATA error count (custom)
+                        },
+                        "Threshs" : {
+                                "5" : ["20","40"],
+                                "184" : ["96:","91:"],
+                                "187" : ["0","10"],
+                                "199" : ["0","10"],
+                                "232" : ["16:","11:"],
+                                "233" : ["16:","6:"],
+                                "1024" : ["0","10"]
+                        },
+                        "Perfs" : ["233","241","242"]
+                },
 		"Seagate Enterprise" : {
 			"Device" : ["ST2000NX0403"],
 			"ID#" : {

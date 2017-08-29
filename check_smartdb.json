@@ -1078,25 +1078,46 @@
 			},
 			"Perfs" : ["194","231"]
 		},
-		"TOSHIBA" : {
-			"Device" : ["TOSHIBA", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA400"],
+		"Toshiba 3,5\" MG... Enterprise HDD" : {
+			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400"],
 			"ID#" : {
-				"1" : "RAW_VALUE", # Raw_Read_Error_Rate
+				"1" : "VALUE", # Raw_Read_Error_Rate
+				"2" : "VALUE", # Throughput_Performance
+				"3" : "VALUE", # Spin_Up_Time
+				"4" : "RAW_VALUE", # Start_Stop_Count
 				"5" : "RAW_VALUE", # Reallocated_Sector_Ct
-				"7" : "RAW_VALUE", # Seek_Error_Rate
+				"7" : "VALUE", # Seek_Error_Rate
+				"8" : "VALUE", # Seek_Time_Performance
+				"9" : "RAW_VALUE", # Power_On_Hours
+				"10" : "VALUE", # Spin_Retry_Count
+				"12" : "RAW_VALUE", # Power_Cycle_Count
+				"191" : "RAW_VALUE", # G-Sense_Error_Rate
+				"192" : "RAW_VALUE", # Power-Off_Retract_Count
+				"193" : "RAW_VALUE", # Load_Cycle_Count
+				"194" : "RAW_VALUE", # Temperature_Celsius
 				"196" : "RAW_VALUE", # Reallocated_Event_Count
+				"197" : "RAW_VALUE", # Current_Pending_Sector
 				"198" : "RAW_VALUE", # Offline_Uncorrectable
 				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+				"220" : "RAW_VALUE", # Disk_Shift
+				"222" : "RAW_VALUE", # Loaded_Hours
+				"223" : "RAW_VALUE", # Load_Retry_Count
+				"224" : "RAW_VALUE", # Load_Friction
+				"226" : "RAW_VALUE", # Load-in_Time
+				"240" : "RAW_VALUE", # Head_Flying_Hours
 			},
 			"Threshs" : {
-				"1" : ["0","20"],
-				"5" : ["0","20"],
-				"7" : ["0","20"],
-				"196" : ["0","20"],
-				"198" : ["0","20"],
-				"199" : ["0","20"]
+				"1" : ["61:","51:"],
+				"2" : ["61:","51:"],
+				"5" : ["0","10"],
+				"7" : ["61:","51:"],
+				"8" : ["61:","51:"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
 			},
-			"Perfs" : []
+			"Perfs" : [194]
 		},
 		"Seagate Archive HDD v2 - 8TB" : {
 			"Device" : ["ST8000AS0002-1NA17Z"],

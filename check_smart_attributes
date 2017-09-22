@@ -76,6 +76,8 @@ sub getHelpString{
         is defined in the user config it overrides its corresponding value in
         the base config. The override is only taken for the specific value, for
         the other ones the base config is still valid.
+  [-cu|--critical_on_unknown]
+        Show critical if the device was not found in database.
   [-nosudo]
         Disable the usage of sudo for smartctl. This is handy if a system is
         used where sudo is not available.
@@ -165,6 +167,7 @@ sub getSmartctl{
 			exit(STATE_UNKNOWN);
 		}
 		$output_h{$device} = \@output;
+
 	}
 	return \%output_h;
 }
@@ -175,6 +178,7 @@ sub checkWhichDevice{
 	my %smartctlOut_h = %{(shift)};;
 	# Array of found device hashes
 	my @devices_a;
+	my @devices_missing_a;
 
 	# Fetch the device JSON hash
 	my $devices_h = $dbConfig->get("Devices");
@@ -185,15 +189,15 @@ sub checkWhichDevice{
 		$uCfgDevices_h = $uCfgJSON->get("Devices");
 	}
 
-	# Check all models in the db
-	foreach my $key (keys %$devices_h){
-		# Check each device whose smartvalues are present
-		foreach my $device (keys %smartctlOut_h){
-			my @smartctlOut = @{$smartctlOut_h{$device}};
-			my @model = grep { /Model Family/i || /Device Model/i } @smartctlOut;
-			foreach my $currModel (@model){
+	# Check each device whose smartvalues are present
+	foreach my $device (keys %smartctlOut_h){
+		my @smartctlOut = @{$smartctlOut_h{$device}};
+		my @model = grep { /Model Family/i || /Device Model/i } @smartctlOut;
+		my $found = 0;# We have not found the device yet
+		foreach my $currModel (@model){
+			# Check all models in the db
+			foreach my $key (keys %$devices_h){
 				# Search for the model in the smart DB
-				my $found = 0;# We have not found the device yet
 				foreach (@{$devices_h->{$key}->{'Device'}}){
 					# If the model matches we have found the correct db entry
 					if($currModel =~ /$_$/){
@@ -228,8 +232,11 @@ sub checkWhichDevice{
 				if($found){last;}
 			}
 		}
+		if(!$found){
+			push @devices_missing_a, $device;
+		}
 	}
-	return \@devices_a;
+	return (\@devices_a, \@devices_missing_a);
 }
 
 sub parseSmartctlOut{
@@ -348,23 +355,13 @@ sub checkSmartctl{
 	return \@statusLevel_a;
 }
 
-sub checkMissingDevicesDB{
-	my @devicesToCheck_a = @{(shift)};
+sub printMissingDevicesDB{
 	my @devices_a = @{(shift)};
 	my $missingDevs_str;
 	my $found;
-	foreach my $deviceToCheck (@devicesToCheck_a){
-		$found = 0;
-		foreach my $device (@devices_a){
-			if($deviceToCheck eq $device->{'Path'}){
-				$found = 1;
-				last;
-			}
-		}
-		if($found == 0){
-			$missingDevs_str .= ', ' if defined($missingDevs_str);
-			$missingDevs_str .= $deviceToCheck
-		}
+	foreach my $device (@devices_a){
+		$missingDevs_str .= ', ' if defined($missingDevs_str);
+		$missingDevs_str .= $device;
 	}
 	return $missingDevs_str;
 }
@@ -517,7 +514,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $critical_on_unknown);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -533,6 +530,7 @@ MAIN: {
 		'dbj|dbjson=s' => \$dbJSON,
 		'd|device=s' => \@devicesToCheck_a,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
+		'cu|critical_on_unknown' => \$critical_on_unknown,
 		'nosudo' => \$noSudo,
 		'allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
@@ -581,17 +579,18 @@ MAIN: {
 	}
 	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a,$extraOpts);
 	my $dbConfig = readDbJSON($dbJSON);
-	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
-	if(!(@$devices_a)){
-		print "Error: device was not found in smartdb JSON file.\n";
-		exit(STATE_UNKNOWN);
-	}
-	# Not all devices were found in the smartdb JSON
-	if(@$devices_a != @devicesToCheck_a){
+	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$output_h);
+	if(@$devices_missing_a){
 		print "Error: the following device(s) where not found in the smartdb JSON file: ";
-		print checkMissingDevicesDB(\@devicesToCheck_a,$devices_a);
-		exit(STATE_UNKNOWN);
+		print printMissingDevicesDB($devices_missing_a);
+		if(!defined($critical_on_unknown)){
+			exit(STATE_UNKNOWN);
+		}
+		else {
+			exit(STATE_CRITICAL);
+		}
 	}
+
 	my $smartValues_h = parseSmartctlOut($output_h);
 	my $statusLevel_a = checkSmartctl($smartValues_h,$devices_a);
 

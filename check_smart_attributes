@@ -81,7 +81,7 @@ sub getHelpString{
   [-nosudo]
         Disable the usage of sudo for smartctl. This is handy if a system is
         used where sudo is not available.
-  [-allperfs]
+  [-ap|--allperfs]
         Get performance data for all monitor-able smart attributes and don't
         limit performance data to the 'Perfs' section in the smartdb.json.
   [-O|--options <extra options>]
@@ -514,7 +514,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $critical_on_unknown);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -530,9 +530,9 @@ MAIN: {
 		'dbj|dbjson=s' => \$dbJSON,
 		'd|device=s' => \@devicesToCheck_a,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
-		'cu|critical_on_unknown' => \$critical_on_unknown,
+		'cu|critical_on_unknown' => \$criticalOnUnknown,
 		'nosudo' => \$noSudo,
-		'allperfs' => \$allPerfs,
+		'ap|allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
 		'V|version' => sub{
 			print getVersionString()."\n";
@@ -583,7 +583,7 @@ MAIN: {
 	if(@$devices_missing_a){
 		print "Error: the following device(s) where not found in the smartdb JSON file: ";
 		print printMissingDevicesDB($devices_missing_a)."\n";
-		if(!defined($critical_on_unknown)){
+		if(!defined($criticalOnUnknown)){
 			exit(STATE_UNKNOWN);
 		}
 		else {

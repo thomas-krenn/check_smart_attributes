@@ -276,6 +276,38 @@
 			},
 			"Perfs" : ["190","177","180","241"]
 		},
+		"Samsung 850PRO" : {
+			"Device" : ["Samsung SSD 850 PRO 256GB"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"177" : "VALUE", # Wear Leveling Count
+				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
+				"195" : "RAW_VALUE", # ECC Error Rate
+				"199" : "RAW_VALUE", # CRC Error Count
+				"235" : "RAW_VALUE", # Power Recovery Count
+				"241" : "RAW_VALUE", # Total LBAs Written
+			},
+			"Threshs" : {
+				"5" : ["0","0"],
+				"177" : ["10:","1:"],
+				"179" : ["0","5"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"183" : ["0","10"],
+				"187" : ["0","10"],
+				"190" : ["60","70"],
+				"195" : ["0","10"],
+				"199" : ["0","10"],
+			},
+			"Perfs" : ["5","177","179","190","241"]
+		},
 		"Crucial MX200" : {
 			"Device" : ["Crucial_CT1024MX200SSD1","Crucial_CT250MX200SSD1","Crucial_CT500MX200SSD1","Crucial_CT240M500SSD1"],
 			"ID#" : {
@@ -362,8 +394,8 @@
 			},
 			"Perfs" : ["180","194","202","246"]
 		},
-		"Micron DC510" : {
-			"Device" : ["Micron M500DC/M510DC Enterprise SSDs","MICRON_M510DC_MTFDDAK960MBP"],
+		"Micron M510DC" : {
+			"Device" : ["MICRON_M510DC_MTFDDAK120MBP","MICRON_M510DC_MTFDDAK240MBP","MICRON_M510DC_MTFDDAK480MBP","MICRON_M510DC_MTFDDAK600MBP","MICRON_M510DC_MTFDDAK800MBP","MICRON_M510DC_MTFDDAK960MBP"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"5" : "RAW_VALUE", # Reallocated NAND Block Count
@@ -405,6 +437,59 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs" : ["170","194","202","247","248"]
+		},
+		"Micron 5100" : {
+			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"5" : "RAW_VALUE", # Reallocated NAND Block Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"170" : "VALUE", # Reserved Block Count
+				"171" : "RAW_VALUE", # Program Fail Count
+				"172" : "RAW_VALUE", # Erase Fail Count
+				"173" : "RAW_VALUE", # Average Block-Erase Count
+				"174" : "RAW_VALUE", # Unexpected Power Loss Count
+				"180" : "RAW_VALUE", # Unused Reserved (Spare) Block Count
+				"184" : "VALUE", # Error Correction Count
+				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
+				"188" : "RAW_VALUE", # Command Timeouts
+				"194" : "RAW_VALUE", # Enclosure Temperature
+				"195" : "RAW_VALUE", # Cumulative Corrected ECC
+				"196" : "RAW_VALUE", # Reallocation Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector Count
+				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
+				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
+				"202" : "VALUE", # Percent Lifetime Remaining
+				"206" : "RAW_VALUE", # Write Error Rate
+				"210" : "RAW_VALUE", # RAIN Success Recovered Page Count
+				"246" : "RAW_VALUE", # Cumulative Host Sectors Written
+				"247" : "RAW_VALUE", # Host Program Page Count (pages writen by host)
+				"248" : "RAW_VALUE", # FTL Program Page Count (pages written by FTL)
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"1" : ["60:","50:"],
+				"5" : ["10","20"],
+				"170" : ["16:","6:"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"180" : ["200:","100:"],
+				"184" : ["96:","91:"],
+				"183" : ["0","10"],
+				"187" : ["0","10"],
+				"188" : ["0","10"],
+				"194" : ["60","70"],
+				"195" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"202" : ["16:","6:"],
+				"206" : ["0","10"],
+				"210" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["170","180","194","202","246","247","248"]
 		},
 		"Kingston KC310" : {
 			"Device" : ["KINGSTON SKC310S37A960G"],
@@ -746,7 +831,7 @@
 				"189" : "RAW_VALUE", # High Fly Writes
 				"190" : "RAW_VALUE", # Airflow Temperature Celsius
 				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
 				"193" : "RAW_VALUE", # Load Cycle Count
 				"194" : "RAW_VALUE", # Temperature Celsius
 				"195" : "RAW_VALUE", # Hardware ECC Recovered
@@ -947,6 +1032,42 @@
 			},
 			"Perfs" : ["233","241","242"]
 		},
+                "Seagate Constellation ES.3 SATA" : {
+                        "Device" : ["Seagate Constellation ES.3", "ST1000NM0033", "ST2000NM0033", "ST3000NM0033", "ST4000NM0033"],
+                        "ID#" : {
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "9" : "RAW_VALUE", # Power-On Hours Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "175" : "VALUE", # Program_Fail_Count_Chip
+                                "183" : "RAW_VALUE", # Runtime_Bad_Block
+                                "184" : "VALUE", # End-to-End Error Detection Count
+                                "187" : "RAW_VALUE", # Uncorrectable Error Count
+                                "190" : "RAW_VALUE", # Airflow_Temperature_Cel
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "194" : "RAW_VALUE", # Temperature_Celsius
+                                "197" : "RAW_VALUE", # Current_Pending_Sector
+                                "199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+                                "225" : "RAW_VALUE", # Load_Cycle_Count
+                                "226" : "RAW_VALUE", # Load-in_Time
+                                "227" : "RAW_VALUE", # Torq-amp_Count
+                                "228" : "RAW_VALUE", # Power-off_Retract_Count
+                                "232" : "VALUE", # Available Reserved Space
+                                "233" : "VALUE", # Media Wearout Indicator
+                                "241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+                                "242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+                                "1024" : "VALUE" # ATA error count (custom)
+                        },
+                        "Threshs" : {
+                                "5" : ["20","40"],
+                                "184" : ["96:","91:"],
+                                "187" : ["0","10"],
+                                "199" : ["0","10"],
+                                "232" : ["16:","11:"],
+                                "233" : ["16:","6:"],
+                                "1024" : ["0","10"]
+                        },
+                        "Perfs" : ["233","241","242"]
+                },
 		"Seagate Enterprise" : {
 			"Device" : ["ST2000NX0403"],
 			"ID#" : {
@@ -1042,25 +1163,46 @@
 			},
 			"Perfs" : ["194","231"]
 		},
-		"TOSHIBA" : {
-			"Device" : ["TOSHIBA", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA400"],
+		"Toshiba 3,5\" MG... Enterprise HDD" : {
+			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400"],
 			"ID#" : {
-				"1" : "RAW_VALUE", # Raw_Read_Error_Rate
+				"1" : "VALUE", # Raw_Read_Error_Rate
+				"2" : "VALUE", # Throughput_Performance
+				"3" : "VALUE", # Spin_Up_Time
+				"4" : "RAW_VALUE", # Start_Stop_Count
 				"5" : "RAW_VALUE", # Reallocated_Sector_Ct
-				"7" : "RAW_VALUE", # Seek_Error_Rate
+				"7" : "VALUE", # Seek_Error_Rate
+				"8" : "VALUE", # Seek_Time_Performance
+				"9" : "RAW_VALUE", # Power_On_Hours
+				"10" : "VALUE", # Spin_Retry_Count
+				"12" : "RAW_VALUE", # Power_Cycle_Count
+				"191" : "RAW_VALUE", # G-Sense_Error_Rate
+				"192" : "RAW_VALUE", # Power-Off_Retract_Count
+				"193" : "RAW_VALUE", # Load_Cycle_Count
+				"194" : "RAW_VALUE", # Temperature_Celsius
 				"196" : "RAW_VALUE", # Reallocated_Event_Count
+				"197" : "RAW_VALUE", # Current_Pending_Sector
 				"198" : "RAW_VALUE", # Offline_Uncorrectable
 				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
+				"220" : "RAW_VALUE", # Disk_Shift
+				"222" : "RAW_VALUE", # Loaded_Hours
+				"223" : "RAW_VALUE", # Load_Retry_Count
+				"224" : "RAW_VALUE", # Load_Friction
+				"226" : "RAW_VALUE", # Load-in_Time
+				"240" : "RAW_VALUE", # Head_Flying_Hours
 			},
 			"Threshs" : {
-				"1" : ["0","20"],
-				"5" : ["0","20"],
-				"7" : ["0","20"],
-				"196" : ["0","20"],
-				"198" : ["0","20"],
-				"199" : ["0","20"]
+				"1" : ["61:","51:"],
+				"2" : ["61:","51:"],
+				"5" : ["0","10"],
+				"7" : ["61:","51:"],
+				"8" : ["61:","51:"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
 			},
-			"Perfs" : []
+			"Perfs" : [194]
 		},
 		"Seagate Archive HDD v2 - 8TB" : {
 			"Device" : ["ST8000AS0002-1NA17Z"],
@@ -1122,6 +1264,134 @@
 				"199" : ["0","10"]
 			},
 			"Perfs" : ["5","177","179","180","190","197"]
-			}
+		},
+		"Hitachi Deskstar 7K3000": {
+			"Device": ["Hitachi Deskstar 7K3000",
+					   "Hitachi HDS723020BLA642",
+					   "Hitachi HDS723020BLE640",
+					   "Hitachi HDS723030BLE640"],
+			"ID#": {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sectors Count
+				"7" : "VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector Count
+				"198" : "RAW_VALUE", # Uncorrectable Sector Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs": ["194"]
+		},
+		"Western Digital Green": {
+			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sectors Count
+				"7" : "VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"198" : "RAW_VALUE", # Uncorrectable Sector Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs": ["194"]
+		},
+		"Toshiba 3.5\" DT01ACA... Desktop HDD": {
+			"Device": ["TOSHIBA DT01ACA300", "TOSHIBA DT01ACA200"],
+			"ID#": {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sectors Count
+				"7" : "VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector Count
+				"198" : "RAW_VALUE", # Uncorrectable Sector Count
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+			},
+			"Threshs": {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"]
+			},
+			"Perfs": ["194"]
+		},
+		"Intel 540s" : {
+			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Reallocated sector count
+				"9" : "RAW_VALUE", # Power on hours
+				"12": "RAW_VALUE", # Power cycle counts
+				"170": "VALUE", # Available Reserved Space (same as 232)
+				"171" : "VALUE", # Program Fail Count
+				"172" : "VALUE", # Erase Fail Count
+				"174" : "RAW_VALUE", # Unexpected Power Loss
+				"183" : "VALUE", # SATA Downshift Count
+				"184" : "VALUE", # End-to-End Error Detection
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"199" : "RAW_VALUE", # Sata CRC error count
+				"232" : "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Host_Writes_32MiB
+				"242" : "RAW_VALUE", # Host_Reads_32MiB
+				"249" : "RAW_VALUE", # Total NAND writes (1 GB unit)
+			},
+			"Threshs" : {
+				"5": ["20","40"],
+				"171": ["16:","11:"],
+				"172": ["16:","11:"],
+				"184": ["96:","91:"],
+				"187": ["0","10"],
+				"190": ["60","70"],
+				"199": ["0","10"],
+				"232": ["16:","11:"],
+				"233": ["16:","6:"]
+			},
+			"Perfs" : ["233","241","242"]
+		}
 	}
 }

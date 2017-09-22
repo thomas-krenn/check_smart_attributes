@@ -81,6 +81,9 @@ sub getHelpString{
   [-nosudo]
         Disable the usage of sudo for smartctl. This is handy if a system is
         used where sudo is not available.
+  [-allperfs]
+        Get performance data for all monitor-able smart attributes and don't
+        limit performance data to the 'Perfs' section in the smartdb.json.
   [-O|--options <extra options>]
         Currently the extra options 'sat' or 'scsi' are possible. This options
         are used to query SMART attributes behind Adaptec controllers. The
@@ -417,14 +420,21 @@ sub getStatusString{
 sub getPerfString{
 	my %smartValues_h = %{(shift)};
 	my @devices_a = @{(shift)};
+	my $allPerfs = shift;
 	my $perf_str;
 
 	foreach my $device (@devices_a){
 		# Fetch the configured variables for a device
 		my %IDs_h = %{$device->{'ID#'}};
 		my %threshs_h = %{$device->{'Threshs'}};
-		my @perfmap_a = @{$device->{'Perfs'}};
 		my @smartValues_a = @{$smartValues_h{$device->{'Path'}}};
+		my @perfmap_a = ();
+		if(!defined($allPerfs)){
+			@perfmap_a = @{$device->{'Perfs'}};
+		}
+		else{
+			@perfmap_a = keys %IDs_h;
+		}
 
 		foreach my $perf (@perfmap_a){
 			# Search for the sensor and print its value
@@ -504,7 +514,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $extraOpts, $critical_on_unknown);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $critical_on_unknown);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -522,6 +532,7 @@ MAIN: {
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
 		'cu|critical_on_unknown' => \$critical_on_unknown,
 		'nosudo' => \$noSudo,
+		'allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
 		'V|version' => sub{
 			print getVersionString()."\n";
@@ -607,7 +618,7 @@ MAIN: {
 	print $dev_str;
 	print getStatusString("Critical",$statusLevel_a,$smartValues_h,$devices_a);
 	print getStatusString("Warning",$statusLevel_a,$smartValues_h,$devices_a);
-	my $perf_str = getPerfString($smartValues_h,$devices_a);
+	my $perf_str = getPerfString($smartValues_h,$devices_a,$allPerfs);
 	if($perf_str){
 		print "|".$perf_str;
 	}

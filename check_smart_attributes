@@ -582,7 +582,7 @@ MAIN: {
 	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$output_h);
 	if(@$devices_missing_a){
 		print "Error: the following device(s) where not found in the smartdb JSON file: ";
-		print printMissingDevicesDB($devices_missing_a);
+		print printMissingDevicesDB($devices_missing_a)."\n";
 		if(!defined($critical_on_unknown)){
 			exit(STATE_UNKNOWN);
 		}

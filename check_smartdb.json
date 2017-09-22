@@ -277,7 +277,7 @@
 			"Perfs" : ["190","177","180","241"]
 		},
 		"Samsung 850PRO" : {
-			"Device" : ["Samsung SSD 850 PRO 256GB"],
+			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power On Hours Count

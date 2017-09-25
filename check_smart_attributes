@@ -232,6 +232,7 @@ sub checkWhichDevice{
 				if($found){last;}
 			}
 		}
+		# The device was not found in the smartdb
 		if(!$found){
 			push @devices_missing_a, $device;
 		}

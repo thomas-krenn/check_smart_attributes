@@ -962,7 +962,7 @@
 			"Perfs" : ["190","194"]
 		},
 		"Seagate Constellation ES.2 1TB" : {
-			"Device" : ["Seagate Constellation ES.2 1TB", "ST31000340NS"],
+			"Device" : ["Seagate Constellation ES.2 1TB"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time

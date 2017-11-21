@@ -160,6 +160,11 @@ sub getSmartctl{
 			$device = '/dev/'.$ccissDevice."_".$controller[-1];
 		}
 		else{
+			# If the device is a symlink, simply follow it
+			if(-l $device){
+				use Cwd qw(abs_path);
+				$device = abs_path(readlink $device);
+			}
 			@output = `$smartctl -a $device`;
 		}
 		if(($? >> 8) & 2){

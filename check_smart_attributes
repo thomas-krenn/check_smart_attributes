@@ -163,7 +163,7 @@ sub getSmartctl{
 			# If the device is a symlink, simply follow it
 			if(-l $device){
 				use Cwd qw(abs_path);
-				$device = abs_path(readlink $device);
+				$device = abs_path($device);
 			}
 			@output = `$smartctl -a $device`;
 		}

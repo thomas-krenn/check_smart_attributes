@@ -119,8 +119,13 @@ sub getSmartctl{
 
 	foreach my $device (@devicesToCheck_a){
 		my @output;
+		# Check if a /dev/disk/by-* device is used
+		if($device =~ /^\/dev\/disk\/by\-[a-zA-Z]+\/(.*)$/){
+			# smartctl can directly read this device links
+			@output = `$smartctl -a $device`;
+		}
 		# Check if a megaraid device is used
-		if($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
+		elsif($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
 			my $megaDevice = $1;
 			my $devicePath = $2;
 			substr($megaDevice,8,0,',');

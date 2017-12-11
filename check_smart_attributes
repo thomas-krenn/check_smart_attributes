@@ -202,7 +202,7 @@ sub checkWhichDevice{
 	# Check each device whose smartvalues are present
 	foreach my $device (keys %smartctlOut_h){
 		my @smartctlOut = @{$smartctlOut_h{$device}};
-		my @model = grep { /Model Family/i || /Device Model/i } @smartctlOut;
+		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
 		my $found = 0;# We have not found the device yet
 		foreach my $currModel (@model){
 			# Check all models in the db

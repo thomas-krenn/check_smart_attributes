@@ -46,7 +46,7 @@ sub getHelpString{
         There are different ways to specify the device, the correct one must be
         tested with the corresponding RAID controller in use, e.g.:
             -d megaraid6,/dev/sda
-            -d sat+megaraid6,/dev/sda
+            -d megaraid6,/dev/sda -O 'sat+'
         Use storcli to find out the corresponding device numbers.
         For devices behind Adaptec RAID controllers on Linux specify
         '/dev/sg<X>' where <X> is the number for your device. Use e.g. sg_scan
@@ -92,9 +92,10 @@ sub getHelpString{
         Get performance data for all monitor-able smart attributes and don't
         limit performance data to the 'Perfs' section in the smartdb.json.
   [-O|--options <extra options>]
-        Currently the extra options 'sat' or 'scsi' are possible. This options
-        are used to query SMART attributes behind Adaptec controllers. The
-        options are only used if a device of type sg<X> is given.
+        Currently the extra options 'sat' or 'scsi' are possible for Adaptec
+        controllers. For megaraid devices 'sat+' is allowed.
+        The options are only used if a device of type sg<X> or
+        megaraid<X>,/dev/sdX is given.
   [-v <Verbose Level>]
        be verbose
          (no -v) .. single line output
@@ -135,10 +136,19 @@ sub getSmartctl{
 		elsif($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
 			my $megaDevice = $1;
 			my $devicePath = $2;
+			my $megaDeviceOptions = $megaDevice;
 			substr($megaDevice,8,0,',');
 			# Device path and megaraid device are used together to
 			# check the attributes with smartctl
-			@output = `$smartctl -a -d $megaDevice $devicePath`;
+			if(defined($extraOpts)){
+				if($extraOpts ne 'sat+'){
+					print "Error: please use 'sat+' as extra options for megaraid devices!\n";
+					print getUsageString();
+					exit(STATE_UNKNOWN);
+				}
+				$megaDeviceOptions = $extraOpts.$megaDevice
+			}
+			@output = `$smartctl -a -d $megaDeviceOptions $devicePath`;
 			# From now on we use only e.g. megaraid6 as device
 			$megaDevice =~ s/,//;
 			$device = '/dev/'.$megaDevice;

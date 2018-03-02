@@ -41,9 +41,13 @@ sub getHelpString{
         Specify the device being monitored. If multiple devices should be
         checked provide the '-d' option multiple times.
         E.g. '-d /dev/sda -d /dev/sdb'
-        For devices behind LSI RAID controllers specify 'megaraid' and then the
-        device number, e.g. '-d megaraid6'. Use storcli to find out the
-        corresponding device numbers.
+        For devices behind LSI RAID controllers the megaraid number must be
+        used.
+        There are different ways to specify the device, the correct one must be
+        tested with the corresponding RAID controller in use, e.g.:
+            -d megaraid6,/dev/sda
+            -d sat+megaraid6,/dev/sda
+        Use storcli to find out the corresponding device numbers.
         For devices behind Adaptec RAID controllers on Linux specify
         '/dev/sg<X>' where <X> is the number for your device. Use e.g. sg_scan
         to find the device.
@@ -76,6 +80,9 @@ sub getHelpString{
         is defined in the user config it overrides its corresponding value in
         the base config. The override is only taken for the specific value, for
         the other ones the base config is still valid.
+        Attention: if megaraid devices are used the path must be set as
+        '/dev/megaraidID'. This is necessary for the internal naming convention
+        the plugin uses.
   [-cu|--critical_on_unknown]
         Show critical if the device was not found in database.
   [-nosudo]

@@ -186,10 +186,8 @@ sub getSmartctl{
 		elsif($device =~ /^(cciss,[0-9]+)[\s_]+(\/dev\/cciss\/c[0-9]+d[0-9]+|\/dev\/sg[0-9]+)$/){
 			my $ccissDevice = $1;
 			my $devicePath = $2;
-			my @controller = split(/\//,$devicePath);
 			@output = `$smartctl -a -d $ccissDevice $devicePath`;
-			$ccissDevice =~ s/,/_/g;
-			$device = '/dev/'.$ccissDevice."_".$controller[-1];
+			$device = $ccissDevice." ".$devicePath;
 		}
 		# Check if 3ware format is used
 		elsif($device =~ /^(3ware,[0-9]+),(\/dev\/tw[a-z0-9]+)$/){
@@ -311,7 +309,7 @@ sub parseSmartctlOut{
 				for(my $i = 0; $i < @hdrmap_a; $i++){
 					# Prepend the attribute name with the device name
 					if($hdrmap_a[$i] eq 'ATTRIBUTE_NAME'){
-						$device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+						$device =~ m/^(\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)|(cciss,[0-9]+ \/dev\/[A-Za-z0-9_\-,]+))$/;
 						$lineValues_h{$hdrmap_a[$i]} = $1.'_'.$splittedLine[$i];
 					}
 					else{
@@ -442,8 +440,8 @@ sub getStatusString{
 				$status_str .= "[".$sensor." = ".$level;
 				if($VERBOSITY){
 					# Parse out the used device, use numbers for megaraid devs
-					$sensor =~ /^([a-zA-Z0-9]+)/;
-					my $devicePath = '/dev/'.$1;
+					$sensor =~ /^(\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9\-,]+)|(cciss,[0-9]+ \/dev\/[A-Za-z0-9\-,]+))/;
+					my $devicePath = $1;
 					my %IDs_h;
 					my @smartValues_a;
 					foreach my $device (@devices_a){
@@ -660,7 +658,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+		$devChecked->{'Path'} =~ m/^(\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)|(cciss,[0-9]+ \/dev\/[A-Za-z0-9_\-,]+))$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

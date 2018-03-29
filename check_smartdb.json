@@ -237,11 +237,11 @@
 			"Perfs" : ["194","230","232","241","242"]
 		},
 		"Samsung SM863" : {
-			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005"],
+			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power On Count
+				"12" : "RAW_VALUE", # Power Cycle Count
 				"177" : "VALUE", # Wear Leveling Count
 				"179" : "VALUE", # Used Reserved Block Count (Total)
 				"180" : "VALUE", # Unused Reserved Block Count (Total)
@@ -252,28 +252,36 @@
 				"187" : "RAW_VALUE", # Uncorrectrable Error Count
 				"190" : "RAW_VALUE", # Air Flow Temperature
 				"195" : "RAW_VALUE", # ECC Error Rate
+				"197" : "RAW_VALUE", # Current Pending Sector
 				"199" : "RAW_VALUE", # CRC Error Count
 				"202" : "VALUE", # SSD Mode Status
 				"235" : "RAW_VALUE", # Power Recovery Count
 				"241" : "RAW_VALUE", # Total LBA Written
 				"242" : "RAW_VALUE", # Total LBA Read
+				"243" : "RAW_VALUE", # SATA Downshift Count
+				"244" : "RAW_VALUE", # Thermal Throttle Status
+				"245" : "RAW_VALUE", # Timed Workld Media Wear
+				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
+				"247" : "RAW_VALUE", # Timed Workld Timer
+				"251" : "RAW_VALUE" # NAND Writes
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
-				"177" : ["16:","11:"],
-				"179" : ["3500","4000"],
-				"180" : ["16:","11:"],
+				"177" : ["11:","6:"],
+				"179" : ["20:","10:"],
+				"180" : ["20:","10:"],
 				"181" : ["0","10"],
 				"182" : ["0","10"],
 				"183" : ["20:","10:"],
-				"184" : ["95:","90:"],
+				"184" : ["98:","97:"],
 				"187" : ["0","10"],
 				"190" : ["60","70"],
 				"195" : ["0","10"],
+				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"],
+				"202" : ["20:","10:"]
 			},
-			"Perfs" : ["190","177","180","241","242"]
+			"Perfs" : ["177","180","190","241","242"]
 		},
 		"Samsung PM853T" : {
 			"Device" : ["SAMSUNG MZ7GE240HMGR-00003","SAMSUNG MZ7GE480HMGR-00003","SAMSUNG MZ7GE960HMGR-00003","SAMSUNG MZ7GE480HMHP-00003"],
@@ -331,7 +339,7 @@
 				"195" : "RAW_VALUE", # ECC Error Rate
 				"199" : "RAW_VALUE", # CRC Error Count
 				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBAs Written
+				"241" : "RAW_VALUE" # Total LBAs Written
 			},
 			"Threshs" : {
 				"5" : ["0","0"],
@@ -343,7 +351,7 @@
 				"187" : ["0","10"],
 				"190" : ["60","70"],
 				"195" : ["0","10"],
-				"199" : ["0","10"],
+				"199" : ["0","10"]
 			},
 			"Perfs" : ["5","177","179","190","241"]
 		},
@@ -586,7 +594,7 @@
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -599,7 +607,7 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"],
+				"199" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -622,7 +630,7 @@
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -634,7 +642,7 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"],
+				"199" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -657,7 +665,7 @@
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -669,7 +677,7 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"],
+				"199" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -692,7 +700,7 @@
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -704,7 +712,7 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"],
+				"199" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -764,7 +772,7 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"200" : "RAW_VALUE" # Multi Zone Error Rate
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1121,7 +1129,7 @@
 				"197" : "RAW_VALUE", # Current_Pending_Sector
 				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
 				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+				"242" : "RAW_VALUE" # Total LBAs Read (32MiB)
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -1151,7 +1159,7 @@
 				"198" : "RAW_VALUE", # Uncorrectable Sector Count
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
 				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"202" : "RAW_VALUE", # Data Address Mark Error
+				"202" : "RAW_VALUE" # Data Address Mark Error
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1183,7 +1191,7 @@
 				"201" : "VALUE", # Unc_Soft_Read_Err_Rate
 				"204" : "VALUE", # Soft_ECC_Correct_Rate
 				"230" : "VALUE", # Life_Curve_Status
-				"231" : "VALUE", # SSD_Life_Left
+				"231" : "VALUE" # SSD_Life_Left
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1228,7 +1236,7 @@
 				"223" : "RAW_VALUE", # Load_Retry_Count
 				"224" : "RAW_VALUE", # Load_Friction
 				"226" : "RAW_VALUE", # Load-in_Time
-				"240" : "RAW_VALUE", # Head_Flying_Hours
+				"240" : "RAW_VALUE" # Head_Flying_Hours
 			},
 			"Threshs" : {
 				"1" : ["61:","51:"],
@@ -1272,38 +1280,6 @@
 			},
 			"Perfs" : ["5","184","187","194","197","199"]
 		},
-		"Samsung SM863" : {
-			"Device" : ["SAMSUNG MZ7KM240HAGR-00005"],
-			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "RAW_VALUE", # Wear Leveling count
-				"179" : "RAW_VALUE", # Used reserved block count
-				"180" : "RAW_VALUE", # Unused reserved block count
-				"183" : "RAW_VALUE", # Runtime_Bad_Block
-				"184" : "VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Airflow_Temperature_Cel
-				"195" : "RAW_VALUE", # Hardware ECC recovered
-				"197" : "RAW_VALUE", # Current_Pending_Sector
-				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE" # Total LBAs Read (32MiB)
-			},
-			"Threshs" : {
-				"5" : ["0:","0"],
-				"177" :["5","10"],
-				"179" :["0","5"],
-				"180" :[":1939",":1000"],
-				"184" : ["0:","0:"],
-				"187" : ["0","0"],
-				"194" : ["40","50"],
-				"197" : ["0","0"],
-				"199" : ["0","10"]
-			},
-			"Perfs" : ["5","177","179","180","190","197"]
-		},
 		"Hitachi Deskstar 7K3000": {
 			"Device": ["Hitachi Deskstar 7K3000",
 					   "Hitachi HDS723020BLA642",
@@ -1322,7 +1298,7 @@
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"197" : "RAW_VALUE", # Current Pending Sector Count
 				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1352,7 +1328,7 @@
 				"194" : "RAW_VALUE", # Temperature Celsius
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1381,7 +1357,7 @@
 				"196" : "RAW_VALUE", # Reallocated Event Count
 				"197" : "RAW_VALUE", # Current Pending Sector Count
 				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
 			},
 			"Threshs": {
 				"1" : ["62:","52:"],
@@ -1417,7 +1393,7 @@
 				"233" : "VALUE", # Media Wearout Indicator
 				"241" : "RAW_VALUE", # Host_Writes_32MiB
 				"242" : "RAW_VALUE", # Host_Reads_32MiB
-				"249" : "RAW_VALUE", # Total NAND writes (1 GB unit)
+				"249" : "RAW_VALUE" # Total NAND writes (1 GB unit)
 			},
 			"Threshs" : {
 				"5": ["20","40"],

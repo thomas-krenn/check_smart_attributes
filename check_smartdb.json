@@ -1494,7 +1494,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Western Digital Gold" : {
-		    "Device" : ["WDC WD40EFRX-68WT0N0" ],
+		    "Device" : ["WDC WD2005FBYZ-01YCBB2" ],
 		    "ID#" : {
 			"1" : "VALUE", # Raw Read Error Rate 
 			"3" : "VALUE", # Spin Up Time 

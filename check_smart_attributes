@@ -221,6 +221,16 @@ sub checkWhichDevice{
 		my @smartctlOut = @{$smartctlOut_h{$device}};
 		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
 		my $found = 0;# We have not found the device yet
+		# NVMe devices don't require a database entry
+		if ($device =~ /nvme[a-z0-9]+$/) {
+			my %foundDevice_h;
+			$foundDevice_h{'Path'} = $device;
+			$foundDevice_h{'ID#'} = {};
+			$foundDevice_h{'Threshs'} = {};
+			$foundDevice_h{'Perfs'} = [];
+			push @devices_a, \%foundDevice_h;
+			next;
+		}
 		foreach my $currModel (@model){
 			# Check all models in the db
 			foreach my $key (keys %$devices_h){
@@ -271,12 +281,31 @@ sub parseSmartctlOut{
 	my %smartctlOut_h = %{(shift)};
 	# A hash with the parsed smart values for all devices
 	my %smartValues_h;
+	my $nvme_labels = 'Critical Warning|Temperature|Available Spare|Available Spare Threshold|Media and Data Integrity Errors|Error Information Log Entries';
 
 	foreach my $device (keys %smartctlOut_h){
 		my @smartctlOut = @{$smartctlOut_h{$device}};
 		# Check for smart value lines
 		my @smartValues;
 		my @splittedLine;
+		# Parse NVMe SMART log
+		if ($device =~ /nvme[a-z0-9]+$/) {
+			foreach my $line (@smartctlOut) {
+				if ($line =~ /($nvme_labels)\:\s+([x\d]+)/){
+					my %lineValues_h;
+					$lineValues_h{'ATTRIBUTE_NAME'} = $1;
+					$lineValues_h{'VALUE'} = $2;
+					# Modify attribute name
+					$device =~ /^\/dev\/([A-Za-z0-9_,]+)$/;
+					$lineValues_h{'ATTRIBUTE_NAME'} =$1.'_'.$lineValues_h{'ATTRIBUTE_NAME'};
+					$lineValues_h{'ATTRIBUTE_NAME'} =~ s/ /_/g;
+					push @smartValues, \%lineValues_h;
+				}
+			}
+			$smartValues_h{$device} = \@smartValues;
+			next;
+		}
+		# Parse standard SMART log
 		foreach my $line (@smartctlOut) {
 			if($line =~ /\d+\s+[A-Za-z0-9_\/]+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+[0-9\-]+\s+\w+/){
 				$line =~ s/^\s+|\s+$//g;
@@ -348,6 +377,34 @@ sub checkSmartctl{
 		my %IDs_h = %{$device->{'ID#'}};
 		my %threshs_h = %{$device->{'Threshs'}};
 		my @smartValues_a = @{$smartValues_h{$device->{'Path'}}};
+		# Verify NVMe SMART logs
+		if ($device->{'Path'} =~ /(nvme[a-z0-9]+)$/) {
+			foreach my $row (@smartValues_a) {
+				if ($row->{'ATTRIBUTE_NAME'} =~ /_Critical_Warning$/ && $row->{'VALUE'} ne '0x00') {
+					$statusLevel_a[0] = 'Critical';
+					push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+				}
+				if ($row->{'ATTRIBUTE_NAME'} =~ /_Media_and_Data_Integrity_Errors$/ && $row->{'VALUE'} ne '0') {
+					$statusLevel_a[0] = 'Critical';
+					push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+				}
+				if ($row->{'ATTRIBUTE_NAME'} =~ /_Error_Information_Log_Entries$/ && $row->{'VALUE'} ne '0') {
+					$statusLevel_a[0] = 'Critical';
+					push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+				}
+				if ($row->{'ATTRIBUTE_NAME'} =~ /_Available_Spare$/) {
+					foreach my $r (@smartValues_a) {
+						if ($r->{'ATTRIBUTE_NAME'} =~ /_Available_Spare_Threshold$/) {
+							if ($row->{'VALUE'} <= $r->{'VALUE'}) {
+								$statusLevel_a[0] = 'Critical';
+								push @criticals_a, $row->{'ATTRIBUTE_NAME'};
+							}
+						}
+					}
+				}
+			}
+			next;
+		}
 		# Check the corresponding smart values
 		foreach my $row (@smartValues_a){
 			my $ID = $row->{'ID#'};

@@ -579,6 +579,9 @@ MAIN: {
 	if(!defined($smartctl)){
 		$smartctl = "/usr/sbin/smartctl";
 	}
+	if(!defined($ssdonly)){
+		$ssdonly = 0;
+	}
 	if(! -x $smartctl){
 		print "Error: cannot find smartctl executable.\n";
 		exit(STATE_UNKNOWN);

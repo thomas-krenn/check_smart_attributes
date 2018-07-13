@@ -91,6 +91,8 @@ sub getHelpString{
   [-ap|--allperfs]
         Get performance data for all monitor-able smart attributes and don't
         limit performance data to the 'Perfs' section in the smartdb.json.
+  [-s|--ssdonly]
+        Check SSDs only, even if more devices are given.
   [-O|--options <extra options>]
         Currently the extra options 'sat' or 'scsi' are possible for Adaptec
         controllers. For megaraid devices 'sat+' is allowed.
@@ -202,6 +204,7 @@ sub getSmartctl{
 sub checkWhichDevice{
 	my $dbConfig = shift;
 	my $uCfgJSON = shift;
+	my $ssdonly = shift;
 	my %smartctlOut_h = %{(shift)};;
 	# Array of found device hashes
 	my @devices_a;
@@ -219,6 +222,7 @@ sub checkWhichDevice{
 	# Check each device whose smartvalues are present
 	foreach my $device (keys %smartctlOut_h){
 		my @smartctlOut = @{$smartctlOut_h{$device}};
+		if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
 		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
 		my $found = 0;# We have not found the device yet
 		foreach my $currModel (@model){
@@ -542,7 +546,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown, $ssdonly);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -562,6 +566,7 @@ MAIN: {
 		'nosudo' => \$noSudo,
 		'ap|allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
+		's|ssdonly' => \$ssdonly,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);
@@ -573,6 +578,9 @@ MAIN: {
 	# Check smartclt tool
 	if(!defined($smartctl)){
 		$smartctl = "/usr/sbin/smartctl";
+	}
+	if(!defined($ssdonly)){
+		$ssdonly = 0;
 	}
 	if(! -x $smartctl){
 		print "Error: cannot find smartctl executable.\n";
@@ -607,7 +615,7 @@ MAIN: {
 	}
 	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a,$extraOpts);
 	my $dbConfig = readDbJSON($dbJSON);
-	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$output_h);
+	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$ssdonly,$output_h);
 	if(@$devices_missing_a){
 		print "Error: the following device(s) where not found in the smartdb JSON file: ";
 		print printMissingDevicesDB($devices_missing_a)."\n";

@@ -93,8 +93,8 @@ sub getHelpString{
         limit performance data to the 'Perfs' section in the smartdb.json.
   [-s|--ssdonly]
         Check SSDs only, even if more devices are given. Checks if the smartctl
-		output contains 'Solid State Device' in the method 'checkWhichDevice'.
-		If yes, the device is skipped even if it is found in the smartdb.json.
+        output contains 'Solid State Device' in the method 'checkWhichDevice'.
+        If yes, the device is skipped even if it is found in the smartdb.json.
   [-O|--options <extra options>]
         Currently the extra options 'sat' or 'scsi' are possible for Adaptec
         controllers. For megaraid devices 'sat+' is allowed.

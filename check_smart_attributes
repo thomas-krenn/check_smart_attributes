@@ -28,7 +28,7 @@ Current updates available via git repository https://github.com/thomas-krenn/\n"
 sub getUsageString{
 	return "Usage:
 sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
-[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo]
+[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo] [-cu] [-ap] [-s]
 [-O <extra options>][ -v|-vv|-vvv] [-h] [-V]\n";
 }
 

@@ -224,7 +224,9 @@ sub checkWhichDevice{
 	# Check each device whose smartvalues are present
 	foreach my $device (keys %smartctlOut_h){
 		my @smartctlOut = @{$smartctlOut_h{$device}};
-		if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
+		if(defined($ssdonly)){
+			if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
+		}
 		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
 		my $found = 0;# We have not found the device yet
 		foreach my $currModel (@model){
@@ -580,9 +582,6 @@ MAIN: {
 	# Check smartclt tool
 	if(!defined($smartctl)){
 		$smartctl = "/usr/sbin/smartctl";
-	}
-	if(!defined($ssdonly)){
-		$ssdonly = 0;
 	}
 	if(! -x $smartctl){
 		print "Error: cannot find smartctl executable.\n";

@@ -284,7 +284,7 @@
 			"Perfs" : ["177","180","190","241","242"]
 		},
 		"Samsung PM863a" : {
-			"Device" : ["SAMSUNG MZ7LM480HMHQ-00005"],
+			"Device" : ["SAMSUNG MZ7LM240HMHQ-00005","SAMSUNG MZ7LM480HMHQ-00005","SAMSUNG MZ7LM960HMJP-00005","SAMSUNG MZ7LM1T9HMJP-00005","SAMSUNG MZ7LM3T8HMLP-00005"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power On Hours Count

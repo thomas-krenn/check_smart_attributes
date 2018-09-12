@@ -66,6 +66,9 @@ sub getHelpString{
         'cciss,<N>_/dev/cciss/c<X>d<N>' for cciss where <N> is the number
         of the device and <X> the RAID controller. You'll find a sg<X>
         for every Logical Drive.
+        For devices behind 3ware RAID controllers the 3ware device ID must be
+        used with the corresponding tw device, e.g.:
+        -d 3ware,8,/dev/twa0
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -82,6 +85,9 @@ sub getHelpString{
         the other ones the base config is still valid.
         Attention: if megaraid devices are used the path must be set as
         '/dev/megaraidID'. This is necessary for the internal naming convention
+        the plugin uses.
+        Attention: if 3ware devices are used the path must be set as
+        '/dev/3wareID'. This is necessary for the internal naming convention
         the plugin uses.
   [-cu|--critical_on_unknown]
         Show critical if the device was not found in database.
@@ -184,6 +190,16 @@ sub getSmartctl{
 			@output = `$smartctl -a -d $ccissDevice $devicePath`;
 			$ccissDevice =~ s/,/_/g;
 			$device = '/dev/'.$ccissDevice."_".$controller[-1];
+		}
+		# Check if 3ware format is used
+		elsif($device =~ /^(3ware,[0-9]+),(\/dev\/tw[a-z0-9]+)$/){
+			my $twDevice = $1;
+			my $devicePath = $2;
+			# Call smartctl
+			@output = `$smartctl -a -d $twDevice $devicePath`;
+			# From now on we use only e.g. 3ware8 as device
+			$twDevice =~ s/,//;
+			$device = '/dev/'.$twDevice;
 		}
 		else{
 			# If the device is a symlink, simply follow it

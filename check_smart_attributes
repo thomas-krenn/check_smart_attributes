@@ -28,7 +28,7 @@ Current updates available via git repository https://github.com/thomas-krenn/\n"
 sub getUsageString{
 	return "Usage:
 sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
-[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo]
+[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo] [-cu] [-ap] [-s]
 [-O <extra options>][ -v|-vv|-vvv] [-h] [-V]\n";
 }
 
@@ -41,9 +41,13 @@ sub getHelpString{
         Specify the device being monitored. If multiple devices should be
         checked provide the '-d' option multiple times.
         E.g. '-d /dev/sda -d /dev/sdb'
-        For devices behind LSI RAID controllers specify 'megaraid' and then the
-        device number, e.g. '-d megaraid6'. Use storcli to find out the
-        corresponding device numbers.
+        For devices behind LSI RAID controllers the megaraid number must be
+        used.
+        There are different ways to specify the device, the correct one must be
+        tested with the corresponding RAID controller in use, e.g.:
+            -d megaraid6,/dev/sda
+            -d megaraid6,/dev/sda -O 'sat+'
+        Use storcli to find out the corresponding device numbers.
         For devices behind Adaptec RAID controllers on Linux specify
         '/dev/sg<X>' where <X> is the number for your device. Use e.g. sg_scan
         to find the device.
@@ -62,6 +66,9 @@ sub getHelpString{
         'cciss,<N>_/dev/cciss/c<X>d<N>' for cciss where <N> is the number
         of the device and <X> the RAID controller. You'll find a sg<X>
         for every Logical Drive.
+        For devices behind 3ware RAID controllers the 3ware device ID must be
+        used with the corresponding tw device, e.g.:
+        -d 3ware,8,/dev/twa0
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -76,13 +83,29 @@ sub getHelpString{
         is defined in the user config it overrides its corresponding value in
         the base config. The override is only taken for the specific value, for
         the other ones the base config is still valid.
+        Attention: if megaraid devices are used the path must be set as
+        '/dev/megaraidID'. This is necessary for the internal naming convention
+        the plugin uses.
+        Attention: if 3ware devices are used the path must be set as
+        '/dev/3wareID'. This is necessary for the internal naming convention
+        the plugin uses.
+  [-cu|--critical_on_unknown]
+        Show critical if the device was not found in database.
   [-nosudo]
         Disable the usage of sudo for smartctl. This is handy if a system is
         used where sudo is not available.
+  [-ap|--allperfs]
+        Get performance data for all monitor-able smart attributes and don't
+        limit performance data to the 'Perfs' section in the smartdb.json.
+  [-s|--ssdonly]
+        Check SSDs only, even if more devices are given. Checks if the smartctl
+        output contains 'Solid State Device' in the method 'checkWhichDevice'.
+        If yes, the device is skipped even if it is found in the smartdb.json.
   [-O|--options <extra options>]
-        Currently the extra options 'sat' or 'scsi' are possible. This options
-        are used to query SMART attributes behind Adaptec controllers. The
-        options are only used if a device of type sg<X> is given.
+        Currently the extra options 'sat' or 'scsi' are possible for Adaptec
+        controllers. For megaraid devices 'sat+' is allowed.
+        The options are only used if a device of type sg<X> or
+        megaraid<X>,/dev/sdX is given.
   [-v <Verbose Level>]
        be verbose
          (no -v) .. single line output
@@ -114,14 +137,28 @@ sub getSmartctl{
 
 	foreach my $device (@devicesToCheck_a){
 		my @output;
+		# Check if a /dev/disk/by-* device is used
+		if($device =~ /^\/dev\/disk\/by\-[a-zA-Z]+\/(.*)$/){
+			# smartctl can directly read this device links
+			@output = `$smartctl -a $device`;
+		}
 		# Check if a megaraid device is used
-		if($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
+		elsif($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
 			my $megaDevice = $1;
 			my $devicePath = $2;
+			my $megaDeviceOptions = $megaDevice;
 			substr($megaDevice,8,0,',');
 			# Device path and megaraid device are used together to
 			# check the attributes with smartctl
-			@output = `$smartctl -a -d $megaDevice $devicePath`;
+			if(defined($extraOpts)){
+				if($extraOpts ne 'sat+'){
+					print "Error: please use 'sat+' as extra options for megaraid devices!\n";
+					print getUsageString();
+					exit(STATE_UNKNOWN);
+				}
+				$megaDeviceOptions = $extraOpts.$megaDevice
+			}
+			@output = `$smartctl -a -d $megaDeviceOptions $devicePath`;
 			# From now on we use only e.g. megaraid6 as device
 			$megaDevice =~ s/,//;
 			$device = '/dev/'.$megaDevice;
@@ -154,7 +191,22 @@ sub getSmartctl{
 			$ccissDevice =~ s/,/_/g;
 			$device = '/dev/'.$ccissDevice."_".$controller[-1];
 		}
+		# Check if 3ware format is used
+		elsif($device =~ /^(3ware,[0-9]+),(\/dev\/tw[a-z0-9]+)$/){
+			my $twDevice = $1;
+			my $devicePath = $2;
+			# Call smartctl
+			@output = `$smartctl -a -d $twDevice $devicePath`;
+			# From now on we use only e.g. 3ware8 as device
+			$twDevice =~ s/,//;
+			$device = '/dev/'.$twDevice;
+		}
 		else{
+			# If the device is a symlink, simply follow it
+			if(-l $device){
+				use Cwd qw(abs_path);
+				$device = abs_path(readlink $device);
+			}
 			@output = `$smartctl -a $device`;
 		}
 		if(($? >> 8) & 2){
@@ -162,6 +214,7 @@ sub getSmartctl{
 			exit(STATE_UNKNOWN);
 		}
 		$output_h{$device} = \@output;
+
 	}
 	return \%output_h;
 }
@@ -169,9 +222,11 @@ sub getSmartctl{
 sub checkWhichDevice{
 	my $dbConfig = shift;
 	my $uCfgJSON = shift;
+	my $ssdonly = shift;
 	my %smartctlOut_h = %{(shift)};;
 	# Array of found device hashes
 	my @devices_a;
+	my @devices_missing_a;
 
 	# Fetch the device JSON hash
 	my $devices_h = $dbConfig->get("Devices");
@@ -182,15 +237,18 @@ sub checkWhichDevice{
 		$uCfgDevices_h = $uCfgJSON->get("Devices");
 	}
 
-	# Check all models in the db
-	foreach my $key (keys %$devices_h){
-		# Check each device whose smartvalues are present
-		foreach my $device (keys %smartctlOut_h){
-			my @smartctlOut = @{$smartctlOut_h{$device}};
-			my @model = grep { /Model Family/i || /Device Model/i } @smartctlOut;
-			foreach my $currModel (@model){
+	# Check each device whose smartvalues are present
+	foreach my $device (keys %smartctlOut_h){
+		my @smartctlOut = @{$smartctlOut_h{$device}};
+		if(defined($ssdonly)){
+			if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
+		}
+		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
+		my $found = 0;# We have not found the device yet
+		foreach my $currModel (@model){
+			# Check all models in the db
+			foreach my $key (keys %$devices_h){
 				# Search for the model in the smart DB
-				my $found = 0;# We have not found the device yet
 				foreach (@{$devices_h->{$key}->{'Device'}}){
 					# If the model matches we have found the correct db entry
 					if($currModel =~ /$_$/){
@@ -225,8 +283,12 @@ sub checkWhichDevice{
 				if($found){last;}
 			}
 		}
+		# The device was not found in the smartdb
+		if(!$found){
+			push @devices_missing_a, $device;
+		}
 	}
-	return \@devices_a;
+	return (\@devices_a, \@devices_missing_a);
 }
 
 sub parseSmartctlOut{
@@ -345,23 +407,13 @@ sub checkSmartctl{
 	return \@statusLevel_a;
 }
 
-sub checkMissingDevicesDB{
-	my @devicesToCheck_a = @{(shift)};
+sub printMissingDevicesDB{
 	my @devices_a = @{(shift)};
 	my $missingDevs_str;
 	my $found;
-	foreach my $deviceToCheck (@devicesToCheck_a){
-		$found = 0;
-		foreach my $device (@devices_a){
-			if($deviceToCheck eq $device->{'Path'}){
-				$found = 1;
-				last;
-			}
-		}
-		if($found == 0){
-			$missingDevs_str .= ', ' if defined($missingDevs_str);
-			$missingDevs_str .= $deviceToCheck
-		}
+	foreach my $device (@devices_a){
+		$missingDevs_str .= ', ' if defined($missingDevs_str);
+		$missingDevs_str .= $device;
 	}
 	return $missingDevs_str;
 }
@@ -420,14 +472,21 @@ sub getStatusString{
 sub getPerfString{
 	my %smartValues_h = %{(shift)};
 	my @devices_a = @{(shift)};
+	my $allPerfs = shift;
 	my $perf_str;
 
 	foreach my $device (@devices_a){
 		# Fetch the configured variables for a device
 		my %IDs_h = %{$device->{'ID#'}};
 		my %threshs_h = %{$device->{'Threshs'}};
-		my @perfmap_a = @{$device->{'Perfs'}};
 		my @smartValues_a = @{$smartValues_h{$device->{'Path'}}};
+		my @perfmap_a = ();
+		if(!defined($allPerfs)){
+			@perfmap_a = @{$device->{'Perfs'}};
+		}
+		else{
+			@perfmap_a = keys %IDs_h;
+		}
 
 		foreach my $perf (@perfmap_a){
 			# Search for the sensor and print its value
@@ -507,7 +566,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $extraOpts);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown, $ssdonly);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -523,8 +582,11 @@ MAIN: {
 		'dbj|dbjson=s' => \$dbJSON,
 		'd|device=s' => \@devicesToCheck_a,
 		'ucfgj|ucfgjson=s' => \$uCfgJSON,
+		'cu|critical_on_unknown' => \$criticalOnUnknown,
 		'nosudo' => \$noSudo,
+		'ap|allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
+		's|ssdonly' => \$ssdonly,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);
@@ -570,17 +632,18 @@ MAIN: {
 	}
 	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a,$extraOpts);
 	my $dbConfig = readDbJSON($dbJSON);
-	my $devices_a = checkWhichDevice($dbConfig,$uCfg,$output_h);
-	if(!(@$devices_a)){
-		print "Error: device was not found in smartdb JSON file.\n";
-		exit(STATE_UNKNOWN);
-	}
-	# Not all devices were found in the smartdb JSON
-	if(@$devices_a != @devicesToCheck_a){
+	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$ssdonly,$output_h);
+	if(@$devices_missing_a){
 		print "Error: the following device(s) where not found in the smartdb JSON file: ";
-		print checkMissingDevicesDB(\@devicesToCheck_a,$devices_a);
-		exit(STATE_UNKNOWN);
+		print printMissingDevicesDB($devices_missing_a)."\n";
+		if(!defined($criticalOnUnknown)){
+			exit(STATE_UNKNOWN);
+		}
+		else {
+			exit(STATE_CRITICAL);
+		}
 	}
+
 	my $smartValues_h = parseSmartctlOut($output_h);
 	my $statusLevel_a = checkSmartctl($smartValues_h,$devices_a);
 
@@ -608,7 +671,7 @@ MAIN: {
 	print $dev_str;
 	print getStatusString("Critical",$statusLevel_a,$smartValues_h,$devices_a);
 	print getStatusString("Warning",$statusLevel_a,$smartValues_h,$devices_a);
-	my $perf_str = getPerfString($smartValues_h,$devices_a);
+	my $perf_str = getPerfString($smartValues_h,$devices_a,$allPerfs);
 	if($perf_str){
 		print "|".$perf_str;
 	}

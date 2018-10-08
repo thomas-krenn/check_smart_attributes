@@ -283,6 +283,53 @@
 			},
 			"Perfs" : ["194","230","232","241","242"]
 		},
+		"Samsung PM883" : {
+			"Device" : ["SAMSUNG MZ7LH240HAHQ-00005","SAMSUNG MZ7LH480HAHQ-00005","SAMSUNG MZ7LH960HAJR-00005","SAMSUNG MZ7LH1T9HMLT-00005","SAMSUNG MZ7LH3T8HMLT-00005","SAMSUNG MZ7LH7T6HMLA-00005"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"177" : "VALUE", # Wear Leveling Count
+				"179" : "VALUE", # Used Reserved Block Count (Total)
+				"180" : "VALUE", # Unused Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"183" : "VALUE", # Runtime Bad Count (Total)
+				"184" : "VALUE", # End to End Error Data Path Error Count
+				"187" : "RAW_VALUE", # Uncorrectrable Error Count
+				"190" : "RAW_VALUE", # Air Flow Temperature
+				"195" : "RAW_VALUE", # ECC Error Rate
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"199" : "RAW_VALUE", # CRC Error Count
+				"202" : "VALUE", # SSD Mode Status
+				"235" : "RAW_VALUE", # Power Recovery Count
+				"241" : "RAW_VALUE", # Total LBA Written
+				"242" : "RAW_VALUE", # Total LBA Read
+				"243" : "RAW_VALUE", # SATA Downshift Count
+				"244" : "RAW_VALUE", # Thermal Throttle Status
+				"245" : "RAW_VALUE", # Timed Workld Media Wear
+				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
+				"247" : "RAW_VALUE", # Timed Workld Timer
+				"251" : "RAW_VALUE" # NAND Writes
+			},
+			"Threshs" : {
+				"5" : ["10","20"],
+				"177" : ["11:","6:"],
+				"179" : ["20:","10:"],
+				"180" : ["20:","10:"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"183" : ["20:","10:"],
+				"184" : ["98:","97:"],
+				"187" : ["0","10"],
+				"190" : ["60","70"],
+				"195" : ["0","10"],
+				"197" : ["0","10"],
+				"199" : ["0","10"],
+				"202" : ["20:","10:"]
+			},
+			"Perfs" : ["177","180","190","241","242"]
+		},
 		"Samsung SM863" : {
 			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005"],
 			"ID#" : {

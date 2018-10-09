@@ -323,9 +323,8 @@ sub parseSmartctlOut{
 				$lineValues_h{'ATTRIBUTE_NAME'} = $1;
 				$lineValues_h{'VALUE'} = $2;
 				# Modify attribute name
-				$device =~ /^\/dev\/([A-Za-z0-9_,]+)$/;
+				$device =~ m/^(\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)|(cciss,[0-9]+ \/dev\/[A-Za-z0-9_\-,]+))$/;
 				$lineValues_h{'ATTRIBUTE_NAME'} =$1.'_'.$lineValues_h{'ATTRIBUTE_NAME'};
-				$lineValues_h{'ATTRIBUTE_NAME'} =~ s/ /_/g;
 				$lineValues_h{'ID#'} = 1024;
 				push @smartValues, \%lineValues_h;
 			}

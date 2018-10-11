@@ -678,5 +678,8 @@ MAIN: {
 	if($VERBOSITY == 2 || $VERBOSITY == 3){
 		print getVerboseString($smartValues_h,$devices_a,$output_h);
 	}
+	else{
+		print "\n";
+	}
 	exit ($exitCode);
 }

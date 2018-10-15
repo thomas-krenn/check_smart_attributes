@@ -566,36 +566,36 @@
 			"Perfs" : ["190","177","180","241"]
 		},
 		"Samsung 840PRO" : {
-		    "Device" : ["Samsung SSD 840 PRO Series"],
-		    "ID#" : {
-			"5" : "RAW_VALUE", # Re-allocated Sector Count
-			"9" : "RAW_VALUE", # Power On Hours Count
-			"12" : "RAW_VALUE", # Power Cycle Count
-			"177" : "VALUE", # Wear Leveling Count
-			"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
-			"181" : "RAW_VALUE", # Program Fail Count (Total)
-			"182" : "RAW_VALUE", # Erase Fail Count (Total)
-			"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
-			"187" : "RAW_VALUE", # Uncorrectable Error Count
-			"190" : "RAW_VALUE", # Air Flow Temperature Celsius
-			"195" : "RAW_VALUE", # ECC Error Rate 
-			"199" : "RAW_VALUE", # CRC Error Count
-			"235" : "RAW_VALUE", # Power Recovery Count
-			"241" : "RAW_VALUE", # Total LBAs Written
-		    },   
-		    "Threshs" : {
-              "5" : ["5","10"],
-              "177" : ["10:","1:"],
-              "179" : ["5","10"],
-              "181" : ["0","10"],
-              "182" : ["5","10"],
-              "183" : ["5","10"],
-              "187" : ["0","0"],
-              "190" : ["60","70"],
-              "195" : ["0","0"],
-              "199" : ["0","0"],
-		    },
-		    "Perfs" : ["5","177","179","190","241"]
+			"Device" : ["Samsung SSD 840 PRO Series"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"177" : "VALUE", # Wear Leveling Count
+				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
+				"195" : "RAW_VALUE", # ECC Error Rate 
+				"199" : "RAW_VALUE", # CRC Error Count
+				"235" : "RAW_VALUE", # Power Recovery Count
+				"241" : "RAW_VALUE", # Total LBAs Written
+			},
+			"Threshs" : {
+				"5" : ["5","10"],
+				"177" : ["10:","1:"],
+				"179" : ["5","10"],
+				"181" : ["0","10"],
+				"182" : ["5","10"],
+				"183" : ["5","10"],
+				"187" : ["0","0"],
+				"190" : ["60","70"],
+				"195" : ["0","0"],
+				"199" : ["0","0"]
+			},
+		    	"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
 			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB"],
@@ -616,16 +616,16 @@
 				"241" : "RAW_VALUE" # Total LBAs Written
 			},
 			"Threshs" : {
-                "5" : ["5","10"],
-                "177" : ["10:","1:"],
-                "179" : ["5","10"],
-                "181" : ["0","10"],
-                "182" : ["5","10"],
-                "183" : ["5","10"],
-                "187" : ["0","0"],
-                "190" : ["60","70"],
-                "195" : ["0","0"],
-                "199" : ["0","0"],
+				"5" : ["5","10"],
+				"177" : ["10:","1:"],
+				"179" : ["5","10"],
+				"181" : ["0","10"],
+				"182" : ["5","10"],
+				"183" : ["5","10"],
+				"187" : ["0","0"],
+				"190" : ["60","70"],
+				"195" : ["0","0"],
+				"199" : ["0","0"]
 			},
 			"Perfs" : ["5","177","179","190","241"]
 		},
@@ -1758,36 +1758,36 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Western Digital Gold" : {
-		    "Device" : ["WDC WD2005FBYZ-01YCBB2" ],
-		    "ID#" : {
-			"1" : "VALUE", # Raw Read Error Rate
-			"3" : "VALUE", # Spin Up Time
-			"4" : "RAW_VALUE", # Start Stop Count
-			"5" : "RAW_VALUE", # Re-allocated Sector Count
-			"7" : "RAW_VALUE", # Seek Error Rate
-			"9" : "RAW_VALUE", # Power-On Hours
-			"10" : "RAW_VALUE", # Spin Retry Count
-			"11" : "RAW_VALUE", # Calibration Retry Count
-			"12" : "RAW_VALUE", # Power Cycle Count
-			"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-			"193" : "RAW_VALUE", # Load Cycle Count
-			"194" : "RAW_VALUE", # Temperature Celsius
-			"196" : "RAW_VALUE", # Reallocated Event Count
-			"197" : "RAW_VALUE", # Current Pending Sector
-			"198" : "RAW_VALUE", # Offline Uncorrectable
-			"199" : "RAW_VALUE", # UDMA CRC Error Count
-			"200" : "RAW_VALUE", # Multi Zone Error Rate
-		    },
-		    "Threshs" : {
-			"1" : ["62:","52:"],
-			"3" : ["32:","22:"],
-			"5" : ["20","40"],
-			"10" : ["0","10"],
-			"11" : ["0","10"],
-			"196" : ["0","10"],
-			"197" : ["0","10"],
-			"198" : ["0","10"],
-			"199" : ["0","10"],
+			"Device" : ["WDC WD2005FBYZ-01YCBB2"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"11" : "RAW_VALUE", # Calibration Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"200" : "RAW_VALUE", # Multi Zone Error Rate
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
 		    },
 		    "Perfs" : ["194"]
 		}

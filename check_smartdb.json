@@ -843,6 +843,44 @@
 			},
 			"Perfs" : ["170","194","231","233","241","242"]
 		},
+		"HGST Ultrastar He10" : {
+			"Device" : ["HGST HUH721008ALE600","HGST HUH721010ALN600","HGST HUH721010ALE600","HGST HUH721008AL5200","HGST HUH721010AL5200"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"2" : "VALUE", # Throughput Performance
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"8" : "VALUE", # Seek Time Performance
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"22" : "VALUE", # Internal Environment status (Current Helium Level)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["26:","16:"],
+				"2" : ["64:","54:"],
+				"3" : ["34:","24:"],
+				"5" : ["20","40"],
+				"8" : ["30:","20:"],
+				"10" : ["0","10"],
+				"22" : ["35:","25:"],
+				"194": ["50","60"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
 		"HGST Ultrastar He8" : {
 			"Device" : ["HGST HUH728080ALE600","HGST HUH728080ALE601","HGST HUH728080ALE604","HGST HUH728060ALE600","HGST HUH728060ALE601","HGST HUH726060ALE604"],
 			"ID#" : {
@@ -1619,22 +1657,6 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs": ["194"]
-		},
-		"HGST HUH721010ALE600" : {
-			"Device" : ["HGST","HUH721010ALE600"],
-			"ID#" : {
-					"1" : "VALUE", # Raw Read Error Rate
-					"5" : "RAW_VALUE", # Retired_Block_Count
-					"194" : "RAW_VALUE", # Temperature Celsius
-					"196" : "RAW_VALUE", # Reallocated_Event_Count
-			},
-			"Threshs" : {
-					"1" : ["62:","52:"],
-					"5" : ["20","40"],
-					"194" : ["50","60"],
-					"196" : ["20","40"]
-			},
-			"Perfs" : ["194"]
 		},
 		"Dell MZ7KM480HMHQ0D3" : {
 			"Device" : ["Dell","MZ7KM480HMHQ0D3"],

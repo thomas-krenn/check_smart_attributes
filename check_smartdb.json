@@ -1287,7 +1287,7 @@
 			"Perfs" : ["190","194"]
 		},
 		"Western Digital RED" : {
-			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD40EFRX-68WT0N0" ],
+			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD30EFRX-68AX9N0","WDC WD40EFRX-68WT0N0" ],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time

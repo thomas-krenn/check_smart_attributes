@@ -473,8 +473,9 @@
 			"Perfs" : ["177","180","190","241","242"]
 		},
 		"Samsung SM863a" : {
-			"Device" : ["SAMSUNG MZ7KM240HMHQ-00005","SAMSUNG MZ7KM480HMHQ-00005","SAMSUNG MZ7KM960HMJP-00005","SAMSUNG MZ7KM1T9HMJP-00005"],
+			"Device" : ["SAMSUNG MZ7KM240HMHQ-00005","SAMSUNG MZ7KM480HMHQ-00005","SAMSUNG MZ7KM960HMJP-00005","SAMSUNG MZ7KM1T9HMJP-00005","Dell MZ7KM240HMHQ0D3","Dell MZ7KM480HMHQ0D3","Dell MZ7KM960HMJP0D3","Dell MZ7KM1T9HMJP0D3","Dell MZ7KM3T8HMLP0D3"],
 			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power On Hours Count
 				"12" : "RAW_VALUE", # Power Cycle Count
@@ -492,6 +493,7 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"199" : "RAW_VALUE", # CRC Error Count
 				"202" : "VALUE", # SSD Mode Status
+				"233" : "VALUE", # Media Wearout Indicator
 				"235" : "RAW_VALUE", # Power Recovery Count
 				"241" : "RAW_VALUE", # Total LBA Written
 				"242" : "RAW_VALUE", # Total LBA Read
@@ -503,6 +505,7 @@
 				"251" : "RAW_VALUE" # NAND Writes
 			},
 			"Threshs" : {
+				"1" : ["62:","52:"],
 				"5" : ["10","20"],
 				"177" : ["11:","6:"],
 				"179" : ["20:","10:"],
@@ -513,12 +516,14 @@
 				"184" : ["98:","97:"],
 				"187" : ["0","10"],
 				"190" : ["60","70"],
+				"194" : ["50","60"],
 				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"]
+				"202" : ["20:","10:"],
+				"233" : ["16:","6:"]
 			},
-			"Perfs" : ["177","180","190","241","242"]
+			"Perfs" : ["177","180","190","194","233","241","242"]
 		},
 		"Samsung PM853T" : {
 			"Device" : ["SAMSUNG MZ7GE240HMGR-00003","SAMSUNG MZ7GE480HMGR-00003","SAMSUNG MZ7GE960HMGR-00003","SAMSUNG MZ7GE480HMHP-00003"],
@@ -1657,24 +1662,6 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs": ["194"]
-		},
-		"Dell MZ7KM480HMHQ0D3" : {
-			"Device" : ["Dell","MZ7KM480HMHQ0D3"],
-			"ID#" : {
-					"1" : "VALUE", # Raw Read Error Rate
-					"5" : "RAW_VALUE", # Retired_Block_Count
-					"194" : "VALUE", # Temperature Celsius
-					"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
-					"233" : "VALUE", # Media Wearout Indicator
-			},
-			"Threshs" : {
-					"1" : ["62:","52:"],
-					"5" : ["20","40"],
-					"194" : ["50","60"],
-					"195" : ["0","10"],
-					"233" : ["16:","6:"]
-			},
-			"Perfs" : ["194","233"]
 		},
 		"Western Digital Green": {
 			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],

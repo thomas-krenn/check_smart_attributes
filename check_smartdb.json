@@ -1022,6 +1022,43 @@
 			},
 			"Perfs" : ["194"]
 		},
+                "Western Digital Red NAS" : {
+                        "Device" : ["Western Digital Red NAS Storage","WDC WD10JFCX-68N6GN0"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "11" : "RAW_VALUE", # Calibration Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "7" : ["0","10"],
+                                "10" : ["0","10"],
+                                "11" : ["0","10"],
+                                "194" : ["52","65"],
+                                "196" : ["0","10"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"],
+                                "200" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"Western Digital RE4" : {
 			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1","WDC WD4000FYYZ-50UL1B0"],
 			"ID#" : {

@@ -1003,7 +1003,7 @@
 			"Perfs" : ["194"]
 		},
                 "HGST (Hitachi) Ultrastar A7K2000" : {
-                        "Device" : ["HGST HUA722050CLA330","HGST HUA722010CLA330"],
+                        "Device" : ["HGST HUA722050CLA330","HGST HUA722010CLA330","Hitachi HUA722050CLA330","Hitachi HUA722010CLA330"],
                         "ID#" : {
                                 "1" : "VALUE", # Raw Read Error Rate
                                 "2" : "VALUE", # Throughput Performance

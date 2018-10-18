@@ -1813,6 +1813,24 @@
 			},
 			"Perfs": ["194"]
 		},
+		"Dell THNSF8200CCSE" : {
+			"Device" : ["Dell","THNSF8200CCSE"],
+			"ID#" : {
+					"1" : "VALUE", # Raw Read Error Rate
+					"5" : "RAW_VALUE", # Retired_Block_Count
+					"194" : "VALUE", # Temperature Celsius
+					"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
+					"233" : "VALUE", # Media Wearout Indicator
+			},
+			"Threshs" : {
+					"1" : ["62:","52:"],
+					"5" : ["20","40"],
+					"194" : ["50","60"],
+					"195" : ["0","10"],
+					"233" : ["16:","6:"]
+			},
+			"Perfs" : ["194","233"]
+		},
 		"Western Digital Green": {
 			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
 			"ID#" : {

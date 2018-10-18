@@ -1109,6 +1109,43 @@
 			},
 			"Perfs" : ["194"]
 		},
+                "Western Digital Black Mobile" : {
+                        "Device" : ["Western Digital Black Mobile","WDC WD7500BPKX-22HPJT0","WDC WD7500BPKX-00HPJT0"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "11" : "RAW_VALUE", # Calibration Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "7" : ["0","10"],
+                                "10" : ["0","10"],
+                                "11" : ["0","10"],
+                                "194" : ["52","65"],
+                                "196" : ["0","10"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"],
+                                "200" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"Western Digital Red" : {
 		  "Device" : ["WDC WD80EFZX-68UW8N0"],
 			"ID#" : {

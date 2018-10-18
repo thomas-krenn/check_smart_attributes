@@ -1816,18 +1816,27 @@
 		"Dell THNSF8200CCSE" : {
 			"Device" : ["Dell","THNSF8200CCSE"],
 			"ID#" : {
-					"1" : "VALUE", # Raw Read Error Rate
-					"5" : "RAW_VALUE", # Retired_Block_Count
-					"194" : "VALUE", # Temperature Celsius
-					"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
-					"233" : "VALUE", # Media Wearout Indicator
+				"1" : "VALUE", # Raw Read Error Rate
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"179" : "VALUE", # Used Reserved Block Count (Total)
+				"180" : "VALUE", # Unused Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # CRC Error Count
+				"233" : "VALUE", # Media Wearout Indicator
+			
 			},
 			"Threshs" : {
-					"1" : ["62:","52:"],
-					"5" : ["20","40"],
-					"194" : ["50","60"],
-					"195" : ["0","10"],
-					"233" : ["16:","6:"]
+				"1" : ["62:","52:"],
+				"5" : ["20","40"],
+				"194" : ["50","60"],
+				"195" : ["0","10"],
+				"233" : ["16:","6:"]
 			},
 			"Perfs" : ["194","233"]
 		},

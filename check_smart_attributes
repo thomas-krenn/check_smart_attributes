@@ -95,6 +95,13 @@ sub getHelpString{
         sensor. In order to interpret a sensor it is necessary to know which
         value to take. As this mapping can be different for device models a
         database is needed for a device.
+        Attributes for NVMe devives are not model specific, therefore only one
+        generic NMVe entry is present in the smart db. If the smartctl output
+        contains the string 'NVMe Log' then NVMe specific parsing of attributes
+        is done. The generic entry is necessary to enable default thresholds and
+        performance values for NVMe devices. Moreover now with the generic entry
+        users can still override the smart db entry with 'ucfgj'. This is way
+        better than having hardcoded parsing of NVMe attributes in the plugin.
   [-ucfgj|--ucfgjson <path to user config JSON file>]
         Specify the path at which the JSON user config file can be found.
         The user config can be used to override thresholds and performance values

@@ -126,11 +126,11 @@ sub getHelpString{
         controllers. For megaraid devices 'sat+' is allowed.
         The options are only used if a device of type sg<X> or
         megaraid<X>,/dev/sdX is given.
-  [-v <Verbose Level>]
+  [-v|-vv|-vvv]
        be verbose
          (no -v) .. single line output
-         -v ..... single line output with additional details for warnings
-         -vv ..... multi line output, also with additional details for warnings
+         -v ....... single line output with additional details for warnings
+         -vv ...... multi line output, also with additional details for warnings
          -vvv ..... normal output, then debugging output
   [-h|--help]
        show this help
@@ -581,10 +581,11 @@ sub getVerboseString{
 				$verb_str .= " (".$IDs_h{$ID}.")";
 			}
 		}
+		$verb_str .= "\n";
 		if($VERBOSITY == 3){
 			my @smartctlOut = @{$smartctlOut_h{$device->{'Path'}}};
-			$verb_str .= "\n======================================== \n";
-			$verb_str .= "Device: ".$device->{'Path'}."\n";
+			$verb_str .= "\n========================================";
+			$verb_str .= "\nBegin of verbosity level 3 (-vvv) output for device: ".$device->{'Path'}."\n";
 			$verb_str .= "\n================= \n";
 			$verb_str .= "Thresholds:\n";
 			foreach my $ID (keys %threshs_h){
@@ -603,7 +604,7 @@ sub getVerboseString{
 			foreach my $line (@smartctlOut){
 				$verb_str .= $line;
 			}
-			$verb_str .= "\nEnd of verbose output for device: ".$device->{'Path'}."\n";
+			$verb_str .= "\nEnd of verbosity level 3 (-vvv) output for device: ".$device->{'Path'}."\n";
 			$verb_str .= "======================================== \n";
 		}
 	}
@@ -723,6 +724,9 @@ MAIN: {
 	}
 	if($VERBOSITY == 2 || $VERBOSITY == 3){
 		print getVerboseString($smartValues_h,$devices_a,$output_h);
+	}
+	else{
+		print "\n";
 	}
 	exit ($exitCode);
 }

@@ -506,8 +506,9 @@
 			"Perfs" : ["177","180","190","241","242"]
 		},
 		"Samsung SM863a" : {
-			"Device" : ["SAMSUNG MZ7KM240HMHQ-00005","SAMSUNG MZ7KM480HMHQ-00005","SAMSUNG MZ7KM960HMJP-00005","SAMSUNG MZ7KM1T9HMJP-00005"],
+			"Device" : ["SAMSUNG MZ7KM240HMHQ-00005","SAMSUNG MZ7KM480HMHQ-00005","SAMSUNG MZ7KM960HMJP-00005","SAMSUNG MZ7KM1T9HMJP-00005","Dell MZ7KM240HMHQ0D3","Dell MZ7KM480HMHQ0D3","Dell MZ7KM960HMJP0D3","Dell MZ7KM1T9HMJP0D3","Dell MZ7KM3T8HMLP0D3"],
 			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power On Hours Count
 				"12" : "RAW_VALUE", # Power Cycle Count
@@ -525,6 +526,7 @@
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"199" : "RAW_VALUE", # CRC Error Count
 				"202" : "VALUE", # SSD Mode Status
+				"233" : "VALUE", # Media Wearout Indicator
 				"235" : "RAW_VALUE", # Power Recovery Count
 				"241" : "RAW_VALUE", # Total LBA Written
 				"242" : "RAW_VALUE", # Total LBA Read
@@ -536,6 +538,7 @@
 				"251" : "RAW_VALUE" # NAND Writes
 			},
 			"Threshs" : {
+				"1" : ["62:","52:"],
 				"5" : ["10","20"],
 				"177" : ["11:","6:"],
 				"179" : ["20:","10:"],
@@ -546,12 +549,14 @@
 				"184" : ["98:","97:"],
 				"187" : ["0","10"],
 				"190" : ["60","70"],
+				"194" : ["50","60"],
 				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"]
+				"202" : ["20:","10:"],
+				"233" : ["16:","6:"]
 			},
-			"Perfs" : ["177","180","190","241","242"]
+			"Perfs" : ["177","180","190","194","233","241","242"]
 		},
 		"Samsung PM853T" : {
 			"Device" : ["SAMSUNG MZ7GE240HMGR-00003","SAMSUNG MZ7GE480HMGR-00003","SAMSUNG MZ7GE960HMGR-00003","SAMSUNG MZ7GE480HMHP-00003"],
@@ -594,36 +599,36 @@
 			"Perfs" : ["190","177","180","241"]
 		},
 		"Samsung 840PRO" : {
-		    "Device" : ["Samsung SSD 840 PRO Series"],
-		    "ID#" : {
-			"5" : "RAW_VALUE", # Re-allocated Sector Count
-			"9" : "RAW_VALUE", # Power On Hours Count
-			"12" : "RAW_VALUE", # Power Cycle Count
-			"177" : "VALUE", # Wear Leveling Count
-			"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
-			"181" : "RAW_VALUE", # Program Fail Count (Total)
-			"182" : "RAW_VALUE", # Erase Fail Count (Total)
-			"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
-			"187" : "RAW_VALUE", # Uncorrectable Error Count
-			"190" : "RAW_VALUE", # Air Flow Temperature Celsius
-			"195" : "RAW_VALUE", # ECC Error Rate
-			"199" : "RAW_VALUE", # CRC Error Count
-			"235" : "RAW_VALUE", # Power Recovery Count
-			"241" : "RAW_VALUE", # Total LBAs Written
-		    },
-		    "Threshs" : {
-			"5" : ["0","0"],
-			"177" : ["10:","1:"],
-			"179" : ["0","5"],
-			"181" : ["0","10"],
-			"182" : ["0","10"],
-			"183" : ["0","10"],
-			"187" : ["0","10"],
-			"190" : ["60","70"],
-			"195" : ["0","10"],
-			"199" : ["0","10"],
-		    },
-		    "Perfs" : ["5","177","179","190","241"]
+			"Device" : ["Samsung SSD 840 PRO Series"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"177" : "VALUE", # Wear Leveling Count
+				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
+				"187" : "RAW_VALUE", # Uncorrectable Error Count
+				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
+				"195" : "RAW_VALUE", # ECC Error Rate 
+				"199" : "RAW_VALUE", # CRC Error Count
+				"235" : "RAW_VALUE", # Power Recovery Count
+				"241" : "RAW_VALUE", # Total LBAs Written
+			},
+			"Threshs" : {
+				"5" : ["5","10"],
+				"177" : ["10:","1:"],
+				"179" : ["5","10"],
+				"181" : ["0","10"],
+				"182" : ["5","10"],
+				"183" : ["5","10"],
+				"187" : ["0","0"],
+				"190" : ["60","70"],
+				"195" : ["0","0"],
+				"199" : ["0","0"]
+			},
+		    	"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
 			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB"],
@@ -644,19 +649,63 @@
 				"241" : "RAW_VALUE" # Total LBAs Written
 			},
 			"Threshs" : {
-				"5" : ["0","0"],
+				"5" : ["5","10"],
 				"177" : ["10:","1:"],
-				"179" : ["0","5"],
+				"179" : ["5","10"],
 				"181" : ["0","10"],
-				"182" : ["0","10"],
-				"183" : ["0","10"],
-				"187" : ["0","10"],
+				"182" : ["5","10"],
+				"183" : ["5","10"],
+				"187" : ["0","0"],
 				"190" : ["60","70"],
-				"195" : ["0","10"],
-				"199" : ["0","10"]
+				"195" : ["0","0"],
+				"199" : ["0","0"]
 			},
 			"Perfs" : ["5","177","179","190","241"]
 		},
+                "Crucial M500" : {
+                        "Device" : ["Crucial_CT120M500SSD1","Crucial_CT240M500SSD1","Crucial_CT480M500SSD1","Crucial_CT960M500SSD1"],
+                        "ID#" : {
+                                "1" : "RAW_VALUE", # Raw Read Error Rate
+                                "5" : "RAW_VALUE", # Reallocated NAND Block Count
+                                "9" : "RAW_VALUE", # Power On Hours Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "171" : "RAW_VALUE", # Program Fail Count
+                                "172" : "RAW_VALUE", # Erase Fail Count
+                                "173" : "RAW_VALUE", # Average Block-Erase Count
+                                "174" : "RAW_VALUE", # Unexpected Power Loss Count
+                                "180" : "RAW_VALUE", # Unused Reserve (Spare) NAND Blocks
+                                "183" : "RAW_VALUE", # SATA Interface Downshift
+                                "184" : "VALUE", # Error Correction Count
+                                "187" : "RAW_VALUE", # Reported Uncorrectable Errors
+                                "194" : "RAW_VALUE", # Enclosure Temperature
+                                "196" : "RAW_VALUE", # Reallocation Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector Count
+                                "198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
+                                "199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
+                                "202" : "VALUE", # Percent Lifetime Remaining
+                                "206" : "RAW_VALUE", # Write Error Rate
+                                "210" : "RAW_VALUE", # Successful RAIN Recovery Count
+                                "246" : "RAW_VALUE", # Total Host Sector Writes
+                                "247" : "RAW_VALUE", # Host Program Page Count
+                                "248" : "RAW_VALUE" # FTL Program Page Count
+
+                        },
+                        "Threshs" : {
+                                "5" : ["10","20"],
+                                "171" : ["0","10"],
+                                "172" : ["0","10"],
+                                "180" : ["250:","150:"],
+                                "181" : ["0","10"],
+                                "182" : ["0","10"],
+                                "184" : ["96:","91:"],
+                                "187" : ["0","10"],
+                                "194" : ["60","70"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"],
+                                "202" : ["16:","6:"]
+                        },
+                        "Perfs" : ["180","194","202","246"]
+                },
 		"Crucial MX200" : {
 			"Device" : ["Crucial_CT1024MX200SSD1","Crucial_CT250MX200SSD1","Crucial_CT500MX200SSD1","Crucial_CT240M500SSD1"],
 			"ID#" : {
@@ -876,6 +925,44 @@
 			},
 			"Perfs" : ["170","194","231","233","241","242"]
 		},
+		"HGST Ultrastar He10" : {
+			"Device" : ["HGST HUH721008ALE600","HGST HUH721010ALN600","HGST HUH721010ALE600","HGST HUH721008AL5200","HGST HUH721010AL5200"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"2" : "VALUE", # Throughput Performance
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"8" : "VALUE", # Seek Time Performance
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"22" : "VALUE", # Internal Environment status (Current Helium Level)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["26:","16:"],
+				"2" : ["64:","54:"],
+				"3" : ["34:","24:"],
+				"5" : ["20","40"],
+				"8" : ["30:","20:"],
+				"10" : ["0","10"],
+				"22" : ["35:","25:"],
+				"194": ["50","60"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
 		"HGST Ultrastar He8" : {
 			"Device" : ["HGST HUH728080ALE600","HGST HUH728080ALE601","HGST HUH728080ALE604","HGST HUH728060ALE600","HGST HUH728060ALE601","HGST HUH726060ALE604"],
 			"ID#" : {
@@ -948,6 +1035,41 @@
 			},
 			"Perfs" : ["194"]
 		},
+                "HGST (Hitachi) Ultrastar A7K2000" : {
+                        "Device" : ["HGST HUA722050CLA330","HGST HUA722010CLA330","Hitachi HUA722050CLA330","Hitachi HUA722010CLA330"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "2" : "VALUE", # Throughput Performance
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "8" : "VALUE", # Seek Time Performance
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE" # UDMA CRC Error Count
+                        },
+                        "Threshs" : {
+                                "1" : ["26:","16:"],
+                                "2" : ["64:","54:"],
+                                "3" : ["34:","24:"],
+                                "5" : ["20","40"],
+                                "8" : ["30:","20:"],
+                                "10" : ["0","10"],
+                                "196" : ["0","10"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"HGST Travelstar 7K1000" : {
 			"Device" : ["HGST HTE721010A9E630"],
 			"ID#" : {
@@ -1020,6 +1142,43 @@
 			},
 			"Perfs" : ["194"]
 		},
+                "Western Digital Black Mobile" : {
+                        "Device" : ["Western Digital Black Mobile","WDC WD7500BPKX-22HPJT0","WDC WD7500BPKX-00HPJT0"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "11" : "RAW_VALUE", # Calibration Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "7" : ["0","10"],
+                                "10" : ["0","10"],
+                                "11" : ["0","10"],
+                                "194" : ["52","65"],
+                                "196" : ["0","10"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"],
+                                "200" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"Western Digital Red" : {
 		  "Device" : ["WDC WD80EFZX-68UW8N0"],
 			"ID#" : {
@@ -1055,6 +1214,43 @@
 			},
 			"Perfs" : ["194"]
 		},
+                "Western Digital Red NAS" : {
+                        "Device" : ["Western Digital Red NAS Storage","WDC WD10JFCX-68N6GN0"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "11" : "RAW_VALUE", # Calibration Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "7" : ["0","10"],
+                                "10" : ["0","10"],
+                                "11" : ["0","10"],
+                                "194" : ["52","65"],
+                                "196" : ["0","10"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"],
+                                "200" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"Western Digital RE4" : {
 			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1","WDC WD4000FYYZ-50UL1B0"],
 			"ID#" : {
@@ -1277,7 +1473,7 @@
 			"Perfs" : ["190","194"]
 		},
 		"Western Digital RED" : {
-			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD40EFRX-68WT0N0" ],
+			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD30EFRX-68AX9N0","WDC WD40EFRX-68WT0N0" ],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time
@@ -1620,10 +1816,7 @@
 			"Perfs" : ["5","184","187","194","197","199"]
 		},
 		"Hitachi Deskstar 7K3000": {
-			"Device": ["Hitachi Deskstar 7K3000",
-					   "Hitachi HDS723020BLA642",
-					   "Hitachi HDS723020BLE640",
-					   "Hitachi HDS723030BLE640"],
+			"Device": ["Hitachi Deskstar 7K3000", "Hitachi HDS723020BLA642", "Hitachi HDS723020BLE640", "Hitachi HDS723030BLE640"],
 			"ID#": {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time
@@ -1652,6 +1845,33 @@
 				"1024" : ["0","10"]
 			},
 			"Perfs": ["194"]
+		},
+		"Dell THNSF8200CCSE" : {
+			"Device" : ["Dell","THNSF8200CCSE"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"179" : "VALUE", # Used Reserved Block Count (Total)
+				"180" : "VALUE", # Unused Reserved Block Count (Total)
+				"181" : "RAW_VALUE", # Program Fail Count (Total)
+				"182" : "RAW_VALUE", # Erase Fail Count (Total)
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # CRC Error Count
+				"233" : "VALUE", # Media Wearout Indicator
+			
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"5" : ["20","40"],
+				"194" : ["50","60"],
+				"195" : ["0","10"],
+				"233" : ["16:","6:"]
+			},
+			"Perfs" : ["194","233"]
 		},
 		"Western Digital Green": {
 			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
@@ -1748,36 +1968,36 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Western Digital Gold" : {
-		    "Device" : ["WDC WD2005FBYZ-01YCBB2" ],
-		    "ID#" : {
-			"1" : "VALUE", # Raw Read Error Rate
-			"3" : "VALUE", # Spin Up Time
-			"4" : "RAW_VALUE", # Start Stop Count
-			"5" : "RAW_VALUE", # Re-allocated Sector Count
-			"7" : "RAW_VALUE", # Seek Error Rate
-			"9" : "RAW_VALUE", # Power-On Hours
-			"10" : "RAW_VALUE", # Spin Retry Count
-			"11" : "RAW_VALUE", # Calibration Retry Count
-			"12" : "RAW_VALUE", # Power Cycle Count
-			"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-			"193" : "RAW_VALUE", # Load Cycle Count
-			"194" : "RAW_VALUE", # Temperature Celsius
-			"196" : "RAW_VALUE", # Reallocated Event Count
-			"197" : "RAW_VALUE", # Current Pending Sector
-			"198" : "RAW_VALUE", # Offline Uncorrectable
-			"199" : "RAW_VALUE", # UDMA CRC Error Count
-			"200" : "RAW_VALUE", # Multi Zone Error Rate
-		    },
-		    "Threshs" : {
-			"1" : ["62:","52:"],
-			"3" : ["32:","22:"],
-			"5" : ["20","40"],
-			"10" : ["0","10"],
-			"11" : ["0","10"],
-			"196" : ["0","10"],
-			"197" : ["0","10"],
-			"198" : ["0","10"],
-			"199" : ["0","10"],
+			"Device" : ["WDC WD2005FBYZ-01YCBB2"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"11" : "RAW_VALUE", # Calibration Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"200" : "RAW_VALUE", # Multi Zone Error Rate
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
 		    },
 		    "Perfs" : ["194"]
 		}

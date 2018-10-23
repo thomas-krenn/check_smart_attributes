@@ -1,5 +1,38 @@
 {
 	"Devices" : {
+		"Generic NVMe" : {
+			"Device" : ["NVMe Log"],
+			"ID#" : {
+				"0" : "RAW_VALUE", # Critical Warning
+				"1" : "RAW_VALUE", # Temperature
+				"2" : "RAW_VALUE", # Available Spare
+				"3" : "RAW_VALUE", # Available Spare Threshold
+				"4" : "RAW_VALUE", # Percentage Used
+				"5" : "RAW_VALUE", # Data Units Read
+				"6" : "RAW_VALUE", # Data Units Written
+				"7" : "RAW_VALUE", # Host Read Commands
+				"8" : "RAW_VALUE", # Host Write Commands
+				"9" : "RAW_VALUE", # Controller Busy Time
+				"10" : "RAW_VALUE", # Power Cycles
+				"11" : "RAW_VALUE", # Power On Hours
+				"12" : "RAW_VALUE", # Unsafe Shutdowns
+				"13" : "RAW_VALUE", # Media and Data Integrity Errors
+				"14" : "RAW_VALUE", # Error Information Log Entries
+				"15" : "RAW_VALUE", # Warning  Comp. Temperature Time
+				"16" : "RAW_VALUE", # Critical Comp. Temperature Time
+			},
+			"Threshs" : {
+				"0" : ["0","0"],
+				"1" : ["50","60"],
+				"2" : ["16:","11:"],
+				"4" : ["85","90"],
+				"13" : ["0","10"],
+				"14" : ["0","10"],
+				"15" : ["15","30"],
+				"16" : ["15","30"]
+			},
+			"Perfs" : ["1","2","4","5","6","7","8","10","11"]
+		},
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3","INTEL SSDSA2CT040G3"],
 			"ID#" : {
@@ -573,11 +606,11 @@
 			"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
 			"187" : "RAW_VALUE", # Uncorrectable Error Count
 			"190" : "RAW_VALUE", # Air Flow Temperature Celsius
-			"195" : "RAW_VALUE", # ECC Error Rate 
+			"195" : "RAW_VALUE", # ECC Error Rate
 			"199" : "RAW_VALUE", # CRC Error Count
 			"235" : "RAW_VALUE", # Power Recovery Count
 			"241" : "RAW_VALUE", # Total LBAs Written
-		    },   
+		    },
 		    "Threshs" : {
 			"5" : ["0","0"],
 			"177" : ["10:","1:"],

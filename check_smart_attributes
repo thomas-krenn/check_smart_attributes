@@ -19,6 +19,26 @@ use constant {
 our @hdrmap_a = ('ID#','ATTRIBUTE_NAME','FLAG','VALUE','WORST','THRESH',
 	'TYPE','UPDATED','WHEN_FAILED','RAW_VALUE');
 
+our %hdrmap_nvme = (
+	'Critical Warning' => 0,
+	'Temperature' => 1,
+	'Available Spare' => 2,
+	'Available Spare Threshold' => 3,
+	'Percentage Used' => 4,
+	'Data Units Read' => 5,
+	'Data Units Written' => 6,
+	'Host Read Commands' => 7,
+	'Host Write Commands' => 8,
+	'Controller Busy Time' => 9,
+	'Power Cycles' => 10,
+	'Power On Hours' => 11,
+	'Unsafe Shutdowns' => 12,
+	'Media and Data Integrity Errors' => 13,
+	'Error Information Log Entries' => 14,
+	'Warning  Comp. Temperature Time' => 15,
+	'Critical Comp. Temperature Time' => 16
+);
+
 sub getVersionString{
 	return "check_smart_values version $VERSION 20151020
 Copyright (C) 2016 Thomas-Krenn.AG (written by Georg Schönberger)
@@ -75,6 +95,13 @@ sub getHelpString{
         sensor. In order to interpret a sensor it is necessary to know which
         value to take. As this mapping can be different for device models a
         database is needed for a device.
+        Attributes for NVMe devives are not model specific, therefore only one
+        generic NMVe entry is present in the smart db. If the smartctl output
+        contains the string 'NVMe Log' then NVMe specific parsing of attributes
+        is done. The generic entry is necessary to enable default thresholds and
+        performance values for NVMe devices. Moreover now with the generic entry
+        users can still override the smart db entry with 'ucfgj'. This is way
+        better than having hardcoded parsing of NVMe attributes in the plugin.
   [-ucfgj|--ucfgjson <path to user config JSON file>]
         Specify the path at which the JSON user config file can be found.
         The user config can be used to override thresholds and performance values
@@ -243,7 +270,7 @@ sub checkWhichDevice{
 		if(defined($ssdonly)){
 			if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
 		}
-		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
+		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i || /NVMe Log/i } @smartctlOut;
 		my $found = 0;# We have not found the device yet
 		foreach my $currModel (@model){
 			# Check all models in the db
@@ -253,6 +280,12 @@ sub checkWhichDevice{
 					# If the model matches we have found the correct db entry
 					if($currModel =~ /$_$/){
 						$found =1;
+					}
+					# For NVMe we don't have a specific model, but we use the smartdb's generic NVMe entry
+					if(($currModel =~ /NVMe/) && ($currModel =~ /$_/)){
+						$found =1;
+					}
+					if($found == 1){
 						my %foundDevice_h;
 						# Clone the values from the JSON smart db, ensure to not work
 						# with the same reference every time
@@ -317,6 +350,26 @@ sub parseSmartctlOut{
 					else{
 						$lineValues_h{$hdrmap_a[$i]} = $splittedLine[$i];
 					}
+				}
+				push @smartValues, \%lineValues_h;
+			}
+			# Parse smart value lines for NVMe output
+			elsif($line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
+				my %lineValues_h;
+				$lineValues_h{'ATTRIBUTE_NAME'} = $1;
+				$lineValues_h{'ID#'} = $hdrmap_nvme{$1};
+				$lineValues_h{'RAW_VALUE'} = $2;
+				# Remove whitespace/, in units read/written and any percentage and celsius suffix
+				$lineValues_h{'RAW_VALUE'} =~ s/[\s\%]|\,|Celsius//g;
+				# NVMe's Critical Warning Attribute is hex, convert it to decimal
+				if($lineValues_h{'ATTRIBUTE_NAME'} eq "Critical Warning"){
+					$lineValues_h{'RAW_VALUE'} = hex($2);
+				}
+				# Data units are presented as 1000 512bytes, convert it
+				if($lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Read" ||
+				$lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Written"){
+					$lineValues_h{'RAW_VALUE'} =~ m/^(\d+)\[/;
+					$lineValues_h{'RAW_VALUE'} = ($1*512000)/(1000**3);
 				}
 				push @smartValues, \%lineValues_h;
 			}

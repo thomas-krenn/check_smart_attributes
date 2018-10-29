@@ -96,8 +96,8 @@ sub getHelpString{
         value to take. As this mapping can be different for device models a
         database is needed for a device.
         Attributes for NVMe devives are not model specific, therefore only one
-        generic NMVe entry is present in the smart db. If the smartctl output
-        contains the string 'NVMe Log' then NVMe specific parsing of attributes
+        generic NMVe entry is present in the smart db. If the device is set up
+        as 'nvme[a-z0-9]+' then NVMe specific parsing of attributes
         is done. The generic entry is necessary to enable default thresholds and
         performance values for NVMe devices. Moreover now with the generic entry
         users can still override the smart db entry with 'ucfgj'. This is way
@@ -270,7 +270,11 @@ sub checkWhichDevice{
 		if(defined($ssdonly)){
 			if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
 		}
-		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i || /NVMe Log/i } @smartctlOut;
+		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
+		# NVMe devices don't require a database entry, use the generic NVMe one
+		if ($device =~ /nvme[a-z0-9]+$/) {
+			@model = ('Generic NVMe');
+		}
 		my $found = 0;# We have not found the device yet
 		foreach my $currModel (@model){
 			# Check all models in the db
@@ -354,24 +358,26 @@ sub parseSmartctlOut{
 				push @smartValues, \%lineValues_h;
 			}
 			# Parse smart value lines for NVMe output
-			elsif($line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
-				my %lineValues_h;
-				$lineValues_h{'ATTRIBUTE_NAME'} = $1;
-				$lineValues_h{'ID#'} = $hdrmap_nvme{$1};
-				$lineValues_h{'RAW_VALUE'} = $2;
-				# Remove whitespace/, in units read/written and any percentage and celsius suffix
-				$lineValues_h{'RAW_VALUE'} =~ s/[\s\%]|\,|Celsius//g;
-				# NVMe's Critical Warning Attribute is hex, convert it to decimal
-				if($lineValues_h{'ATTRIBUTE_NAME'} eq "Critical Warning"){
-					$lineValues_h{'RAW_VALUE'} = hex($2);
+			elsif($device =~ /nvme[a-z0-9]+$/ && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
+				if(exists $hdrmap_nvme{$1}){
+					my %lineValues_h;
+					$lineValues_h{'ATTRIBUTE_NAME'} = $1;
+					$lineValues_h{'ID#'} = $hdrmap_nvme{$1};
+					$lineValues_h{'RAW_VALUE'} = $2;
+					# Remove whitespace , . in units read/written and any percentage and celsius suffix
+					$lineValues_h{'RAW_VALUE'} =~ s/[\s\%\,\.]|Celsius//g;
+					# NVMe's Critical Warning Attribute is hex, convert it to decimal
+					if($lineValues_h{'ATTRIBUTE_NAME'} eq "Critical Warning"){
+						$lineValues_h{'RAW_VALUE'} = hex($2);
+					}
+					# Data units are presented as 1000 512bytes, convert it
+					if($lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Read" ||
+					$lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Written"){
+						$lineValues_h{'RAW_VALUE'} =~ m/^(\d+)\[/;
+						$lineValues_h{'RAW_VALUE'} = ($1*512000)/(1000**3);
+					}
+					push @smartValues, \%lineValues_h;
 				}
-				# Data units are presented as 1000 512bytes, convert it
-				if($lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Read" ||
-				$lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Written"){
-					$lineValues_h{'RAW_VALUE'} =~ m/^(\d+)\[/;
-					$lineValues_h{'RAW_VALUE'} = ($1*512000)/(1000**3);
-				}
-				push @smartValues, \%lineValues_h;
 			}
 			if($line =~ /(ATA Error Count)\:\s+(\d+)/){
 				my %lineValues_h;

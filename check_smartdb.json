@@ -1,7 +1,7 @@
 {
 	"Devices" : {
 		"Generic NVMe" : {
-			"Device" : ["NVMe Log"],
+			"Device" : ["Generic NVMe"],
 			"ID#" : {
 				"0" : "RAW_VALUE", # Critical Warning
 				"1" : "RAW_VALUE", # Temperature
@@ -611,7 +611,7 @@
 				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
 				"187" : "RAW_VALUE", # Uncorrectable Error Count
 				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
-				"195" : "RAW_VALUE", # ECC Error Rate 
+				"195" : "RAW_VALUE", # ECC Error Rate
 				"199" : "RAW_VALUE", # CRC Error Count
 				"235" : "RAW_VALUE", # Power Recovery Count
 				"241" : "RAW_VALUE", # Total LBAs Written
@@ -1862,7 +1862,7 @@
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # CRC Error Count
 				"233" : "VALUE", # Media Wearout Indicator
-			
+
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],

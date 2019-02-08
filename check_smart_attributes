@@ -6,7 +6,7 @@ use Getopt::Long qw(:config no_ignore_case);
 use Config::JSON;
 use Storable qw(dclone);
 
-our $VERSION = "1.5";
+our $VERSION = "1.6";
 our $VERBOSITY = 0;
 
 use constant {
@@ -40,8 +40,8 @@ our %hdrmap_nvme = (
 );
 
 sub getVersionString{
-	return "check_smart_values version $VERSION 20151020
-Copyright (C) 2016 Thomas-Krenn.AG (written by Georg Schönberger)
+	return "check_smart_values version $VERSION 20190208
+Copyright (C) 2019 Thomas-Krenn.AG (written by Georg Schönberger)
 Current updates available via git repository https://github.com/thomas-krenn/\n";
 }
 
@@ -89,6 +89,9 @@ sub getHelpString{
         For devices behind 3ware RAID controllers the 3ware device ID must be
         used with the corresponding tw device, e.g.:
         -d 3ware,8,/dev/twa0
+        For NVMe devices just use '/dev/nvme[a-z0-9]+'. As attributes with NVMe
+        are not model specific the generic NVMe entry in the smartdb JSON file
+        is used.
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a

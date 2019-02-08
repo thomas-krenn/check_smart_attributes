@@ -3,9 +3,19 @@ Changelog for check_smart_attributes, a Nagios/Icinga plugin to check the smart
 attributes of HDDs and SSDs
 ###############################################################################
 
+Version 1.6 20190208
+  * Support cciss devices
+  * Add option to exit critical if the device was not found in database
+  * Add option 'allperfs' to get all performance values
+  * Check if device is a symlink and get absolute path if yes
+  * Directly read /dev/disk/by* links for devices
+  * Add option 'ssdonly' to only check SSD devices
+  * Support devices beind 3ware RAID controllers
+  * Support NVMe devices
+
 Version 1.5 20161118
   * Added aacraid option for drives attached to Adaptec RAID controllers
-  * Removing smart attribute 195 from check for M510DC 
+  * Removing smart attribute 195 from check for M510DC
 
 Version 1.4 20160519
   * Added MICRON M510DC to smartdrivedb
@@ -30,7 +40,7 @@ Version 1.3 20151020
 Version 1.2 20150109
   * Fix smart attribute values for Samsung and SanDisk SSDs
   * Added WD and Seagate devices
-  * Fix device paths behind LSI RAID controllers 
+  * Fix device paths behind LSI RAID controllers
 
 Version 1.1 20140717
   * Add support for devices behind LSI RAID controllers

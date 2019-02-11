@@ -316,6 +316,35 @@
 			},
 			"Perfs" : ["194","230","232","241","242"]
 		},
+		"SanDisk SSD Plus" : {
+			"Device" : ["SandForce Driven SSDs","SanDisk SDSSDA120G","SanDisk SDSSDA240G","SanDisk SDSSDA480G"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Retired_Block_Count
+				"9" : "RAW_VALUE", # Power-On Hours_and_Msec
+				"12" : "RAW_VALUE", # Power_Cycle_Count
+				"170" : "RAW_VALUE", # Reserve_Block_Count
+				"171" : "RAW_VALUE", # Program_Fail_Count
+				"172" : "RAW_VALUE", # Erase_Fail_Count
+				"174" : "RAW_VALUE", # Unexpect_Power_Loss_Ct
+				"187" : "RAW_VALUE", # Reported_Uncorrect
+				"194" : "RAW_VALUE", # Temperature_Celsius
+				"199" : "RAW_VALUE", # SATA_CRC_Error_Count
+				"230" : "RAW_VALUE", # Life_Curve_Status
+				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
+				"241" : "RAW_VALUE", # Total_Writes_GiB
+				"242" : "RAW_VALUE", # Total_Reads_GiB
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"187" : ["0","10"],
+				"212" : ["0","10"],
+				"230" : ["85","95","r8"],
+				"232" : ["16:","11:"],
+			},
+			"Perfs" : ["194","230","232","241","242"]
+		},
 		"Samsung SM883" : {
 			"Device" : ["SAMSUNG MZ7KH240HAHQ-00005","SAMSUNG MZ7KH480HAHQ-00005","SAMSUNG MZ7KH960HAJR-00005","SAMSUNG MZ7KH1T9HAJR-00005","SAMSUNG MZ7KH3T8HALS-00005"],
 			"ID#" : {

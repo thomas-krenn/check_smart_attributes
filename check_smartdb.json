@@ -33,6 +33,32 @@
 			},
 			"Perfs" : ["1","2","4","5","6","7","8","10","11"]
 		},
+		"Generic SAS" : {
+			"Device" : ["Generic SAS"],
+			"ID#" : {
+				"0" : "RAW_VALUE", # Elements in grown defect list
+				"1" : "RAW_VALUE", # Read errors corrected by ECC (fast)
+				"2" : "RAW_VALUE", # Read errors corrected by ECC (delayed)
+				"3" : "RAW_VALUE", # Read errors corrected by ECC (reread)
+				"4" : "RAW_VALUE", # Total read errors corrected
+				"5" : "RAW_VALUE", # Total read correction algorithm invocations
+				"6" : "RAW_VALUE", # Total read gigabytes processed
+				"7" : "RAW_VALUE", # Total uncorrectable read errors
+				"8" : "RAW_VALUE", # Write errors corrected by ECC (fast)
+				"9" : "RAW_VALUE", # Write errors corrected by ECC (delayed)
+				"10" : "RAW_VALUE", # Write errors corrected by ECC (rewrite)
+				"11" : "RAW_VALUE", # Total write errors corrected
+				"12" : "RAW_VALUE", # Total write correction algorithm invocations
+				"13" : "RAW_VALUE", # Total write gigabytes processed
+				"14" : "RAW_VALUE", # Total uncorrectable write errors
+			},
+			"Threshs" : {
+				"0" : ["20","40"],
+				"7" : ["0","0"],
+				"14" : ["0","0"]
+			},
+			"Perfs" : ["1","2","3","4","5","6","7","8","9","10","11","12","13","14"]
+		},
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3","INTEL SSDSA2CT040G3"],
 			"ID#" : {

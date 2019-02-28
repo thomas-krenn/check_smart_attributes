@@ -318,7 +318,7 @@ sub checkWhichDevice{
 			@model = ('Generic NVMe');
 		}
 		# SAS devices don't require a database entry, use the generic SAS one
-		elsif ($transport[0] =~ /SAS/) {
+		elsif (@transport && $transport[0] =~ /SAS/) {
 			@model = ('Generic SAS');
 		}
 		my $found = 0;# We have not found the device yet
@@ -429,7 +429,7 @@ sub parseSmartctlOut{
 					push @smartValues, \%lineValues_h;
 				}
 			}
-			elsif($transport[0] =~ /SAS/ && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/) {
+			elsif(@transport && $transport[0] =~ /SAS/ && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/) {
 				if(exists $hdrmap_sas{$1}){
 					my $idoffset = 1;
 					if (ref $hdrmap_sas{$1} eq 'ARRAY') {

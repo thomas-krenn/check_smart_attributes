@@ -123,7 +123,7 @@ sub getHelpString{
         '/dev/3wareID'. This is necessary for the internal naming convention
         the plugin uses.
         Attention: If Areca devices are used, the path must be set as
-        '/dev/arecaID/ID'. this is necessary for the internal naming convention
+        '/dev/areca_ID_ID'. this is necessary for the internal naming convention
         the plugin uses.
   [-cu|--critical_on_unknown]
         Show critical if the device was not found in database.
@@ -243,8 +243,8 @@ sub getSmartctl{
 			my $devicePath = $4;
 			# Call smartctl
 			@output = `$smartctl -a -d $arecaDevice $devicePath`;
-			# From now on we use only e.g. areca1/1 as device
-			$arecaDevice =~ s/,//;
+			# From now on we use only e.g. areca_1_1 as device
+			$arecaDevice =~ s/,/_/g;
 			$device = '/dev/'.$arecaDevice;
 		}
 		else{

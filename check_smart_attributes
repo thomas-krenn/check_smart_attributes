@@ -302,11 +302,11 @@ sub checkWhichDevice{
 				foreach (@{$devices_h->{$key}->{'Device'}}){
 					# If the model matches we have found the correct db entry
 					if($currModel =~ /$_$/){
-						$found =1;
+						$found=1;
 					}
 					# For NVMe we don't have a specific model, but we use the smartdb's generic NVMe entry
 					if(($currModel =~ /NVMe/) && ($currModel =~ /$_/)){
-						$found =1;
+						$found=1;
 					}
 					if($found == 1){
 						my %foundDevice_h;
@@ -335,9 +335,11 @@ sub checkWhichDevice{
 						last;
 					}
 				}
-				# Finish the current device model
+				# Finish searching for the model in the smart DB
 				if($found){last;}
 			}
+			# Finish the current device models, one model already matched
+			if($found){last;}
 		}
 		# The device was not found in the smartdb
 		if(!$found){

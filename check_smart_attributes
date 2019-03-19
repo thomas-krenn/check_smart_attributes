@@ -89,10 +89,10 @@ sub getHelpString{
         For devices behind 3ware RAID controllers, the 3ware device ID must be
         used with the corresponding tw device, e.g.:
         -d 3ware,8,/dev/twa0
-	For devices behind Areca RAID controllers, the Areca device ID must be	
-	used with the corresponding areca device, e.g.:
-	-d areca1/1,/dev/sg0
-	For NVMe devices just use '/dev/nvme[a-z0-9]+'. As attributes with NVMe
+        For devices behind Areca RAID controllers, the Areca device IDs must be
+        used with the corresponding areca device, e.g.:
+        -d areca1/1,/dev/sg0
+        For NVMe devices just use '/dev/nvme[a-z0-9]+'. As attributes with NVMe
         are not model specific the generic NVMe entry in the smartdb JSON file
         is used.
   [-dbj|--dbjson <path to smartdb JSON file>]
@@ -122,9 +122,9 @@ sub getHelpString{
         Attention: If 3ware devices are used, the path must be set as
         '/dev/3wareID'. This is necessary for the internal naming convention
         the plugin uses.
-	Attention: If Areca devices are used, the path must be set as
-	'/dev/arecaID'. this is necessary for the internal naming convention
-	the plugin uses.
+        Attention: If Areca devices are used, the path must be set as
+        '/dev/arecaID/ID'. this is necessary for the internal naming convention
+        the plugin uses.
   [-cu|--critical_on_unknown]
         Show critical if the device was not found in database.
   [-nosudo]

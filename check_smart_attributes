@@ -48,7 +48,8 @@ Current updates available via git repository https://github.com/thomas-krenn/\n"
 sub getUsageString{
 	return "Usage:
 sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
-[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo] [-cu] [-ap] [-s]
+[-r <regex pattern to find devices>] [-ucfgj <user config json file>]
+[-p <path to smartctl>] [-nosudo] [-cu] [-ap] [-s]
 [-O <extra options>][ -v|-vv|-vvv] [-h] [-V]\n";
 }
 
@@ -58,9 +59,12 @@ sub getHelpString{
         Specify the path at which the smartctl binary can be found. Per
         default /usr/sbin/smartctl is taken.
   [-d|--device <path to device being checked>]
-        Specify the device being monitored. If multiple devices should be
-        checked provide the '-d' option multiple times.
-        E.g. '-d /dev/sda -d /dev/sdb'
+        Specify the device being monitored. If a regex pattern should be
+        used to find devices don't use '-d' but '-r' with a given device
+        pattern (cf. '-r' help text below).
+        If multiple devices should be checked with '-d' use the option
+        multiple times:
+            -d /dev/sda -d /dev/sdb
         For devices behind LSI RAID controllers the megaraid number must be
         used.
         There are different ways to specify the device, the correct one must be
@@ -95,6 +99,19 @@ sub getHelpString{
         For NVMe devices just use '/dev/nvme[a-z0-9]+'. As attributes with NVMe
         are not model specific the generic NVMe entry in the smartdb JSON file
         is used.
+  [-r|--regex]
+        If no devices are specified by '-d' use a regular expression to find
+        devices. The regular expression string is passed to the find command
+        which searches in '/dev' for the regex in combination with the find
+				types f (files), l (links) and b (block devices).
+        Note that find always returns the full path with '-regex' therefore
+        found matches always will start with '/dev' as this is the base search
+        path. The used regex type by find is 'egrep'.
+        Examples:
+            -r '.*sdc.*'
+            -r \'/dev/sd[c,d]\$\'
+            -r \'/dev/sd[a-z]\$\'
+            -r \'/dev/.*INTEL.*\'
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -162,6 +179,25 @@ sub readUCfgJSON{
 sub readDbJSON{
 	my $dbJSON = shift;
 	return(Config::JSON->new($dbJSON));
+}
+
+sub findDevicesByRegex{
+	my $devicepattern = shift;
+	my $findcmd;
+	chomp($findcmd = `which find`);
+	if(! -x $findcmd){
+		print "Error: cannot find find executable.\n";
+		exit(STATE_UNKNOWN);
+	}
+	my @founddevices = `$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b`;
+	if(($? >> 8) != 0){
+		print "Error: find command with regex returned an error.\n";
+		print "The used command was:\n";
+		print "$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b\n";
+		exit(STATE_UNKNOWN);
+	}
+	chomp(@founddevices);
+	return @founddevices;
 }
 
 sub getSmartctl{
@@ -647,7 +683,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown, $ssdonly);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown, $ssdonly, $findregex);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -668,6 +704,7 @@ MAIN: {
 		'ap|allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
 		's|ssdonly' => \$ssdonly,
+		'r|regex=s' => \$findregex,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);
@@ -702,10 +739,19 @@ MAIN: {
 	}
 	# Devices to check are required
 	if(!(@devicesToCheck_a)){
-		print "Error: check_smart_values requires a device to check.\n";
-		print getUsageString();
-		exit(STATE_UNKNOWN);
-	}
+		# If no devices are given check if a regex should be used
+		if($findregex){
+			@devicesToCheck_a = findDevicesByRegex($findregex);
+			if(!(@devicesToCheck_a)){
+				print "Error: the find command with the given regex did not return any device(s).\n";
+			}
+		}
+		if(!(@devicesToCheck_a)){
+			print "Error: check_smart_values requires a device to check.\n";
+			print getUsageString();
+			exit(STATE_UNKNOWN);
+		}
+  }
 	# Check if a user config is given
 	my $uCfg;
 	if(defined($uCfgJSON)){

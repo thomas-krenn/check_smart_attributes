@@ -414,7 +414,7 @@ sub parseSmartctlOut{
 				for(my $i = 0; $i < @hdrmap_a; $i++){
 					# Prepend the attribute name with the device name
 					if($hdrmap_a[$i] eq 'ATTRIBUTE_NAME'){
-						$device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+						$device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.]+)$/;
 						$lineValues_h{$hdrmap_a[$i]} = $1.'_'.$splittedLine[$i];
 					}
 					else{
@@ -796,7 +796,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.]+)$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

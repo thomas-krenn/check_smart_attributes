@@ -197,7 +197,16 @@ sub findDevicesByRegex{
 		exit(STATE_UNKNOWN);
 	}
 	chomp(@founddevices);
-	return @founddevices;
+	my @devices_without_parts;
+	foreach my $device (@founddevices){
+		if($device =~ /\-part[0-9]+$/){
+			next;
+		}
+		else{
+			push @devices_without_parts, $device;
+		}
+	}
+	return @devices_without_parts;
 }
 
 sub getSmartctl{

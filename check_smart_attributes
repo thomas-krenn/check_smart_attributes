@@ -181,20 +181,38 @@ sub readDbJSON{
 	return(Config::JSON->new($dbJSON));
 }
 
+sub parseMegaraidRegex{
+	my $devicepattern = shift;
+	my @megadevs;
+	if($devicepattern =~ /^megaraid\[([0-9]+)\-([0-9]+)\],(\/dev\/[a-zA-Z]+)$/){
+		for(my $id = $1; $id <= $2; $id++) {
+			my $megadev = "megaraid" . $id . "," . $3;
+			push @megadevs, $megadev;
+		}
+	}
+	return @megadevs;
+}
+
 sub findDevicesByRegex{
 	my $devicepattern = shift;
-	my $findcmd;
-	chomp($findcmd = `which find`);
-	if(! -x $findcmd){
-		print "Error: cannot find find executable.\n";
-		exit(STATE_UNKNOWN);
+	my @founddevices;
+	if($devicepattern =~ /^megaraid\[([0-9]+)\-([0-9]+)\],(\/dev\/[a-zA-Z]+)$/){
+		@founddevices = parseMegaraidRegex($devicepattern);
 	}
-	my @founddevices = `$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b`;
-	if(($? >> 8) != 0){
-		print "Error: find command with regex returned an error.\n";
-		print "The used command was:\n";
-		print "$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b\n";
-		exit(STATE_UNKNOWN);
+	else{
+		my $findcmd;
+		chomp($findcmd = `which find`);
+		if(! -x $findcmd){
+			print "Error: cannot find find executable.\n";
+			exit(STATE_UNKNOWN);
+		}
+		@founddevices = `$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b`;
+		if(($? >> 8) != 0){
+			print "Error: find command with regex returned an error.\n";
+			print "The used command was:\n";
+			print "$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b\n";
+			exit(STATE_UNKNOWN);
+		}
 	}
 	chomp(@founddevices);
 	my @devices_without_parts;

@@ -1171,6 +1171,52 @@
 			},
 			"Perfs" : ["194"]
 		},
+                "Western Digital Black" : {
+                        "Device" : ["Western Digital Black","WDC WD7500BPKX-22HPJT0"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "11" : "RAW_VALUE", # Calibration Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "183" : "RAW_VALUE", # Runtime Bad Block
+                                "184" : "RAW_VALUE", # End-to-End Errors
+                                "187" : "RAW_VALUE", # Reported Uncorrect
+                                "188" : "RAW_VALUE", # Command Timeout
+                                "190" : "RAW_VALUE", # Airflow Temperature Celsius
+                                "191" : "RAW_VALUE", # G-Sense Error Rate
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["10","20"],
+                                "10" : ["0","20"],
+                                "11" : ["0","10"],
+                                "183" : ["0","0"],
+                                "184" : ["100:","98:"],
+                                "187" : ["100","0"],
+                                "190" : ["55","41"],
+                                "194" : ["54","60"],
+                                "196" : ["200","0"],
+                                "197" : ["200","0"],
+                                "198" : ["100","0"],
+                                "199" : ["200","0"],
+                                "200" : ["00","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
                 "Western Digital Black Mobile" : {
                         "Device" : ["Western Digital Black Mobile","WDC WD7500BPKX-22HPJT0","WDC WD7500BPKX-00HPJT0"],
                         "ID#" : {

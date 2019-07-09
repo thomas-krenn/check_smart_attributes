@@ -317,7 +317,7 @@
 			"Perfs" : ["194","230","232","241","242"]
 		},
 		"SanDisk X400s": {
-			"Device": ["SanDisk SD8SB8U1T001122"],
+			"Device": ["SanDisk SD8SB8U1T001122", "SanDisk SD8SB8U512G1122"],
 			"ID#": {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power-On Hours Count

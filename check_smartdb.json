@@ -337,6 +337,27 @@
 			},
 			"Perfs": ["194", "232", "241", "242"]
 		},
+		"SanDisk X600s": {
+			"Device": ["SanDisk SD9SB8W1T001122"],
+			"ID#": {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power-On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "VALUE", # End to End Error Data Path Error Count
+				"187" : "RAW_VALUE", # Uncorrectrable Error Count
+				"188" : "RAW_VALUE", # Command Timeouts
+				"194" : "RAW_VALUE", # Temperature_Celsius
+				"199" : "RAW_VALUE", # CRC Error Count
+				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Total_Writes_GiB
+				"242" : "RAW_VALUE", # Total_Reads_GiB
+			},
+			"Threshs": {
+				"230" : ["85","95","r8"]
+			},
+			"Perfs": ["194", "232", "241", "242"]
+		},
 		"SanDisk SSD Plus" : {
 			"Device" : ["SandForce Driven SSDs","SanDisk SDSSDA120G","SanDisk SDSSDA240G","SanDisk SDSSDA480G"],
 			"ID#" : {

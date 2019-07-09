@@ -2045,7 +2045,7 @@
 			"Perfs": ["194"]
 		},
 		"Intel 540s" : {
-			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6"],
+			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6", "INTEL SSDSC2KW240H6"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Reallocated sector count
 				"9" : "RAW_VALUE", # Power on hours

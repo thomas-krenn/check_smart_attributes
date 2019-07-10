@@ -330,7 +330,7 @@
 				"194" : "RAW_VALUE", # Temperature_Celsius
 				"199" : "RAW_VALUE", # SATA_CRC_Error_Count
 				"230" : "RAW_VALUE", # Life_Curve_Status
-				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
+				"232" : "VALUE", # Perc_Avail_Resrvd_Space
 				"241" : "RAW_VALUE", # Total_Writes_GiB
 				"242" : "RAW_VALUE", # Total_Reads_GiB
 			},

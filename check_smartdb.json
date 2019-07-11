@@ -1183,6 +1183,12 @@
                                 "10" : "RAW_VALUE", # Spin Retry Count
                                 "11" : "RAW_VALUE", # Calibration Retry Count
                                 "12" : "RAW_VALUE", # Power Cycle Count
+                                "183" : "RAW_VALUE", # Runtime Bad Block
+                                "184" : "RAW_VALUE", # End-to-End Errors
+                                "187" : "RAW_VALUE", # Reported Uncorrect
+                                "188" : "RAW_VALUE", # Command Timeout
+                                "190" : "RAW_VALUE", # Airflow Temperature Celsius
+                                "191" : "RAW_VALUE", # G-Sense Error Rate
                                 "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
                                 "193" : "RAW_VALUE", # Load Cycle Count
                                 "194" : "RAW_VALUE", # Temperature Celsius
@@ -1195,10 +1201,14 @@
                         "Threshs" : {
                                 "1" : ["62:","52:"],
                                 "3" : ["32:","22:"],
-                                "5" : ["20","40"],
+                                "5" : ["10","20"],
                                 "7" : ["0","10"],
                                 "10" : ["0","10"],
                                 "11" : ["0","10"],
+                                "183" : ["0","0"],
+                                "184" : ["100:","98:"],
+                                "187" : ["100","0"],
+                                "190" : ["55","41"],
                                 "194" : ["54","60"],
                                 "196" : ["0","10"],
                                 "197" : ["0","10"],

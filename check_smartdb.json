@@ -147,7 +147,7 @@
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
 		"Intel DC S3510-S3520-S3610-S3710-S4500" : {
-			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","INTEL SSDSC2BX100G4","INTEL SSDSC2BX100G401","INTEL SSDSC2BX200G4","INTEL SSDSC2BX200G401","INTEL SSDSC2BX400G4","INTEL SSDSC2BX400G401","INTEL SSDSC2BX480G4","INTEL SSDSC2BX480G401","INTEL SSDSC2BX800G4","INTEL SSDSC2BX800G401","INTEL SSDSC2BA012T401","INTEL SSDSC2BA012T4R","INTEL SSDSC2BX016T4","INTEL SSDSC2BX016T401", "INTEL SSDSC2BX800G4R","INTEL SSDSC2BB080G6","INTEL SSDSC2BB150G7","INTEL SSDSC2BB240G7","INTEL SSDSC2BB480G7","INTEL SSDSC2BB800G7","INTEL SSDSC2BB960G7","INTEL SSDSC2BB480G6","INTEL SSDSC2KB240G7","INTEL SSDSC2KB480G7"],
+			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","INTEL SSDSC2BX100G4","INTEL SSDSC2BX100G401","INTEL SSDSC2BX200G4","INTEL SSDSC2BX200G401","INTEL SSDSC2BX400G4","INTEL SSDSC2BX400G401","INTEL SSDSC2BX480G4","INTEL SSDSC2BX480G401","INTEL SSDSC2BX800G4","INTEL SSDSC2BX800G401","INTEL SSDSC2BA012T401","INTEL SSDSC2BA012T4R","INTEL SSDSC2BX016T4","INTEL SSDSC2BX016T401", "INTEL SSDSC2BX800G4R","INTEL SSDSC2BB080G6","INTEL SSDSC2BB150G7","INTEL SSDSC2BB240G7","INTEL SSDSC2BB480G7","INTEL SSDSC2BB800G7","INTEL SSDSC2BB960G7","INTEL SSDSC2BB480G6","INTEL SSDSC2KB240G7","INTEL SSDSC2KB480G7","INTEL SSDSC2KB960G7"],
 			"ID#" : {
 				"5" : "RAW_VALUE", # Re-allocated Sector Count
 				"9" : "RAW_VALUE", # Power-On Hours Count
@@ -330,7 +330,7 @@
 				"194" : "RAW_VALUE", # Temperature_Celsius
 				"199" : "RAW_VALUE", # SATA_CRC_Error_Count
 				"230" : "RAW_VALUE", # Life_Curve_Status
-				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
+				"232" : "VALUE", # Perc_Avail_Resrvd_Space
 				"241" : "RAW_VALUE", # Total_Writes_GiB
 				"242" : "RAW_VALUE", # Total_Reads_GiB
 			},
@@ -1229,6 +1229,12 @@
                                 "10" : "RAW_VALUE", # Spin Retry Count
                                 "11" : "RAW_VALUE", # Calibration Retry Count
                                 "12" : "RAW_VALUE", # Power Cycle Count
+                                "183" : "RAW_VALUE", # Runtime Bad Block
+                                "184" : "RAW_VALUE", # End-to-End Errors
+                                "187" : "RAW_VALUE", # Reported Uncorrect
+                                "188" : "RAW_VALUE", # Command Timeout
+                                "190" : "RAW_VALUE", # Airflow Temperature Celsius
+                                "191" : "RAW_VALUE", # G-Sense Error Rate
                                 "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
                                 "193" : "RAW_VALUE", # Load Cycle Count
                                 "194" : "RAW_VALUE", # Temperature Celsius
@@ -1241,10 +1247,14 @@
                         "Threshs" : {
                                 "1" : ["62:","52:"],
                                 "3" : ["32:","22:"],
-                                "5" : ["20","40"],
+                                "5" : ["10","20"],
                                 "7" : ["0","10"],
                                 "10" : ["0","10"],
                                 "11" : ["0","10"],
+                                "183" : ["0","0"],
+                                "184" : ["100:","98:"],
+                                "187" : ["100","0"],
+                                "190" : ["55","41"],
                                 "194" : ["54","60"],
                                 "196" : ["0","10"],
                                 "197" : ["0","10"],
@@ -1803,14 +1813,14 @@
 				"189" : "RAW_VALUE", # High Fly Writes
 				"190" : "RAW_VALUE", # Airflow Temperature Celsius
 				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
 				"193" : "RAW_VALUE", # Load Cycle Count
 				"194" : "RAW_VALUE", # Temperature Celsius
 				"195" : "RAW_VALUE", # Hardware ECC Recovered
 				"197" : "RAW_VALUE", # Current Pending Sector
 				"198" : "RAW_VALUE", # Offline Uncorrectable
 				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"240" : "RAW_VALUE", # Head_Flying_Hours
+				"240" : "RAW_VALUE", # Head Flying Hours
 				"241" : "RAW_VALUE", # Total LBAs Written
 				"242" : "RAW_VALUE", # Total LBAs Read
 				"254" : "RAW_VALUE" # Free Fall Sensor
@@ -1827,6 +1837,47 @@
 			},
 			"Perfs" : ["194"]
 		},
+		"Seagate Exos X" : {
+                        "Device" : ["Seagate Exos X","ST10000NM0156"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sector Count
+                                "7" : "RAW_VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "184" : "RAW_VALUE", # End-to-End Errors
+                                "187" : "RAW_VALUE", # Reported Uncorrect
+                                "188" : "RAW_VALUE", # Command Timeout
+                                "189" : "RAW_VALUE", # High Fly Writes
+                                "190" : "RAW_VALUE", # Airflow Temperature Celsius
+                                "191" : "RAW_VALUE", # G-Sense Error Rate
+                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "195" : "RAW_VALUE", # Hardware ECC Recovered
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Offline Uncorrectable
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE", # Multi Zone Error Rate
+                                "240" : "RAW_VALUE", # Head Flying Hours
+                                "241" : "RAW_VALUE", # Total LBAs Written
+                                "242" : "RAW_VALUE", # Total LBAs Read
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "10" : ["0","10"],
+                                "194" : ["54","60"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"KINGSTON SV300S37A120G" : {
 			"Device" : ["KINGSTON","SV300S37A120G"],
 			"ID#" : {
@@ -2018,6 +2069,39 @@
 			},
 			"Perfs": ["194"]
 		},
+		"Western Digital Elements": {
+                        "Device": ["Western Digital Elements","Western Digital My Passport","WDC WD40NMZW-11GX6S1"],
+                        "ID#" : {
+                                "1" : "VALUE", # Raw Read Error Rate
+                                "3" : "VALUE", # Spin Up Time
+                                "4" : "RAW_VALUE", # Start Stop Count
+                                "5" : "RAW_VALUE", # Re-allocated Sectors Count
+                                "7" : "VALUE", # Seek Error Rate
+                                "9" : "RAW_VALUE", # Power-On Hours
+                                "10" : "RAW_VALUE", # Spin Retry Count
+                                "11" : "RAW_VALUE", # Calibration Retry Count
+                                "12" : "RAW_VALUE", # Power Cycle Count
+                                "192" : "RAW_VALUE", # Power-Off Retract Count
+                                "193" : "RAW_VALUE", # Load Cycle Count
+                                "194" : "RAW_VALUE", # Temperature Celsius
+                                "196" : "RAW_VALUE", # Reallocated Event Count
+                                "197" : "RAW_VALUE", # Current Pending Sector
+                                "198" : "RAW_VALUE", # Uncorrectable Sector Count
+                                "199" : "RAW_VALUE", # UDMA CRC Error Count
+                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "7" : ["32:","22:"],
+                                "10" : ["0","10"],
+                                "196" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"]
+                        },
+                        "Perfs": ["194"]
+                },
 		"Toshiba 3.5\" DT01ACA... Desktop HDD": {
 			"Device": ["TOSHIBA DT01ACA300", "TOSHIBA DT01ACA200"],
 			"ID#": {

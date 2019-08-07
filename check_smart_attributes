@@ -206,12 +206,20 @@ sub findDevicesByRegex{
 			print "Error: cannot find find executable.\n";
 			exit(STATE_UNKNOWN);
 		}
-		@founddevices = `$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b`;
-		if(($? >> 8) != 0){
-			print "Error: find command with regex returned an error.\n";
-			print "The used command was:\n";
-			print "$findcmd /dev -regextype egrep -regex $devicepattern -type f,l,b\n";
-			exit(STATE_UNKNOWN);
+		# Since older versions of find don't support multiple types, loop over each type separately
+		my @findtypes_a = ('f','b','l');
+		foreach my $type (@findtypes_a){
+			my @founddevices_tmp;
+			@founddevices_tmp = `$findcmd /dev -regextype egrep -regex $devicepattern -type $type`;
+			if(($? >> 8) != 0){
+				print "Error: find command with regex returned an error.\n";
+				print "The used command was:\n";
+				print "$findcmd /dev -regextype egrep -regex $devicepattern -type $type\n";
+				exit(STATE_UNKNOWN);
+			}
+			else{
+				push @founddevices, @founddevices_tmp;
+			}
 		}
 	}
 	chomp(@founddevices);

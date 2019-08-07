@@ -33,6 +33,30 @@
 			},
 			"Perfs" : ["1","2","4","5","6","7","8","10","11"]
 		},
+		"Intel X25" : {
+			"Device" : ["INTEL SSDSA2M160G2GN"],
+			"ID#" : {
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"9" : "RAW_VALUE", # Power-On Hours Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"184" : "VALUE", # End-to-End Error
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"225" : "RAW_VALUE", # Host Writes (32MiB)
+				"232" : "VALUE", # Available Reserved Space
+				"233" : "VALUE", # Media Wearout Indicator
+				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
+				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
+				"1024" : "VALUE" # ATA error count (custom)
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"184" : ["96:","91:"],
+				"232" : ["16:","11:"],
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"]
+			},
+			"Perfs" : ["232","233","241","242"]
+		},
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3","INTEL SSDSA2CT040G3"],
 			"ID#" : {

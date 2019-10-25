@@ -130,7 +130,7 @@
 				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
 				"190" : {"value": "RAW_VALUE", "comment": "Temperature case"},
 				"194" : {"value": "RAW_VALUE", "comment": "Temperature device"},
-				"199" : {"value": "RAW_VALUE", #Sata CRC error count
+				"199" : {"value": "RAW_VALUE", "comment": "Sata CRC error count"},
 				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Host_Writes_32MiB"},
@@ -2282,8 +2282,8 @@
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Reallocated sector count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power on hours"},
-				"12": "RAW_VALUE", "comment": "Power cycle counts"},
-				"170": "VALUE", "comment": "Available Reserved Space (same as 232)"},
+				"12": {"value": "RAW_VALUE", "comment": "Power cycle counts"},
+				"170" : {"value":  "VALUE", "comment": "Available Reserved Space (same as 232)"},
 				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
 				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
 				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss"},
@@ -2381,5 +2381,4 @@
 		    },
 		    "Perfs" : ["194"]
 		}
-	}
 }

@@ -70,7 +70,8 @@ Current updates available via git repository https://github.com/thomas-krenn/\n"
 sub getUsageString{
 	return "Usage:
 sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
-[-ucfgj <user config json file>] [-p <path to smartctl>] [-nosudo] [-cu] [-ap] [-s]
+[-r <regex pattern to find devices>] [-ucfgj <user config json file>]
+[-p <path to smartctl>] [-nosudo] [-cu] [-ap] [-s]
 [-O <extra options>][ -v|-vv|-vvv] [-h] [-V]\n";
 }
 
@@ -80,9 +81,12 @@ sub getHelpString{
         Specify the path at which the smartctl binary can be found. Per
         default /usr/sbin/smartctl is taken.
   [-d|--device <path to device being checked>]
-        Specify the device being monitored. If multiple devices should be
-        checked provide the '-d' option multiple times.
-        E.g. '-d /dev/sda -d /dev/sdb'
+        Specify the device being monitored. If a regex pattern should be
+        used to find devices don't use '-d' but '-r' with a given device
+        pattern (cf. '-r' help text below).
+        If multiple devices should be checked with '-d' use the option
+        multiple times:
+            -d /dev/sda -d /dev/sdb
         For devices behind LSI RAID controllers the megaraid number must be
         used.
         There are different ways to specify the device, the correct one must be
@@ -111,12 +115,25 @@ sub getHelpString{
         For devices behind 3ware RAID controllers, the 3ware device ID must be
         used with the corresponding tw device, e.g.:
         -d 3ware,8,/dev/twa0
-	For devices behind Areca RAID controllers, the Areca device ID must be	
-	used with the corresponding areca device, e.g.:
-	-d areca1/1,/dev/sg0
-	For NVMe devices just use '/dev/nvme[a-z0-9]+'. As attributes with NVMe
+        For devices behind Areca RAID controllers, the Areca device IDs must be
+        used with the corresponding areca device, e.g.:
+        -d areca1/1,/dev/sg0
+        For NVMe devices just use '/dev/nvme[a-z0-9]+'. As attributes with NVMe
         are not model specific the generic NVMe entry in the smartdb JSON file
         is used.
+  [-r|--regex]
+        If no devices are specified by '-d' use a regular expression to find
+        devices. The regular expression string is passed to the find command
+        which searches in '/dev' for the regex in combination with the find
+				types f (files), l (links) and b (block devices).
+        Note that find always returns the full path with '-regex' therefore
+        found matches always will start with '/dev' as this is the base search
+        path. The used regex type by find is 'egrep'.
+        Examples:
+            -r '.*sdc.*'
+            -r \'/dev/sd[c,d]\$\'
+            -r \'/dev/sd[a-z]\$\'
+            -r \'/dev/.*INTEL.*\'
   [-dbj|--dbjson <path to smartdb JSON file>]
         Specify the path at which the JSON smart db can be found. The JSON file
         defines which parameter (VALUE or RAW_VALUE) must be taken for a
@@ -144,9 +161,9 @@ sub getHelpString{
         Attention: If 3ware devices are used, the path must be set as
         '/dev/3wareID'. This is necessary for the internal naming convention
         the plugin uses.
-	Attention: If Areca devices are used, the path must be set as
-	'/dev/arecaID'. this is necessary for the internal naming convention
-	the plugin uses.
+        Attention: If Areca devices are used, the path must be set as
+        '/dev/areca_ID_ID'. this is necessary for the internal naming convention
+        the plugin uses.
   [-cu|--critical_on_unknown]
         Show critical if the device was not found in database.
   [-nosudo]
@@ -184,6 +201,60 @@ sub readUCfgJSON{
 sub readDbJSON{
 	my $dbJSON = shift;
 	return(Config::JSON->new($dbJSON));
+}
+
+sub parseMegaraidRegex{
+	my $devicepattern = shift;
+	my @megadevs;
+	if($devicepattern =~ /^megaraid\[([0-9]+)\-([0-9]+)\],(\/dev\/[a-zA-Z]+)$/){
+		for(my $id = $1; $id <= $2; $id++) {
+			my $megadev = "megaraid" . $id . "," . $3;
+			push @megadevs, $megadev;
+		}
+	}
+	return @megadevs;
+}
+
+sub findDevicesByRegex{
+	my $devicepattern = shift;
+	my @founddevices;
+	if($devicepattern =~ /^megaraid\[([0-9]+)\-([0-9]+)\],(\/dev\/[a-zA-Z]+)$/){
+		@founddevices = parseMegaraidRegex($devicepattern);
+	}
+	else{
+		my $findcmd;
+		chomp($findcmd = `which find`);
+		if(! -x $findcmd){
+			print "Error: cannot find find executable.\n";
+			exit(STATE_UNKNOWN);
+		}
+		# Since older versions of find don't support multiple types, loop over each type separately
+		my @findtypes_a = ('f','b','l');
+		foreach my $type (@findtypes_a){
+			my @founddevices_tmp;
+			@founddevices_tmp = `$findcmd /dev -regextype egrep -regex $devicepattern -type $type`;
+			if(($? >> 8) != 0){
+				print "Error: find command with regex returned an error.\n";
+				print "The used command was:\n";
+				print "$findcmd /dev -regextype egrep -regex $devicepattern -type $type\n";
+				exit(STATE_UNKNOWN);
+			}
+			else{
+				push @founddevices, @founddevices_tmp;
+			}
+		}
+	}
+	chomp(@founddevices);
+	my @devices_without_parts;
+	foreach my $device (@founddevices){
+		if($device =~ /\-part[0-9]+$/){
+			next;
+		}
+		else{
+			push @devices_without_parts, $device;
+		}
+	}
+	return @devices_without_parts;
 }
 
 sub getSmartctl{
@@ -265,8 +336,8 @@ sub getSmartctl{
 			my $devicePath = $4;
 			# Call smartctl
 			@output = `$smartctl -a -d $arecaDevice $devicePath`;
-			# From now on we use only e.g. areca1/1 as device
-			$arecaDevice =~ s/,//;
+			# From now on we use only e.g. areca_1_1 as device
+			$arecaDevice =~ s/,/_/g;
 			$device = '/dev/'.$arecaDevice;
 		}
 		else{
@@ -329,11 +400,11 @@ sub checkWhichDevice{
 				foreach (@{$devices_h->{$key}->{'Device'}}){
 					# If the model matches we have found the correct db entry
 					if($currModel =~ /$_$/){
-						$found =1;
+						$found=1;
 					}
 					# For NVMe we don't have a specific model, but we use the smartdb's generic NVMe entry
 					if(($currModel =~ /NVMe/) && ($currModel =~ /$_/)){
-						$found =1;
+						$found=1;
 					}
 					if(($currModel =~ /Generic SAS/) && ($currModel =~ /$_/)){
 						$found =1;
@@ -365,9 +436,11 @@ sub checkWhichDevice{
 						last;
 					}
 				}
-				# Finish the current device model
+				# Finish searching for the model in the smart DB
 				if($found){last;}
 			}
+			# Finish the current device models, one model already matched
+			if($found){last;}
 		}
 		# The device was not found in the smartdb
 		if(!$found){
@@ -398,7 +471,7 @@ sub parseSmartctlOut{
 				for(my $i = 0; $i < @hdrmap_a; $i++){
 					# Prepend the attribute name with the device name
 					if($hdrmap_a[$i] eq 'ATTRIBUTE_NAME'){
-						$device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+						$device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.]+)$/;
 						$lineValues_h{$hdrmap_a[$i]} = $1.'_'.$splittedLine[$i];
 					}
 					else{
@@ -702,7 +775,7 @@ sub getVerboseString{
 }
 
 MAIN: {
-	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown, $ssdonly);
+	my ($smartctl, $dbJSON, $uCfgJSON, $exitCode, $noSudo, $allPerfs, $extraOpts, $criticalOnUnknown, $ssdonly, $findregex);
 	my @devicesToCheck_a;
 	if ( !(GetOptions(
 		'v|verbose' => sub { $VERBOSITY = 1 },
@@ -723,6 +796,7 @@ MAIN: {
 		'ap|allperfs' => \$allPerfs,
 		'O|options=s' => \$extraOpts,
 		's|ssdonly' => \$ssdonly,
+		'r|regex=s' => \$findregex,
 		'V|version' => sub{
 			print getVersionString()."\n";
 			exit(STATE_OK);
@@ -757,10 +831,19 @@ MAIN: {
 	}
 	# Devices to check are required
 	if(!(@devicesToCheck_a)){
-		print "Error: check_smart_values requires a device to check.\n";
-		print getUsageString();
-		exit(STATE_UNKNOWN);
-	}
+		# If no devices are given check if a regex should be used
+		if($findregex){
+			@devicesToCheck_a = findDevicesByRegex($findregex);
+			if(!(@devicesToCheck_a)){
+				print "Error: the find command with the given regex did not return any device(s).\n";
+			}
+		}
+		if(!(@devicesToCheck_a)){
+			print "Error: check_smart_values requires a device to check.\n";
+			print getUsageString();
+			exit(STATE_UNKNOWN);
+		}
+  }
 	# Check if a user config is given
 	my $uCfg;
 	if(defined($uCfgJSON)){
@@ -770,7 +853,7 @@ MAIN: {
 	my $dbConfig = readDbJSON($dbJSON);
 	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$ssdonly,$output_h);
 	if(@$devices_missing_a){
-		print "Error: the following device(s) where not found in the smartdb JSON file: ";
+		print "Error: the following device(s) were not found in the smartdb JSON file: ";
 		print printMissingDevicesDB($devices_missing_a)."\n";
 		if(!defined($criticalOnUnknown)){
 			exit(STATE_UNKNOWN);
@@ -796,7 +879,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,]+)$/;
+		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.]+)$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

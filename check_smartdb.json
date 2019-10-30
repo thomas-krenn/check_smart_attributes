@@ -1954,6 +1954,49 @@
 			},
 			"Perfs" : ["194"]
 		},
+		"Seagate Desktop HDD.15" : {
+			"Device" : ["ST4000DM000-1F2168"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"183" : "RAW_VALUE", # Runtime-Bad-Block
+				"184" : "RAW_VALUE", # End-to-End Errors
+				"187" : "RAW_VALUE", # Reported Uncorrect
+				"188" : "RAW_VALUE", # Command Timeout
+				"189" : "RAW_VALUE", # High Fly Writes
+				"190" : "RAW_VALUE", # Airflow Temperature Celsius
+				"191" : "RAW_VALUE", # G-Sense Error Rate
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE", # UDMA CRC Error Count
+				"240" : "RAW_VALUE", # Head Flying Hours
+				"241" : "RAW_VALUE", # Total LBAs Written
+				"242" : "RAW_VALUE", # Total LBAs Read
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"10" : ["0","10"],
+				"183" : ["0","10"],
+				"184" : ["0","10"],
+				"187" : ["0","10"],
+				"194" : ["54","60"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
 		"KINGSTON SV300S37A120G" : {
 			"Device" : ["KINGSTON","SV300S37A120G"],
 			"ID#" : {

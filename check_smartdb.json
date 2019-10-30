@@ -1955,7 +1955,7 @@
 			"Perfs" : ["194"]
 		},
 		"Seagate Desktop HDD.15" : {
-			"Device" : ["ST4000DM000-1F2168"],
+			"Device" : ["ST4000DM000-1F2168","ST6000DM003-2CY186"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"3" : "VALUE", # Spin Up Time

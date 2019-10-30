@@ -39,6 +39,28 @@ our %hdrmap_nvme = (
 	'Critical Comp. Temperature Time' => 16
 );
 
+our %hdrmap_sas = (
+    'Elements in grown defect list' => 0,
+    'read' => [
+        'Read errors corrected by ECC (fast)',
+        'Read errors corrected by ECC (delayed)',
+        'Read errors corrected by ECC (reread)',
+        'Total read errors corrected',
+        'Total read correction algorithm invocations',
+        'Total read gigabytes processed',
+        'Total uncorrected read errors'
+    ],
+    'write' => [
+        'Write errors corrected by ECC (fast)',
+        'Write errors corrected by ECC (delayed)',
+        'Write errors corrected by ECC (rewrite)',
+        'Total write errors corrected',
+        'Total write correction algorithm invocations',
+        'Total write gigabytes processed',
+        'Total uncorrected write errors'
+    ]
+);
+
 sub getVersionString{
 	return "check_smart_values version $VERSION 20190208
 Copyright (C) 2019 Thomas-Krenn.AG (written by Georg Schönberger)
@@ -361,9 +383,14 @@ sub checkWhichDevice{
 			if($ssdonly & !grep { /Solid State Device/i } @smartctlOut){ next }
 		}
 		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
+		my @transport = grep { /^Transport protocol:/i } @smartctlOut;
 		# NVMe devices don't require a database entry, use the generic NVMe one
 		if ($device =~ /nvme[a-z0-9]+$/) {
 			@model = ('Generic NVMe');
+		}
+		# SAS devices don't require a database entry, use the generic SAS one
+		elsif (@transport && $transport[0] =~ /SAS/) {
+			@model = ('Generic SAS');
 		}
 		my $found = 0;# We have not found the device yet
 		foreach my $currModel (@model){
@@ -378,6 +405,9 @@ sub checkWhichDevice{
 					# For NVMe we don't have a specific model, but we use the smartdb's generic NVMe entry
 					if(($currModel =~ /NVMe/) && ($currModel =~ /$_/)){
 						$found=1;
+					}
+					if(($currModel =~ /Generic SAS/) && ($currModel =~ /$_/)){
+						$found =1;
 					}
 					if($found == 1){
 						my %foundDevice_h;
@@ -430,6 +460,7 @@ sub parseSmartctlOut{
 		# Check for smart value lines
 		my @smartValues;
 		my @splittedLine;
+		my @transport = grep { /^Transport protocol:/i } @smartctlOut;
 		foreach my $line (@smartctlOut) {
 			if($line =~ /\d+\s+[A-Za-z0-9_\/]+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+[0-9\-]+\s+\w+/){
 				$line =~ s/^\s+|\s+$//g;
@@ -469,6 +500,32 @@ sub parseSmartctlOut{
 						$lineValues_h{'RAW_VALUE'} = ($1*512000)/(1000**3);
 					}
 					push @smartValues, \%lineValues_h;
+				}
+			}
+			elsif(@transport && $transport[0] =~ /SAS/ && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/) {
+				if(exists $hdrmap_sas{$1}){
+					my $idoffset = 1;
+					if (ref $hdrmap_sas{$1} eq 'ARRAY') {
+						my $op = $1;
+						my $values = $2;
+						my $n = 0;
+						while ($values =~ /([\d,]+)/g) {
+							my %lineValues_h;
+							$lineValues_h{'ATTRIBUTE_NAME'} = $hdrmap_sas{$op}->[$n];
+							$lineValues_h{'ID#'} = $n + $idoffset;
+							$lineValues_h{'RAW_VALUE'} = $1;
+							push @smartValues, \%lineValues_h;
+							$n++;
+						}
+						$idoffset += 7;
+					}
+					else {
+						my %lineValues_h;
+						$lineValues_h{'ATTRIBUTE_NAME'} = $1;
+						$lineValues_h{'ID#'} = $hdrmap_sas{$1};
+						$lineValues_h{'RAW_VALUE'} = $2;
+						push @smartValues, \%lineValues_h;
+					}
 				}
 			}
 			if($line =~ /(ATA Error Count)\:\s+(\d+)/){

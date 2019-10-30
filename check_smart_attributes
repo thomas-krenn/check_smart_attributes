@@ -499,6 +499,10 @@ sub parseSmartctlOut{
 						$lineValues_h{'RAW_VALUE'} =~ m/^(\d+)\[/;
 						$lineValues_h{'RAW_VALUE'} = ($1*512000)/(1000**3);
 					}
+					# Prepend the attribute with the NVMe device name and replace spaces with _
+					$device =~ /(nvme[a-z0-9])+$/;
+					$lineValues_h{'ATTRIBUTE_NAME'} = $1.'_'.$lineValues_h{'ATTRIBUTE_NAME'};
+					$lineValues_h{'ATTRIBUTE_NAME'} =~ s/\s/_/g;
 					push @smartValues, \%lineValues_h;
 				}
 			}

@@ -350,13 +350,14 @@ sub getSmartctl{
 			$device = '/dev/'.$twDevice;
 		}
 		# Check if Areca format is used
-		elsif($device =~ /^(areca),([0-9])+\/([0-9]+),(\/dev\/sg[0-9]+)$/){
-			my $arecaDevice = $1 . "," . $2 . "," . $3;
+		elsif($device =~ /^(areca),([0-9]+)\/([0-9]+),(\/dev\/sg[0-9]+)$/){
+			my $arecaDevice = $1 . "," . $2 . "/" . $3;
 			my $devicePath = $4;
 			# Call smartctl
 			@output = `$smartctl -a -d $arecaDevice $devicePath`;
 			# From now on we use only e.g. areca_1_1 as device
 			$arecaDevice =~ s/,/_/g;
+			$arecaDevice =~ s/\//_/g;
 			$device = '/dev/'.$arecaDevice;
 		}
 		else{

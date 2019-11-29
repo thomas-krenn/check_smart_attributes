@@ -528,7 +528,7 @@ sub parseSmartctlOut{
 						my $op = $1;
 						my $values = $2;
 						my $n = 0;
-						while ($values =~ /([\d,]+)/g) {
+						while ($values =~ /([\d,\.]+)/g) {
 							my %lineValues_h;
 							$lineValues_h{'ATTRIBUTE_NAME'} = $hdrmap_sas{$op}->[$n];
 							$lineValues_h{'ID#'} = $n + $idoffset;

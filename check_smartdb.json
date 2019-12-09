@@ -1367,7 +1367,7 @@
                         "Perfs" : ["194"]
                 },
 		"Western Digital Red" : {
-		  "Device" : ["WDC WD80EFZX-68UW8N0"],
+		  "Device" : ["WDC WD80EFAX-68KNBN0"],
 			"ID#" : {
 				"1" : "VALUE", # Raw Read Error Rate
 				"2" : "VALUE", # Throughput Performance
@@ -1394,6 +1394,45 @@
 				"5" : ["20","40"],
 				"8" : ["30:","20:"],
 				"10" : ["0","10"],
+				"194": ["50","60"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
+		"Western Digital Red (helium-filled)" : {
+		  "Device" : ["WDC WD80EFAX-68LHPN0", "WDC WD80EFZX-68UW8N0"],
+			"ID#" : {
+				"1" : "VALUE", # Raw Read Error Rate
+				"2" : "VALUE", # Throughput Performance
+				"3" : "VALUE", # Spin Up Time
+				"4" : "RAW_VALUE", # Start Stop Count
+				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"7" : "RAW_VALUE", # Seek Error Rate
+				"8" : "VALUE", # Seek Time Performance
+				"9" : "RAW_VALUE", # Power-On Hours
+				"10" : "RAW_VALUE", # Spin Retry Count
+				"12" : "RAW_VALUE", # Power Cycle Count
+				"22" : "VALUE", # Internal Environment status (Current Helium Level)
+				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
+				"193" : "RAW_VALUE", # Load Cycle Count
+				"194" : "RAW_VALUE", # Temperature Celsius
+				"196" : "RAW_VALUE", # Reallocated Event Count
+				"197" : "RAW_VALUE", # Current Pending Sector
+				"198" : "RAW_VALUE", # Offline Uncorrectable
+				"199" : "RAW_VALUE" # UDMA CRC Error Count
+			},
+			"Threshs" : {
+				"1" : ["26:","16:"],
+				"2" : ["64:","54:"],
+				"3" : ["34:","24:"],
+				"5" : ["20","40"],
+				"8" : ["30:","20:"],
+				"10" : ["0","10"],
+				"22" : ["35:","25:"],
+				"194": ["50","60"],
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],

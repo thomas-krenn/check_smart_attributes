@@ -369,52 +369,53 @@
 		"SanDisk X400s": {
 			"Device": ["SanDisk SD8SB8U1T001122", "SanDisk SD8SB8U512G1122"],
 			"ID#": {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"5" : "RAW_VALUE", # Reassigned NAND Block Count
 				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"188" : "RAW_VALUE", # Command Timeouts
-				"194" : "RAW_VALUE", # Temperature_Celsius
+				"12" : "RAW_VALUE", # Drive Power Cycle Count
+				"184" : "VALUE", # End to End Error Data Detection
+				"187" : "RAW_VALUE", # Reported Uncorrectrable Errors
+				"188" : "RAW_VALUE", # Command Timeout Count
+				"194" : "RAW_VALUE", # Enclosure Temperature Celsius
 				"199" : "RAW_VALUE", # CRC Error Count
-				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Total_Writes_GiB
-				"242" : "RAW_VALUE", # Total_Reads_GiB
+				"232" : "RAW_VALUE", # Available Reserved Space
+				"199" : "RAW_VALUE", # CRC Error Count
+				"230" : "VALUE", # Media Wearout Indicator
+				"233" : "VALUE", # NAND GB Written (TLC)
+				"241" : "RAW_VALUE", # Total GB Written
+				"242" : "RAW_VALUE", # Total GB Read
 			},
 			"Threshs": {
 				"5" : ["20","40"],
 				"187" : ["0","10"],
 				"188" : ["0","10"],
 				"199" : ["0","10"],
-				"232" : ["16:","11:"],
-				"1024" : ["0","10"]
+				"232" : ["16:","11:"]
 			},
 			"Perfs": ["194", "232", "241", "242"]
 		},
 		"SanDisk X600s": {
 			"Device": ["SanDisk SD9SB8W1T001122"],
 			"ID#": {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
+				"5" : "RAW_VALUE", # Reassigned NAND Block Count
 				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"188" : "RAW_VALUE", # Command Timeouts
-				"194" : "RAW_VALUE", # Temperature_Celsius
+				"12" : "RAW_VALUE", # Drive Power Cycle Count
+				"184" : "VALUE", # End to End Error Data Detection
+				"187" : "RAW_VALUE", # Reported Uncorrectrable Errors
+				"188" : "RAW_VALUE", # Command Timeout Count
+				"194" : "RAW_VALUE", # Enclosure Temperature Celsius
 				"199" : "RAW_VALUE", # CRC Error Count
-				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Total_Writes_GiB
-				"242" : "RAW_VALUE", # Total_Reads_GiB
+				"230" : "VALUE", # Media Wearout Indicator
+				"232" : "RAW_VALUE", # Available Reserved Space
+				"233" : "VALUE", # NAND GB Written (TLC)
+				"241" : "RAW_VALUE", # Total GB Written
+				"242" : "RAW_VALUE", # Total GB Read
 			},
 			"Threshs": {
 				"5" : ["20","40"],
 				"187" : ["0","10"],
 				"188" : ["0","10"],
 				"199" : ["0","10"],
-				"232" : ["16:","11:"],
-				"1024" : ["0","10"]
+				"232" : ["16:","11:"]
 			},
 			"Perfs": ["194", "232", "241", "242"]
 		},
@@ -443,7 +444,7 @@
 				"187" : ["0","10"],
 				"212" : ["0","10"],
 				"230" : ["85","95","r8"],
-				"232" : ["16:","11:"],
+				"232" : ["16:","11:"]
 			},
 			"Perfs" : ["194","230","232","241","242"]
 		},

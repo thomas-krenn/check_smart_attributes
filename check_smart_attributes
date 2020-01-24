@@ -558,6 +558,19 @@ sub parseSmartctlOut{
 				$lineValues_h{'ATTRIBUTE_NAME'} = genAttributeName($device, $lineValues_h{'ATTRIBUTE_NAME'});
 				push @smartValues, \%lineValues_h;
 			}
+			if($line =~ /(SMART overall-health self-assessment test result)\:\s(\w+)/){
+				my %lineValues_h;
+				$lineValues_h{'ATTRIBUTE_NAME'} = 'Overall_Health_Test_Result';
+				$lineValues_h{'ID#'} = 1025;
+				if($2 eq 'PASSED'){
+					$lineValues_h{'VALUE'} = 0;
+				}
+				else{
+					$lineValues_h{'VALUE'} = 1;
+				}
+				$lineValues_h{'ATTRIBUTE_NAME'} = genAttributeName($device, $lineValues_h{'ATTRIBUTE_NAME'});
+				push @smartValues, \%lineValues_h;
+			}
 		}
 		$smartValues_h{$device} = \@smartValues;
 	}

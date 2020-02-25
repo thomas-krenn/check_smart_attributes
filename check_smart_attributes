@@ -615,25 +615,25 @@ sub checkSmartctl{
 		# Check the corresponding smart values
 		foreach my $row (@smartValues_a){
 			my $ID = $row->{'ID#'};
-			if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
+			if(exists $IDs_h{$ID}{'value'} && exists $threshs_h{$ID}){
 				if(defined($threshs_h{$ID}->[2])){
 					# Check if a bit pattern exits, then shift it
 					$threshs_h{$ID}->[2] =~ /^([l,r])([0-9]+)$/;
 					my $shift_dir = $1;
 					my $shift_ct = $2;
 					if($shift_dir eq 'l'){
-						$row->{$IDs_h{$ID}} = $row->{$IDs_h{$ID}} << $2;
+						$row->{$IDs_h{$ID}{'value'}} = $row->{$IDs_h{$ID}{'value'}} << $2;
 					}
 					if($shift_dir eq 'r'){
-						$row->{$IDs_h{$ID}} = $row->{$IDs_h{$ID}} >> $2;
+						$row->{$IDs_h{$ID}{'value'}} = $row->{$IDs_h{$ID}{'value'}} >> $2;
 					}
 				}
-				if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[0]))){
+				if(!(checkThreshs($row->{$IDs_h{$ID}{'value'}},$threshs_h{$ID}->[0]))){
 					# Don't loose the critical state
 					$statusLevel_a[0] = 'Warning' unless $statusLevel_a[0] eq 'Critical';
 					push @warnings_a, $row->{'ATTRIBUTE_NAME'};
 				}
-				if(!(checkThreshs($row->{$IDs_h{$ID}},$threshs_h{$ID}->[1]))){
+				if(!(checkThreshs($row->{$IDs_h{$ID}{'value'}},$threshs_h{$ID}->[1]))){
 					$statusLevel_a[0] = 'Critical';
 					pop @warnings_a;
 					push @criticals_a, $row->{'ATTRIBUTE_NAME'};
@@ -697,8 +697,8 @@ sub getStatusString{
 					foreach my $row (@smartValues_a){
 						if($row->{'ATTRIBUTE_NAME'} eq $sensor){
 							my $ID = $row->{'ID#'};
-							if(exists $IDs_h{$ID}){
-								$status_str .= " (".$row->{$IDs_h{$ID}}.")";
+							if(exists $IDs_h{$ID}{'value'}){
+								$status_str .= " (".$row->{$IDs_h{$ID}{'value'}}.")";
 							}
 						}
 					}
@@ -734,15 +734,15 @@ sub getPerfString{
 				if($perf eq $row->{'ID#'}){
 					my $ID = $row->{'ID#'};
 					my $attr_str;
-					if(exists $IDs_h{$ID}){
-						$attr_str = "'".$row->{'ATTRIBUTE_NAME'}."'=".$row->{$IDs_h{$ID}};
+					if(exists $IDs_h{$ID}{'value'}){
+						$attr_str = "'".$row->{'ATTRIBUTE_NAME'}."'=".$row->{$IDs_h{$ID}{'value'}};
 						if($perf_str){
 							$attr_str = " ".$attr_str;
 						}
 					}
 					$perf_str .= $attr_str;
 					# If available also print its thresholds
-					if(exists $IDs_h{$ID} && exists $threshs_h{$ID}){
+					if(exists $IDs_h{$ID}{'value'} && exists $threshs_h{$ID}){
 						$threshs_h{$ID}->[0] =~ /(\d+)/;
 						$perf_str .= ';'.$1.';';
 						$threshs_h{$ID}->[1] =~ /(\d+)/;
@@ -770,9 +770,9 @@ sub getVerboseString{
 
 		foreach my $row (@smartValues_a){
 			my $ID = $row->{'ID#'};
-			if(exists $IDs_h{$ID}){
-				$verb_str .= "\n".$row->{'ATTRIBUTE_NAME'}." = ".$row->{$IDs_h{$ID}};
-				$verb_str .= " (".$IDs_h{$ID}.")";
+			if(exists $IDs_h{$ID}{'value'}){
+				$verb_str .= "\n".$row->{'ATTRIBUTE_NAME'}." = ".$row->{$IDs_h{$ID}{'value'}};
+				$verb_str .= " (".$IDs_h{$ID}{'value'}.")";
 			}
 		}
 		$verb_str .= "\n";

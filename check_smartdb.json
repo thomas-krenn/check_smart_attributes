@@ -3,23 +3,23 @@
 		"Generic NVMe" : {
 			"Device" : ["Generic NVMe"],
 			"ID#" : {
-				"0" : "RAW_VALUE", # Critical Warning
-				"1" : "RAW_VALUE", # Temperature
-				"2" : "RAW_VALUE", # Available Spare
-				"3" : "RAW_VALUE", # Available Spare Threshold
-				"4" : "RAW_VALUE", # Percentage Used
-				"5" : "RAW_VALUE", # Data Units Read
-				"6" : "RAW_VALUE", # Data Units Written
-				"7" : "RAW_VALUE", # Host Read Commands
-				"8" : "RAW_VALUE", # Host Write Commands
-				"9" : "RAW_VALUE", # Controller Busy Time
-				"10" : "RAW_VALUE", # Power Cycles
-				"11" : "RAW_VALUE", # Power On Hours
-				"12" : "RAW_VALUE", # Unsafe Shutdowns
-				"13" : "RAW_VALUE", # Media and Data Integrity Errors
-				"14" : "RAW_VALUE", # Error Information Log Entries
-				"15" : "RAW_VALUE", # Warning  Comp. Temperature Time
-				"16" : "RAW_VALUE", # Critical Comp. Temperature Time
+				"0" : {"value": "RAW_VALUE", "comment": "Critical Warning"},
+				"1" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"2" : {"value": "RAW_VALUE", "comment": "Available Spare"},
+				"3" : {"value": "RAW_VALUE", "comment": "Available Spare Threshold"},
+				"4" : {"value": "RAW_VALUE", "comment": "Percentage Used"},
+				"5" : {"value": "RAW_VALUE", "comment": "Data Units Read"},
+				"6" : {"value": "RAW_VALUE", "comment": "Data Units Written"},
+				"7" : {"value": "RAW_VALUE", "comment": "Host Read Commands"},
+				"8" : {"value": "RAW_VALUE", "comment": "Host Write Commands"},
+				"9" : {"value": "RAW_VALUE", "comment": "Controller Busy Time"},
+				"10" : {"value": "RAW_VALUE", "comment": "Power Cycles"},
+				"11" : {"value": "RAW_VALUE", "comment": "Power On Hours"},
+				"12" : {"value": "RAW_VALUE", "comment": "Unsafe Shutdowns"},
+				"13" : {"value": "RAW_VALUE", "comment": "Media and Data Integrity Errors"},
+				"14" : {"value": "RAW_VALUE", "comment": "Error Information Log Entries"},
+				"15" : {"value": "RAW_VALUE", "comment": "Warning  Comp. Temperature Time"},
+				"16" : {"value": "RAW_VALUE", "comment": "Critical Comp. Temperature Time"}
 			},
 			"Threshs" : {
 				"0" : ["0","0"],
@@ -62,17 +62,17 @@
 		"Intel X25" : {
 			"Device" : ["INTEL SSDSA2M160G2GN"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "VALUE", # End-to-End Error
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"225" : "RAW_VALUE", # Host Writes (32MiB)
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"225" : {"value": "RAW_VALUE", "comment": "Host Writes (32MiB)"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -86,24 +86,24 @@
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3","INTEL SSDSA2CT040G3"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "VALUE", # Program Fail Count
-				"172" : "VALUE", # Erase Fail Count
-				"183" : "RAW_VALUE", # SATA Downshift Count (FW 4Px10362 and later)
-				"184" : "VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"199" : "RAW_VALUE", # CRC Error Count (FW 4Px10362 and later)
-				"226" : "RAW_VALUE", # Timed Workload Media Wear
-				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio
-				"228" : "RAW_VALUE", # Timed Workload Timer
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count (FW 4Px10362 and later)"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count (FW 4Px10362 and later)"},
+				"226" : {"value": "RAW_VALUE", "comment": "Timed Workload Media Wear"},
+				"227" : {"value": "RAW_VALUE", "comment": "Timed Workload Host Read/Write Ratio"},
+				"228" : {"value": "RAW_VALUE", "comment": "Timed Workload Timer"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -121,21 +121,21 @@
 		"Intel 520" : {
 			"Device" : ["Intel 520 Series SSDs","INTEL SSDSC2CW240A3"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Reallocated sector count
-				"9" : "RAW_VALUE", # Power on hours
-				"12": "RAW_VALUE", # Power cycle counts
-				"171" : "VALUE", # Program fail count
-				"172" : "VALUE", # Erase fail count
-				"184" : "VALUE", # End-to-End Error Detection
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature case
-				"194" : "RAW_VALUE", # Temperature device
-				"199" : "RAW_VALUE", #Sata CRC error count
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Host_Writes_32MiB
-				"242" : "RAW_VALUE", # Host_Reads_32MiB
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated sector count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power on hours"},
+				"12": "RAW_VALUE", "comment": "Power cycle counts"},
+				"171" : {"value": "VALUE", "comment": "Program fail count"},
+				"172" : {"value": "VALUE", "comment": "Erase fail count"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error Detection"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Temperature case"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature device"},
+				"199" : {"value": "RAW_VALUE", "comment": "Sata CRC error count"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Host_Writes_32MiB"},
+				"242" : {"value": "RAW_VALUE", "comment": "Host_Reads_32MiB"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -153,30 +153,30 @@
 		"Intel DC S3700" : {
 			"Device" : ["Intel DC S3700 Series SSDs","INTEL SSDSC2BA100G3","INTEL SSDSC2BA200G3","INTEL SSDSC2BA400G3","INTEL SSDSC2BA800G3","INTEL SSDSC2BX200G4R","INTEL SSDSC2BA200G3C"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "VALUE", # Program Fail Count
-				"172" : "VALUE", # Erase Fail Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"175" : "VALUE", # Power Loss Protection Failure
-				"183" : "RAW_VALUE", # SATA Downshift Count
-				"184" : "RAW_VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature - Device Internal Temperature
-				"197" : "RAW_VALUE", # Pending Sector Count
-				"199" : "RAW_VALUE", # CRC Error Count
-				"226" : "RAW_VALUE", # Timed Workload Media Wear
-				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio
-				"228" : "RAW_VALUE", # Timed Workload Timer
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"234" : "VALUE", # Thermal Throttle Status
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss"},
+				"175" : {"value": "VALUE", "comment": "Power Loss Protection Failure"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Temperature - Airflow Temperature (Case)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature - Device Internal Temperature"},
+				"197" : {"value": "RAW_VALUE", "comment": "Pending Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"226" : {"value": "RAW_VALUE", "comment": "Timed Workload Media Wear"},
+				"227" : {"value": "RAW_VALUE", "comment": "Timed Workload Host Read/Write Ratio"},
+				"228" : {"value": "RAW_VALUE", "comment": "Timed Workload Timer"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -199,31 +199,31 @@
 		"Intel DC S3510-S3520-S3610-S3710-S4500" : {
 			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","INTEL SSDSC2BX100G4","INTEL SSDSC2BX100G401","INTEL SSDSC2BX200G4","INTEL SSDSC2BX200G401","INTEL SSDSC2BX400G4","INTEL SSDSC2BX400G401","INTEL SSDSC2BX480G4","INTEL SSDSC2BX480G401","INTEL SSDSC2BX800G4","INTEL SSDSC2BX800G401","INTEL SSDSC2BA012T401","INTEL SSDSC2BA012T4R","INTEL SSDSC2BX016T4","INTEL SSDSC2BX016T401", "INTEL SSDSC2BX800G4R","INTEL SSDSC2BB080G6","INTEL SSDSC2BB150G7","INTEL SSDSC2BB240G7","INTEL SSDSC2BB480G7","INTEL SSDSC2BB800G7","INTEL SSDSC2BB960G7","INTEL SSDSC2BB480G6","INTEL SSDSC2KB240G7","INTEL SSDSC2KB480G7","INTEL SSDSC2KB960G7"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "VALUE", # Program Fail Count
-				"172" : "VALUE", # Erase Fail Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"175" : "VALUE", # Power Loss Protection Failure
-				"183" : "RAW_VALUE", # SATA Downshift Count
-				"184" : "RAW_VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature - Device Internal Temperature
-				"197" : "RAW_VALUE", # Pending Sector Count
-				"199" : "RAW_VALUE", # CRC Error Count
-				"226" : "RAW_VALUE", # Timed Workload Media Wear
-				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio
-				"228" : "RAW_VALUE", # Timed Workload Timer
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"234" : "VALUE", # Thermal Throttle Status
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"243" : "RAW_VALUE", # Total Bytes Written
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss"},
+				"175" : {"value": "VALUE", "comment": "Power Loss Protection Failure"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Temperature - Airflow Temperature (Case)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature - Device Internal Temperature"},
+				"197" : {"value": "RAW_VALUE", "comment": "Pending Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"226" : {"value": "RAW_VALUE", "comment": "Timed Workload Media Wear"},
+				"227" : {"value": "RAW_VALUE", "comment": "Timed Workload Host Read/Write Ratio"},
+				"228" : {"value": "RAW_VALUE", "comment": "Timed Workload Timer"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"243" : {"value": "RAW_VALUE", "comment": "Total Bytes Written"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -246,30 +246,30 @@
 		"Intel DC S3500" : {
 			"Device" : ["Intel DC S3500 Series SSDs","INTEL SSDSC2BB080G4","INTEL SSDSC2BB120G4","INTEL SSDSC2BB160G4","INTEL SSDSC2BB240G4","INTEL SSDSC2BB300G4","INTEL SSDSC2BB480G4","INTEL SSDSC2BB600G4","INTEL SSDSC2BB800G4","INTEL SSDSC2BB012T4","INTEL SSDSC2BB150G7"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "VALUE", # Program Fail Count
-				"172" : "VALUE", # Erase Fail Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"175" : "VALUE", # Power Loss Protection Failure
-				"183" : "RAW_VALUE", # SATA Downshift Count
-				"184" : "RAW_VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature - Device Internal Temperature
-				"197" : "RAW_VALUE", # Pending Sector Count
-				"199" : "RAW_VALUE", # CRC Error Count
-				"226" : "RAW_VALUE", # Timed Workload Media Wear
-				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio
-				"228" : "RAW_VALUE", # Timed Workload Timer
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"234" : "VALUE", # Thermal Throttle Status
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss"},
+				"175" : {"value": "VALUE", "comment": "Power Loss Protection Failure"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Temperature - Airflow Temperature (Case)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature - Device Internal Temperature"},
+				"197" : {"value": "RAW_VALUE", "comment": "Pending Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"226" : {"value": "RAW_VALUE", "comment": "Timed Workload Media Wear"},
+				"227" : {"value": "RAW_VALUE", "comment": "Timed Workload Host Read/Write Ratio"},
+				"228" : {"value": "RAW_VALUE", "comment": "Timed Workload Timer"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -292,32 +292,32 @@
 		"Intel DC S4600, D3-S4610, D3-S4510" : {
 			"Device" : ["Intel DC S4600 Series SSDs","Intel D3-S4610 Series SSDs","Intel D3-S4510 Series SSDs","INTEL SSDSC2KG240G701","INTEL SSDSC2KG480G701","INTEL SSDSC2KG960G701","INTEL SSDSC2KG019T701","INTEL SSDSC2KG240G8","INTEL SSDSC2KG240G801","INTEL SSDSC2KG480G801","INTEL SSDSC2KG960G801","INTEL SSDSC2KG019T801","INTEL SSDSC2KG038T801","INTEL SSDSC2KB240G8","INTEL SSDSC2KB480G8","INTEL SSDSC2KB960G8","INTEL SSDSC2KB019T8","INTEL SSDSC2KB038T8"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"170" : "RAW_VALUE", # Available Reserved Space
-				"171" : "VALUE", # Program Fail Count
-				"172" : "VALUE", # Erase Fail Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"175" : "VALUE", # Power Loss Protection Failure
-				"183" : "RAW_VALUE", # SATA Downshift Count Runtime Bad Block
-				"184" : "RAW_VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature - Device Internal Temperature
-				"197" : "RAW_VALUE", # Pending Sector Count
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"225" : "RAW_VALUE", # Host Writes (32MiB)
-				"226" : "RAW_VALUE", # Timed Workload Media Wear
-				"227" : "RAW_VALUE", # Timed Workload Host Read/Write Ratio
-				"228" : "RAW_VALUE", # Timed Workload Timer (Power-off Retract Count)
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"234" : "VALUE", # Thermal Throttle Status
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"243" : "RAW_VALUE", # Total Bytes Written (32MiB)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"170" : {"value": "RAW_VALUE", "comment": "Available Reserved Space"},
+				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss"},
+				"175" : {"value": "VALUE", "comment": "Power Loss Protection Failure"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count Runtime Bad Block"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Temperature - Airflow Temperature (Case)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature - Device Internal Temperature"},
+				"197" : {"value": "RAW_VALUE", "comment": "Pending Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"225" : {"value": "RAW_VALUE", "comment": "Host Writes (32MiB)"},
+				"226" : {"value": "RAW_VALUE", "comment": "Timed Workload Media Wear"},
+				"227" : {"value": "RAW_VALUE", "comment": "Timed Workload Host Read/Write Ratio"},
+				"228" : {"value": "RAW_VALUE", "comment": "Timed Workload Timer (Power-off Retract Count)"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"243" : {"value": "RAW_VALUE", "comment": "Total Bytes Written (32MiB)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -339,20 +339,20 @@
 		"SanDisk X300s" : {
 			"Device" : ["Marvell based SanDisk SSDs","SanDisk SD6SB1M128G1022I","SanDisk SD6SB1M256G1022I","SanDisk SD6SB2M512G1022I","SanDisk SD7UB2Q512G1022","SanDisk SD7UB2Q512G1122"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "RAW_VALUE", # Program_Fail_Count
-				"172" : "RAW_VALUE", # Erase_Fail_Count
-				"174" : "RAW_VALUE", # Unexpect_Power_Loss_Ct
-				"187" : "RAW_VALUE", # Reported_Uncorrect
-				"194" : "RAW_VALUE", # Temperature_Celsius
-				"212" : "RAW_VALUE", # SATA_PHY_Error
-				"230" : "RAW_VALUE", # Perc_Write_Erase_Count/Wear out
-				"232" : "RAW_VALUE", # Perc_Avail_Resrvd_Space
-				"241" : "RAW_VALUE", # Total_Writes_GiB
-				"242" : "RAW_VALUE", # Total_Reads_GiB
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program_Fail_Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase_Fail_Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpect_Power_Loss_Ct"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported_Uncorrect"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+				"212" : {"value": "RAW_VALUE", "comment": "SATA_PHY_Error"},
+				"230" : {"value": "RAW_VALUE", "comment": "Perc_Write_Erase_Count/Wear out"},
+				"232" : {"value": "RAW_VALUE", "comment": "Perc_Avail_Resrvd_Space"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total_Writes_GiB"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total_Reads_GiB"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -426,20 +426,20 @@
 		"SanDisk SSD Plus" : {
 			"Device" : ["SandForce Driven SSDs","SanDisk SDSSDA120G","SanDisk SDSSDA240G","SanDisk SDSSDA480G"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Retired_Block_Count
-				"9" : "RAW_VALUE", # Power-On Hours_and_Msec
-				"12" : "RAW_VALUE", # Power_Cycle_Count
-				"170" : "RAW_VALUE", # Reserve_Block_Count
-				"171" : "RAW_VALUE", # Program_Fail_Count
-				"172" : "RAW_VALUE", # Erase_Fail_Count
-				"174" : "RAW_VALUE", # Unexpect_Power_Loss_Ct
-				"187" : "RAW_VALUE", # Reported_Uncorrect
-				"194" : "RAW_VALUE", # Temperature_Celsius
-				"199" : "RAW_VALUE", # SATA_CRC_Error_Count
-				"230" : "RAW_VALUE", # Life_Curve_Status
-				"232" : "VALUE", # Perc_Avail_Resrvd_Space
-				"241" : "RAW_VALUE", # Total_Writes_GiB
-				"242" : "RAW_VALUE", # Total_Reads_GiB
+				"5" : {"value": "RAW_VALUE", "comment": "Retired_Block_Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours_and_Msec"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power_Cycle_Count"},
+				"170" : {"value": "RAW_VALUE", "comment": "Reserve_Block_Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program_Fail_Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase_Fail_Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpect_Power_Loss_Ct"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported_Uncorrect"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+				"199" : {"value": "RAW_VALUE", "comment": "SATA_CRC_Error_Count"},
+				"230" : {"value": "RAW_VALUE", "comment": "Life_Curve_Status"},
+				"232" : {"value": "VALUE", "comment": "Perc_Avail_Resrvd_Space"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total_Writes_GiB"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total_Reads_GiB"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -455,31 +455,31 @@
 		"Samsung SM883" : {
 			"Device" : ["SAMSUNG MZ7KH240HAHQ-00005","SAMSUNG MZ7KH480HAHQ-00005","SAMSUNG MZ7KH960HAJR-00005","SAMSUNG MZ7KH1T9HAJR-00005","SAMSUNG MZ7KH3T8HALS-00005"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "VALUE", # Runtime Bad Count (Total)
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"199" : "RAW_VALUE", # CRC Error Count
-				"202" : "VALUE", # SSD Mode Status
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBA Written
-				"242" : "RAW_VALUE", # Total LBA Read
-				"243" : "RAW_VALUE", # SATA Downshift Count
-				"244" : "RAW_VALUE", # Thermal Throttle Status
-				"245" : "RAW_VALUE", # Timed Workld Media Wear
-				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
-				"247" : "RAW_VALUE", # Timed Workld Timer
-				"251" : "RAW_VALUE" # NAND Writes
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"244" : {"value": "RAW_VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
+				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
+				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -502,31 +502,31 @@
 		"Samsung PM883" : {
 			"Device" : ["SAMSUNG MZ7LH240HAHQ-00005","SAMSUNG MZ7LH480HAHQ-00005","SAMSUNG MZ7LH960HAJR-00005","SAMSUNG MZ7LH1T9HMLT-00005","SAMSUNG MZ7LH3T8HMLT-00005","SAMSUNG MZ7LH7T6HMLA-00005"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "VALUE", # Runtime Bad Count (Total)
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"199" : "RAW_VALUE", # CRC Error Count
-				"202" : "VALUE", # SSD Mode Status
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBA Written
-				"242" : "RAW_VALUE", # Total LBA Read
-				"243" : "RAW_VALUE", # SATA Downshift Count
-				"244" : "RAW_VALUE", # Thermal Throttle Status
-				"245" : "RAW_VALUE", # Timed Workld Media Wear
-				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
-				"247" : "RAW_VALUE", # Timed Workld Timer
-				"251" : "RAW_VALUE" # NAND Writes
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"244" : {"value": "RAW_VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
+				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
+				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -549,31 +549,31 @@
 		"Samsung SM863" : {
 			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "VALUE", # Runtime Bad Count (Total)
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"199" : "RAW_VALUE", # CRC Error Count
-				"202" : "VALUE", # SSD Mode Status
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBA Written
-				"242" : "RAW_VALUE", # Total LBA Read
-				"243" : "RAW_VALUE", # SATA Downshift Count
-				"244" : "RAW_VALUE", # Thermal Throttle Status
-				"245" : "RAW_VALUE", # Timed Workld Media Wear
-				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
-				"247" : "RAW_VALUE", # Timed Workld Timer
-				"251" : "RAW_VALUE" # NAND Writes
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"244" : {"value": "RAW_VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
+				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
+				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -596,32 +596,32 @@
 		"Samsung PM863a" : {
 			"Device" : ["SAMSUNG MZ7LM240HMHQ-00005","SAMSUNG MZ7LM480HMHQ-00005","SAMSUNG MZ7LM960HMJP-00005","SAMSUNG MZ7LM1T9HMJP-00005","SAMSUNG MZ7LM3T8HMLP-00005","SAMSUNG MZ7LM1T9HMJP0D3"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "VALUE", # Runtime Bad Count (Total)
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"199" : "RAW_VALUE", # CRC Error Count
-				"202" : "VALUE", # SSD Mode Status
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBA Written
-				"242" : "RAW_VALUE", # Total LBA Read
-				"243" : "RAW_VALUE", # SATA Downshift Count
-				"244" : "RAW_VALUE", # Thermal Throttle Status
-				"245" : "RAW_VALUE", # Timed Workld Media Wear
-				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
-				"247" : "RAW_VALUE", # Timed Workld Timer
-				"251" : "RAW_VALUE" # NAND Writes
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"244" : {"value": "RAW_VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
+				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
+				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -644,34 +644,34 @@
 		"Samsung SM863a" : {
 			"Device" : ["SAMSUNG MZ7KM240HMHQ-00005","SAMSUNG MZ7KM480HMHQ-00005","SAMSUNG MZ7KM960HMJP-00005","SAMSUNG MZ7KM1T9HMJP-00005","Dell MZ7KM240HMHQ0D3","Dell MZ7KM480HMHQ0D3","Dell MZ7KM960HMJP0D3","Dell MZ7KM1T9HMJP0D3","Dell MZ7KM3T8HMLP0D3"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "VALUE", # Runtime Bad Count (Total)
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"199" : "RAW_VALUE", # CRC Error Count
-				"202" : "VALUE", # SSD Mode Status
-				"233" : "VALUE", # Media Wearout Indicator
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBA Written
-				"242" : "RAW_VALUE", # Total LBA Read
-				"243" : "RAW_VALUE", # SATA Downshift Count
-				"244" : "RAW_VALUE", # Thermal Throttle Status
-				"245" : "RAW_VALUE", # Timed Workld Media Wear
-				"246" : "RAW_VALUE", # Timed Workld RdWr Ratio
-				"247" : "RAW_VALUE", # Timed Workld Timer
-				"251" : "RAW_VALUE" # NAND Writes
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"244" : {"value": "RAW_VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
+				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
+				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -697,24 +697,24 @@
 		"Samsung PM853T" : {
 			"Device" : ["SAMSUNG MZ7GE240HMGR-00003","SAMSUNG MZ7GE480HMGR-00003","SAMSUNG MZ7GE960HMGR-00003","SAMSUNG MZ7GE480HMHP-00003"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power On Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "VALUE", # Runtime Bad Count (Total)
-				"184" : "VALUE", # End to End Error Data Path Error Count
-				"187" : "RAW_VALUE", # Uncorrectrable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"199" : "RAW_VALUE", # CRC Error Count
-				"202" : "VALUE", # SSD Mode Status
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBA Written
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power On Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -737,20 +737,20 @@
 		"Samsung 840PRO" : {
 			"Device" : ["Samsung SSD 840 PRO Series"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"199" : "RAW_VALUE", # CRC Error Count
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE", # Total LBAs Written
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "RAW_VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime Bad Block Count (Total)"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"}
 			},
 			"Threshs" : {
 				"5" : ["5","10"],
@@ -769,20 +769,20 @@
 		"Samsung 850PRO" : {
 			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"177" : "VALUE", # Wear Leveling Count
-				"179" : "RAW_VALUE", # Used Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"183" : "RAW_VALUE", # Runtime Bad Block Count (Total)
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Air Flow Temperature Celsius
-				"195" : "RAW_VALUE", # ECC Error Rate
-				"199" : "RAW_VALUE", # CRC Error Count
-				"235" : "RAW_VALUE", # Power Recovery Count
-				"241" : "RAW_VALUE" # Total LBAs Written
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "RAW_VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime Bad Block Count (Total)"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"}
 			},
 			"Threshs" : {
 				"5" : ["5","10"],
@@ -801,29 +801,29 @@
                 "Crucial M500" : {
                         "Device" : ["Crucial_CT120M500SSD1","Crucial_CT240M500SSD1","Crucial_CT480M500SSD1","Crucial_CT960M500SSD1"],
                         "ID#" : {
-                                "1" : "RAW_VALUE", # Raw Read Error Rate
-                                "5" : "RAW_VALUE", # Reallocated NAND Block Count
-                                "9" : "RAW_VALUE", # Power On Hours Count
-                                "12" : "RAW_VALUE", # Power Cycle Count
-                                "171" : "RAW_VALUE", # Program Fail Count
-                                "172" : "RAW_VALUE", # Erase Fail Count
-                                "173" : "RAW_VALUE", # Average Block-Erase Count
-                                "174" : "RAW_VALUE", # Unexpected Power Loss Count
-                                "180" : "RAW_VALUE", # Unused Reserve (Spare) NAND Blocks
-                                "183" : "RAW_VALUE", # SATA Interface Downshift
-                                "184" : "VALUE", # Error Correction Count
-                                "187" : "RAW_VALUE", # Reported Uncorrectable Errors
-                                "194" : "RAW_VALUE", # Enclosure Temperature
-                                "196" : "RAW_VALUE", # Reallocation Event Count
-                                "197" : "RAW_VALUE", # Current Pending Sector Count
-                                "198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
-                                "199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
-                                "202" : "VALUE", # Percent Lifetime Remaining
-                                "206" : "RAW_VALUE", # Write Error Rate
-                                "210" : "RAW_VALUE", # Successful RAIN Recovery Count
-                                "246" : "RAW_VALUE", # Total Host Sector Writes
-                                "247" : "RAW_VALUE", # Host Program Page Count
-                                "248" : "RAW_VALUE" # FTL Program Page Count
+                                "1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+                                "172" : {"value": "RAW_VALUE", "comment": "Erase Fail Count"},
+                                "173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+                                "174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+                                "180" : {"value": "RAW_VALUE", "comment": "Unused Reserve (Spare) NAND Blocks"},
+                                "183" : {"value": "RAW_VALUE", "comment": "SATA Interface Downshift"},
+                                "184" : {"value": "VALUE", "comment": "Error Correction Count"},
+                                "187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Enclosure Temperature"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocation Event Count"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+                                "198" : {"value": "RAW_VALUE", "comment": "SMART Offline Scan Uncorrectable Error Count"},
+                                "199" : {"value": "RAW_VALUE", "comment": "Ultra-DMA CRC Error Count"},
+                                "202" : {"value": "VALUE", "comment": "Percent Lifetime Remaining"},
+                                "206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
+                                "210" : {"value": "RAW_VALUE", "comment": "Successful RAIN Recovery Count"},
+                                "246" : {"value": "RAW_VALUE", "comment": "Total Host Sector Writes"},
+                                "247" : {"value": "RAW_VALUE", "comment": "Host Program Page Count"},
+                                "248" : {"value": "RAW_VALUE", "comment": "FTL Program Page Count"}
 
                         },
                         "Threshs" : {
@@ -845,28 +845,28 @@
 		"Crucial MX200" : {
 			"Device" : ["Crucial_CT1024MX200SSD1","Crucial_CT250MX200SSD1","Crucial_CT500MX200SSD1","Crucial_CT240M500SSD1"],
 			"ID#" : {
-				"1" : "RAW_VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Reallocated NAND Block Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "RAW_VALUE", # Program Fail Count
-				"172" : "RAW_VALUE", # Erase Fail Count
-				"173" : "RAW_VALUE", # Average Block-Erase Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss Count
-				"180" : "RAW_VALUE", # Unused Reserve (Spare) NAND Blocks
-				"183" : "RAW_VALUE", # SATA Interface Downshift
-				"184" : "VALUE", # Error Correction Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"194" : "RAW_VALUE", # Enclosure Temperature
-				"196" : "RAW_VALUE", # Reallocation Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
-				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
-				"202" : "VALUE", # Percent Lifetime Remaining
-				"206" : "RAW_VALUE", # Write Error Rate
-				"210" : "RAW_VALUE", # Successful RAIN Recovery Count
-				"246" : "RAW_VALUE", # Total Host Sector Writes
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase Fail Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"180" : {"value": "RAW_VALUE", "comment": "Unused Reserve (Spare) NAND Blocks"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Interface Downshift"},
+				"184" : {"value": "VALUE", "comment": "Error Correction Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"194" : {"value": "RAW_VALUE", "comment": "Enclosure Temperature"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocation Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "SMART Offline Scan Uncorrectable Error Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "Ultra-DMA CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "Percent Lifetime Remaining"},
+				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
+				"210" : {"value": "RAW_VALUE", "comment": "Successful RAIN Recovery Count"},
+				"246" : {"value": "RAW_VALUE", "comment": "Total Host Sector Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -888,28 +888,28 @@
 		"Crucial MX300" : {
 			"Device" : ["Crucial_CT275MX300SSD1","Crucial_CT525MX300SSD1","Crucial_CT750MX300SSD1","Crucial_CT1050MX300SSD1","Crucial_CT2050MX300SSD1"],
 			"ID#" : {
-				"1" : "RAW_VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Reallocated NAND Block Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"171" : "RAW_VALUE", # Program Fail Count
-				"172" : "RAW_VALUE", # Erase Fail Count
-				"173" : "RAW_VALUE", # Average Block-Erase Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss Count
-				"180" : "RAW_VALUE", # Unused Reserve (Spare) NAND Blocks
-				"183" : "RAW_VALUE", # SATA Interface Downshift
-				"184" : "VALUE", # Error Correction Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"194" : "RAW_VALUE", # Enclosure Temperature
-				"196" : "RAW_VALUE", # Reallocation Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
-				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
-				"202" : "VALUE", # Percent Lifetime Remaining
-				"206" : "RAW_VALUE", # Write Error Rate
-				"210" : "RAW_VALUE", # Successful RAIN Recovery Count
-				"246" : "RAW_VALUE", # Total Host Sector Writes
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase Fail Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"180" : {"value": "RAW_VALUE", "comment": "Unused Reserve (Spare) NAND Blocks"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Interface Downshift"},
+				"184" : {"value": "VALUE", "comment": "Error Correction Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"194" : {"value": "RAW_VALUE", "comment": "Enclosure Temperature"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocation Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "SMART Offline Scan Uncorrectable Error Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "Ultra-DMA CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "Percent Lifetime Remaining"},
+				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
+				"210" : {"value": "RAW_VALUE", "comment": "Successful RAIN Recovery Count"},
+				"246" : {"value": "RAW_VALUE", "comment": "Total Host Sector Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -931,27 +931,27 @@
 		"Micron M510DC" : {
 			"Device" : ["MICRON_M510DC_MTFDDAK120MBP","MICRON_M510DC_MTFDDAK240MBP","MICRON_M510DC_MTFDDAK480MBP","MICRON_M510DC_MTFDDAK600MBP","MICRON_M510DC_MTFDDAK800MBP","MICRON_M510DC_MTFDDAK960MBP"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Reallocated NAND Block Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"170" : "VALUE", # Reserved Block Count
-				"171" : "RAW_VALUE", # Program Fail Count
-				"172" : "RAW_VALUE", # Erase Fail Count
-				"173" : "RAW_VALUE", # Average Block-Erase Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss Count
-				"184" : "VALUE", # Error Correction Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"188" : "RAW_VALUE", # Command Timeouts
-				"194" : "RAW_VALUE", # Enclosure Temperature
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
-				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
-				"202" : "VALUE", # Percent Lifetime Remaining
-				"206" : "RAW_VALUE", # Write Error Rate
-				"247" : "RAW_VALUE", # Number of NAND pages written
-				"248" : "RAW_VALUE", # Number of NAND pages written by FTL
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"170" : {"value": "VALUE", "comment": "Reserved Block Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase Fail Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"184" : {"value": "VALUE", "comment": "Error Correction Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeouts"},
+				"194" : {"value": "RAW_VALUE", "comment": "Enclosure Temperature"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "SMART Offline Scan Uncorrectable Error Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "Ultra-DMA CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "Percent Lifetime Remaining"},
+				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
+				"247" : {"value": "RAW_VALUE", "comment": "Number of NAND pages written"},
+				"248" : {"value": "RAW_VALUE", "comment": "Number of NAND pages written by FTL"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["60:","50:"],
@@ -975,32 +975,32 @@
 		"Micron 5100" : {
 			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY","Micron_5100_MTFDDAK960TCB","Micron_5200_MTFDDAK3T8TDC"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Reallocated NAND Block Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"170" : "VALUE", # Reserved Block Count
-				"171" : "RAW_VALUE", # Program Fail Count
-				"172" : "RAW_VALUE", # Erase Fail Count
-				"173" : "RAW_VALUE", # Average Block-Erase Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss Count
-				"180" : "RAW_VALUE", # Unused Reserved (Spare) Block Count
-				"184" : "VALUE", # Error Correction Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"188" : "RAW_VALUE", # Command Timeouts
-				"194" : "RAW_VALUE", # Enclosure Temperature
-				"195" : "RAW_VALUE", # Cumulative Corrected ECC
-				"196" : "RAW_VALUE", # Reallocation Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # SMART Offline Scan Uncorrectable Error Count
-				"199" : "RAW_VALUE", # Ultra-DMA CRC Error Count
-				"202" : "VALUE", # Percent Lifetime Remaining
-				"206" : "RAW_VALUE", # Write Error Rate
-				"210" : "RAW_VALUE", # RAIN Success Recovered Page Count
-				"246" : "RAW_VALUE", # Cumulative Host Sectors Written
-				"247" : "RAW_VALUE", # Host Program Page Count (pages writen by host)
-				"248" : "RAW_VALUE", # FTL Program Page Count (pages written by FTL)
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"170" : {"value": "VALUE", "comment": "Reserved Block Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase Fail Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"180" : {"value": "RAW_VALUE", "comment": "Unused Reserved (Spare) Block Count"},
+				"184" : {"value": "VALUE", "comment": "Error Correction Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeouts"},
+				"194" : {"value": "RAW_VALUE", "comment": "Enclosure Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "Cumulative Corrected ECC"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocation Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "SMART Offline Scan Uncorrectable Error Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "Ultra-DMA CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "Percent Lifetime Remaining"},
+				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
+				"210" : {"value": "RAW_VALUE", "comment": "RAIN Success Recovered Page Count"},
+				"246" : {"value": "RAW_VALUE", "comment": "Cumulative Host Sectors Written"},
+				"247" : {"value": "RAW_VALUE", "comment": "Host Program Page Count (pages writen by host)"},
+				"248" : {"value": "RAW_VALUE", "comment": "FTL Program Page Count (pages written by FTL)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["60:","50:"],
@@ -1028,25 +1028,25 @@
 		"Kingston KC310" : {
 			"Device" : ["KINGSTON SKC310S37A960G"],
 			"ID#" : {
-				"1" : "RAW_VALUE", # Raw Read Error Rate
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"168" : "RAW_VALUE", # SATA PHY Error Count
-				"170" : "VALUE", # Bad Block Count
-				"173" : "RAW_VALUE", # Average Block-Erase Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"192" : "RAW_VALUE", # Unsafe Shutdown Count
-				"194" : "RAW_VALUE", # Temperature
-				"199" : "RAW_VALUE", # CRC Error Count
-				"218" : "RAW_VALUE", # CRC Error Count
-				"231" : "RAW_VALUE", # SSD Life Left
-				"233" : "RAW_VALUE", # Lifetime Writes to Flash
-				"241" : "RAW_VALUE", # Host Writes
-				"242" : "RAW_VALUE", # Host Reads
-				"244" : "RAW_VALUE", # Average Erase Count
-				"245" : "RAW_VALUE", # Max Erase Count
-				"246" : "RAW_VALUE", # Total Erase Count
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"168" : {"value": "RAW_VALUE", "comment": "SATA PHY Error Count"},
+				"170" : {"value": "VALUE", "comment": "Bad Block Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"192" : {"value": "RAW_VALUE", "comment": "Unsafe Shutdown Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"218" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"231" : {"value": "RAW_VALUE", "comment": "SSD Life Left"},
+				"233" : {"value": "RAW_VALUE", "comment": "Lifetime Writes to Flash"},
+				"241" : {"value": "RAW_VALUE", "comment": "Host Writes"},
+				"242" : {"value": "RAW_VALUE", "comment": "Host Reads"},
+				"244" : {"value": "RAW_VALUE", "comment": "Average Erase Count"},
+				"245" : {"value": "RAW_VALUE", "comment": "Max Erase Count"},
+				"246" : {"value": "RAW_VALUE", "comment": "Total Erase Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["0","10"],
@@ -1064,24 +1064,24 @@
 		"HGST Ultrastar He10" : {
 			"Device" : ["HGST HUH721008ALE600","HGST HUH721010ALN600","HGST HUH721010ALE600","HGST HUH721008AL5200","HGST HUH721010AL5200"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"2" : "VALUE", # Throughput Performance
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"8" : "VALUE", # Seek Time Performance
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"22" : "VALUE", # Internal Environment status (Current Helium Level)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"22" : {"value": "VALUE", "comment": "Internal Environment status (Current Helium Level)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1102,24 +1102,24 @@
 		"HGST Ultrastar He8" : {
 			"Device" : ["HGST HUH728080ALE600","HGST HUH728080ALE601","HGST HUH728080ALE604","HGST HUH728060ALE600","HGST HUH728060ALE601","HGST HUH726060ALE604"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"2" : "VALUE", # Throughput Performance
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"8" : "VALUE", # Seek Time Performance
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"22" : "VALUE", # Internal Environment status (Current Helium Level)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"22" : {"value": "VALUE", "comment": "Internal Environment status (Current Helium Level)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1139,23 +1139,23 @@
 		"HGST Ultrastar 7K6000" : {
 			"Device" : ["HGST HUS726060ALE61", "HGST HUS726050ALE61", "HGST HUS726040ALE61", "HGST HUS726020ALE61", "HGST HUS726060ALN61", "HGST HUS726050ALN61", "HGST HUS726040ALN61", "HGST HUS726020ALN61", "HGST HUS726040ALA610", "HGST HUS726020ALA610", "HGST HUS726T4TALA6L1"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"2" : "VALUE", # Throughput Performance
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"8" : "VALUE", # Seek Time Performance
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1174,23 +1174,23 @@
                 "HGST (Hitachi) Ultrastar A7K2000" : {
                         "Device" : ["HGST HUA722050CLA330","HGST HUA722010CLA330","Hitachi HUA722050CLA330","Hitachi HUA722010CLA330"],
                         "ID#" : {
-                                "1" : "VALUE", # Raw Read Error Rate
-                                "2" : "VALUE", # Throughput Performance
-                                "3" : "VALUE", # Spin Up Time
-                                "4" : "RAW_VALUE", # Start Stop Count
-                                "5" : "RAW_VALUE", # Re-allocated Sector Count
-                                "7" : "RAW_VALUE", # Seek Error Rate
-                                "8" : "VALUE", # Seek Time Performance
-                                "9" : "RAW_VALUE", # Power-On Hours
-                                "10" : "RAW_VALUE", # Spin Retry Count
-                                "12" : "RAW_VALUE", # Power Cycle Count
-                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-                                "193" : "RAW_VALUE", # Load Cycle Count
-                                "194" : "RAW_VALUE", # Temperature Celsius
-                                "196" : "RAW_VALUE", # Reallocated Event Count
-                                "197" : "RAW_VALUE", # Current Pending Sector
-                                "198" : "RAW_VALUE", # Offline Uncorrectable
-                                "199" : "RAW_VALUE" # UDMA CRC Error Count
+                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+                                "2" : {"value": "VALUE", "comment": "Throughput Performance"},
+                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
+                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+                                "8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+                                "198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
                         },
                         "Threshs" : {
                                 "1" : ["26:","16:"],
@@ -1209,25 +1209,25 @@
 		"HGST Travelstar 7K1000" : {
 			"Device" : ["HGST HTE721010A9E630"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"2" : "VALUE", # Throughput Performance
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"8" : "VALUE", # Seek Time Performance
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"223" : "RAW_VALUE" # Load Retry Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"223" : {"value": "RAW_VALUE", "comment": "Load Retry Count"}
 			},
 			"Threshs" : {
 				"1" : ["72:","62:"],
@@ -1246,23 +1246,23 @@
 		"HGST Deskstar NAS 7K4000" : {
 		  "Device" : ["HGST HDN726040ALE614", "HGST HDN724040ALE640", "Hitachi HDS724040ALE640", "HDN726060ALE614", "HDN726060ALE614", "HDN728080ALE604", "HDN726050ALE610", "HDN724030ALE640"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"2" : "VALUE", # Throughput Performance
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"8" : "VALUE", # Seek Time Performance
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1281,29 +1281,29 @@
                 "Western Digital Black" : {
                         "Device" : ["Western Digital Black","WDC WD7500BPKX-22HPJT0"],
                         "ID#" : {
-                                "1" : "VALUE", # Raw Read Error Rate
-                                "3" : "VALUE", # Spin Up Time
-                                "4" : "RAW_VALUE", # Start Stop Count
-                                "5" : "RAW_VALUE", # Re-allocated Sector Count
-                                "7" : "RAW_VALUE", # Seek Error Rate
-                                "9" : "RAW_VALUE", # Power-On Hours
-                                "10" : "RAW_VALUE", # Spin Retry Count
-                                "11" : "RAW_VALUE", # Calibration Retry Count
-                                "12" : "RAW_VALUE", # Power Cycle Count
-                                "183" : "RAW_VALUE", # Runtime Bad Block
-                                "184" : "RAW_VALUE", # End-to-End Errors
-                                "187" : "RAW_VALUE", # Reported Uncorrect
-                                "188" : "RAW_VALUE", # Command Timeout
-                                "190" : "RAW_VALUE", # Airflow Temperature Celsius
-                                "191" : "RAW_VALUE", # G-Sense Error Rate
-                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-                                "193" : "RAW_VALUE", # Load Cycle Count
-                                "194" : "RAW_VALUE", # Temperature Celsius
-                                "196" : "RAW_VALUE", # Reallocated Event Count
-                                "197" : "RAW_VALUE", # Current Pending Sector
-                                "198" : "RAW_VALUE", # Offline Uncorrectable
-                                "199" : "RAW_VALUE", # UDMA CRC Error Count
-                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
+                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+                                "11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "183" : {"value": "RAW_VALUE", "comment": "Runtime Bad Block"},
+                                "184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+                                "187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+                                "188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+                                "190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+                                "191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+                                "198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+                                "200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
                         },
                         "Threshs" : {
                                 "1" : ["62:","52:"],
@@ -1327,29 +1327,29 @@
                 "Western Digital Black Mobile" : {
                         "Device" : ["Western Digital Black Mobile","WDC WD7500BPKX-22HPJT0","WDC WD7500BPKX-00HPJT0"],
                         "ID#" : {
-                                "1" : "VALUE", # Raw Read Error Rate
-                                "3" : "VALUE", # Spin Up Time
-                                "4" : "RAW_VALUE", # Start Stop Count
-                                "5" : "RAW_VALUE", # Re-allocated Sector Count
-                                "7" : "RAW_VALUE", # Seek Error Rate
-                                "9" : "RAW_VALUE", # Power-On Hours
-                                "10" : "RAW_VALUE", # Spin Retry Count
-                                "11" : "RAW_VALUE", # Calibration Retry Count
-                                "12" : "RAW_VALUE", # Power Cycle Count
-                                "183" : "RAW_VALUE", # Runtime Bad Block
-                                "184" : "RAW_VALUE", # End-to-End Errors
-                                "187" : "RAW_VALUE", # Reported Uncorrect
-                                "188" : "RAW_VALUE", # Command Timeout
-                                "190" : "RAW_VALUE", # Airflow Temperature Celsius
-                                "191" : "RAW_VALUE", # G-Sense Error Rate
-                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-                                "193" : "RAW_VALUE", # Load Cycle Count
-                                "194" : "RAW_VALUE", # Temperature Celsius
-                                "196" : "RAW_VALUE", # Reallocated Event Count
-                                "197" : "RAW_VALUE", # Current Pending Sector
-                                "198" : "RAW_VALUE", # Offline Uncorrectable
-                                "199" : "RAW_VALUE", # UDMA CRC Error Count
-                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
+                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+                                "11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "183" : {"value": "RAW_VALUE", "comment": "Runtime Bad Block"},
+                                "184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+                                "187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+                                "188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+                                "190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+                                "191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+                                "198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+                                "200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
                         },
                         "Threshs" : {
                                 "1" : ["62:","52:"],
@@ -1410,24 +1410,23 @@
 		"Western Digital Red (helium-filled)" : {
 		  "Device" : ["WDC WD80EFAX-68LHPN0", "WDC WD80EFZX-68UW8N0"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"2" : "VALUE", # Throughput Performance
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"8" : "VALUE", # Seek Time Performance
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"22" : "VALUE", # Internal Environment status (Current Helium Level)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1448,23 +1447,23 @@
                 "Western Digital Red NAS" : {
                         "Device" : ["Western Digital Red NAS Storage","WDC WD10JFCX-68N6GN0"],
                         "ID#" : {
-                                "1" : "VALUE", # Raw Read Error Rate
-                                "3" : "VALUE", # Spin Up Time
-                                "4" : "RAW_VALUE", # Start Stop Count
-                                "5" : "RAW_VALUE", # Re-allocated Sector Count
-                                "7" : "RAW_VALUE", # Seek Error Rate
-                                "9" : "RAW_VALUE", # Power-On Hours
-                                "10" : "RAW_VALUE", # Spin Retry Count
-                                "11" : "RAW_VALUE", # Calibration Retry Count
-                                "12" : "RAW_VALUE", # Power Cycle Count
-                                "192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-                                "193" : "RAW_VALUE", # Load Cycle Count
-                                "194" : "RAW_VALUE", # Temperature Celsius
-                                "196" : "RAW_VALUE", # Reallocated Event Count
-                                "197" : "RAW_VALUE", # Current Pending Sector
-                                "198" : "RAW_VALUE", # Offline Uncorrectable
-                                "199" : "RAW_VALUE", # UDMA CRC Error Count
-                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
+                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+                                "11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+                                "198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+                                "200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
                         },
                         "Threshs" : {
                                 "1" : ["62:","52:"],
@@ -1485,24 +1484,24 @@
 		"Western Digital RE4" : {
 			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1","WDC WD4000FYYZ-50UL1B0"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"11" : "RAW_VALUE", # Calibration Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1521,24 +1520,24 @@
 		"Western Digital Re" : {
 			"Device" : ["Western Digital Re","WDC WD2000FYYZ-01UL1B0","WDC WD2000FYYZ-01UL1B1","WDC WD2000FYYZ-01UL1B2","WDC WD2004FBYZ-01YCBB1","WDC WD3000FYYZ-01UL1B0","WDC WD3000FYYZ-01UL1B1","WDC WD3000FYYZ-01UL1B2","WDC WD4000FYYZ-01UL1B0","WDC WD4000FYYZ-01UL1B1","WDC WD4000FYYZ-01UL1B2","WDC WD4002FYYZ-01B7CB0"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"11" : "RAW_VALUE", # Calibration Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"183" : "RAW_VALUE", # Runtime_Bad_Block
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE" # Multi Zone Error Rate
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime_Bad_Block"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1557,24 +1556,24 @@
 		"Western Digital RE4-GP" : {
 			"Device" : ["Western Digital RE4-GP","WDC WD2002FYPS-01U1B1"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"11" : "RAW_VALUE", # Calibration Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1593,25 +1592,25 @@
 		"Seagate Barracuda ES.2" : {
 			"Device" : ["Seagate Barracuda ES.2","ST31000340NS"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"11" : "RAW_VALUE", # Calibration Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1630,28 +1629,28 @@
 		"Seagate Constellation ES" : {
 			"Device" : ["Seagate Constellation ES", "ST32000644NS"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1668,28 +1667,28 @@
 		"Seagate Constellation ES.2" : {
 			"Device" : ["Seagate Constellation ES.2", "ST32000646SS", "ST33000650SS", "ST33000650NS", "ST33000651SS", "ST33000651NS"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1706,24 +1705,24 @@
 		"Western Digital RED" : {
 			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD30EFRX-68AX9N0","WDC WD40EFRX-68WT0N0" ],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"11" : "RAW_VALUE", # Calibration Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1742,25 +1741,25 @@
 		"Seagate Constellation ES.2 500G" : {
 			"Device" : ["Seagate Constellation ES.2 500G", "ST3500320NS"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1777,25 +1776,25 @@
 		"Seagate Constellation ES.2 1TB" : {
 			"Device" : ["Seagate Constellation ES.2 1TB"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"1024" : "VALUE" # ATA error count (custom)
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1812,27 +1811,27 @@
 		"Seagate Constellation ES.3 SATA III 4TB" : {
 			"Device" : ["Seagate Constellation ES.3 SATAIII 4TB Serie", "ST4000NM0033-9ZM170"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"175" : "VALUE", # Program_Fail_Count_Chip
-				"183" : "RAW_VALUE", # Runtime_Bad_Block
-				"184" : "VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Airflow_Temperature_Cel
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature_Celsius
-				"197" : "RAW_VALUE", # Current_Pending_Sector
-				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
-				"225" : "RAW_VALUE", # Load_Cycle_Count
-				"226" : "RAW_VALUE", # Load-in_Time
-				"227" : "RAW_VALUE", # Torq-amp_Count
-				"228" : "RAW_VALUE", # Power-off_Retract_Count
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-				"1024" : "VALUE" # ATA error count (custom)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"175" : {"value": "VALUE", "comment": "Program_Fail_Count_Chip"},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime_Bad_Block"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow_Temperature_Cel"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current_Pending_Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
+				"225" : {"value": "RAW_VALUE", "comment": "Load_Cycle_Count"},
+				"226" : {"value": "RAW_VALUE", "comment": "Load-in_Time"},
+				"227" : {"value": "RAW_VALUE", "comment": "Torq-amp_Count"},
+				"228" : {"value": "RAW_VALUE", "comment": "Power-off_Retract_Count"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -1845,57 +1844,57 @@
 			},
 			"Perfs" : ["233","241","242"]
 		},
-		"Seagate Constellation ES.3 SATA" : {
-				"Device" : ["Seagate Constellation ES.3", "ST1000NM0033", "ST2000NM0033", "ST3000NM0033", "ST4000NM0033"],
-				"ID#" : {
-						"5" : "RAW_VALUE", # Re-allocated Sector Count
-						"9" : "RAW_VALUE", # Power-On Hours Count
-						"12" : "RAW_VALUE", # Power Cycle Count
-						"175" : "VALUE", # Program_Fail_Count_Chip
-						"183" : "RAW_VALUE", # Runtime_Bad_Block
-						"184" : "VALUE", # End-to-End Error Detection Count
-						"187" : "RAW_VALUE", # Uncorrectable Error Count
-						"190" : "RAW_VALUE", # Airflow_Temperature_Cel
-						"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-						"194" : "RAW_VALUE", # Temperature_Celsius
-						"197" : "RAW_VALUE", # Current_Pending_Sector
-						"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
-						"225" : "RAW_VALUE", # Load_Cycle_Count
-						"226" : "RAW_VALUE", # Load-in_Time
-						"227" : "RAW_VALUE", # Torq-amp_Count
-						"228" : "RAW_VALUE", # Power-off_Retract_Count
-						"232" : "VALUE", # Available Reserved Space
-						"233" : "VALUE", # Media Wearout Indicator
-						"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-						"242" : "RAW_VALUE", # Total LBAs Read (32MiB)
-						"1024" : "VALUE" # ATA error count (custom)
-				},
-				"Threshs" : {
-						"5" : ["20","40"],
-						"184" : ["96:","91:"],
-						"187" : ["0","10"],
-						"199" : ["0","10"],
-						"232" : ["16:","11:"],
-						"233" : ["16:","6:"],
-						"1024" : ["0","10"]
-				},
-				"Perfs" : ["233","241","242"]
-		},
+                "Seagate Constellation ES.3 SATA" : {
+                        "Device" : ["Seagate Constellation ES.3", "ST1000NM0033", "ST2000NM0033", "ST3000NM0033", "ST4000NM0033"],
+                        "ID#" : {
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "175" : {"value": "VALUE", "comment": "Program_Fail_Count_Chip"},
+                                "183" : {"value": "RAW_VALUE", "comment": "Runtime_Bad_Block"},
+                                "184" : {"value": "VALUE", "comment": "End-to-End Error Detection Count"},
+                                "187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+                                "190" : {"value": "RAW_VALUE", "comment": "Airflow_Temperature_Cel"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current_Pending_Sector"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
+                                "225" : {"value": "RAW_VALUE", "comment": "Load_Cycle_Count"},
+                                "226" : {"value": "RAW_VALUE", "comment": "Load-in_Time"},
+                                "227" : {"value": "RAW_VALUE", "comment": "Torq-amp_Count"},
+                                "228" : {"value": "RAW_VALUE", "comment": "Power-off_Retract_Count"},
+                                "232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+                                "233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+                                "241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+                                "242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+                                "1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+                        },
+                        "Threshs" : {
+                                "5" : ["20","40"],
+                                "184" : ["96:","91:"],
+                                "187" : ["0","10"],
+                                "199" : ["0","10"],
+                                "232" : ["16:","11:"],
+                                "233" : ["16:","6:"],
+                                "1024" : ["0","10"]
+                        },
+                        "Perfs" : ["233","241","242"]
+                },
 		"Seagate Enterprise" : {
 			"Device" : ["ST2000NX0403","ST3000NM0005-1V410N","ST8000NM0045-1RL112"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Airflow_Temperature_Cel
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature_Celsius
-				"197" : "RAW_VALUE", # Current_Pending_Sector
-				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE" # Total LBAs Read (32MiB)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow_Temperature_Cel"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current_Pending_Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -1908,24 +1907,24 @@
 		"Seagate Barracuda 7200.9" : {
 			"Device" : ["Seagate Barracuda 7200.9","ST3120813AS"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sectors Count
-				"7" : "VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"202" : "RAW_VALUE" # Data Address Mark Error
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"202" : {"value": "RAW_VALUE", "comment": "Data Address Mark Error"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1945,31 +1944,31 @@
 		"Seagate Momentus 7200.5" : {
 			"Device" : ["ST9750420AS"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"240" : "RAW_VALUE", # Head Flying Hours
-				"241" : "RAW_VALUE", # Total LBAs Written
-				"242" : "RAW_VALUE", # Total LBAs Read
-				"254" : "RAW_VALUE" # Free Fall Sensor
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"240" : {"value": "RAW_VALUE", "comment": "Head Flying Hours"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"},
+				"254" : {"value": "RAW_VALUE", "comment": "Free Fall Sensor"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1984,150 +1983,62 @@
 			"Perfs" : ["194"]
 		},
 		"Seagate Exos X" : {
-			"Device" : ["Seagate Exos X","ST10000NM0156"],
-			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC Recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
-				"240" : "RAW_VALUE", # Head Flying Hours
-				"241" : "RAW_VALUE", # Total LBAs Written
-				"242" : "RAW_VALUE", # Total LBAs Read
-			},
-			"Threshs" : {
-				"1" : ["62:","52:"],
-				"3" : ["32:","22:"],
-				"5" : ["20","40"],
-				"10" : ["0","10"],
-				"194" : ["54","60"],
-				"197" : ["0","10"],
-				"198" : ["0","10"],
-				"199" : ["0","10"]
-			},
-			"Perfs" : ["194"]
-		},
-		"Seagate Desktop HDD.15" : {
-			"Device" : ["ST4000DM000-1F2168"],
-			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"183" : "RAW_VALUE", # Runtime-Bad-Block
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"240" : "RAW_VALUE", # Head Flying Hours
-				"241" : "RAW_VALUE", # Total LBAs Written
-				"242" : "RAW_VALUE", # Total LBAs Read
-			},
-			"Threshs" : {
-				"1" : ["62:","52:"],
-				"3" : ["32:","22:"],
-				"5" : ["20","40"],
-				"10" : ["0","10"],
-				"183" : ["0","10"],
-				"184" : ["0","10"],
-				"187" : ["0","10"],
-				"194" : ["54","60"],
-				"197" : ["0","10"],
-				"198" : ["0","10"],
-				"199" : ["0","10"]
-			},
-			"Perfs" : ["194"]
-		},
-		"Seagate Barracuda 3.5 HDD" : {
-			"Device" : ["ST6000DM003-2CY186"],
-			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"183" : "RAW_VALUE", # Runtime-Bad-Block
-				"184" : "RAW_VALUE", # End-to-End Errors
-				"187" : "RAW_VALUE", # Reported Uncorrect
-				"188" : "RAW_VALUE", # Command Timeout
-				"189" : "RAW_VALUE", # High Fly Writes
-				"190" : "RAW_VALUE", # Airflow Temperature Celsius
-				"191" : "RAW_VALUE", # G-Sense Error Rate
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # Hardware ECC recovered
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"240" : "RAW_VALUE", # Head Flying Hours
-				"241" : "RAW_VALUE", # Total LBAs Written
-				"242" : "RAW_VALUE", # Total LBAs Read
-			},
-			"Threshs" : {
-				"1" : ["62:","52:"],
-				"3" : ["32:","22:"],
-				"5" : ["20","40"],
-				"10" : ["0","10"],
-				"183" : ["0","10"],
-				"184" : ["0","10"],
-				"187" : ["0","10"],
-				"194" : ["54","60"],
-				"195" : ["0","10"],
-				"197" : ["0","10"],
-				"198" : ["0","10"],
-				"199" : ["0","10"]
-			},
-			"Perfs" : ["194"]
-		},
+                        "Device" : ["Seagate Exos X","ST10000NM0156"],
+                        "ID#" : {
+                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
+                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+                                "187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+                                "188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+                                "189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+                                "190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+                                "191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+                                "198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+                                "200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+                                "240" : {"value": "RAW_VALUE", "comment": "Head Flying Hours"},
+                                "241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+                                "242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+                        },
+                        "Threshs" : {
+                                "1" : ["62:","52:"],
+                                "3" : ["32:","22:"],
+                                "5" : ["20","40"],
+                                "10" : ["0","10"],
+                                "194" : ["54","60"],
+                                "197" : ["0","10"],
+                                "198" : ["0","10"],
+                                "199" : ["0","10"]
+                        },
+                        "Perfs" : ["194"]
+                },
 		"KINGSTON SV300S37A120G" : {
 			"Device" : ["KINGSTON","SV300S37A120G"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Retired_Block_Count
-				"171" : "RAW_VALUE", # Program_Fail_Count
-				"172" : "RAW_VALUE", # Erase_Fail_Count
-				"187" : "RAW_VALUE", # Reported Uncorrectable Errors
-				"189" : "VALUE", # Airflow Temperature Celsius
-				"194" : "VALUE", # Temperature Celsius
-				"195" : "VALUE", # ECC Uncorrectable Error Count
-				"196" : "RAW_VALUE", # Reallocated_Event_Count
-				"201" : "VALUE", # Unc_Soft_Read_Err_Rate
-				"204" : "VALUE", # Soft_ECC_Correct_Rate
-				"230" : "VALUE", # Life_Curve_Status
-				"231" : "VALUE" # SSD_Life_Left
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Retired_Block_Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program_Fail_Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase_Fail_Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"189" : {"value": "VALUE", "comment": "Airflow Temperature Celsius"},
+				"194" : {"value": "VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "VALUE", "comment": "ECC Uncorrectable Error Count"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated_Event_Count"},
+				"201" : {"value": "VALUE", "comment": "Unc_Soft_Read_Err_Rate"},
+				"204" : {"value": "VALUE", "comment": "Soft_ECC_Correct_Rate"},
+				"230" : {"value": "VALUE", "comment": "Life_Curve_Status"},
+				"231" : {"value": "VALUE", "comment": "SSD_Life_Left"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2149,30 +2060,30 @@
 		"Toshiba 3,5\" MG... Enterprise HDD" : {
 			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400"],
 			"ID#" : {
-				"1" : "VALUE", # Raw_Read_Error_Rate
-				"2" : "VALUE", # Throughput_Performance
-				"3" : "VALUE", # Spin_Up_Time
-				"4" : "RAW_VALUE", # Start_Stop_Count
-				"5" : "RAW_VALUE", # Reallocated_Sector_Ct
-				"7" : "VALUE", # Seek_Error_Rate
-				"8" : "VALUE", # Seek_Time_Performance
-				"9" : "RAW_VALUE", # Power_On_Hours
-				"10" : "VALUE", # Spin_Retry_Count
-				"12" : "RAW_VALUE", # Power_Cycle_Count
-				"191" : "RAW_VALUE", # G-Sense_Error_Rate
-				"192" : "RAW_VALUE", # Power-Off_Retract_Count
-				"193" : "RAW_VALUE", # Load_Cycle_Count
-				"194" : "RAW_VALUE", # Temperature_Celsius
-				"196" : "RAW_VALUE", # Reallocated_Event_Count
-				"197" : "RAW_VALUE", # Current_Pending_Sector
-				"198" : "RAW_VALUE", # Offline_Uncorrectable
-				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
-				"220" : "RAW_VALUE", # Disk_Shift
-				"222" : "RAW_VALUE", # Loaded_Hours
-				"223" : "RAW_VALUE", # Load_Retry_Count
-				"224" : "RAW_VALUE", # Load_Friction
-				"226" : "RAW_VALUE", # Load-in_Time
-				"240" : "RAW_VALUE" # Head_Flying_Hours
+				"1" : {"value": "VALUE", "comment": "Raw_Read_Error_Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput_Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin_Up_Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start_Stop_Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated_Sector_Ct"},
+				"7" : {"value": "VALUE", "comment": "Seek_Error_Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek_Time_Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power_On_Hours"},
+				"10" : {"value": "VALUE", "comment": "Spin_Retry_Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power_Cycle_Count"},
+				"191" : {"value": "RAW_VALUE", "comment": "G-Sense_Error_Rate"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off_Retract_Count"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load_Cycle_Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated_Event_Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current_Pending_Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline_Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
+				"220" : {"value": "RAW_VALUE", "comment": "Disk_Shift"},
+				"222" : {"value": "RAW_VALUE", "comment": "Loaded_Hours"},
+				"223" : {"value": "RAW_VALUE", "comment": "Load_Retry_Count"},
+				"224" : {"value": "RAW_VALUE", "comment": "Load_Friction"},
+				"226" : {"value": "RAW_VALUE", "comment": "Load-in_Time"},
+				"240" : {"value": "RAW_VALUE", "comment": "Head_Flying_Hours"}
 			},
 			"Threshs" : {
 				"1" : ["61:","51:"],
@@ -2190,21 +2101,21 @@
 		"Seagate Archive HDD v2 - 8TB" : {
 			"Device" : ["ST8000AS0002-1NA17Z"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power-On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"183" : "RAW_VALUE", # Runtime_Bad_Block
-				"184" : "VALUE", # End-to-End Error Detection Count
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Airflow_Temperature_Cel
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"194" : "RAW_VALUE", # Temperature_Celsius
-				"197" : "RAW_VALUE", # Current_Pending_Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA_CRC_Error_Count
-				"240" : "RAW_VALUE", # Head flying hours
-				"241" : "RAW_VALUE", # Total LBAs Written (32MiB)
-				"242" : "RAW_VALUE" # Total LBAs Read (32MiB)
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime_Bad_Block"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error Detection Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow_Temperature_Cel"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature_Celsius"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current_Pending_Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
+				"240" : {"value": "RAW_VALUE", "comment": "Head flying hours"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"}
 			},
 			"Threshs" : {
 				"5" : ["0:","0"],
@@ -2219,19 +2130,19 @@
 		"Hitachi Deskstar 7K3000": {
 			"Device": ["Hitachi Deskstar 7K3000", "Hitachi HDS723020BLA642", "Hitachi HDS723020BLE640", "Hitachi HDS723030BLE640"],
 			"ID#": {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sectors Count
-				"7" : "VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2250,19 +2161,19 @@
 		"Dell THNSF8200CCSE" : {
 			"Device" : ["Dell","THNSF8200CCSE"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"9" : "RAW_VALUE", # Power On Hours Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"179" : "VALUE", # Used Reserved Block Count (Total)
-				"180" : "VALUE", # Unused Reserved Block Count (Total)
-				"181" : "RAW_VALUE", # Program Fail Count (Total)
-				"182" : "RAW_VALUE", # Erase Fail Count (Total)
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"195" : "RAW_VALUE", # ECC Uncorrectable Error Count
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # CRC Error Count
-				"233" : "VALUE", # Media Wearout Indicator
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Uncorrectable Error Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"}
 
 			},
 			"Threshs" : {
@@ -2277,18 +2188,18 @@
 		"Western Digital Green": {
 			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sectors Count
-				"7" : "VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2306,23 +2217,23 @@
 		"Western Digital Elements": {
                         "Device": ["Western Digital Elements","Western Digital My Passport","WDC WD40NMZW-11GX6S1"],
                         "ID#" : {
-                                "1" : "VALUE", # Raw Read Error Rate
-                                "3" : "VALUE", # Spin Up Time
-                                "4" : "RAW_VALUE", # Start Stop Count
-                                "5" : "RAW_VALUE", # Re-allocated Sectors Count
-                                "7" : "VALUE", # Seek Error Rate
-                                "9" : "RAW_VALUE", # Power-On Hours
-                                "10" : "RAW_VALUE", # Spin Retry Count
-                                "11" : "RAW_VALUE", # Calibration Retry Count
-                                "12" : "RAW_VALUE", # Power Cycle Count
-                                "192" : "RAW_VALUE", # Power-Off Retract Count
-                                "193" : "RAW_VALUE", # Load Cycle Count
-                                "194" : "RAW_VALUE", # Temperature Celsius
-                                "196" : "RAW_VALUE", # Reallocated Event Count
-                                "197" : "RAW_VALUE", # Current Pending Sector
-                                "198" : "RAW_VALUE", # Uncorrectable Sector Count
-                                "199" : "RAW_VALUE", # UDMA CRC Error Count
-                                "200" : "RAW_VALUE" # Multi Zone Error Rate
+                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
+                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+                                "7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+                                "11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count"},
+                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+                                "198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+                                "200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
                         },
                         "Threshs" : {
                                 "1" : ["62:","52:"],
@@ -2339,18 +2250,18 @@
 		"Toshiba 3.5\" DT01ACA... Desktop HDD": {
 			"Device": ["TOSHIBA DT01ACA300", "TOSHIBA DT01ACA200"],
 			"ID#": {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sectors Count
-				"7" : "VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector Count
-				"198" : "RAW_VALUE", # Uncorrectable Sector Count
-				"199" : "RAW_VALUE" # UDMA CRC Error Count
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs": {
 				"1" : ["62:","52:"],
@@ -2369,24 +2280,24 @@
 		"Intel 540s" : {
 			"Device" : ["Intel 540 Series SSDs","INTEL SSDSC2KW120H6", "INTEL SSDSC2KW240H6"],
 			"ID#" : {
-				"5" : "RAW_VALUE", # Reallocated sector count
-				"9" : "RAW_VALUE", # Power on hours
-				"12": "RAW_VALUE", # Power cycle counts
-				"170": "VALUE", # Available Reserved Space (same as 232)
-				"171" : "VALUE", # Program Fail Count
-				"172" : "VALUE", # Erase Fail Count
-				"174" : "RAW_VALUE", # Unexpected Power Loss
-				"183" : "VALUE", # SATA Downshift Count
-				"184" : "VALUE", # End-to-End Error Detection
-				"187" : "RAW_VALUE", # Uncorrectable Error Count
-				"190" : "RAW_VALUE", # Temperature - Airflow Temperature (Case)
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"199" : "RAW_VALUE", # Sata CRC error count
-				"232" : "VALUE", # Available Reserved Space
-				"233" : "VALUE", # Media Wearout Indicator
-				"241" : "RAW_VALUE", # Host_Writes_32MiB
-				"242" : "RAW_VALUE", # Host_Reads_32MiB
-				"249" : "RAW_VALUE" # Total NAND writes (1 GB unit)
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated sector count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power on hours"},
+				"12": {"value": "RAW_VALUE", "comment": "Power cycle counts"},
+				"170" : {"value":  "VALUE", "comment": "Available Reserved Space (same as 232)"},
+				"171" : {"value": "VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "VALUE", "comment": "Erase Fail Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss"},
+				"183" : {"value": "VALUE", "comment": "SATA Downshift Count"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error Detection"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Temperature - Airflow Temperature (Case)"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"199" : {"value": "RAW_VALUE", "comment": "Sata CRC error count"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Host_Writes_32MiB"},
+				"242" : {"value": "RAW_VALUE", "comment": "Host_Reads_32MiB"},
+				"249" : {"value": "RAW_VALUE", "comment": "Total NAND writes (1 GB unit)"}
 			},
 			"Threshs" : {
 				"5": ["20","40"],
@@ -2439,23 +2350,23 @@
 		"Western Digital Gold" : {
 			"Device" : ["WDC WD2005FBYZ-01YCBB2"],
 			"ID#" : {
-				"1" : "VALUE", # Raw Read Error Rate
-				"3" : "VALUE", # Spin Up Time
-				"4" : "RAW_VALUE", # Start Stop Count
-				"5" : "RAW_VALUE", # Re-allocated Sector Count
-				"7" : "RAW_VALUE", # Seek Error Rate
-				"9" : "RAW_VALUE", # Power-On Hours
-				"10" : "RAW_VALUE", # Spin Retry Count
-				"11" : "RAW_VALUE", # Calibration Retry Count
-				"12" : "RAW_VALUE", # Power Cycle Count
-				"192" : "RAW_VALUE", # Power-Off Retract Count (Unsafe Shutdown Count)
-				"193" : "RAW_VALUE", # Load Cycle Count
-				"194" : "RAW_VALUE", # Temperature Celsius
-				"196" : "RAW_VALUE", # Reallocated Event Count
-				"197" : "RAW_VALUE", # Current Pending Sector
-				"198" : "RAW_VALUE", # Offline Uncorrectable
-				"199" : "RAW_VALUE", # UDMA CRC Error Count
-				"200" : "RAW_VALUE", # Multi Zone Error Rate
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2470,5 +2381,4 @@
 		    },
 		    "Perfs" : ["194"]
 		}
-	}
 }

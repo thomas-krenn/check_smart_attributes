@@ -1,6 +1,25 @@
 # check_smart_attributes - Nagios/Icinga plugin to check SMART attributes
 
-## Usage
+1. [Usage](#Usage)
+2. [Synopsis](#Synopsis)
+3. [Requirements](#Requirements)
+4. [Installation](#Installation)
+5. [Mailing List](#MailingList)
+6. [Configuration](#Configuration)
+    * 6.1. [Device(s) to check](#Devicestocheck)
+		* 6.1.1. [NVMe devices](#NVMedevices)
+		* 6.1.2. [Devices with LSI RAID controllers](#DeviceswithLSIRAIDcontrollers)
+		* 6.1.3. [Devices with Adaptec RAID controllers](#DeviceswithAdaptecRAIDcontrollers)
+		* 6.1.4. [Devices with hpsa/cciss based RAID controllers](#DeviceswithhpsaccissbasedRAIDcontrollers)
+		* 6.1.5. [Devices with 3ware RAID controllers](#Deviceswith3wareRAIDcontrollers)
+		* 6.1.6. [SAS devices](#SASdevices)
+	* 6.2. [check_smartdb.json](#check_smartdb.json)
+        * 6.2.1 [How to add a new drive to smartdb JSON file](#howtoadddrive)
+    * 6.3 [check_smartcfg.json](#smartcfg)
+    * 6.4 [sudo for Nagios user](#sudo)
+7. [License](#license)
+
+##  1. <a name='Usage'></a>Usage
 ```bash
 sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device path>]
 [-r <regex pattern to find devices>] [-ucfgj <user config json file>]
@@ -8,7 +27,7 @@ sudo check_smart_values -dbj <smartdb json file> -d <device path> [-d <device pa
 [-O <extra options>][ -v|-vv|-vvv] [-h] [-V]
 ```
 
-## Synopsis
+##  2. <a name='Synopsis'></a>Synopsis
 
 ```bash
 $ sudo ./check_smart_attributes -d /dev/sda -dbj ./check_smartdb.json
@@ -16,7 +35,7 @@ Critical [sda_UDMA_CRC_Error_Count = Critical]|sda_Media_Wearout_Indicator=097;1
 sda_Host_Writes_32MiB=517197 sda_Host_Reads_32MiB=395442
 ```
 
-## Requirements
+##  3. <a name='Requirements'></a>Requirements
 The following software is required for `check_smart_attributes`:
 * Perl
  * Getopt::Long
@@ -24,25 +43,25 @@ The following software is required for `check_smart_attributes`:
  * Storable qw(dclone);
 * smartctl
 
-## Installation
+##  4. <a name='Installation'></a>Installation
 On Ubuntu use this command to install smartmontools including smartctl and the
 Perl library for parsing JSON config files:
 ```bash
 $ sudo apt-get install smartmontools libconfig-json-perl
 ```
 
-## Mailing List
+##  5. <a name='MailingList'></a>Mailing List
 * Pleas add new issues via github at https://github.com/thomas-krenn/check_smart_attributes
 * The thomas-krenn mailing list archive is at http://lists.thomas-krenn.com/pipermail/tk-monitoring-plugins-user/
 
-## Configuration
+##  6. <a name='Configuration'></a>Configuration
 
-### Device(s) to check
+###  6.1. <a name='Devicestocheck'></a>Device(s) to check
 The `-d` option specifies the devices to check. If multiple devices should be
 checked, specify the option multiple times: `-d /dev/sda -d /dev/sdb`
 Then multiple devices can be monitored with one check.
 
-#### NVMe devices
+####  6.1.1. <a name='NVMedevices'></a>NVMe devices
 NVMe devices are easier to check as they are using generic device attributes and don't require a specific smartdb entry.
 You can check all NVMe of a system with the regex device check feature:
 ```bash
@@ -57,7 +76,7 @@ Be careful if when specifying the NVMe device, as smartcl presents different out
 * Smartctl 7.0 always uses broadcast namespace.
 
 
-#### Devices with LSI RAID controllers
+####  6.1.2. <a name='DeviceswithLSIRAIDcontrollers'></a>Devices with LSI RAID controllers
 For devices behind LSI controllers use the megaraid device string and the
 corresponding device path. You can get the DID with
 ```bash
@@ -68,7 +87,7 @@ From this output use the number in the DID column. Then call the plugin:
 $ sudo ./check_smart_attributes -dbj check_smartdb.json -d megaraid4,/dev/sda
 ```
 
-#### Devices with Adaptec RAID controllers
+####  6.1.3. <a name='DeviceswithAdaptecRAIDcontrollers'></a>Devices with Adaptec RAID controllers
 For devices behind Adaptec controllers use the sg device string and an extra
 option for the device interface:
 ```bash
@@ -88,7 +107,7 @@ Then the device configuration would be:
 $ sudo ./check_smart_attributes -dbj check_smartdb.json -d aacraid,0,0,4
 ```
 
-#### Devices with hpsa/cciss based RAID controllers
+####  6.1.4. <a name='DeviceswithhpsaccissbasedRAIDcontrollers'></a>Devices with hpsa/cciss based RAID controllers
 For devices behind hpsa/cciss based RAID controller, you'll mostly find in
 HP Hardware, you can use 'cciss,<N>_/dev/sg<X>' for hpsa or
 'cciss,<N>_/dev/cciss/c<X>d<N>' for cciss where <N> is the number
@@ -97,20 +116,20 @@ of the device and <X> the RAID controller e.g.:
 $ sudo ./check_smart_attributes -dbj check_smartdb.json -d cciss,1_/dev/sg2
 ```
 
-#### Devices with 3ware RAID controllers
+####  6.1.5. <a name='Deviceswith3wareRAIDcontrollers'></a>Devices with 3ware RAID controllers
 For devices behind 3ware RAID controllers the 3ware device ID must be
 used with the corresponding tw device, e.g.:
 ```bash
 $ sudo ./check_smart_attributes -dbj check_smartdb.json -d 3ware,8,/dev/twa0
 ```
-#### SAS devices
+####  6.1.6. <a name='SASdevices'></a>SAS devices
 As attributes for SAS are not model specific the generic SAS entry in the smartdb JSON file
 is used:
 ```bash
 $ sudo ./check_smart_attributes -dbj check_smartdb.json -d /dev/sda
 ```
 
-### check_smartdb.json
+###  6.2. <a name='check_smartdb.json'></a>check_smartdb.json
 The smartdb JSON file specifies the smart attribute configuration for a device.
 It contains the configuration which value (VALUE or RAW_VALUE) must be taken for
 a smart attribute ID. The config is checked on the basis of device and model
@@ -147,7 +166,7 @@ times shift should be done.
 If "Threshs" is not specified in the smartdb JSON file then the corresponding SMART
 attribute is not checked.
 
-#### How to add a new drive to smartdb JSON file (check_smartdb.json)
+#### 6.2.1 <a name='howtoadddrive'></a>How to add a new drive to smartdb JSON file
 1. The drive should be in the smartmontools database, because then you can rely on the output of smartctl.
 Therefore it is important to check the information section of "smartctl -a" for "Device is:":
 ```
@@ -203,7 +222,7 @@ The following entry says:
             "Perfs" : ["194"]
 ```
 
-### check_smartcfg.json (optional)
+### 6.3 <a name='smartcfg'></a>check_smartcfg.json (optional)
 Specify the path at which the JSON user config file can be found.
 The user config can be used to override the threshold and performance base
 config. This can be useful if the thresholds for a specific device must
@@ -219,7 +238,7 @@ Attention: if 3ware devices are used the path must be set as
 '/dev/3wareID'. This is necessary for the internal naming convention
 the plugin uses.
 
-### sudo for nagios user
+### 6.4 <a name='sudo'></a>sudo for nagios user
 The smartctl executable requires root privileges to check a device. In order to
 use the plugin with the nagios user, it is recommended to create a sudoers entry
 for smartctl:
@@ -227,7 +246,7 @@ for smartctl:
 nagios ALL=(root) NOPASSWD:/usr/sbin/smartctl
 ```
 
-## License
+## 7 <a name='license'></a>License
 check_smart_attributes: Nagios/Icinga plugin to check smart attributes with
 smartctl.
 

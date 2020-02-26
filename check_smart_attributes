@@ -515,7 +515,7 @@ sub parseSmartctlOut{
 					# Data units are presented as 1000 512bytes, convert it
 					if($lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Read" ||
 					$lineValues_h{'ATTRIBUTE_NAME'} eq "Data Units Written"){
-						$lineValues_h{'RAW_VALUE'} =~ m/^(\d+)\[/;
+						$lineValues_h{'RAW_VALUE'} =~ m/^(\d+)\[?/;
 						$lineValues_h{'RAW_VALUE'} = ($1*512000)/(1000**3);
 					}
 					$lineValues_h{'ATTRIBUTE_NAME'} = genAttributeName($device, $lineValues_h{'ATTRIBUTE_NAME'});

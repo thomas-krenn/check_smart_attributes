@@ -187,9 +187,9 @@ The following entry says:
     * For smart attribute "5" of smartctl take into account: RAW_VALUE
     * For smart attribute "194" of smartctl take into account: RAW_VALUE
 ```
-    		"Seagate Exos X" : {
-			"Device" : ["Seagate Exos X","ST10000NM0156"],
-			"ID#" : {
+            "Seagate Exos X" : {
+                "Device" : ["Seagate Exos X","ST10000NM0156"],
+                "ID#" : {
                     "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
                     "3" : {"value": "VALUE", "comment": "Spin Up Time"},
                     "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},

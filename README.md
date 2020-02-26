@@ -204,10 +204,10 @@ The following entry says:
     * For smart attribute "5" of smartctl, if RAW_VALUE (see "ID#" above) is greater than 20 -> WARNING, if greater than 40 -> CRITICAL
     * For smart attribute "194" of smartctl, if RAW_VALUE (see "ID#" above) is greater than 54 -> WARNING, if greater than 60 -> CRITICAL
 ```
-			"Threshs" : {
-				"1" : ["62:","52:"],
-				"3" : ["32:","22:"],
-				"5" : ["20","40"],
+            "Threshs" : {
+                "1" : ["62:","52:"],
+                "3" : ["32:","22:"],
+                "5" : ["20","40"],
                 "194" : ["54","60"]
             }
 ```

@@ -248,7 +248,7 @@ sub findDevicesByRegex{
 			exit(STATE_UNKNOWN);
 		}
 		# Since older versions of find don't support multiple types, loop over each type separately
-		my @findtypes_a = ('f','b','l');
+		my @findtypes_a = ('f','b','l','c');
 		foreach my $type (@findtypes_a){
 			my @founddevices_tmp;
 			@founddevices_tmp = `$findcmd /dev -regextype egrep -regex $devicepattern -type $type`;

@@ -19,7 +19,8 @@
 				"13" : {"value": "RAW_VALUE", "comment": "Media and Data Integrity Errors"},
 				"14" : {"value": "RAW_VALUE", "comment": "Error Information Log Entries"},
 				"15" : {"value": "RAW_VALUE", "comment": "Warning  Comp. Temperature Time"},
-				"16" : {"value": "RAW_VALUE", "comment": "Critical Comp. Temperature Time"}
+				"16" : {"value": "RAW_VALUE", "comment": "Critical Comp. Temperature Time"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"0" : ["0","0"],
@@ -29,7 +30,8 @@
 				"13" : ["0","10"],
 				"14" : ["0","10"],
 				"15" : ["15","30"],
-				"16" : ["15","30"]
+				"16" : ["15","30"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["1","2","4","5","6","7","8","10","11"]
 		},
@@ -50,7 +52,7 @@
 				"11" : {"value": "RAW_VALUE", "comment": "Total write errors corrected"},
 				"12" : {"value": "RAW_VALUE", "comment": "Total write correction algorithm invocations"},
 				"13" : {"value": "RAW_VALUE", "comment": "Total write gigabytes processed"},
-				"14" : {"value": "RAW_VALUE", "comment": "Total uncorrectable write errors"} 
+				"14" : {"value": "RAW_VALUE", "comment": "Total uncorrectable write errors"}
 			},
 			"Threshs" : {
 				"0" : ["20","40"],
@@ -72,14 +74,16 @@
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
 				"184" : ["96:","91:"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["232","233","241","242"]
 		},
@@ -103,7 +107,8 @@
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -114,7 +119,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["233","241","242"]
 		},
@@ -135,7 +141,8 @@
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Host_Writes_32MiB"},
 				"242" : {"value": "RAW_VALUE", "comment": "Host_Reads_32MiB"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -146,7 +153,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["233","241","242"]
 		},
@@ -176,7 +184,8 @@
 				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -192,7 +201,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
@@ -223,7 +233,8 @@
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
 				"243" : {"value": "RAW_VALUE", "comment": "Total Bytes Written"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -239,7 +250,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194","232","233","241","242","243"]
 		},
@@ -269,7 +281,8 @@
 				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -285,7 +298,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
@@ -317,7 +331,9 @@
 				"234" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"243" : {"value": "RAW_VALUE", "comment": "Total Bytes Written (32MiB)"}
+				"243" : {"value": "RAW_VALUE", "comment": "Total Bytes Written (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -332,7 +348,9 @@
 				"197" : ["0","10"],
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
-				"233" : ["16:","6:"]
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
@@ -352,7 +370,8 @@
 				"232" : {"value": "RAW_VALUE", "comment": "Perc_Avail_Resrvd_Space"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total_Writes_GiB"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total_Reads_GiB"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -362,7 +381,8 @@
 				"212" : ["0","10"],
 				"230" : ["85","95","r8"],
 				"232" : ["16:","11:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194","230","232","241","242"]
 		},
@@ -382,7 +402,8 @@
 				"233" : {"value": "VALUE", "comment": "NAND GB Written (TLC)"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total GB Written"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total GB Read"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs": {
 				"5" : ["20","40"],
@@ -391,7 +412,8 @@
 				"188" : ["0","10"],
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs": ["194", "232", "241", "242"]
 		},
@@ -411,7 +433,8 @@
 				"233" : {"value": "VALUE", "comment": "NAND GB Written (TLC)"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total GB Written"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total GB Read"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs": {
 				"5" : ["20","40"],
@@ -420,7 +443,8 @@
 				"188" : ["0","10"],
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs": ["194", "232", "241", "242"]
 		},
@@ -440,7 +464,9 @@
 				"230" : {"value": "RAW_VALUE", "comment": "Life_Curve_Status"},
 				"232" : {"value": "VALUE", "comment": "Perc_Avail_Resrvd_Space"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total_Writes_GiB"},
-				"242" : {"value": "RAW_VALUE", "comment": "Total_Reads_GiB"}
+				"242" : {"value": "RAW_VALUE", "comment": "Total_Reads_GiB"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -449,7 +475,9 @@
 				"187" : ["0","10"],
 				"212" : ["0","10"],
 				"230" : ["85","95","r8"],
-				"232" : ["16:","11:"]
+				"232" : ["16:","11:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194","230","232","241","242"]
 		},
@@ -480,7 +508,9 @@
 				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
 				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
 				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
-				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -496,7 +526,9 @@
 				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"]
+				"202" : ["20:","10:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["177","180","190","241","242"]
 		},
@@ -527,7 +559,9 @@
 				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
 				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
 				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
-				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -543,7 +577,9 @@
 				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"]
+				"202" : ["20:","10:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["177","180","190","241","242"]
 		},
@@ -574,7 +610,9 @@
 				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
 				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
 				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
-				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -590,7 +628,9 @@
 				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"]
+				"202" : ["20:","10:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["177","180","190","241","242"]
 		},
@@ -622,7 +662,9 @@
 				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
 				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
 				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
-				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -638,7 +680,9 @@
 				"195" : ["0","10"],
 				"197" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["20:","10:"]
+				"202" : ["20:","10:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["177","180","190","241","242"]
 		},
@@ -672,7 +716,9 @@
 				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
 				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
 				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
-				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -691,7 +737,9 @@
 				"197" : ["0","10"],
 				"199" : ["0","10"],
 				"202" : ["20:","10:"],
-				"233" : ["16:","6:"]
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["177","180","190","194","233","241","242"]
 		},
@@ -715,7 +763,8 @@
 				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
 				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -731,7 +780,8 @@
 				"195" : ["0","10"],
 				"199" : ["0","10"],
 				"202" : ["20:","10:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","177","180","241"]
 		},
@@ -751,7 +801,9 @@
 				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
 				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
 				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
-				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"}
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["5","10"],
@@ -763,9 +815,11 @@
 				"187" : ["0","0"],
 				"190" : ["60","70"],
 				"195" : ["0","0"],
-				"199" : ["0","0"]
+				"199" : ["0","0"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
-		    	"Perfs" : ["5","177","179","190","241"]
+			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
 			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB"],
@@ -783,7 +837,9 @@
 				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
 				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
 				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
-				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"}
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["5","10"],
@@ -795,7 +851,9 @@
 				"187" : ["0","0"],
 				"190" : ["60","70"],
 				"195" : ["0","0"],
-				"199" : ["0","0"]
+				"199" : ["0","0"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["5","177","179","190","241"]
 		},
@@ -824,7 +882,9 @@
 				"210" : {"value": "RAW_VALUE", "comment": "Successful RAIN Recovery Count"},
 				"246" : {"value": "RAW_VALUE", "comment": "Total Host Sector Writes"},
 				"247" : {"value": "RAW_VALUE", "comment": "Host Program Page Count"},
-				"248" : {"value": "RAW_VALUE", "comment": "FTL Program Page Count"}
+				"248" : {"value": "RAW_VALUE", "comment": "FTL Program Page Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -838,7 +898,9 @@
 				"194" : ["60","70"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"202" : ["16:","6:"]
+				"202" : ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["180","194","202","246"]
 		},
@@ -866,7 +928,8 @@
 				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
 				"210" : {"value": "RAW_VALUE", "comment": "Successful RAIN Recovery Count"},
 				"246" : {"value": "RAW_VALUE", "comment": "Total Host Sector Writes"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -881,7 +944,8 @@
 				"198" : ["0","10"],
 				"199" : ["0","10"],
 				"202" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["180","194","202","246"]
 		},
@@ -909,7 +973,8 @@
 				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
 				"210" : {"value": "RAW_VALUE", "comment": "Successful RAIN Recovery Count"},
 				"246" : {"value": "RAW_VALUE", "comment": "Total Host Sector Writes"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["10","20"],
@@ -924,7 +989,8 @@
 				"198" : ["0","10"],
 				"199" : ["0","10"],
 				"202" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["180","194","202","246"]
 		},
@@ -951,7 +1017,8 @@
 				"206" : {"value": "RAW_VALUE", "comment": "Write Error Rate"},
 				"247" : {"value": "RAW_VALUE", "comment": "Number of NAND pages written"},
 				"248" : {"value": "RAW_VALUE", "comment": "Number of NAND pages written by FTL"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["60:","50:"],
@@ -968,7 +1035,8 @@
 				"199" : ["0","10"],
 				"202" : ["16:","6:"],
 				"206" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["170","194","202","247","248"]
 		},
@@ -1000,7 +1068,8 @@
 				"246" : {"value": "RAW_VALUE", "comment": "Cumulative Host Sectors Written"},
 				"247" : {"value": "RAW_VALUE", "comment": "Host Program Page Count (pages writen by host)"},
 				"248" : {"value": "RAW_VALUE", "comment": "FTL Program Page Count (pages written by FTL)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["60:","50:"],
@@ -1021,7 +1090,8 @@
 				"202" : ["16:","6:"],
 				"206" : ["0","10"],
 				"210" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["170","180","194","202","246","247","248"]
 		},
@@ -1046,7 +1116,8 @@
 				"244" : {"value": "RAW_VALUE", "comment": "Average Erase Count"},
 				"245" : {"value": "RAW_VALUE", "comment": "Max Erase Count"},
 				"246" : {"value": "RAW_VALUE", "comment": "Total Erase Count"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["0","10"],
@@ -1057,7 +1128,8 @@
 				"199" : ["0","10"],
 				"218" : ["0","10"],
 				"231" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["170","194","231","233","241","242"]
 		},
@@ -1081,7 +1153,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1095,7 +1169,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1119,7 +1195,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1132,7 +1210,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1155,7 +1235,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1167,7 +1249,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1190,7 +1274,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1202,7 +1288,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1227,7 +1315,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"223" : {"value": "RAW_VALUE", "comment": "Load Retry Count"}
+				"223" : {"value": "RAW_VALUE", "comment": "Load Retry Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["72:","62:"],
@@ -1239,7 +1329,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1262,7 +1354,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1274,7 +1368,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1303,7 +1399,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1320,7 +1418,9 @@
 				"197" : ["200","0"],
 				"198" : ["100","0"],
 				"199" : ["200","0"],
-				"200" : ["00","10"]
+				"200" : ["00","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1349,7 +1449,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1367,7 +1469,9 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"200" : ["0","10"]
+				"200" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1390,7 +1494,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1403,7 +1509,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1426,7 +1534,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["26:","16:"],
@@ -1440,7 +1550,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1463,7 +1575,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1477,7 +1591,9 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"200" : ["0","10"]
+				"200" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1501,7 +1617,8 @@
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
 				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1513,7 +1630,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1537,7 +1655,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1549,7 +1669,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1573,7 +1694,8 @@
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
 				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1585,7 +1707,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1610,7 +1733,8 @@
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
 				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1622,7 +1746,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -1650,7 +1775,8 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1660,7 +1786,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -1688,7 +1815,8 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1698,7 +1826,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -1722,7 +1851,8 @@
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
 				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1734,7 +1864,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1759,7 +1890,8 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1769,7 +1901,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -1794,7 +1927,8 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1804,7 +1938,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -1831,7 +1966,8 @@
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -1840,7 +1976,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["233","241","242"]
 		},
@@ -1867,7 +2004,8 @@
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"}
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
@@ -1876,7 +2014,8 @@
 				"199" : ["0","10"],
 				"232" : ["16:","11:"],
 				"233" : ["16:","6:"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["233","241","242"]
 		},
@@ -1894,13 +2033,17 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current_Pending_Sector"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
-				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"}
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["20","40"],
 				"184" : ["96:","91:"],
 				"187" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -1924,7 +2067,9 @@
 				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
 				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
-				"202" : {"value": "RAW_VALUE", "comment": "Data Address Mark Error"}
+				"202" : {"value": "RAW_VALUE", "comment": "Data Address Mark Error"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1937,7 +2082,8 @@
 				"199" : ["0","10"],
 				"200" : ["0","10"],
 				"202" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["190","194"]
 		},
@@ -1968,7 +2114,9 @@
 				"240" : {"value": "RAW_VALUE", "comment": "Head Flying Hours"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
 				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"},
-				"254" : {"value": "RAW_VALUE", "comment": "Free Fall Sensor"}
+				"254" : {"value": "RAW_VALUE", "comment": "Free Fall Sensor"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -1978,7 +2126,9 @@
 				"194" : ["54","60"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -2009,7 +2159,9 @@
 				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
 				"240" : {"value": "RAW_VALUE", "comment": "Head Flying Hours"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
-				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2019,7 +2171,9 @@
 				"194" : ["54","60"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194"]
 		},
@@ -2038,7 +2192,9 @@
 				"201" : {"value": "VALUE", "comment": "Unc_Soft_Read_Err_Rate"},
 				"204" : {"value": "VALUE", "comment": "Soft_ECC_Correct_Rate"},
 				"230" : {"value": "VALUE", "comment": "Life_Curve_Status"},
-				"231" : {"value": "VALUE", "comment": "SSD_Life_Left"}
+				"231" : {"value": "VALUE", "comment": "SSD_Life_Left"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2053,7 +2209,9 @@
 				"201" : ["120:","110:"],
 				"204" : ["120:","110:"],
 				"230" : ["100:","90:"],
-				"231" : ["10:","5:"]
+				"231" : ["10:","5:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194","231"]
 		},
@@ -2083,7 +2241,9 @@
 				"223" : {"value": "RAW_VALUE", "comment": "Load_Retry_Count"},
 				"224" : {"value": "RAW_VALUE", "comment": "Load_Friction"},
 				"226" : {"value": "RAW_VALUE", "comment": "Load-in_Time"},
-				"240" : {"value": "RAW_VALUE", "comment": "Head_Flying_Hours"}
+				"240" : {"value": "RAW_VALUE", "comment": "Head_Flying_Hours"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["61:","51:"],
@@ -2094,7 +2254,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : [194]
 		},
@@ -2115,7 +2277,9 @@
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA_CRC_Error_Count"},
 				"240" : {"value": "RAW_VALUE", "comment": "Head flying hours"},
 				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
-				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"}
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5" : ["0:","0"],
@@ -2123,7 +2287,9 @@
 				"187" : ["0","0"],
 				"194" : ["40","50"],
 				"197" : ["0","0"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["5","184","187","194","197","199"]
 		},
@@ -2142,7 +2308,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
 				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2154,7 +2322,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs": ["194"]
 		},
@@ -2173,15 +2342,18 @@
 				"195" : {"value": "RAW_VALUE", "comment": "ECC Uncorrectable Error Count"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
-				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"}
-
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
 				"5" : ["20","40"],
 				"194" : ["50","60"],
 				"195" : ["0","10"],
-				"233" : ["16:","6:"]
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["194","233"]
 		},
@@ -2199,7 +2371,9 @@
 				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2210,7 +2384,8 @@
 				"196" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs": ["194"]
 		},
@@ -2233,7 +2408,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2243,7 +2420,9 @@
 				"10" : ["0","10"],
 				"196" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs": ["194"]
 		},
@@ -2261,7 +2440,9 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
 				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs": {
 				"1" : ["62:","52:"],
@@ -2273,7 +2454,8 @@
 				"197" : ["0","10"],
 				"198" : ["0","10"],
 				"199" : ["0","10"],
-				"1024" : ["0","10"]
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs": ["194"]
 		},
@@ -2297,7 +2479,9 @@
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Host_Writes_32MiB"},
 				"242" : {"value": "RAW_VALUE", "comment": "Host_Reads_32MiB"},
-				"249" : {"value": "RAW_VALUE", "comment": "Total NAND writes (1 GB unit)"}
+				"249" : {"value": "RAW_VALUE", "comment": "Total NAND writes (1 GB unit)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5": ["20","40"],
@@ -2308,7 +2492,9 @@
 				"190": ["60","70"],
 				"199": ["0","10"],
 				"232": ["16:","11:"],
-				"233": ["16:","6:"]
+				"233": ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["233","241","242"]
 		},
@@ -2331,7 +2517,9 @@
 				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
 				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
 				"241" : {"value": "RAW_VALUE", "comment": "Host_Writes_32MiB"},
-				"242" : {"value": "RAW_VALUE", "comment": "Host_Reads_32MiB"}
+				"242" : {"value": "RAW_VALUE", "comment": "Host_Reads_32MiB"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"5": ["20","40"],
@@ -2342,7 +2530,9 @@
 				"190": ["60","70"],
 				"199": ["0","10"],
 				"232": ["16:","11:"],
-				"233": ["16:","6:"]
+				"233": ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 			},
 			"Perfs" : ["233","241","242"]
 		},
@@ -2365,7 +2555,9 @@
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
 				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"}
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -2376,7 +2568,9 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"]
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
 		    },
 		    "Perfs" : ["194"]
 		}

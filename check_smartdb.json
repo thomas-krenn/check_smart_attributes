@@ -1040,7 +1040,7 @@
 			},
 			"Perfs" : ["170","194","202","247","248"]
 		},
-		"Micron 5100" : {
+		"Micron 5100-5200" : {
 			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY","Micron_5100_MTFDDAK960TCB","Micron_5200_MTFDDAK3T8TDC"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},

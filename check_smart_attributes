@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 use Getopt::Long qw(:config no_ignore_case);
-use Config::JSON;
+use JSON;
 use Storable qw(dclone);
 
 our $VERSION = "1.6";
@@ -195,12 +195,14 @@ sub getHelpString{
 
 sub readUCfgJSON{
 	my $uCfgJSON = shift;
-	return(Config::JSON->new($uCfgJSON));
+	my $file_content = do { open my $fh, '<', $uCfgJSON; local $/; <$fh> };
+	return(decode_json($file_content));
 }
 
 sub readDbJSON{
 	my $dbJSON = shift;
-	return(Config::JSON->new($dbJSON));
+	my $file_content = do { open my $fh, '<', $dbJSON; local $/; <$fh> };
+	return(decode_json($file_content));
 }
 
 sub parseMegaraidRegex{
@@ -388,12 +390,12 @@ sub checkWhichDevice{
 	my @devices_missing_a;
 
 	# Fetch the device JSON hash
-	my $devices_h = $dbConfig->get("Devices");
+	my $devices_h = $dbConfig->{'Devices'};
 
 	# If given, fetch the user config for the devices
 	my $uCfgDevices_h;
 	if(defined($uCfgJSON)){
-		$uCfgDevices_h = $uCfgJSON->get("Devices");
+		$uCfgDevices_h = $uCfgJSON->{'Devices'};
 	}
 
 	# Check each device whose smartvalues are present

@@ -45,9 +45,9 @@ The following software is required for `check_smart_attributes`:
 
 ##  4. <a name='Installation'></a>Installation
 On Ubuntu use this command to install smartmontools including smartctl and the
-Perl library for parsing JSON config files:
+Perl library for parsing JSON:
 ```bash
-$ sudo apt-get install smartmontools libconfig-json-perl
+$ sudo apt-get install smartmontools libjson-perl
 ```
 
 ##  5. <a name='MailingList'></a>Mailing List

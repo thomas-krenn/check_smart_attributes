@@ -38,9 +38,9 @@ sda_Host_Writes_32MiB=517197 sda_Host_Reads_32MiB=395442
 ##  3. <a name='Requirements'></a>Requirements
 The following software is required for `check_smart_attributes`:
 * Perl
- * Getopt::Long
- * Config::JSON
- * Storable qw(dclone);
+  * Getopt::Long
+  * JSON
+  * Storable qw(dclone);
 * smartctl
 
 ##  4. <a name='Installation'></a>Installation

@@ -293,11 +293,12 @@ sub getSmartctl{
 			@output = `$smartctl -a $device`;
 		}
 		# Check if a megaraid device is used
-		elsif($device =~ /^(megaraid,[0-9]+),(\/dev\/[a-zA-Z]+)$/){
+		elsif($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
 			my $megaDevice = $1;
 			my $devicePath = $2;
-			my $megaDeviceOptions = $megaDevice;
+			# Insert a ',' after 'megaraid'
 			substr($megaDevice,8,0,',');
+			my $megaDeviceOptions = $megaDevice;
 			# Device path and megaraid device are used together to
 			# check the attributes with smartctl
 			if(defined($extraOpts)){

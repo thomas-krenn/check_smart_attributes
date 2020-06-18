@@ -8,7 +8,7 @@
 6. [Configuration](#Configuration)
     * 6.1. [Device(s) to check](#Devicestocheck)
 		* 6.1.1. [NVMe devices](#NVMedevices)
-		* 6.1.2. [Devices with LSI RAID controllers](#DeviceswithLSIRAIDcontrollers)
+		* 6.1.2. [Devices with MegaRAID controllers](#DeviceswithMegaRAIDcontrollers)
 		* 6.1.3. [Devices with Adaptec RAID controllers](#DeviceswithAdaptecRAIDcontrollers)
 		* 6.1.4. [Devices with hpsa/cciss based RAID controllers](#DeviceswithhpsaccissbasedRAIDcontrollers)
 		* 6.1.5. [Devices with 3ware RAID controllers](#Deviceswith3wareRAIDcontrollers)
@@ -76,8 +76,8 @@ Be careful if when specifying the NVMe device, as smartcl presents different out
 * Smartctl 7.0 always uses broadcast namespace.
 
 
-####  6.1.2. <a name='DeviceswithLSIRAIDcontrollers'></a>Devices with LSI RAID controllers
-For devices behind LSI controllers use the megaraid device string and the
+####  6.1.2. <a name='DeviceswithMegaRAIDcontrollers'></a>Devices with MegaRAID controllers
+For devices behind MegaRAID controllers use the megaraid device string and the
 corresponding device path. You can get the DID with
 ```bash
 $ sudo storcli64 /c0 /eall/sall show

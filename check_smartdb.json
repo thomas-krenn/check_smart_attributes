@@ -1752,7 +1752,7 @@
 			"Perfs" : ["190","194"]
 		},
 		"Seagate Constellation ES" : {
-			"Device" : ["Seagate Constellation ES", "ST32000644NS"],
+			"Device" : ["Seagate Constellation ES", "ST32000644NS", "ST2000NM0011"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},

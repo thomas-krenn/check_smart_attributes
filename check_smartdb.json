@@ -1982,7 +1982,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Seagate Constellation ES.3 SATA" : {
-			"Device" : ["Seagate Constellation ES.3", "ST1000NM0033", "ST2000NM0033", "ST3000NM0033", "ST4000NM0033", "ST2000NM0033-9ZM175"],
+			"Device" : ["Seagate Constellation ES.3", "ST1000NM0033", "ST2000NM0033", "ST3000NM0033", "ST4000NM0033", "ST2000NM0033-9ZM175", "ST2000NM0008-2F3100"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},

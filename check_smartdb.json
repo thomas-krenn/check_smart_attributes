@@ -2573,6 +2573,37 @@
 				"1025" : ["0","0"]
 		    },
 		    "Perfs" : ["194"]
+		},
+    "Hitachi CinemaStar 5K2000": {
+			"Device" : ["Hitachi HCS5C2020ALA632"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin-up Time"},
+				"4" : {"value": "VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "VALUE", "comment": "Reallocated Sector Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours"},
+				"10" : {"value": "VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power Off Retract Count"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celcius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "VALUE", "comment": "UDMA CRC Error Count"}
+			},
+			"Threshs" : {
+				"1" : ["20:","16:"],
+				"2" : ["60:","40:"],
+				"5" : ["10:","5:"],
+				"7" : ["70:","50:"],
+				"8" : ["30:","20:"],
+				"10" : ["60:","50:"]
+			},
+			"Perfs" : ["3","9","12","194"]
 		}
 	}
 }

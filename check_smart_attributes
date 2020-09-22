@@ -284,13 +284,16 @@ sub getSmartctl{
 	my $extraOpts = shift;
 	#a hash of all devices with their corresponding output
 	my %output_h;
+	my %command_h;
 
 	foreach my $device (@devicesToCheck_a){
 		my @output;
+		my $usedCommand;
 		# Check if a /dev/disk/by-* device is used
 		if($device =~ /^\/dev\/disk\/by\-[a-zA-Z]+\/(.*)$/){
 			# smartctl can directly read this device links
-			@output = `$smartctl -a $device`;
+			$usedCommand = $smartctl.' -a '.$device;
+			@output = `$usedCommand`;
 		}
 		# Check if a megaraid device is used
 		elsif($device =~ /^(megaraid[0-9]+),(\/dev\/[a-zA-Z]+)$/){
@@ -309,7 +312,8 @@ sub getSmartctl{
 				}
 				$megaDeviceOptions = $extraOpts.$megaDevice
 			}
-			@output = `$smartctl -a -d $megaDeviceOptions $devicePath`;
+			$usedCommand = $smartctl.' -a -d '.$megaDeviceOptions.' '.$devicePath;
+			@output = `$usedCommand`;
 			# From now on we use only e.g. megaraid6 as device
 			$megaDevice =~ s/,//;
 			$device = '/dev/'.$megaDevice;
@@ -321,14 +325,16 @@ sub getSmartctl{
 				print getUsageString();
 				exit(STATE_UNKNOWN);
 			}
-			# Call smartctl with extra option for Adaptec
-			@output = `$smartctl -a -d $extraOpts $device`;
+			# Call smartctl with extra options for Adaptec sg device
+			$usedCommand = $smartctl.' -a -d '.$extraOpts.' '.$device;
+			@output = `$usedCommand`;
 		}
 		# Check if Adaptec aacraid format is used
 		elsif($device =~ /^(aacraid),([0-9]+),([0-9]+),([0-9]+),(\/dev\/[a-zA-Z]+)$/){
 			my $aacDevice = $1 . "," . $2 . "," . $3 . "," .$4;
 			my $devicePath = $5;
-			@output = `$smartctl -a -d $aacDevice $devicePath`;
+			$usedCommand = $smartctl.' -a -d '.$aacDevice.' '.$devicePath;
+			@output = `$usedCommand`;
 			# From now on we use only e.g. aacraid_0_0_4 as device
 			$aacDevice =~ s/,/_/g;
 			$device = '/dev/'.$aacDevice;
@@ -338,7 +344,8 @@ sub getSmartctl{
 			my $ccissDevice = $1;
 			my $devicePath = $2;
 			my @controller = split(/\//,$devicePath);
-			@output = `$smartctl -a -d $ccissDevice $devicePath`;
+			$usedCommand = $smartctl.' -a -d '.$ccissDevice.' '.$devicePath;
+			@output = `$usedCommand`;
 			$ccissDevice =~ s/,/_/g;
 			$device = '/dev/'.$ccissDevice."_".$controller[-1];
 		}
@@ -346,8 +353,8 @@ sub getSmartctl{
 		elsif($device =~ /^(3ware,[0-9]+),(\/dev\/tw[a-z0-9]+)$/){
 			my $twDevice = $1;
 			my $devicePath = $2;
-			# Call smartctl
-			@output = `$smartctl -a -d $twDevice $devicePath`;
+			$usedCommand = $smartctl.' -a -d '.$twDevice.' '.$devicePath;
+			@output = `$usedCommand`;
 			# From now on we use only e.g. 3ware8 as device
 			$twDevice =~ s/,//;
 			$device = '/dev/'.$twDevice;
@@ -356,8 +363,8 @@ sub getSmartctl{
 		elsif($device =~ /^(areca),([0-9]+)\/([0-9]+),(\/dev\/sg[0-9]+)$/){
 			my $arecaDevice = $1 . "," . $2 . "/" . $3;
 			my $devicePath = $4;
-			# Call smartctl
-			@output = `$smartctl -a -d $arecaDevice $devicePath`;
+			$usedCommand = $smartctl.' -a -d '.$arecaDevice.' '.$devicePath;
+			@output = `$usedCommand`;
 			# From now on we use only e.g. areca_1_1 as device
 			$arecaDevice =~ s/,/_/g;
 			$arecaDevice =~ s/\//_/g;
@@ -369,16 +376,17 @@ sub getSmartctl{
 				use Cwd qw(abs_path);
 				$device = abs_path(readlink $device);
 			}
-			@output = `$smartctl -a $device`;
+			$usedCommand = $smartctl.' -a '.$device;
+			@output = `$usedCommand`;
 		}
 		if(($? >> 8) & 2){
 			print "Error: smartctl returned \"No such device\" for device $device.\n";
 			exit(STATE_UNKNOWN);
 		}
 		$output_h{$device} = \@output;
-
+		$command_h{$device} = $usedCommand;
 	}
-	return \%output_h;
+	return (\%output_h, \%command_h);
 }
 
 sub checkWhichDevice{
@@ -762,6 +770,7 @@ sub getVerboseString{
 	my %smartValues_h = %{(shift)};
 	my @devices_a = @{(shift)};
 	my %smartctlOut_h = %{(shift)};
+	my %command_h = %{(shift)};
 	my $verb_str;
 
 	foreach my $device (@devices_a){
@@ -783,6 +792,9 @@ sub getVerboseString{
 			my @smartctlOut = @{$smartctlOut_h{$device->{'Path'}}};
 			$verb_str .= "\n========================================";
 			$verb_str .= "\nBegin of verbosity level 3 (-vvv) output for device: ".$device->{'Path'}."\n";
+			$verb_str .= "\n================= \n";
+			$verb_str .= "Used smartctl command:\n";
+			$verb_str .= $command_h{$device->{'Path'}};
 			$verb_str .= "\n================= \n";
 			$verb_str .= "Thresholds:\n";
 			foreach my $ID (keys %threshs_h){
@@ -884,12 +896,16 @@ MAIN: {
 	if(defined($uCfgJSON)){
 		$uCfg = readUCfgJSON($uCfgJSON);
 	}
-	my $output_h = getSmartctl($smartctl,\@devicesToCheck_a,$extraOpts);
+	my ( $output_h, $command_h ) = getSmartctl($smartctl,\@devicesToCheck_a,$extraOpts);
 	my $dbConfig = readDbJSON($dbJSON);
 	my ( $devices_a, $devices_missing_a ) = checkWhichDevice($dbConfig,$uCfg,$ssdonly,$output_h);
 	if(@$devices_missing_a){
 		print "Error: the following device(s) were not found in the smartdb JSON file: ";
 		print printMissingDevicesDB($devices_missing_a)."\n";
+		print "Smartctl was called with the following commands:\n";
+		foreach my $device (keys %$command_h){
+			print $device.': '.$command_h->{$device};
+		}
 		if(!defined($criticalOnUnknown)){
 			exit(STATE_UNKNOWN);
 		}
@@ -930,7 +946,7 @@ MAIN: {
 		print "|".$perf_str;
 	}
 	if($VERBOSITY == 2 || $VERBOSITY == 3){
-		print getVerboseString($smartValues_h,$devices_a,$output_h);
+		print getVerboseString($smartValues_h,$devices_a,$output_h,$command_h);
 	}
 	else{
 		print "\n";

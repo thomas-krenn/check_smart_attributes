@@ -416,7 +416,7 @@ sub checkWhichDevice{
 		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
 		my @transport = grep { /^Transport protocol:/i } @smartctlOut;
 		# NVMe devices don't require a database entry, use the generic NVMe one
-		if ($device =~ /nvme[a-z0-9]+$/) {
+		if (($device =~ /nvme[a-z0-9]+$/) || ($device =~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.]+$/)) {
 			@model = ('Generic NVMe');
 		}
 		# SAS devices don't require a database entry, use the generic SAS one
@@ -511,7 +511,7 @@ sub parseSmartctlOut{
 				push @smartValues, \%lineValues_h;
 			}
 			# Parse smart value lines for NVMe output
-			elsif($device =~ /nvme[a-z0-9]+$/ && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
+			elsif((($device =~ /nvme[a-z0-9]+$/) || ($device =~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.]+$/)) && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
 				if(exists $hdrmap_nvme{$1}){
 					my %lineValues_h;
 					$lineValues_h{'ATTRIBUTE_NAME'} = $1;

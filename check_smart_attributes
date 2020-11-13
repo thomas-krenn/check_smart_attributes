@@ -226,7 +226,7 @@ sub genAttributeName{
 	if($device =~ m/(nvme[a-z0-9])+$/){
 		$currDevice = $1;
 	}
-	elsif($device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.]+)$/){
+	elsif($device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.\:]+)$/){
 		$currDevice = $1;
 	}
 	$attributeName = $currDevice.'_'.$attributeName;
@@ -416,7 +416,7 @@ sub checkWhichDevice{
 		my @model = grep { /Model Family/i || /Device Model/i || /^Product:/i } @smartctlOut;
 		my @transport = grep { /^Transport protocol:/i } @smartctlOut;
 		# NVMe devices don't require a database entry, use the generic NVMe one
-		if (($device =~ /nvme[a-z0-9]+$/) || ($device =~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.]+$/)) {
+		if (($device =~ /nvme[a-z0-9]+$/) || ($device =~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.\:]+$/)) {
 			@model = ('Generic NVMe');
 		}
 		# SAS devices don't require a database entry, use the generic SAS one
@@ -511,7 +511,7 @@ sub parseSmartctlOut{
 				push @smartValues, \%lineValues_h;
 			}
 			# Parse smart value lines for NVMe output
-			elsif((($device =~ /nvme[a-z0-9]+$/) || ($device =~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.]+$/)) && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
+			elsif((($device =~ /nvme[a-z0-9]+$/) || ($device =~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.\:]+$/)) && $line =~ /([A-Za-z\s]+)\:\s+(.+)$/){
 				if(exists $hdrmap_nvme{$1}){
 					my %lineValues_h;
 					$lineValues_h{'ATTRIBUTE_NAME'} = $1;
@@ -930,7 +930,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.]+)$/;
+		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.\:]+)$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

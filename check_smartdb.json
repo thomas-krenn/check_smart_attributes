@@ -821,6 +821,39 @@
 			},
 			"Perfs" : ["5","177","179","190","241"]
 		},
+		"Samsung 840PRO Series" : {
+			"Device" : ["SAMSUNG MZ7PD256HAFV-000H7"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime Bad Block Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeouts"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocation Event Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "SMART Offline Scan Uncorrectable Error Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"5" : ["5","10"],
+				"183" : ["5","10"],
+				"184" : ["98:","97:"],
+				"187" : ["0","0"],
+				"188" : ["0","10"],
+				"190" : ["60","70"],
+				"198" : ["0","10"],
+				"199" : ["0","0"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
+			},
+			"Perfs" : ["5","190"]
+		},
 		"Samsung 850PRO" : {
 			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB"],
 			"ID#" : {

@@ -1508,6 +1508,49 @@
 			},
 			"Perfs" : ["194"]
 		},
+		"Western Digital Blue" : {
+			"Device" : ["Western Digital Blue","WDC WD5000AAKX-60U6AA0"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"11" : {"value": "RAW_VALUE", "comment": "Calibration Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "RAW_VALUE", "comment": "End-to-End Errors"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrect"},
+				"188" : {"value": "RAW_VALUE", "comment": "Command Timeout"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["10","20"],
+				"7" : ["0","10"],
+				"10" : ["0","10"],
+				"11" : ["0","10"],
+				"184" : ["100:","98:"],
+				"187" : ["100","0"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"200" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
+			},
+			"Perfs" : []
+		},
 		"Western Digital Red" : {
 		  "Device" : ["WDC WD80EFAX-68KNBN0"],
 			"ID#" : {

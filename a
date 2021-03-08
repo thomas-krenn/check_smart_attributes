@@ -1,0 +1,27 @@
+		"Intel X25" : {
+			"Device" : ["INTEL SSDSA2M160G2GN"],
+			"ID#" : {
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"184" : {"value": "VALUE", "comment": "End-to-End Error"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"225" : {"value": "RAW_VALUE", "comment": "Host Writes (32MiB)"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written (32MiB)"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read (32MiB)"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"184" : ["96:","91:"],
+				"232" : ["16:","11:"],
+				"233" : ["16:","6:"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
+			},
+			"Perfs" : ["232","233","241","242"]
+		},
+		"Intel 320" : {

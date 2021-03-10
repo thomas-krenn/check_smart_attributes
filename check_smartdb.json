@@ -87,6 +87,25 @@
 			},
 			"Perfs" : ["232","233","241","242"]
 		},
+		"ADATA SU650" : {
+			"Device" : ["ADATA SU650"],
+			"ID#" : {
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"175" : {"value": "RAW_VALUE", "comment": "Program Fail Count Chip"},
+				"180" : {"value": "RAW_VALUE", "comment": "Unused Reserved Block Count Total"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+			},
+			"Threshs" : {
+				"192" : ["50:","40:"],
+				"233" : ["16:","6:"]
+			},
+			"Perfs" : ["9","12","192","194","241","242"]
+		},
 		"Intel 320" : {
 			"Device" : ["Intel 320 Series SSDs","INTEL SSDSA2CW160G3","INTEL SSDSA2CT040G3"],
 			"ID#" : {
@@ -1291,6 +1310,43 @@
 				"199" : ["0","10"],
 				"1024" : ["0","10"],
 				"1025" : ["0","0"]
+			},
+			"Perfs" : ["194"]
+		},
+		"HGST Travelstar Z5K500" : {
+			"Device" : ["Hitachi HTS545050A7E380"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+				"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"191" : {"value": "RAW_VALUE", "comment": "G-Sense Error Rate"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+				"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"223" : {"value": "RAW_VALUE", "comment": "Load Retry Count"}
+			},
+			"Threshs" : {
+				"1" : ["72:","62:"],
+				"2" : ["50:","40:"],
+				"3" : ["43:","33:"],
+				"5" : ["20","40"],
+				"8" : ["50:","40:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"]
 			},
 			"Perfs" : ["194"]
 		},

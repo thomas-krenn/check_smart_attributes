@@ -226,7 +226,7 @@ sub genAttributeName{
 	if($device =~ m/(nvme[a-z0-9])+$/){
 		$currDevice = $1;
 	}
-	elsif($device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.\:]+)$/){
+	elsif($device =~ m/^\/dev\/(?:disk\/by-(?:id|label)\/)?([A-Za-z0-9_\-,\.\:]+)$/){
 		$currDevice = $1;
 	}
 	$attributeName = $currDevice.'_'.$attributeName;
@@ -930,7 +930,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.\:]+)$/;
+		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-(?:id|label)\/)?([A-Za-z0-9_\-,\.\:]+)$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

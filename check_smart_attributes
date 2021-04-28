@@ -293,6 +293,9 @@ sub getSmartctl{
 		if($device =~ /^\/dev\/disk\/by\-[a-zA-Z]+\/(.*)$/){
 			# smartctl can directly read this device links
 			$usedCommand = $smartctl.' -a '.$device;
+			if(defined($extraOpts)){
+				$usedCommand .= ' -d '.$extraOpts;
+			}
 			@output = `$usedCommand`;
 		}
 		# Check if a megaraid device is used
@@ -904,7 +907,7 @@ MAIN: {
 		print printMissingDevicesDB($devices_missing_a)."\n";
 		print "Smartctl was called with the following commands:\n";
 		foreach my $device (keys %$command_h){
-			print $device.': '.$command_h->{$device};
+			print $device.': '.$command_h->{$device}."\n";
 		}
 		if(!defined($criticalOnUnknown)){
 			exit(STATE_UNKNOWN);

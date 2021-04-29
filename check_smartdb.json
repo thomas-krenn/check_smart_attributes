@@ -1924,7 +1924,7 @@
 			"Perfs" : ["190","194"]
 		},
 		"Western Digital RED" : {
-			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD30EFRX-68AX9N0","WDC WD40EFRX-68WT0N0" ],
+			"Device" : ["Western Digital Red (AF)","WDC WD30EFRX-68EUZN0","WDC WD30EFRX-68AX9N0","WDC WD40EFRX-68WT0N0","WDC WD40EFRX-68N32N0","WDC WD40EFAX-68JH4N0"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
@@ -2450,7 +2450,7 @@
 			"Perfs" : ["194","233"]
 		},
 		"Western Digital Green": {
-			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0"],
+			"Device": ["WDC WD20EARX-00PASB0", "WDC WD20EARX-22PASB0","WDC WD40EZRX-00SPEB0"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},

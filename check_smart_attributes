@@ -226,7 +226,7 @@ sub genAttributeName{
 	if($device =~ m/(nvme[a-z0-9])+$/){
 		$currDevice = $1;
 	}
-	elsif($device =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.\:]+)$/){
+	elsif($device =~ m/^\/dev\/(?:disk\/by-(?:id|label)\/)?([A-Za-z0-9_\-,\.\:]+)$/){
 		$currDevice = $1;
 	}
 	$attributeName = $currDevice.'_'.$attributeName;
@@ -293,6 +293,9 @@ sub getSmartctl{
 		if($device =~ /^\/dev\/disk\/by\-[a-zA-Z]+\/(.*)$/){
 			# smartctl can directly read this device links
 			$usedCommand = $smartctl.' -a '.$device;
+			if(defined($extraOpts)){
+				$usedCommand .= ' -d '.$extraOpts;
+			}
 			@output = `$usedCommand`;
 		}
 		# Check if a megaraid device is used
@@ -904,7 +907,7 @@ MAIN: {
 		print printMissingDevicesDB($devices_missing_a)."\n";
 		print "Smartctl was called with the following commands:\n";
 		foreach my $device (keys %$command_h){
-			print $device.': '.$command_h->{$device};
+			print $device.': '.$command_h->{$device}."\n";
 		}
 		if(!defined($criticalOnUnknown)){
 			exit(STATE_UNKNOWN);
@@ -930,7 +933,7 @@ MAIN: {
 	my $dev_str;
 	foreach my $devChecked (@$devices_a){
 		$dev_str .= ', ' if defined($dev_str);
-		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-id\/)?([A-Za-z0-9_\-,\.\:]+)$/;
+		$devChecked->{'Path'} =~ m/^\/dev\/(?:disk\/by-(?:id|label)\/)?([A-Za-z0-9_\-,\.\:]+)$/;
 		$dev_str .= $1;
 	}
 	$dev_str .= ') ';

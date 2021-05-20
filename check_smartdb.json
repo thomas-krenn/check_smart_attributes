@@ -1153,41 +1153,41 @@
 			"Perfs" : ["170","194","231","233","241","242"]
 		},
 		"Western Digital Ultrastar DC HC300 Series" : {
-                        "Device" : ["WDC HUS726T4TALA6L4", "WDC HUS726T4TALE6L4", "WDC HUS726T4TALN6L4", "WDC HUS726T4TALA6L1", "WDC HUS726T4TALE6L4", "WDC HUS726T6TALE6L4", "WDC HUS726T6TALN6L4", "WDC HUS726T6TALE6L1", "WDC HUS728T8TALE6L4", "WDC HUS728T8TALE6L1", "WDC HUS728T8TALN6L4", "WDC WUS721010ALE6L4", "WDC WUS721010ALE6L1"],
-                        "ID#" : {
-                                "1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
-                                "2" : {"value": "VALUE", "comment": "Throughput Performance"},
-                                "3" : {"value": "VALUE", "comment": "Spin Up Time"},
-                                "4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
-                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
-                                "7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
-                                "8" : {"value": "VALUE", "comment": "Seek Time Performance"},
-                                "9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
-                                "10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
-                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
-                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
-                                "193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
-                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
-                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
-                                "197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
-                                "198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-                                "199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
-                        },
-                        "Threshs" : {
-                                "1" : ["26:","16:"],
-                                "2" : ["64:","54:"],
-                                "3" : ["34:","24:"],
-                                "5" : ["20","40"],
-                                "8" : ["30:","20:"],
-                                "10" : ["0","10"],
-                                "194": ["50","60"],
-                                "196" : ["0","10"],
-                                "197" : ["0","10"],
-                                "198" : ["0","10"],
-                                "199" : ["0","10"]
-                        },
-                        "Perfs" : ["194"]
-                },
+			"Device" : ["WDC HUS726T4TALA6L4", "WDC HUS726T4TALE6L4", "WDC HUS726T4TALN6L4", "WDC HUS726T4TALA6L1", "WDC HUS726T4TALE6L4", "WDC HUS726T6TALE6L4", "HGST HUS726T6TALE6L4", "WDC HUS726T6TALN6L4", "WDC HUS726T6TALE6L1", "WDC HUS728T8TALE6L4", "WDC HUS728T8TALE6L1", "WDC HUS728T8TALN6L4", "WDC WUS721010ALE6L4", "WDC WUS721010ALE6L1"],
+			"ID#" : {
+					"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+					"2" : {"value": "VALUE", "comment": "Throughput Performance"},
+					"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+					"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+					"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+					"7" : {"value": "RAW_VALUE", "comment": "Seek Error Rate"},
+					"8" : {"value": "VALUE", "comment": "Seek Time Performance"},
+					"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+					"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+					"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+					"192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+					"193" : {"value": "RAW_VALUE", "comment": "Load Cycle Count"},
+					"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+					"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+					"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+					"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+					"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
+			},
+			"Threshs" : {
+					"1" : ["26:","16:"],
+					"2" : ["64:","54:"],
+					"3" : ["34:","24:"],
+					"5" : ["20","40"],
+					"8" : ["30:","20:"],
+					"10" : ["0","10"],
+					"194": ["50","60"],
+					"196" : ["0","10"],
+					"197" : ["0","10"],
+					"198" : ["0","10"],
+					"199" : ["0","10"]
+			},
+			"Perfs" : ["194"]
+		},
 		"HGST Ultrastar He10" : {
 			"Device" : ["HGST HUH721008ALE600","HGST HUH721010ALN600","HGST HUH721010ALE600","HGST HUH721008AL5200","HGST HUH721010AL5200"],
 			"ID#" : {

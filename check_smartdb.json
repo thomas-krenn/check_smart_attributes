@@ -2696,6 +2696,111 @@
 				"10" : ["60:","50:"]
 			},
 			"Perfs" : ["3","9","12","194"]
+		},
+		"Seagate Nytro 1551" : {
+			"Device" : ["XA1920ME10063", "XA1920LE10063"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On-Hours"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"100" : {"value": "RAW_VALUE", "comment": "Flash GB Erased"},
+				"102" : {"value": "RAW_VALUE", "comment": "Lifetime PS4 Entry Count"},
+				"103" : {"value": "RAW_VALUE", "comment": "Lifetime PS3 Entry Count"},
+				"170" : {"value": "RAW_VALUE", "comment": "Grown Bad Block Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase fail count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Erase Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Range Delta"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable ECC Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "RAISE ECC Correctable Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Read Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"231" : {"value": "VALUE", "comment": "SSD Life Left"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "RAW_VALUE", "comment": "Lifetime Writes to Flash"},
+				"241" : {"value": "RAW_VALUE", "comment": "Lifetime Writes from Host"},
+				"242" : {"value": "RAW_VALUE", "comment": "Lifetime Reads from Flash"},
+				"243" : {"value": "VALUE", "comment": "Free Space"}
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"5" : ["20","40"],
+				"170" : ["0","10"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"177" : ["16:","11:"],
+				"187" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"231" : ["10:","5:"]
+			},
+			"Perfs" : ["177","194","241","242","243"]
+		},
+		"Seagate XF1230" : {
+			"Device" : ["XF1230-1A0480","XF1230-1A1920"],
+			"ID#" : {
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"177" : ["16:","11:"],
+				"179" : ["3500","4000"],
+				"180" : ["16:","11:"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"183" : ["20:","10:"],
+				"184" : ["95:","90:"],
+				"187" : ["0","10"]
+			},
+			"Perfs" : ["241","242"]
+		},
+		"Phison Driven SSDs" : {
+			"Device" : ["KINGSTON SM2280S3G2", "KINGSTON SEDC400S37", "KINGSTON SKC310S37A", "KINGSTON SHSS37A", "KINGSTON SUV300S37A", "KINGSTON SKC400S37", "KINGSTON SV310S37A", "KINGSTON SEDC500M480G"],
+			"ID#" : {
+				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"168" : {"value": "RAW_VALUE", "comment": "SATA PHY Error Count"},
+				"170" : {"value": "VALUE", "comment": "Bad Block Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"192" : {"value": "RAW_VALUE", "comment": "Unsafe Shutdown Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"218" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"231" : {"value": "RAW_VALUE", "comment": "SSD Life Left"},
+				"233" : {"value": "RAW_VALUE", "comment": "Lifetime Writes to Flash"},
+				"241" : {"value": "RAW_VALUE", "comment": "Host Writes"},
+				"242" : {"value": "RAW_VALUE", "comment": "Host Reads"},
+				"244" : {"value": "RAW_VALUE", "comment": "Average Erase Count"},
+				"245" : {"value": "RAW_VALUE", "comment": "Max Erase Count"},
+				"246" : {"value": "RAW_VALUE", "comment": "Total Erase Count"}
+			},
+			"Threshs" : {
+				"1" : ["0","10"],
+				"168" : ["0","10"],
+				"170" : ["16:","6:"],
+				"187" : ["0","10"],
+				"194" : ["60","70"],
+				"199" : ["0","10"],
+				"218" : ["0","10"],
+				"231" : ["16:","6:"]
+			},
+			"Perfs" : ["194","231"]
 		}
 	}
 }

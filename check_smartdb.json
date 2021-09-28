@@ -226,7 +226,7 @@
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
 		"Intel DC S3510-S3520-S3610-S3710-S4500" : {
-			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","INTEL SSDSC2BX100G4","INTEL SSDSC2BX100G401","INTEL SSDSC2BX200G4","INTEL SSDSC2BX200G401","INTEL SSDSC2BX400G4","INTEL SSDSC2BX400G401","INTEL SSDSC2BX480G4","INTEL SSDSC2BX480G401","INTEL SSDSC2BX800G4","INTEL SSDSC2BX800G401","INTEL SSDSC2BA012T401","INTEL SSDSC2BA012T4R","INTEL SSDSC2BX016T4","INTEL SSDSC2BX016T401", "INTEL SSDSC2BX800G4R","INTEL SSDSC2BB080G6","INTEL SSDSC2BB120G6","INTEL SSDSC2BB150G7","INTEL SSDSC2BB240G7","INTEL SSDSC2BB480G7","INTEL SSDSC2BB800G7","INTEL SSDSC2BB960G7","INTEL SSDSC2BB480G6","INTEL SSDSC2KB240G7","INTEL SSDSC2KB480G7","INTEL SSDSC2KB960G7","INTEL SSDSC2BB016T6","INTEL SSDSC2BB016T7","INTEL SSDSC2KB019T7"],
+			"Device" : ["INTEL SSDSC2BA200G4","INTEL SSDSC2BA400G4","INTEL SSDSC2BA800G4","INTEL SSDSC2BA012T4","INTEL SSDSC2BX100G4","INTEL SSDSC2BX100G401","INTEL SSDSC2BX200G4","INTEL SSDSC2BX200G401","INTEL SSDSC2BX400G4","INTEL SSDSC2BX400G401","INTEL SSDSC2BX480G4","INTEL SSDSC2BX480G401","INTEL SSDSC2BX800G4","INTEL SSDSC2BX800G401","INTEL SSDSC2BA012T401","INTEL SSDSC2BA012T4R","INTEL SSDSC2BX016T4","INTEL SSDSC2BX016T401", "INTEL SSDSC2BX800G4R","INTEL SSDSC2BB080G6","INTEL SSDSC2BB120G6","INTEL SSDSC2BB150G7","INTEL SSDSC2BB240G7","INTEL SSDSC2BB480G7","INTEL SSDSC2BB800G7","INTEL SSDSC2BB960G7","INTEL SSDSC2BB480G6","INTEL SSDSC2KB240G7","INTEL SSDSC2KB480G7","INTEL SSDSC2KB960G7","INTEL SSDSC2BB016T6","INTEL SSDSC2BB016T7","INTEL SSDSC2KB019T7", "INTEL SSDSC2KG480G8","INTEL SSDSC2BB240G6", "INTEL SSDSC2KG480G8"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
@@ -323,7 +323,7 @@
 			"Perfs" : ["190","194","232","233","241","242"]
 		},
 		"Intel DC S4600, D3-S4610, D3-S4510" : {
-			"Device" : ["Intel DC S4600 Series SSDs","Intel D3-S4610 Series SSDs","Intel D3-S4510 Series SSDs","INTEL SSDSC2KG240G701","INTEL SSDSC2KG480G701","INTEL SSDSC2KG960G701","INTEL SSDSC2KG019T701","INTEL SSDSC2KG240G8","INTEL SSDSC2KG240G801","INTEL SSDSC2KG480G801","INTEL SSDSC2KG960G801","INTEL SSDSC2KG019T801","INTEL SSDSC2KG038T801","INTEL SSDSC2KB240G8","SSDSC2KG240G8R","INTEL SSDSC2KB480G8","INTEL SSDSC2KB960G8","INTEL SSDSC2KB019T8","INTEL SSDSC2KB038T8"],
+			"Device" : ["Intel DC S4600 Series SSDs","Intel D3-S4610 Series SSDs","Intel D3-S4510 Series SSDs","INTEL SSDSC2KG240G701","INTEL SSDSC2KG480G701","INTEL SSDSC2KG960G701","INTEL SSDSC2KG019T701","INTEL SSDSC2KG240G8","INTEL SSDSC2KG240G801","INTEL SSDSC2KG480G801","INTEL SSDSC2KG960G801","INTEL SSDSC2KG019T801","INTEL SSDSC2KG038T801","INTEL SSDSC2KB240G8","SSDSC2KG240G8R","INTEL SSDSC2KB480G8","INTEL SSDSC2KB960G8","INTEL SSDSC2KB019T8","INTEL SSDSC2KB038T8", "INTEL SSDSC2KG019T8"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
@@ -603,7 +603,7 @@
 			"Perfs" : ["177","180","190","241","242"]
 		},
 		"Samsung SM863" : {
-			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005","SAMSUNG MZ7KM1T9HAJM-00005"],
+			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005","SAMSUNG MZ7KM1T9HAJM-00005", "SAMSUNG MZ7KM1T9HAJM-0E005"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
@@ -1272,7 +1272,7 @@
 			"Perfs" : ["194"]
 		},
 		"HGST Ultrastar 7K6000" : {
-			"Device" : ["HGST HUS726060ALE61", "HGST HUS726050ALE61", "HGST HUS726040ALE61", "HGST HUS726020ALE61", "HGST HUS726060ALN61", "HGST HUS726050ALN61", "HGST HUS726040ALN61", "HGST HUS726020ALN61", "HGST HUS726040ALA610", "HGST HUS726020ALA610", "HGST HUS726T4TALA6L1"],
+			"Device" : ["HGST HUS726060ALE61", "HGST HUS726050ALE61", "HGST HUS726040ALE61", "HGST HUS726020ALE61", "HGST HUS726060ALN61", "HGST HUS726050ALN61", "HGST HUS726040ALN61", "HGST HUS726020ALN61", "HGST HUS726040ALA610", "HGST HUS726020ALA610", "HGST HUS726T4TALA6L1", "HGST HUS726060ALE610"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
@@ -2696,6 +2696,111 @@
 				"10" : ["60:","50:"]
 			},
 			"Perfs" : ["3","9","12","194"]
+		},
+		"Seagate Nytro 1551" : {
+			"Device" : ["XA1920ME10063", "XA1920LE10063"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On-Hours"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"100" : {"value": "RAW_VALUE", "comment": "Flash GB Erased"},
+				"102" : {"value": "RAW_VALUE", "comment": "Lifetime PS4 Entry Count"},
+				"103" : {"value": "RAW_VALUE", "comment": "Lifetime PS3 Entry Count"},
+				"170" : {"value": "RAW_VALUE", "comment": "Grown Bad Block Count"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase fail count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Erase Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Range Delta"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable ECC Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "RAISE ECC Correctable Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Read Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"231" : {"value": "VALUE", "comment": "SSD Life Left"},
+				"232" : {"value": "VALUE", "comment": "Available Reserved Space"},
+				"233" : {"value": "RAW_VALUE", "comment": "Lifetime Writes to Flash"},
+				"241" : {"value": "RAW_VALUE", "comment": "Lifetime Writes from Host"},
+				"242" : {"value": "RAW_VALUE", "comment": "Lifetime Reads from Flash"},
+				"243" : {"value": "VALUE", "comment": "Free Space"}
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"5" : ["20","40"],
+				"170" : ["0","10"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"177" : ["16:","11:"],
+				"187" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"231" : ["10:","5:"]
+			},
+			"Perfs" : ["177","194","241","242","243"]
+		},
+		"Seagate XF1230" : {
+			"Device" : ["XF1230-1A0480","XF1230-1A1920"],
+			"ID#" : {
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+			},
+			"Threshs" : {
+				"5" : ["20","40"],
+				"177" : ["16:","11:"],
+				"179" : ["3500","4000"],
+				"180" : ["16:","11:"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"183" : ["20:","10:"],
+				"184" : ["95:","90:"],
+				"187" : ["0","10"]
+			},
+			"Perfs" : ["241","242"]
+		},
+		"Phison Driven SSDs" : {
+			"Device" : ["KINGSTON SM2280S3G2", "KINGSTON SEDC400S37", "KINGSTON SKC310S37A", "KINGSTON SHSS37A", "KINGSTON SUV300S37A", "KINGSTON SKC400S37", "KINGSTON SV310S37A", "KINGSTON SEDC500M480G"],
+			"ID#" : {
+				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"168" : {"value": "RAW_VALUE", "comment": "SATA PHY Error Count"},
+				"170" : {"value": "VALUE", "comment": "Bad Block Count"},
+				"173" : {"value": "RAW_VALUE", "comment": "Average Block-Erase Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"192" : {"value": "RAW_VALUE", "comment": "Unsafe Shutdown Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"218" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"231" : {"value": "RAW_VALUE", "comment": "SSD Life Left"},
+				"233" : {"value": "RAW_VALUE", "comment": "Lifetime Writes to Flash"},
+				"241" : {"value": "RAW_VALUE", "comment": "Host Writes"},
+				"242" : {"value": "RAW_VALUE", "comment": "Host Reads"},
+				"244" : {"value": "RAW_VALUE", "comment": "Average Erase Count"},
+				"245" : {"value": "RAW_VALUE", "comment": "Max Erase Count"},
+				"246" : {"value": "RAW_VALUE", "comment": "Total Erase Count"}
+			},
+			"Threshs" : {
+				"1" : ["0","10"],
+				"168" : ["0","10"],
+				"170" : ["16:","6:"],
+				"187" : ["0","10"],
+				"194" : ["60","70"],
+				"199" : ["0","10"],
+				"218" : ["0","10"],
+				"231" : ["16:","6:"]
+			},
+			"Perfs" : ["194","231"]
 		}
 	}
 }

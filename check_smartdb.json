@@ -841,7 +841,7 @@
 			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
-			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB"],
+			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
@@ -2629,7 +2629,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Western Digital Gold" : {
-			"Device" : ["WDC WD2005FBYZ-01YCBB2"],
+			"Device" : ["WDC WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB3"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},

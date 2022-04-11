@@ -1311,7 +1311,7 @@
 			"Perfs" : ["194"]
 		},
 		"HGST (Hitachi) Ultrastar A7K2000" : {
-			"Device" : ["HGST HUA722050CLA330","HGST HUA722010CLA330","Hitachi HUA722050CLA330","Hitachi HUA722010CLA330"],
+			"Device" : ["HGST HUA722050CLA330","HGST HUA722010CLA330","HGST HUS722T2TALA604","Hitachi HUA722050CLA330","Hitachi HUA722010CLA330"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"2" : {"value": "VALUE", "comment": "Throughput Performance"},
@@ -2629,7 +2629,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Western Digital Gold" : {
-			"Device" : ["WDC WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB3"],
+			"Device" : ["WDC WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB3"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},

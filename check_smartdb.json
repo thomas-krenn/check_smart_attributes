@@ -2179,6 +2179,46 @@
 			},
 			"Perfs" : ["190","194"]
 		},
+		"Seagate Barracuda 7200.10" : {
+			"Device" : ["Seagate Barracuda 7200.10", "ST3120215AS", "ST3120815AS", "ST3160215AS", "ST3160310AS", "ST3160815AS", "ST3200820AS", "ST3250310AS", "ST3250410AS", "ST3250620AS", "ST3250820AS", "ST3300620AS", "ST3300820AS", "ST3320620AS", "ST3320820AS", "ST3400620AS", "ST3400820AS", "ST340215AS", "ST340815AS", "ST3500630AS", "ST3500830AS", "ST3750640AS", "ST3750840AS", "ST380215AS", "ST380815AS"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Reported Uncorrectable Errors"},
+				"189" : {"value": "RAW_VALUE", "comment": "High Fly Writes"},
+				"190" : {"value": "RAW_VALUE", "comment": "Airflow Temperature Celsius"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
+				"202" : {"value": "RAW_VALUE", "comment": "Data Address Mark Error"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"200" : ["0","10"],
+				"202" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
+			},
+			"Perfs" : ["190","194"]
+		},
 		"Seagate Momentus 7200.5" : {
 			"Device" : ["ST9750420AS"],
 			"ID#" : {

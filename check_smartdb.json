@@ -877,7 +877,7 @@
 			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Crucial M500" : {
-			"Device" : ["Crucial_CT120M500SSD1","Crucial_CT240M500SSD1","Crucial_CT480M500SSD1","Crucial_CT960M500SSD1"],
+			"Device" : ["Crucial_CT120M500SSD1","Crucial_CT240M500SSD1","Crucial_CT480M500SSD1","CT500MX500SSD1","Crucial_CT960M500SSD1"],
 			"ID#" : {
 				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
 				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
@@ -2385,7 +2385,7 @@
 			"Perfs" : ["194","231"]
 		},
 		"Toshiba 3,5\" MG... Enterprise HDD" : {
-			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400"],
+			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400", "TOSHIBA MG08ACA16TEY"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw_Read_Error_Rate"},
 				"2" : {"value": "VALUE", "comment": "Throughput_Performance"},

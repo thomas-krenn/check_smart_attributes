@@ -178,7 +178,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Intel DC S3700" : {
-			"Device" : ["Intel DC S3700 Series SSDs","INTEL SSDSC2BA100G3","INTEL SSDSC2BA200G3","INTEL SSDSC2BA400G3","INTEL SSDSC2BA800G3","INTEL SSDSC2BX200G4R","INTEL SSDSC2BA200G3C"],
+			"Device" : ["Intel DC S3700 Series SSDs","INTEL SSDSC2BA100G3","INTEL SSDSC2BA200G3","INTEL SSDSC2BA400G3","INTEL SSDSC2BA800G3","INTEL SSDSC2BX200G4R","INTEL SSDSC2BA200G3C","SSDSC2BA200G4N       00LF202      LENOVO"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},
@@ -841,7 +841,7 @@
 			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
-			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB"],
+			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB", "SSD 870 EVO 1TB"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},

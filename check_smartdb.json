@@ -26,14 +26,14 @@
 				"0" : ["0","0"],
 				"1" : ["50","60"],
 				"2" : ["16:","11:"],
-				"4" : ["85","90"],
+				"4" : ["70","80"],
 				"13" : ["0","10"],
-				"14" : ["0","10"],
+				"14" : ["5","10"],
 				"15" : ["15","30"],
 				"16" : ["15","30"],
 				"1025" : ["0","0"]
 			},
-			"Perfs" : ["1","2","4","5","6","7","8","10","11"]
+			"Perfs" : ["0","1","2","4","5","6","7","8","10","11","12","13","14"]
 		},
 		"Generic SAS" : {
 			"Device" : ["Generic SAS"],
@@ -654,6 +654,43 @@
 			},
 			"Perfs" : ["177","180","190","241","242"]
 		},
+		"Samsung PM871b" : {
+			"Device" : ["SAMSUNG MZ7LN128HAHQ-000L2"],
+			"ID#" : {
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"170" : {"value": "RAW_VALUE", "comment": "Unused Reserved Block Count (Chip)"},
+				"171" : {"value": "RAW_VALUE", "comment": "Program Fail Count Chip"},
+				"172" : {"value": "RAW_VALUE", "comment": "Erase Fail Count Chip"},
+				"173" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"174" : {"value": "RAW_VALUE", "comment": "Unexpected Power Loss Count"},
+				"178" : {"value": "RAW_VALUE", "comment": "Used Reserved Block Count Chip"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"233" : {"value": "VALUE", "comment": "Media Wearout Indicator"},
+				"234" : {"value": "RAW_VALUE", "comment": "Unknown Samsung Attribute"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"249" : {"value": "RAW_VALUE", "comment": "Total NAND writes (1 GB unit)"}
+			},
+			"Threshs" : {
+				"5" : ["10","20"],
+				"171" : ["0","10"],
+				"172" : ["0","10"],
+				"173" : ["026:","016:"],
+				"180" : ["20:","10:"],
+				"184" : ["98:","97:"],
+				"187" : ["0","10"],
+				"194" : ["50","60"],
+				"199" : ["0","10"],
+				"233" : ["020:","010:"]
+			},
+			"Perfs" : ["5","9","12","173","180","194","199","233","241","242","249"]
+		},
 		"Samsung SM863" : {
 			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005","SAMSUNG MZ7KM1T9HAJM-00005", "SAMSUNG MZ7KM1T9HAJM-0E005"],
 			"ID#" : {
@@ -893,7 +930,7 @@
 			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
-			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB", "SSD 870 EVO 1TB"],
+			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 860 EVO 250GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB", "SSD 870 EVO 1TB"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
@@ -1204,6 +1241,55 @@
 			},
 			"Perfs" : ["170","194","231","233","241","242"]
 		},
+                "Silicon Motion based SSDs" : {
+                        "Device" : ["Silicon Motion based SSDs"],
+                        "ID#" : {
+                                "1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
+                                "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+                                "9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+                                "12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+                                "148" : {"value": "RAW_VALUE", "comment": "SLC Erase Count (Total)"},
+                                "149" : {"value": "RAW_VALUE", "comment": "SLC Erase Count (Maximum)"},
+                                "150" : {"value": "RAW_VALUE", "comment": "SLC Erase Count (Minimum)"},
+                                "151" : {"value": "RAW_VALUE", "comment": "SLC Erase Count (Avarage)"},
+                                "159" : {"value": "RAW_VALUE", "comment": "DRAM 1 Bit Error Count"},
+                                "160" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+                                "161" : {"value": "RAW_VALUE", "comment": "Valid Spare Block Count"},
+                                "163" : {"value": "RAW_VALUE", "comment": "Initial Bad Block Count"},
+                                "164" : {"value": "RAW_VALUE", "comment": "Erase count (Total)"},
+                                "165" : {"value": "RAW_VALUE", "comment": "Erase count (Maximum)"},
+                                "166" : {"value": "RAW_VALUE", "comment": "Erase count (Minimum)"},
+                                "167" : {"value": "RAW_VALUE", "comment": "Erase count (Avarage)"},
+                                "168" : {"value": "RAW_VALUE", "comment": "Max Erase Count of Spec"},
+                                "169" : {"value": "RAW_VALUE", "comment": "Remaining Lifetime Percent"},
+                                "177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+                                "181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+                                "182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+                                "192" : {"value": "RAW_VALUE", "comment": "Power-Off Retract Count (Unsafe Shutdown Count)"},
+                                "194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+                                "195" : {"value": "RAW_VALUE", "comment": "Hardware ECC Recovered"},
+                                "196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+                                "199" : {"value": "RAW_VALUE", "comment": "UltraDMA CRC Error Count"},
+                                "232" : {"value": "RAW_VALUE", "comment": "Available_Reservd_Space"},
+                                "241" : {"value": "RAW_VALUE", "comment": "Host Writes 32MiB"},
+                                "242" : {"value": "RAW_VALUE", "comment": "Host Reads 32MiB"},
+                                "245" : {"value": "RAW_VALUE", "comment": "Triple-level Cell (TCL) 32MiB"}
+                        },
+                        "Threshs" : {
+                                "1" : ["0","10"],
+                                "5" : ["0","10"],
+                                "160" : ["0","0"],
+                                "169" : ["25:","15:"],
+                                "177" : ["25:","15:"],
+                                "181" : ["0","10"],
+                                "182" : ["0","10"],
+                                "194" : ["50","60"],
+                                "196" : ["0","10"],
+                                "199" : ["0","10"],
+                                "232" : ["25:","15:"]
+                        },
+                        "Perfs" : ["1","5","9","169","177","194","196","199","232","241","242","245"]
+                },
 		"Western Digital Ultrastar DC HC300 Series" : {
 			"Device" : ["WDC HUS726T4TALA6L4", "WDC HUS726T4TALE6L4", "WDC HUS726T4TALN6L4", "WDC HUS726T4TALA6L1", "WDC HUS726T4TALE6L4", "WDC HUS726T6TALE6L4", "HGST HUS726T6TALE6L4", "WDC HUS726T6TALN6L4", "WDC HUS726T6TALE6L1", "WDC HUS728T8TALE6L4", "WDC HUS728T8TALE6L1", "WDC HUS728T8TALN6L4", "WDC WUS721010ALE6L4", "WDC WUS721010ALE6L1"],
 			"ID#" : {

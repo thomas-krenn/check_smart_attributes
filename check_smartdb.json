@@ -955,7 +955,7 @@
 			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Samsung 850PRO" : {
-			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 860 EVO 250GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB", "SSD 870 EVO 1TB"],
+			"Device" : ["Samsung SSD 850 PRO 256GB","Samsung SSD 850 PRO 512GB","Samsung SSD 850 PRO 1TB","Samsung SSD 850 PRO 2TB","Samsung SSD 860 EVO M.2 250GB", "Samsung SSD 860 EVO 500GB", "Samsung SSD 860 EVO 250GB", "Samsung SSD 850 EVO 500GB", "Samsung SSD 860 QVO 1TB", "SSD 850 EVO 250GB", "SSD 870 EVO 1TB", "Samsung SSD 750 EVO 120GB"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
@@ -1173,8 +1173,8 @@
 			},
 			"Perfs" : ["170","194","202","247","248"]
 		},
-		"Micron 5100-5200" : {
-			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY","Micron_5100_MTFDDAK960TCB","Micron_5200_MTFDDAK3T8TDC","Micron_5200_MTFDDAK3T8TDD","Micron_5200_MTFDDAK1T9TDC"],
+		"Micron 5100-5300" : {
+			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY","Micron_5100_MTFDDAK960TCB","Micron_5200_MTFDDAK3T8TDC","Micron_5200_MTFDDAK3T8TDD","Micron_5200_MTFDDAK1T9TDC","Micron_5300_MTFDDAK1T9TDS"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
@@ -2626,7 +2626,7 @@
 			"Perfs" : ["194","231"]
 		},
 		"Toshiba 3,5\" MG... Enterprise HDD" : {
-			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400", "TOSHIBA MG08ACA16TEY"],
+			"Device" : ["TOSHIBA MG04ACA200E", "TOSHIBA MG04ACA300E", "TOSHIBA MG04ACA400E", "TOSHIBA MG04ACA500E", "TOSHIBA MG04ACA600E", "TOSHIBA MG03ACA100", "TOSHIBA MG03ACA200", "TOSHIBA MG03ACA300", "TOSHIBA MG03ACA400", "TOSHIBA MG08ACA16TEY", "TOSHIBA MG07ACA14TE", "TOSHIBA HDWQ140", "TOSHIBA MD04ACA400", "TOSHIBA HDWE140"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw_Read_Error_Rate"},
 				"2" : {"value": "VALUE", "comment": "Throughput_Performance"},
@@ -3119,6 +3119,58 @@
 				"231" : ["16:","6:"]
 			},
 			"Perfs" : ["194","231"]
+		},
+		"Transcend MSA370": {
+			"Device" : ["TS32GMSA370S"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "VALUE", "comment": "Reallocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"192" : {"value": "RAW_VALUE", "comment": "Power Off Retract Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celcius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "VALUE", "comment": "UDMA CRC Error Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+			},
+			"Threshs" : {
+				"1" : ["20:","16:"],
+				"5" : ["10:","5:"],
+				"177" : ["11:","6:"],
+				"194" : ["60","70"],
+				"197" : ["0","10"],
+				"198" : ["0","10"]
+			},
+			"Perfs" : ["9","12","177","194","241","242"]
+		},
+		"HP SSD": {
+			"Device" : ["HP SSD S700 250GB"],
+			"ID#" : {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"5" : {"value": "VALUE", "comment": "Reallocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"183" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count Runtime Bad Block"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celcius"},
+				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
+				"199" : {"value": "VALUE", "comment": "UDMA CRC Error Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBAs Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBAs Read"}
+			},
+			"Threshs" : {
+				"1" : ["20:","16:"],
+				"5" : ["10:","5:"],
+				"183" : ["20","40"],
+				"187" : ["0","10"],
+				"194" : ["60","70"],
+				"198" : ["0","10"]
+			},
+			"Perfs" : ["9","12","194","241","242"]
 		}
 	}
 }

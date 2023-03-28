@@ -991,7 +991,7 @@
 			"Perfs" : ["5","177","179","190","241"]
 		},
 		"Crucial M500" : {
-			"Device" : ["Crucial_CT120M500SSD1","Crucial_CT240M500SSD1","Crucial_CT480M500SSD1","CT500MX500SSD1","Crucial_CT960M500SSD1"],
+			"Device" : ["Crucial_CT120M500SSD1","Crucial_CT240M500SSD1","Crucial_CT480M500SSD1","CT500MX500SSD1","Crucial_CT960M500SSD1", "CT1000MX500SSD1"],
 			"ID#" : {
 				"1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
 				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},
@@ -1267,7 +1267,7 @@
 			"Perfs" : ["170","194","231","233","241","242"]
 		},
                 "Silicon Motion based SSDs" : {
-                        "Device" : ["Silicon Motion based SSDs"],
+                        "Device" : ["Silicon Motion based SSDs", "SuperMicro SSD"],
                         "ID#" : {
                                 "1" : {"value": "RAW_VALUE", "comment": "Raw Read Error Rate"},
                                 "5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},

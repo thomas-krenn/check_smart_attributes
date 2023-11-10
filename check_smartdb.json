@@ -1173,8 +1173,8 @@
 			},
 			"Perfs" : ["170","194","202","247","248"]
 		},
-		"Micron 5100-5300" : {
-			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY","Micron_5100_MTFDDAK960TCB","Micron_5200_MTFDDAK3T8TDC","Micron_5200_MTFDDAK3T8TDD","Micron_5200_MTFDDAK1T9TDC","Micron_5300_MTFDDAK1T9TDS"],
+		"Micron 5100-5400" : {
+			"Device" : ["Micron_5100_MTFDDAK240TBY","Micron_5100_MTFDDAK480TBY","Micron_5100_MTFDDAK960TBY","Micron_5100_MTFDDAK960TCB","Micron_5200_MTFDDAK3T8TDC","Micron_5200_MTFDDAK3T8TDD","Micron_5200_MTFDDAK1T9TDC","Micron_5300_MTFDDAK1T9TDS","Micron_5400_MTFDDAK1T9TGA"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"5" : {"value": "RAW_VALUE", "comment": "Reallocated NAND Block Count"},

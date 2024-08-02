@@ -2350,7 +2350,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Seagate Enterprise" : {
-			"Device" : ["ST2000NX0403","ST3000NM0005-1V410N","ST8000NM0045-1RL112"],
+			"Device" : ["ST2000NX0403","ST3000NM0005-1V410N","ST8000NM0045-1RL112", "ST4000NM0024-1HT178"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours Count"},

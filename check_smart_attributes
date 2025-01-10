@@ -496,7 +496,8 @@ sub parseSmartctlOut{
 		my @splittedLine;
 		my @transport = grep { /^Transport protocol:/i } @smartctlOut;
 		foreach my $line (@smartctlOut) {
-			if($line =~ /\d+\s+[A-Za-z0-9_\/]+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+[0-9\-]+\s+\w+/){
+			# Skip NVMe to avoid parsing "Error Information Log", which results into false-positive alarms
+			if((($device !~ /nvme[a-z0-9]+$/) && ($device !~ /\/dev\/disk\/by-id\/nvme-[A-Za-z0-9_\-,\.\:]+$/)) && $line =~ /\d+\s+[A-Za-z0-9_\/]+\s+0[xX][0-9a-fA-F]+\s+\d+\s+\d+\s+[0-9\-]+\s+\w+/){
 				$line =~ s/^\s+|\s+$//g;
 				# Split the found line, and map its elements
 				# The header map defines the keys for the hash

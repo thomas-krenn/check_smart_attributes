@@ -767,6 +767,53 @@
 			},
 			"Perfs" : ["177","180","190","241","242"]
 		},
+		"Samsung PM863" : {
+			"Device" : ["SAMSUNG MZ7LM120HCFD-00003", "SAMSUNG MZ7LM240HCGR-00003", "SAMSUNG MZ7LM480HCHP-00003", "SAMSUNG MZ7LM960HCHP-00003", "SAMSUNG MZ7LM1T9HCJM-00003", "SAMSUNG MZ7LM3T8HCJM-00003"],
+			"ID#" : {
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power On Hours Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "VALUE", "comment": "Used Reserved Block Count (Total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (Total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (Total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (Total)"},
+				"183" : {"value": "VALUE", "comment": "Runtime Bad Count (Total)"},
+				"184" : {"value": "VALUE", "comment": "End to End Error Data Path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectrable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Count"},
+				"244" : {"value": "RAW_VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "RAW_VALUE", "comment": "Timed Workld Media Wear"},
+				"246" : {"value": "RAW_VALUE", "comment": "Timed Workld RdWr Ratio"},
+				"247" : {"value": "RAW_VALUE", "comment": "Timed Workld Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+			},
+			"Threshs" : {
+				"5" : ["10","20"],
+				"177" : ["11:","6:"],
+				"179" : ["20:","10:"],
+				"180" : ["20:","10:"],
+				"181" : ["0","10"],
+				"182" : ["0","10"],
+				"183" : ["20:","10:"],
+				"184" : ["98:","97:"],
+				"187" : ["0","10"],
+				"190" : ["60","70"],
+				"195" : ["0","10"],
+				"197" : ["0","10"],
+				"199" : ["0","10"],
+				"202" : ["20:","10:"]
+			},
+			"Perfs" : ["177","180","190","241","242"]
+		},
 		"Samsung PM863a" : {
 			"Device" : ["SAMSUNG MZ7LM240HMHQ-00005","SAMSUNG MZ7LM480HMHQ-00005","SAMSUNG MZ7LM960HMJP-00005","SAMSUNG MZ7LM1T9HMJP-00005","SAMSUNG MZ7LM3T8HMLP-00005","SAMSUNG MZ7LM1T9HMJP0D3"],
 			"ID#" : {

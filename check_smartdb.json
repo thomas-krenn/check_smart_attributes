@@ -716,6 +716,50 @@
 			},
 			"Perfs" : ["5","9","12","173","180","194","199","233","241","242","249"]
 		},
+		"Samsung PM897" : {
+			"Device" : ["SAMSUNG MZ7L33T8HBNA-00A07","SAMSUNG MZ7L31T9HBNA-00A07","SAMSUNG MZ7L3960HBLT-00A07","SAMSUNG MZ7L3480HBLT-00A07"],
+			"ID#" : {
+				"5" : {"value": "RAW_VALUE", "comment": "Reallocated Sector Count"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-on Hours"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power-on Count"},
+				"177" : {"value": "VALUE", "comment": "Wear Leveling Count"},
+				"179" : {"value": "RAW_VALUE", "comment": "Used Reserved Block Count (total)"},
+				"180" : {"value": "VALUE", "comment": "Unused Reserved Block Count (total)"},
+				"181" : {"value": "RAW_VALUE", "comment": "Program Fail Count (total)"},
+				"182" : {"value": "RAW_VALUE", "comment": "Erase Fail Count (total) "},
+				"183" : {"value": "RAW_VALUE", "comment": "Runtime Bad Count (total)"},
+				"184" : {"value": "RAW_VALUE", "comment": "End to End Error data path Error Count"},
+				"187" : {"value": "RAW_VALUE", "comment": "Uncorrectable Error Count"},
+				"190" : {"value": "RAW_VALUE", "comment": "Air Flow Temperature"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature"},
+				"195" : {"value": "RAW_VALUE", "comment": "ECC Error Rate"},
+				"197" : {"value": "RAW_VALUE", "comment": "Pending Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "CRC Error Count"},
+				"202" : {"value": "VALUE", "comment": "SSD Mode Status"},
+				"235" : {"value": "RAW_VALUE", "comment": "Power Recovery Count"},
+				"241" : {"value": "RAW_VALUE", "comment": "Total LBA Written"},
+				"242" : {"value": "RAW_VALUE", "comment": "Total LBA Read"},
+				"243" : {"value": "RAW_VALUE", "comment": "SATA Downshift Control"},
+				"244" : {"value": "VALUE", "comment": "Thermal Throttle Status"},
+				"245" : {"value": "VALUE", "comment": "Timed Workload Media Wear"},
+				"246" : {"value": "VALUE", "comment": "Timed Workload Host Read / Write Ratio"},
+				"247" : {"value": "VALUE", "comment": "Timed Workload Timer"},
+				"251" : {"value": "RAW_VALUE", "comment": "NAND Writes"}
+			},
+			"Threshs" : {
+				"5" : ["10","20"],
+				"177" : ["11:","6:"],
+				"180" : ["20:","10:"],
+				"183" : ["0","10"],
+				"184" : ["0","10"],
+				"187" : ["0","10"],
+				"194" : ["40","50"],
+				"197" : ["0","10"],
+				"199" : ["0","10"],
+				"202" : ["20:","10:"]
+			},
+			"Perfs" : ["5","9","177","180","183","184","187","194","197","199","202"]
+		},
 		"Samsung SM863" : {
 			"Device" : ["SAMSUNG MZ7KM120HAHP-0E005","SAMSUNG MZ7KM240HAHP-0E005","SAMSUNG MZ7KM480HAHP-0E005","SAMSUNG MZ7KM960HAHP-0E005","SAMSUNG MZ7KM1T9HAHP-0E005", "SAMSUNG MZ7KM240HAGR-00005","SAMSUNG MZ7KM1T9HAJM-00005", "SAMSUNG MZ7KM1T9HAJM-0E005"],
 			"ID#" : {

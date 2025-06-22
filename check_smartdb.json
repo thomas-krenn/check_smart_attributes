@@ -3085,7 +3085,7 @@
 			"Perfs" : ["233","241","242"]
 		},
 		"Western Digital Gold" : {
-			"Device" : ["WDC WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB3", "WDC WD4003FRYZ-01F0DB0", "WD6002FRYZ-01WD5B1", "WDC WD6002FRYZ-01WD5B1"],
+			"Device" : ["WDC WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB2", "WD2005FBYZ-01YCBB3", "WDC WD4003FRYZ-01F0DB0", "WD6002FRYZ-01WD5B1", "WDC WD6002FRYZ-01WD5B1", "WDC WD4002FYYZ-01B7CB1"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},

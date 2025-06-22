@@ -717,7 +717,7 @@
 			"Perfs" : ["5","9","12","173","180","194","199","233","241","242","249"]
 		},
 		"Samsung PM897" : {
-			"Device" : ["SAMSUNG MZ7L33T8HBNA-00A07","SAMSUNG MZ7L31T9HBNA-00A07","SAMSUNG MZ7L3960HBLT-00A07","SAMSUNG MZ7L3480HBLT-00A07"],
+			"Device" : ["SAMSUNG MZ7L33T8HBNA-00A07","SAMSUNG MZ7L31T9HBNA-00A07","SAMSUNG MZ7L3960HBLT-00A07","SAMSUNG MZ7L3480HBLT-00A07","SAMSUNG MZ7L3480HBLT-00B7C"],
 			"ID#" : {
 				"5" : {"value": "RAW_VALUE", "comment": "Reallocated Sector Count"},
 				"9" : {"value": "RAW_VALUE", "comment": "Power-on Hours"},

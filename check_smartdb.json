@@ -3102,10 +3102,7 @@
 				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
 				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector"},
 				"198" : {"value": "RAW_VALUE", "comment": "Offline Uncorrectable"},
-				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
-				"200" : {"value": "RAW_VALUE", "comment": "Multi Zone Error Rate"},
-				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
-				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"}
 			},
 			"Threshs" : {
 				"1" : ["62:","52:"],
@@ -3116,9 +3113,7 @@
 				"196" : ["0","10"],
 				"197" : ["0","10"],
 				"198" : ["0","10"],
-				"199" : ["0","10"],
-				"1024" : ["0","10"],
-				"1025" : ["0","0"]
+				"199" : ["0","10"]
 		    },
 		    "Perfs" : ["194"]
 		},

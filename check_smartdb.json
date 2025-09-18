@@ -2841,6 +2841,40 @@
 			},
 			"Perfs" : ["5","184","187","194","197","199"]
 		},
+		"Hitachi Deskstar 5K3000": {
+			"Device": ["Hitachi Deskstar 5K3000", "Hitachi HDS5C3015ALA632", "Hitachi HDS5C3015BLE630", "Hitachi HDS5C3020ALA630", "Hitachi HDS5C3020ALA632", "Hitachi HDS5C3020BLE630", "Hitachi HDS5C3030ALA630", "Hitachi HDS5C3030BLE630"],
+			"ID#": {
+				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
+				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
+				"4" : {"value": "RAW_VALUE", "comment": "Start Stop Count"},
+				"5" : {"value": "RAW_VALUE", "comment": "Re-allocated Sectors Count"},
+				"7" : {"value": "VALUE", "comment": "Seek Error Rate"},
+				"9" : {"value": "RAW_VALUE", "comment": "Power-On Hours"},
+				"10" : {"value": "RAW_VALUE", "comment": "Spin Retry Count"},
+				"12" : {"value": "RAW_VALUE", "comment": "Power Cycle Count"},
+				"194" : {"value": "RAW_VALUE", "comment": "Temperature Celsius"},
+				"196" : {"value": "RAW_VALUE", "comment": "Reallocated Event Count"},
+				"197" : {"value": "RAW_VALUE", "comment": "Current Pending Sector Count"},
+				"198" : {"value": "RAW_VALUE", "comment": "Uncorrectable Sector Count"},
+				"199" : {"value": "RAW_VALUE", "comment": "UDMA CRC Error Count"},
+				"1024" : {"value": "VALUE", "comment": "ATA error count (custom)"},
+				"1025" : {"value": "VALUE", "comment": "SMART overall-health self-assessment (custom)"}
+			},
+			"Threshs" : {
+				"1" : ["62:","52:"],
+				"3" : ["32:","22:"],
+				"5" : ["20","40"],
+				"7" : ["32:","22:"],
+				"10" : ["0","10"],
+				"196" : ["0","10"],
+				"197" : ["0","10"],
+				"198" : ["0","10"],
+				"199" : ["0","10"],
+				"1024" : ["0","10"],
+				"1025" : ["0","0"]
+			},
+			"Perfs": ["194"]
+		},
 		"Hitachi Deskstar 7K3000": {
 			"Device": ["Hitachi Deskstar 7K3000", "Hitachi HDS723020BLA642", "Hitachi HDS723020BLE640", "Hitachi HDS723030BLE640"],
 			"ID#": {

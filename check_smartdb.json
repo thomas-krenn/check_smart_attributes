@@ -2029,7 +2029,7 @@
 			"Perfs" : ["194"]
 		},
 		"Western Digital RE4" : {
-			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1","WDC WD4000FYYZ-50UL1B0"],
+			"Device" : ["Western Digital RE4","Western Digital RE4 2TB","Western Digital RE4 1TB","Western Digital RE4 500G","WDC WD2003FYYS-02W0B1","WDC WD1003FBYX-01Y7B0","WDC WD5003ABYX-01WERA1","WDC WD4000FYYZ-50UL1B0", "WD4004FRYZ-01CBCB0"],
 			"ID#" : {
 				"1" : {"value": "VALUE", "comment": "Raw Read Error Rate"},
 				"3" : {"value": "VALUE", "comment": "Spin Up Time"},
